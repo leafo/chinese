@@ -1,0 +1,21 @@
+{
+  "name": "chinese",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.jsx --bundle --outdir=dist --jsx=automatic --minify",
+    "start": "esbuild src/index.jsx --bundle --outdir=dist --jsx=automatic --servedir=dist --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.4"
+  }
+}
