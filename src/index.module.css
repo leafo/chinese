@@ -131,6 +131,14 @@
   border-color: #fecaca;
 }
 
+.deleteButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  background: white;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+}
+
 .emptyState {
   text-align: center;
   padding: 48px 20px;
@@ -220,8 +228,7 @@
 }
 
 .modalDialog .form {
-  margin-bottom: 0;
-  border-radius: 0 0 10px 10px;
+  margin: 0;
 }
 
 .modalHeader {
@@ -238,6 +245,14 @@
   font-size: 18px;
 }
 
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+}
+
 .formRow {
   display: flex;
   gap: 12px;
@@ -248,6 +263,7 @@
   flex-direction: column;
   gap: 4px;
   flex: 1;
+  min-width: 0;
 }
 
 .formField label {
@@ -261,6 +277,8 @@
 .formField input,
 .formField select,
 .formField textarea {
+  width: 100%;
+  box-sizing: border-box;
   padding: 8px 12px;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
@@ -325,6 +343,47 @@
 .formActionsRight {
   display: flex;
   gap: 8px;
+}
+
+.formDetails {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fcfcfd;
+}
+
+.formDetailsSummary {
+  cursor: pointer;
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.formDetailsContent {
+  padding: 0 14px 14px;
+}
+
+.deletePanel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #fee2e2;
+  border-radius: 8px;
+  background: #fff7f7;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #475569;
+  cursor: pointer;
+}
+
+.checkboxRow input {
+  margin: 0;
 }
 
 .autoCompleteButton {
@@ -675,6 +734,11 @@
 
   .formRow,
   .importFields {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .deletePanel {
     flex-direction: column;
     align-items: stretch;
   }

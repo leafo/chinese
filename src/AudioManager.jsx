@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./index.module.css";
 import { useWords } from "./words";
-import { useAudio, useAudioStats, playAudio, getCachedAudio, generateAudioForWords } from "./audio";
+import { useAudio, useAudioStats, playAudio, playOpenAiTts, getCachedAudio, generateAudioForWords } from "./audio";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
@@ -11,11 +11,13 @@ function AudioWordRow({ word, preferredScript }) {
   const [playing, setPlaying] = useState(false);
   const [generating, setGenerating] = useState(false);
 
-  const handlePlay = async () => {
+  const handlePlay = async (e) => {
     if (!text) return;
     setGenerating(true);
     try {
-      const audio = await playAudio(text);
+      const audio = e.shiftKey
+        ? await playOpenAiTts(text)
+        : await playAudio(text);
       setPlaying(true);
       setGenerating(false);
       audio.addEventListener('ended', () => setPlaying(false), { once: true });

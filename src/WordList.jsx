@@ -5,7 +5,7 @@ import { useCollections } from "./collections";
 import { CollectionSelector } from "./CollectionSelector";
 import { completeWord } from "./gemini";
 import { setRoute } from "./router";
-import { playAudio, useAudio } from "./audio";
+import { playAudio, playOpenAiTts, useAudio } from "./audio";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
@@ -14,11 +14,13 @@ function PlayButton({ text }) {
   const [playing, setPlaying] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handlePlay = async () => {
+  const handlePlay = async (e) => {
     if (!text) return;
     setLoading(true);
     try {
-      const audio = await playAudio(text);
+      const audio = e.shiftKey
+        ? await playOpenAiTts(text)
+        : await playAudio(text);
       setPlaying(true);
       audio.addEventListener('ended', () => setPlaying(false), { once: true });
       audio.addEventListener('error', () => setPlaying(false), { once: true });
@@ -143,15 +145,17 @@ function WordForm({ onSave, onCancel, initial, collections, collectionsLoading, 
   );
 }
 
-export function WordList() {
-  const [words, error, loading] = useWords(100, 0);
-  const [collections, collectionsError, collectionsLoading] = useCollections();
-  const [displayScript] = useConfig("display_script");
+function EditWordDialog({
+  word,
+  onSave,
+  onDelete,
+  onClose,
+  collections,
+  collectionsLoading,
+  collectionsError,
+}) {
   const dialogRef = useRef(null);
-  const [showForm, setShowForm] = useState(false);
-  const [editingWord, setEditingWord] = useState(null);
-  const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
-  const collectionNamesById = Object.fromEntries((collections || []).map(collection => [collection.id, collection.name]));
+  const [deleteArmed, setDeleteArmed] = useState(false);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -159,17 +163,95 @@ export function WordList() {
       return;
     }
 
-    if (editingWord) {
-      if (!dialog.open) {
-        dialog.showModal();
-      }
-      return;
+    if (!dialog.open) {
+      dialog.showModal();
     }
 
-    if (dialog.open) {
-      dialog.close();
+    return () => {
+      if (dialog.open) {
+        dialog.close();
+      }
+    };
+  }, []);
+
+  const handleSave = async (form) => {
+    await onSave({ ...form, id: word.id });
+  };
+
+  const handleDeleteSubmit = async (e) => {
+    e.preventDefault();
+    if (!deleteArmed) {
+      return;
     }
-  }, [editingWord]);
+    await onDelete(word.id);
+  };
+
+  return (
+    <dialog
+      ref={dialogRef}
+      className={styles.modalDialog}
+      onClose={onClose}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+    >
+      <div className={styles.modalHeader}>
+        <h3>Edit Word</h3>
+        <button
+          type="button"
+          className={styles.cancelButton}
+          onClick={onClose}
+        >
+          Close
+        </button>
+      </div>
+      <div className={styles.modalBody}>
+        <WordForm
+          initial={word}
+          onSave={handleSave}
+          onCancel={onClose}
+          collections={collections}
+          collectionsLoading={collectionsLoading}
+          collectionsError={collectionsError}
+        />
+        <details className={styles.formDetails}>
+          <summary className={styles.formDetailsSummary}>Delete...</summary>
+          <div className={styles.formDetailsContent}>
+            <form className={styles.deletePanel} onSubmit={handleDeleteSubmit}>
+              <button
+                type="submit"
+                className={styles.deleteButton}
+                disabled={!deleteArmed}
+              >
+                Delete
+              </button>
+              <label className={styles.checkboxRow}>
+                <input
+                  type="checkbox"
+                  required
+                  checked={deleteArmed}
+                  onChange={(e) => setDeleteArmed(e.target.checked)}
+                />
+                <span>Confirm delete</span>
+              </label>
+            </form>
+          </div>
+        </details>
+      </div>
+    </dialog>
+  );
+}
+
+export function WordList() {
+  const [words, error, loading] = useWords(100, 0);
+  const [collections, collectionsError, collectionsLoading] = useCollections();
+  const [displayScript] = useConfig("display_script");
+  const [showForm, setShowForm] = useState(false);
+  const [editingWord, setEditingWord] = useState(null);
+  const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
+  const collectionNamesById = Object.fromEntries((collections || []).map(collection => [collection.id, collection.name]));
 
   const handleAdd = async (form) => {
     await insertWord(form);
@@ -177,12 +259,13 @@ export function WordList() {
   };
 
   const handleUpdate = async (form) => {
-    await updateWord({ ...form, id: editingWord.id });
+    await updateWord(form);
     setEditingWord(null);
   };
 
   const handleDelete = async (id) => {
     await deleteWord(id);
+    setEditingWord(current => (current?.id === id ? null : current));
   };
 
   if (loading) return <p>Loading words...</p>;
@@ -213,36 +296,16 @@ export function WordList() {
       )}
 
       {editingWord && (
-        <dialog
-          ref={dialogRef}
-          className={styles.modalDialog}
+        <EditWordDialog
+          key={editingWord.id}
+          word={editingWord}
+          onSave={handleUpdate}
+          onDelete={handleDelete}
           onClose={() => setEditingWord(null)}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) {
-              setEditingWord(null);
-            }
-          }}
-        >
-          <div className={styles.modalHeader}>
-            <h3>Edit Word</h3>
-            <button
-              type="button"
-              className={styles.cancelButton}
-              onClick={() => setEditingWord(null)}
-            >
-              Close
-            </button>
-          </div>
-          <WordForm
-            key={editingWord.id}
-            initial={editingWord}
-            onSave={handleUpdate}
-            onCancel={() => setEditingWord(null)}
-            collections={collections || []}
-            collectionsLoading={collectionsLoading}
-            collectionsError={collectionsError}
-          />
-        </dialog>
+          collections={collections || []}
+          collectionsLoading={collectionsLoading}
+          collectionsError={collectionsError}
+        />
       )}
 
       {(!words || words.length === 0) ? (
@@ -259,7 +322,6 @@ export function WordList() {
               preferredScript={preferredScript}
               collectionNamesById={collectionNamesById}
               onEdit={() => setEditingWord(word)}
-              onDelete={() => handleDelete(word.id)}
             />
           ))}
         </ul>
@@ -268,7 +330,7 @@ export function WordList() {
   );
 }
 
-function WordRow({ word, preferredScript, collectionNamesById, onEdit, onDelete }) {
+function WordRow({ word, preferredScript, collectionNamesById, onEdit }) {
   const primaryText = getPreferredChineseText(word, preferredScript);
   const collectionNames = (word.collection_ids || [])
     .map(id => collectionNamesById[id])
@@ -293,7 +355,6 @@ function WordRow({ word, preferredScript, collectionNamesById, onEdit, onDelete 
       <div className={styles.wordActions}>
         <PlayButton text={primaryText} />
         <button className={styles.smallButton} onClick={onEdit}>Edit</button>
-        <button className={styles.deleteButton} onClick={onDelete}>Delete</button>
       </div>
     </li>
   );

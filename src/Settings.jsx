@@ -5,19 +5,28 @@ import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 
 export function Settings() {
   const [apiKey, setApiKey, apiKeyLoading] = useConfig("gemini_api_key");
+  const [openaiKey, setOpenaiKey, openaiKeyLoading] = useConfig("openai_api_key");
   const [displayScript, setDisplayScript] = useConfig("display_script");
   const [apiKeyValue, setApiKeyValue] = useState('');
+  const [openaiKeyValue, setOpenaiKeyValue] = useState('');
   const [displayScriptValue, setDisplayScriptValue] = useState(DEFAULT_DISPLAY_SCRIPT);
   const [saved, setSaved] = useState(false);
   const [apiKeyDirty, setApiKeyDirty] = useState(false);
+  const [openaiKeyDirty, setOpenaiKeyDirty] = useState(false);
   const [displayScriptDirty, setDisplayScriptDirty] = useState(false);
-  const loading = apiKeyLoading;
+  const loading = apiKeyLoading || openaiKeyLoading;
 
   useEffect(() => {
     if (!loading && !apiKeyDirty) {
       setApiKeyValue(apiKey || '');
     }
   }, [apiKey, loading, apiKeyDirty]);
+
+  useEffect(() => {
+    if (!loading && !openaiKeyDirty) {
+      setOpenaiKeyValue(openaiKey || '');
+    }
+  }, [openaiKey, loading, openaiKeyDirty]);
 
   useEffect(() => {
     if (!displayScriptDirty) {
@@ -29,9 +38,11 @@ export function Settings() {
     e.preventDefault();
     await Promise.all([
       setApiKey(apiKeyValue),
+      setOpenaiKey(openaiKeyValue),
       setDisplayScript(displayScriptValue),
     ]);
     setApiKeyDirty(false);
+    setOpenaiKeyDirty(false);
     setDisplayScriptDirty(false);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
@@ -53,6 +64,18 @@ export function Settings() {
               setApiKeyValue(e.target.value);
             }}
             placeholder="Enter your Gemini API key"
+          />
+        </div>
+        <div className={styles.formField}>
+          <label>OpenAI API Key</label>
+          <input
+            type="password"
+            value={openaiKeyValue}
+            onChange={(e) => {
+              setOpenaiKeyDirty(true);
+              setOpenaiKeyValue(e.target.value);
+            }}
+            placeholder="Enter your OpenAI API key"
           />
         </div>
         <div className={styles.formField}>

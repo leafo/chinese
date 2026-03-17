@@ -148,28 +148,52 @@ export async function generateAudioForWords(words, { onProgress, signal, getText
 }
 
 let currentAudioEl = null;
+let currentAudioUrl = null;
 
-export async function playAudio(text, { signal } = {}) {
+function stopCurrentAudio() {
   if (currentAudioEl) {
     currentAudioEl.pause();
     currentAudioEl = null;
   }
+  if (currentAudioUrl) {
+    URL.revokeObjectURL(currentAudioUrl);
+    currentAudioUrl = null;
+  }
+}
 
-  const record = await getOrGenerateAudio(text, { signal });
-  const url = URL.createObjectURL(record.blob);
+export function playBlob(blob) {
+  stopCurrentAudio();
+
+  const url = URL.createObjectURL(blob);
   const audio = new Audio(url);
   currentAudioEl = audio;
+  currentAudioUrl = url;
 
-  audio.addEventListener('ended', () => {
-    URL.revokeObjectURL(url);
+  const cleanup = () => {
+    if (currentAudioUrl === url) {
+      URL.revokeObjectURL(url);
+      currentAudioUrl = null;
+    }
     if (currentAudioEl === audio) currentAudioEl = null;
-  }, { once: true });
+  };
 
-  audio.addEventListener('error', () => {
-    URL.revokeObjectURL(url);
-    if (currentAudioEl === audio) currentAudioEl = null;
-  }, { once: true });
+  audio.addEventListener('ended', cleanup, { once: true });
+  audio.addEventListener('error', cleanup, { once: true });
 
+  return audio;
+}
+
+export async function playAudio(text, { signal } = {}) {
+  const record = await getOrGenerateAudio(text, { signal });
+  const audio = playBlob(record.blob);
+  await audio.play();
+  return audio;
+}
+
+export async function playOpenAiTts(text) {
+  const { generateTts } = await import('./openai.js');
+  const result = await generateTts(text);
+  const audio = playBlob(result.blob);
   await audio.play();
   return audio;
 }
