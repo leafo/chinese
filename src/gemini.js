@@ -327,7 +327,6 @@ export async function generateTts(text, { signal } = {}) {
   const requestBody = {
     contents: [
       {
-        role: "user",
         parts: [
           {
             text: `Read slowly in proper chinese pronunciation appropriate for a learner\n${text}`
@@ -336,123 +335,39 @@ export async function generateTts(text, { signal } = {}) {
       }
     ],
     generationConfig: {
-      responseModalities: ["audio"],
-      temperature: 1,
-      speech_config: {
-        voice_config: {
-          prebuilt_voice_config: {
-            voice_name: GEMINI_TTS_VOICE
+      responseModalities: ["AUDIO"],
+      speechConfig: {
+        voiceConfig: {
+          prebuiltVoiceConfig: {
+            voiceName: GEMINI_TTS_VOICE
           }
         }
       }
     }
   };
 
-  const response = await geminiFetch('streamGenerateContent?alt=sse', requestBody, {
+  const response = await geminiFetch('generateContent', requestBody, {
     signal,
     model: GEMINI_TTS_MODEL,
   });
 
-  if (!response.body) {
-    throw new Error('TTS streaming response did not include a readable body');
+  const data = await response.json();
+
+  const candidate = data?.candidates?.[0];
+  const finishReason = candidate?.finishReason;
+  if (finishReason && finishReason !== 'STOP') {
+    throw new Error(`TTS generation failed (finishReason: ${finishReason})`);
   }
 
-  const reader = response.body.getReader();
-  const decoder = new TextDecoder();
-  let sseBuffer = '';
-  const audioChunks = [];
-  let mimeType = null;
-
-  while (true) {
-    const { value, done } = await reader.read();
-    sseBuffer += decoder.decode(value || new Uint8Array(), { stream: !done });
-    sseBuffer = sseBuffer.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-
-    const [events, remainder] = extractSseEvents(sseBuffer);
-    sseBuffer = remainder;
-
-    for (const eventBlock of events) {
-      const dataLines = [];
-      for (const rawLine of eventBlock.split('\n')) {
-        const line = rawLine.trimEnd();
-        if (line.startsWith('data:')) {
-          dataLines.push(line.slice(5).trimStart());
-        }
-      }
-
-      if (!dataLines.length) continue;
-      const payload = dataLines.join('\n');
-      if (!payload || payload === '[DONE]') continue;
-
-      const data = JSON.parse(payload);
-      if (data.error) {
-        throw new Error(data.error.message || 'TTS stream returned an error');
-      }
-
-      const parts = data?.candidates?.[0]?.content?.parts;
-      if (parts) {
-        for (const part of parts) {
-          if (part.inlineData) {
-            if (!mimeType && part.inlineData.mimeType) {
-              mimeType = part.inlineData.mimeType;
-            }
-            if (part.inlineData.data) {
-              audioChunks.push(part.inlineData.data);
-            }
-          }
-        }
-      }
-    }
-
-    if (done) break;
-  }
-
-  if (sseBuffer.trim()) {
-    const dataLines = [];
-    for (const rawLine of sseBuffer.split('\n')) {
-      const line = rawLine.trimEnd();
-      if (line.startsWith('data:')) {
-        dataLines.push(line.slice(5).trimStart());
-      }
-    }
-    const payload = dataLines.join('\n');
-    if (payload && payload !== '[DONE]') {
-      const data = JSON.parse(payload);
-      const parts = data?.candidates?.[0]?.content?.parts;
-      if (parts) {
-        for (const part of parts) {
-          if (part.inlineData) {
-            if (!mimeType && part.inlineData.mimeType) {
-              mimeType = part.inlineData.mimeType;
-            }
-            if (part.inlineData.data) {
-              audioChunks.push(part.inlineData.data);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  if (!audioChunks.length) {
+  const inlineData = candidate?.content?.parts?.[0]?.inlineData;
+  if (!inlineData?.data) {
     throw new Error('TTS response did not contain any audio data');
   }
 
-  const binaryChunks = audioChunks.map(b64 => {
-    const binary = atob(b64);
-    const bytes = new Uint8Array(binary.length);
-    for (let i = 0; i < binary.length; i++) {
-      bytes[i] = binary.charCodeAt(i);
-    }
-    return bytes;
-  });
-
-  const totalLength = binaryChunks.reduce((sum, chunk) => sum + chunk.length, 0);
-  const pcmData = new Uint8Array(totalLength);
-  let offset = 0;
-  for (const chunk of binaryChunks) {
-    pcmData.set(chunk, offset);
-    offset += chunk.length;
+  const binary = atob(inlineData.data);
+  const pcmData = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    pcmData[i] = binary.charCodeAt(i);
   }
 
   // Gemini TTS returns raw PCM 24kHz 16-bit LE mono — wrap in WAV header
@@ -464,9 +379,9 @@ export async function generateTts(text, { signal } = {}) {
   const wavHeader = new ArrayBuffer(44);
   const view = new DataView(wavHeader);
 
-  const writeString = (offset, str) => {
+  const writeString = (off, str) => {
     for (let i = 0; i < str.length; i++) {
-      view.setUint8(offset + i, str.charCodeAt(i));
+      view.setUint8(off + i, str.charCodeAt(i));
     }
   };
 
