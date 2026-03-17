@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 import { useWords, insertWord, deleteWord, updateWord } from "./words";
 import { completeWord } from "./gemini";
@@ -88,8 +88,27 @@ function WordForm({ onSave, onCancel, initial }) {
 
 export function WordList() {
   const [words, error, loading] = useWords(100, 0);
+  const dialogRef = useRef(null);
   const [showForm, setShowForm] = useState(false);
-  const [editingId, setEditingId] = useState(null);
+  const [editingWord, setEditingWord] = useState(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
+    }
+
+    if (editingWord) {
+      if (!dialog.open) {
+        dialog.showModal();
+      }
+      return;
+    }
+
+    if (dialog.open) {
+      dialog.close();
+    }
+  }, [editingWord]);
 
   const handleAdd = async (form) => {
     await insertWord(form);
@@ -97,8 +116,8 @@ export function WordList() {
   };
 
   const handleUpdate = async (form) => {
-    await updateWord({ ...form, id: editingId });
-    setEditingId(null);
+    await updateWord({ ...form, id: editingWord.id });
+    setEditingWord(null);
   };
 
   const handleDelete = async (id) => {
@@ -126,6 +145,35 @@ export function WordList() {
         <WordForm onSave={handleAdd} onCancel={() => setShowForm(false)} />
       )}
 
+      {editingWord && (
+        <dialog
+          ref={dialogRef}
+          className={styles.modalDialog}
+          onClose={() => setEditingWord(null)}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setEditingWord(null);
+            }
+          }}
+        >
+          <div className={styles.modalHeader}>
+            <h3>Edit Word</h3>
+            <button
+              type="button"
+              className={styles.cancelButton}
+              onClick={() => setEditingWord(null)}
+            >
+              Close
+            </button>
+          </div>
+          <WordForm
+            initial={editingWord}
+            onSave={handleUpdate}
+            onCancel={() => setEditingWord(null)}
+          />
+        </dialog>
+      )}
+
       {(!words || words.length === 0) ? (
         <div className={styles.emptyState}>
           <p>No words yet</p>
@@ -135,26 +183,16 @@ export function WordList() {
         <ul className={styles.wordList}>
           {words.map(word => (
             <li key={word.id} className={styles.wordItem}>
-              {editingId === word.id ? (
-                <WordForm
-                  initial={word}
-                  onSave={handleUpdate}
-                  onCancel={() => setEditingId(null)}
-                />
-              ) : (
-                <>
-                  <span className={styles.wordChinese}>{word.simplified || word.traditional}</span>
-                  {word.traditional && word.simplified && word.traditional !== word.simplified && (
-                    <span className={styles.wordChinese} style={{ color: '#94a3b8', fontSize: 16 }}>{word.traditional}</span>
-                  )}
-                  <span className={styles.wordPinyin}>{word.pinyin}</span>
-                  <span className={styles.wordEnglish}>{word.english}</span>
-                  <div className={styles.wordActions}>
-                    <button className={styles.smallButton} onClick={() => setEditingId(word.id)}>Edit</button>
-                    <button className={styles.deleteButton} onClick={() => handleDelete(word.id)}>Delete</button>
-                  </div>
-                </>
+              <span className={styles.wordChinese}>{word.simplified || word.traditional}</span>
+              {word.traditional && word.simplified && word.traditional !== word.simplified && (
+                <span className={styles.wordChinese} style={{ color: '#94a3b8', fontSize: 16 }}>{word.traditional}</span>
               )}
+              <span className={styles.wordPinyin}>{word.pinyin}</span>
+              <span className={styles.wordEnglish}>{word.english}</span>
+              <div className={styles.wordActions}>
+                <button className={styles.smallButton} onClick={() => setEditingWord(word)}>Edit</button>
+                <button className={styles.deleteButton} onClick={() => handleDelete(word.id)}>Delete</button>
+              </div>
             </li>
           ))}
         </ul>
