@@ -292,14 +292,45 @@
 }
 
 .processingState {
-  text-align: center;
-  padding: 48px 20px;
+  padding: 24px 20px;
   color: #64748b;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
 }
 
 .processingState p {
   margin: 0;
   font-size: 16px;
+}
+
+.processingMeta {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.streamOutput {
+  margin: 16px 0 0;
+  padding: 12px;
+  max-height: 280px;
+  overflow: auto;
+  border-radius: 6px;
+  background: #0f172a;
+  color: #cbd5e1;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.processingActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
 }
 
 .warningBox {

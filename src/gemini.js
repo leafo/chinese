@@ -1,6 +1,7 @@
 import { config } from './config.js';
 
-const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
+const GEMINI_MODEL = 'gemini-flash-latest';
 
 const OCR_WORDS_RESPONSE_SCHEMA = {
   type: "object",
@@ -61,41 +62,173 @@ const COMPLETE_WORD_RESPONSE_SCHEMA = {
   required: ["traditional", "simplified", "pinyin", "english"]
 };
 
-async function geminiRequest(requestBody) {
+async function getApiKey() {
   const apiKey = await config.getValue("gemini_api_key");
 
   if (!apiKey) {
-    return Promise.reject(new Error('Gemini API key is not set. Please add it in Settings.'));
+    throw new Error('Gemini API key is not set. Please add it in Settings.');
   }
 
-  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(requestBody)
-  });
+  return apiKey;
+}
 
-  if (!response.ok) {
-    const errorData = await response.json();
-    return Promise.reject(new Error(errorData.error.message));
-  }
+function getResponseText(data) {
+  return data?.candidates?.[0]?.content?.parts
+    ?.map(part => part.text || '')
+    .join('') || '';
+}
 
-  const data = await response.json();
+function getFinishReason(data) {
+  return data?.candidates?.[0]?.finishReason || null;
+}
 
-  if (!data.candidates || !data.candidates[0] || !data.candidates[0].content || !data.candidates[0].content.parts || !data.candidates[0].content.parts[0].text) {
-    return Promise.reject(new Error("Unexpected response format from Gemini API"));
-  }
-
-  const finishReason = data.candidates[0].finishReason;
-  if (finishReason !== 'STOP') {
-    return Promise.reject(new Error(`Gemini did not finish with STOP reason: ${finishReason}`));
+async function getErrorMessage(response) {
+  const text = await response.text();
+  if (!text) {
+    return `Gemini API request failed with status ${response.status}`;
   }
 
   try {
-    return JSON.parse(data.candidates[0].content.parts[0].text);
+    const errorData = JSON.parse(text);
+    return errorData?.error?.message || text;
+  } catch {
+    return text;
+  }
+}
+
+async function geminiFetch(endpoint, requestBody, { signal } = {}) {
+  const apiKey = await getApiKey();
+  const response = await fetch(`${GEMINI_API_BASE}/models/${GEMINI_MODEL}:${endpoint}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-goog-api-key': apiKey,
+    },
+    body: JSON.stringify(requestBody),
+    signal,
+  });
+
+  if (!response.ok) {
+    throw new Error(await getErrorMessage(response));
+  }
+
+  return response;
+}
+
+async function geminiRequest(requestBody, { signal } = {}) {
+  const response = await geminiFetch('generateContent', requestBody, { signal });
+  const data = await response.json();
+  const text = getResponseText(data);
+
+  if (!text) {
+    throw new Error("Unexpected response format from Gemini API");
+  }
+
+  const finishReason = getFinishReason(data);
+  if (finishReason && finishReason !== 'STOP') {
+    throw new Error(`Gemini did not finish with STOP reason: ${finishReason}`);
+  }
+
+  try {
+    return JSON.parse(text);
   } catch (e) {
-    return Promise.reject(new Error(`Failed to parse JSON response from Gemini: ${e.message}`));
+    throw new Error(`Failed to parse JSON response from Gemini: ${e.message}`);
+  }
+}
+
+function extractSseEvents(buffer) {
+  const events = [];
+  let separatorIndex;
+
+  while ((separatorIndex = buffer.indexOf('\n\n')) !== -1) {
+    events.push(buffer.slice(0, separatorIndex));
+    buffer = buffer.slice(separatorIndex + 2);
+  }
+
+  return [events, buffer];
+}
+
+async function geminiStreamRequest(requestBody, { onChunk, signal } = {}) {
+  const response = await geminiFetch('streamGenerateContent?alt=sse', requestBody, { signal });
+
+  if (!response.body) {
+    throw new Error('Gemini streaming response did not include a readable body');
+  }
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '';
+  let fullText = '';
+  let finishReason = null;
+
+  const processEvent = (eventBlock) => {
+    const dataLines = [];
+
+    for (const rawLine of eventBlock.split('\n')) {
+      const line = rawLine.trimEnd();
+      if (line.startsWith('data:')) {
+        dataLines.push(line.slice(5).trimStart());
+      }
+    }
+
+    if (!dataLines.length) {
+      return;
+    }
+
+    const payload = dataLines.join('\n');
+    if (!payload || payload === '[DONE]') {
+      return;
+    }
+
+    const data = JSON.parse(payload);
+    if (data.error) {
+      throw new Error(data.error.message || 'Gemini stream returned an error');
+    }
+
+    const chunkText = getResponseText(data);
+    if (chunkText) {
+      fullText += chunkText;
+      if (onChunk) {
+        onChunk(chunkText, fullText);
+      }
+    }
+
+    const chunkFinishReason = getFinishReason(data);
+    if (chunkFinishReason) {
+      finishReason = chunkFinishReason;
+    }
+  };
+
+  while (true) {
+    const { value, done } = await reader.read();
+    buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
+    buffer = buffer.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+    const [events, remainder] = extractSseEvents(buffer);
+    buffer = remainder;
+    events.forEach(processEvent);
+
+    if (done) {
+      break;
+    }
+  }
+
+  if (buffer.trim()) {
+    processEvent(buffer);
+  }
+
+  if (!fullText) {
+    throw new Error('Gemini streaming response did not include any JSON text');
+  }
+
+  if (finishReason && finishReason !== 'STOP') {
+    throw new Error(`Gemini did not finish with STOP reason: ${finishReason}`);
+  }
+
+  try {
+    return JSON.parse(fullText);
+  } catch (e) {
+    throw new Error(`Failed to parse streamed JSON response from Gemini: ${e.message}`);
   }
 }
 
@@ -108,7 +241,7 @@ export async function completeWord(fields) {
   if (fields.notes) provided.push(`Notes: ${fields.notes}`);
 
   if (provided.length === 0) {
-    return Promise.reject(new Error('At least one field must be provided'));
+    throw new Error('At least one field must be provided');
   }
 
   const requestBody = {
@@ -130,18 +263,8 @@ export async function completeWord(fields) {
   return geminiRequest(requestBody);
 }
 
-export async function ocrWords(file) {
-  const base64 = await new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-
-  const base64Data = base64.split(',')[1];
-  const mimeType = file.type;
-
-  const requestBody = {
+function buildOcrWordsRequestBody(base64Data, mimeType) {
+  return {
     contents: [
       {
         parts: [
@@ -170,6 +293,30 @@ Extract every word you can identify in the image. If a word appears with its def
       responseSchema: OCR_WORDS_RESPONSE_SCHEMA
     }
   };
+}
 
-  return geminiRequest(requestBody);
+async function encodeFileAsInlineData(file) {
+  const base64 = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+
+  return {
+    base64Data: base64.split(',')[1],
+    mimeType: file.type,
+  };
+}
+
+export async function ocrWords(file, options = {}) {
+  const { base64Data, mimeType } = await encodeFileAsInlineData(file);
+  const requestBody = buildOcrWordsRequestBody(base64Data, mimeType);
+  const { onChunk, signal } = options;
+
+  if (onChunk) {
+    return geminiStreamRequest(requestBody, { onChunk, signal });
+  }
+
+  return geminiRequest(requestBody, { signal });
 }

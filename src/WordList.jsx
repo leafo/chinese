@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./index.module.css";
 import { useWords, insertWord, deleteWord, updateWord } from "./words";
 import { completeWord } from "./gemini";
+import { setRoute } from "./router";
 
 function WordForm({ onSave, onCancel, initial }) {
   const [form, setForm] = useState(initial || {
@@ -111,9 +112,14 @@ export function WordList() {
     <div>
       <div className={styles.sectionHeader}>
         <h2>Words</h2>
-        <button className={styles.addButton} onClick={() => setShowForm(!showForm)}>
-          + Add Word
-        </button>
+        <div className={styles.importToolbarActions}>
+          <button className={styles.cancelButton} onClick={() => setRoute({ view: 'import' })}>
+            Bulk Add
+          </button>
+          <button className={styles.addButton} onClick={() => setShowForm(!showForm)}>
+            + Add Word
+          </button>
+        </div>
       </div>
 
       {showForm && (

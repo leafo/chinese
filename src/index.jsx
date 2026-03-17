@@ -28,12 +28,6 @@ function App() {
             Collections
           </button>
           <button
-            className={view === 'import' ? styles.navButtonActive : styles.navButton}
-            onClick={() => setRoute({ view: 'import' })}
-          >
-            Import
-          </button>
-          <button
             className={view === 'settings' ? styles.navButtonActive : styles.navButton}
             onClick={() => setRoute({ view: 'settings' })}
           >

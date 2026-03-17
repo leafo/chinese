@@ -7,28 +7,75 @@ import { ocrWords } from "./gemini";
 
 export function ImportWords() {
   const fileRef = useRef(null);
+  const abortRef = useRef(null);
   const [extractedWords, setExtractedWords] = useState(null);
   const [selected, setSelected] = useState({});
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState(null);
   const [importing, setImporting] = useState(false);
+  const [streamText, setStreamText] = useState('');
+  const [elapsedMs, setElapsedMs] = useState(0);
   const [apiKey] = useConfig("gemini_api_key");
 
+  useEffect(() => {
+    if (!processing) {
+      return;
+    }
+
+    const startedAt = Date.now();
+    setElapsedMs(0);
+
+    const interval = window.setInterval(() => {
+      setElapsedMs(Date.now() - startedAt);
+    }, 250);
+
+    return () => window.clearInterval(interval);
+  }, [processing]);
+
+  useEffect(() => {
+    return () => {
+      abortRef.current?.abort();
+    };
+  }, []);
+
   const processFile = async (file) => {
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+
     setProcessing(true);
     setError(null);
     setExtractedWords(null);
+    setSelected({});
+    setStreamText('');
+    setElapsedMs(0);
 
     try {
-      const result = await ocrWords(file);
+      const result = await ocrWords(file, {
+        signal: controller.signal,
+        onChunk: (_chunk, fullText) => {
+          setStreamText(fullText);
+        },
+      });
+
+      if (abortRef.current !== controller || controller.signal.aborted) {
+        return;
+      }
+
       setExtractedWords(result.words);
       const sel = {};
       result.words.forEach((_, i) => { sel[i] = true; });
       setSelected(sel);
     } catch (err) {
+      if (controller.signal.aborted) {
+        return;
+      }
       setError(err.message || String(err));
     } finally {
-      setProcessing(false);
+      if (abortRef.current === controller) {
+        abortRef.current = null;
+        setProcessing(false);
+      }
     }
   };
 
@@ -54,6 +101,20 @@ export function ImportWords() {
     window.addEventListener('paste', handlePaste);
     return () => window.removeEventListener('paste', handlePaste);
   }, []);
+
+  const cancelProcessing = () => {
+    abortRef.current?.abort();
+    abortRef.current = null;
+    setProcessing(false);
+    setStreamText('');
+    setElapsedMs(0);
+    setError(null);
+    setExtractedWords(null);
+    setSelected({});
+    if (fileRef.current) {
+      fileRef.current.value = '';
+    }
+  };
 
   const toggleAll = () => {
     const allSelected = extractedWords.every((_, i) => selected[i]);
@@ -104,11 +165,21 @@ export function ImportWords() {
     : 0;
 
   const reset = () => {
+    abortRef.current?.abort();
+    abortRef.current = null;
     setExtractedWords(null);
     setSelected({});
     setError(null);
+    setProcessing(false);
+    setStreamText('');
+    setElapsedMs(0);
     if (fileRef.current) fileRef.current.value = '';
   };
+
+  const elapsedSeconds = (elapsedMs / 1000).toFixed(1);
+  const streamStatus = streamText
+    ? 'Streaming structured JSON from Gemini...'
+    : 'Uploading image and waiting for the first JSON chunk...';
 
   return (
     <div>
@@ -141,7 +212,17 @@ export function ImportWords() {
 
       {processing && (
         <div className={styles.processingState}>
-          <p>Extracting words from image...</p>
+          <p>{streamStatus}</p>
+          <div className={styles.processingMeta}>
+            <span>Elapsed: {elapsedSeconds}s</span>
+            <span>Received: {streamText.length.toLocaleString()} chars</span>
+          </div>
+          <pre className={styles.streamOutput}>
+            {streamText || '{\n  "words": [\n    ...waiting for first chunk\n  ]\n}'}
+          </pre>
+          <div className={styles.processingActions}>
+            <button className={styles.cancelButton} onClick={cancelProcessing}>Cancel</button>
+          </div>
         </div>
       )}
 
