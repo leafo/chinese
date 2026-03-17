@@ -220,7 +220,32 @@
 .formActions {
   display: flex;
   gap: 8px;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formActionsRight {
+  display: flex;
+  gap: 8px;
+}
+
+.autoCompleteButton {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #a78bfa;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #7c3aed;
+}
+
+.autoCompleteButton:hover:not(:disabled) {
+  background: #f5f3ff;
+}
+
+.autoCompleteButton:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 .cancelButton {
