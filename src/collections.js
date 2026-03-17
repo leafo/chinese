@@ -1,6 +1,7 @@
 import { IndexedDBStore } from './database';
 import { useAsync } from './util';
 import React from 'react';
+import { unassignCollectionFromWords } from './words';
 
 class Collection {
   constructor(data) {
@@ -24,7 +25,11 @@ export const insertCollection = async (collection) => store.add({
 });
 
 export const updateCollection = async (collection) => store.put(collection);
-export const deleteCollection = async (id) => store.remove(parseId(id));
+export const deleteCollection = async (id) => {
+  const parsedId = parseId(id);
+  await unassignCollectionFromWords(parsedId);
+  return store.remove(parsedId);
+};
 
 export const findCollection = async (id) => {
   const result = await store.get(parseId(id));

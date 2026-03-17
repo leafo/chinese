@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 import { useWords, insertWord, deleteWord, updateWord } from "./words";
+import { useCollections } from "./collections";
+import { CollectionSelector } from "./CollectionSelector";
 import { completeWord } from "./gemini";
 import { setRoute } from "./router";
 import { playAudio, useAudio } from "./audio";
@@ -39,18 +41,28 @@ function PlayButton({ text }) {
   );
 }
 
-function WordForm({ onSave, onCancel, initial }) {
-  const [form, setForm] = useState(initial || {
+function WordForm({ onSave, onCancel, initial, collections, collectionsLoading, collectionsError }) {
+  const [form, setForm] = useState({
     traditional: '',
     simplified: '',
     pinyin: '',
     english: '',
     notes: '',
+    collection_ids: [],
+    ...initial,
   });
   const [completing, setCompleting] = useState(false);
   const [completeError, setCompleteError] = useState(null);
 
   const set = (field) => (e) => setForm({ ...form, [field]: e.target.value });
+  const toggleCollection = (collectionId) => {
+    const selectedIds = form.collection_ids || [];
+    const nextIds = selectedIds.includes(collectionId)
+      ? selectedIds.filter(id => id !== collectionId)
+      : [...selectedIds, collectionId];
+
+    setForm({ ...form, collection_ids: nextIds });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -102,6 +114,16 @@ function WordForm({ onSave, onCancel, initial }) {
         <label>Notes</label>
         <textarea value={form.notes} onChange={set('notes')} placeholder="Usage notes, examples, etc." />
       </div>
+      <div className={styles.formField}>
+        <label>Collections</label>
+        <CollectionSelector
+          collections={collections}
+          loading={collectionsLoading}
+          error={collectionsError}
+          selectedIds={form.collection_ids || []}
+          onToggle={toggleCollection}
+        />
+      </div>
       {completeError && <div className={styles.errorBox}><p>{completeError}</p></div>}
       <div className={styles.formActions}>
         <button
@@ -123,11 +145,13 @@ function WordForm({ onSave, onCancel, initial }) {
 
 export function WordList() {
   const [words, error, loading] = useWords(100, 0);
+  const [collections, collectionsError, collectionsLoading] = useCollections();
   const [displayScript] = useConfig("display_script");
   const dialogRef = useRef(null);
   const [showForm, setShowForm] = useState(false);
   const [editingWord, setEditingWord] = useState(null);
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
+  const collectionNamesById = Object.fromEntries((collections || []).map(collection => [collection.id, collection.name]));
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -179,7 +203,13 @@ export function WordList() {
       </div>
 
       {showForm && (
-        <WordForm onSave={handleAdd} onCancel={() => setShowForm(false)} />
+        <WordForm
+          onSave={handleAdd}
+          onCancel={() => setShowForm(false)}
+          collections={collections || []}
+          collectionsLoading={collectionsLoading}
+          collectionsError={collectionsError}
+        />
       )}
 
       {editingWord && (
@@ -204,9 +234,13 @@ export function WordList() {
             </button>
           </div>
           <WordForm
+            key={editingWord.id}
             initial={editingWord}
             onSave={handleUpdate}
             onCancel={() => setEditingWord(null)}
+            collections={collections || []}
+            collectionsLoading={collectionsLoading}
+            collectionsError={collectionsError}
           />
         </dialog>
       )}
@@ -223,6 +257,7 @@ export function WordList() {
               key={word.id}
               word={word}
               preferredScript={preferredScript}
+              collectionNamesById={collectionNamesById}
               onEdit={() => setEditingWord(word)}
               onDelete={() => handleDelete(word.id)}
             />
@@ -233,14 +268,28 @@ export function WordList() {
   );
 }
 
-function WordRow({ word, preferredScript, onEdit, onDelete }) {
+function WordRow({ word, preferredScript, collectionNamesById, onEdit, onDelete }) {
   const primaryText = getPreferredChineseText(word, preferredScript);
+  const collectionNames = (word.collection_ids || [])
+    .map(id => collectionNamesById[id])
+    .filter(Boolean);
 
   return (
     <li className={styles.wordItem}>
       <span className={styles.wordChinese}>{primaryText}</span>
-      <span className={styles.wordPinyin}>{word.pinyin}</span>
-      <span className={styles.wordEnglish}>{word.english}</span>
+      <div className={styles.wordDetails}>
+        <div className={styles.wordSummary}>
+          <span className={styles.wordPinyin}>{word.pinyin}</span>
+          <span className={styles.wordEnglish}>{word.english}</span>
+        </div>
+        {collectionNames.length > 0 && (
+          <div className={styles.tags}>
+            {collectionNames.map(name => (
+              <span key={name} className={styles.tag}>{name}</span>
+            ))}
+          </div>
+        )}
+      </div>
       <div className={styles.wordActions}>
         <PlayButton text={primaryText} />
         <button className={styles.smallButton} onClick={onEdit}>Edit</button>

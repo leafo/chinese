@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import styles from "./index.module.css";
 import { setRoute } from "./router";
 import { insertWord } from "./words";
+import { useCollections } from "./collections";
+import { CollectionSelector } from "./CollectionSelector";
 import { useConfig } from "./config";
 import { ocrWords } from "./gemini";
 
@@ -15,7 +17,9 @@ export function ImportWords() {
   const [importing, setImporting] = useState(false);
   const [streamText, setStreamText] = useState('');
   const [elapsedMs, setElapsedMs] = useState(0);
+  const [collectionIds, setCollectionIds] = useState([]);
   const [apiKey] = useConfig("gemini_api_key");
+  const [collections, collectionsError, collectionsLoading] = useCollections();
 
   useEffect(() => {
     if (!processing) {
@@ -47,6 +51,7 @@ export function ImportWords() {
     setError(null);
     setExtractedWords(null);
     setSelected({});
+    setCollectionIds([]);
     setStreamText('');
     setElapsedMs(0);
 
@@ -111,6 +116,7 @@ export function ImportWords() {
     setError(null);
     setExtractedWords(null);
     setSelected({});
+    setCollectionIds([]);
     if (fileRef.current) {
       fileRef.current.value = '';
     }
@@ -149,7 +155,10 @@ export function ImportWords() {
     try {
       for (let i = 0; i < extractedWords.length; i++) {
         if (selected[i]) {
-          await insertWord(extractedWords[i]);
+          await insertWord({
+            ...extractedWords[i],
+            collection_ids: [...(extractedWords[i].collection_ids || []), ...collectionIds],
+          });
         }
       }
       setRoute({ view: 'words' });
@@ -173,7 +182,16 @@ export function ImportWords() {
     setProcessing(false);
     setStreamText('');
     setElapsedMs(0);
+    setCollectionIds([]);
     if (fileRef.current) fileRef.current.value = '';
+  };
+
+  const toggleCollection = (collectionId) => {
+    setCollectionIds((currentIds) => (
+      currentIds.includes(collectionId)
+        ? currentIds.filter(id => id !== collectionId)
+        : [...currentIds, collectionId]
+    ));
   };
 
   const elapsedSeconds = (elapsedMs / 1000).toFixed(1);
@@ -242,6 +260,19 @@ export function ImportWords() {
 
       {extractedWords && extractedWords.length > 0 && (
         <div>
+          <div className={styles.form}>
+            <div className={styles.formField}>
+              <label>Collections for Imported Words</label>
+              <CollectionSelector
+                collections={collections || []}
+                loading={collectionsLoading}
+                error={collectionsError}
+                selectedIds={collectionIds}
+                onToggle={toggleCollection}
+                emptyMessage="No collections yet. Create one in the Collections tab before importing."
+              />
+            </div>
+          </div>
           <div className={styles.importToolbar}>
             <label className={styles.checkboxLabel}>
               <input

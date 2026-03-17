@@ -19,16 +19,31 @@ const parseId = id => {
   return parsed;
 };
 
+const normalizeCollectionIds = (collectionIds = []) => {
+  if (!Array.isArray(collectionIds)) {
+    return [];
+  }
+
+  return [...new Set(
+    collectionIds
+      .map(id => parseInt(id, 10))
+      .filter(id => !isNaN(id))
+  )];
+};
+
 export const insertWord = async (word) => store.add({
   traditional: word.traditional || '',
   simplified: word.simplified || '',
   pinyin: word.pinyin || '',
   english: word.english || '',
   notes: word.notes || '',
-  collection_ids: word.collection_ids || [],
+  collection_ids: normalizeCollectionIds(word.collection_ids),
 });
 
-export const updateWord = async (word) => store.put(word);
+export const updateWord = async (word) => store.put({
+  ...word,
+  collection_ids: normalizeCollectionIds(word.collection_ids),
+});
 export const deleteWord = async (id) => store.remove(parseId(id));
 
 export const findWord = async (id) => {
@@ -43,6 +58,17 @@ export async function getWordsOrderedByIdDesc(limit, offset) {
 
 export async function getAllWords() {
   return store.getAll();
+}
+
+export async function unassignCollectionFromWords(collectionId) {
+  const parsedId = parseId(collectionId);
+  const words = await getAllWords();
+  const affectedWords = words.filter(word => (word.collection_ids || []).includes(parsedId));
+
+  await Promise.all(affectedWords.map(word => updateWord({
+    ...word,
+    collection_ids: (word.collection_ids || []).filter(id => id !== parsedId),
+  })));
 }
 
 export function useDependency() {
