@@ -1,23 +1,38 @@
 import { useState, useEffect } from "react";
 import styles from "./index.module.css";
 import { useConfig } from "./config";
+import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 
 export function Settings() {
-  const [apiKey, setApiKey, loading] = useConfig("gemini_api_key");
-  const [inputValue, setInputValue] = useState('');
+  const [apiKey, setApiKey, apiKeyLoading] = useConfig("gemini_api_key");
+  const [displayScript, setDisplayScript] = useConfig("display_script");
+  const [apiKeyValue, setApiKeyValue] = useState('');
+  const [displayScriptValue, setDisplayScriptValue] = useState(DEFAULT_DISPLAY_SCRIPT);
   const [saved, setSaved] = useState(false);
-  const [dirty, setDirty] = useState(false);
+  const [apiKeyDirty, setApiKeyDirty] = useState(false);
+  const [displayScriptDirty, setDisplayScriptDirty] = useState(false);
+  const loading = apiKeyLoading;
 
   useEffect(() => {
-    if (!loading && !dirty) {
-      setInputValue(apiKey || '');
+    if (!loading && !apiKeyDirty) {
+      setApiKeyValue(apiKey || '');
     }
-  }, [apiKey, loading, dirty]);
+  }, [apiKey, loading, apiKeyDirty]);
+
+  useEffect(() => {
+    if (!displayScriptDirty) {
+      setDisplayScriptValue(displayScript || DEFAULT_DISPLAY_SCRIPT);
+    }
+  }, [displayScript, displayScriptDirty]);
 
   const handleSave = async (e) => {
     e.preventDefault();
-    await setApiKey(inputValue);
-    setDirty(false);
+    await Promise.all([
+      setApiKey(apiKeyValue),
+      setDisplayScript(displayScriptValue),
+    ]);
+    setApiKeyDirty(false);
+    setDisplayScriptDirty(false);
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
@@ -32,13 +47,26 @@ export function Settings() {
           <label>Gemini API Key</label>
           <input
             type="password"
-            value={inputValue}
+            value={apiKeyValue}
             onChange={(e) => {
-              setDirty(true);
-              setInputValue(e.target.value);
+              setApiKeyDirty(true);
+              setApiKeyValue(e.target.value);
             }}
             placeholder="Enter your Gemini API key"
           />
+        </div>
+        <div className={styles.formField}>
+          <label>Default Character Display</label>
+          <select
+            value={displayScriptValue}
+            onChange={(e) => {
+              setDisplayScriptDirty(true);
+              setDisplayScriptValue(e.target.value);
+            }}
+          >
+            <option value="simplified">Simplified</option>
+            <option value="traditional">Traditional</option>
+          </select>
         </div>
         <div className={styles.formActions}>
           <button type="submit" className={styles.addButton}>

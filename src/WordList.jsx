@@ -3,6 +3,41 @@ import styles from "./index.module.css";
 import { useWords, insertWord, deleteWord, updateWord } from "./words";
 import { completeWord } from "./gemini";
 import { setRoute } from "./router";
+import { playAudio, useAudio } from "./audio";
+import { useConfig } from "./config";
+import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
+
+function PlayButton({ text }) {
+  const [cached] = useAudio(text);
+  const [playing, setPlaying] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handlePlay = async () => {
+    if (!text) return;
+    setLoading(true);
+    try {
+      const audio = await playAudio(text);
+      setPlaying(true);
+      audio.addEventListener('ended', () => setPlaying(false), { once: true });
+      audio.addEventListener('error', () => setPlaying(false), { once: true });
+    } catch (err) {
+      console.error('Audio playback failed:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <button
+      className={`${styles.smallButton} ${styles.playButton} ${cached ? styles.playButtonCached : ''}`}
+      onClick={handlePlay}
+      disabled={loading || playing}
+      title={cached ? 'Play audio' : 'Generate & play audio'}
+    >
+      {loading ? '...' : playing ? '\u25A0' : '\u25B6'}
+    </button>
+  );
+}
 
 function WordForm({ onSave, onCancel, initial }) {
   const [form, setForm] = useState(initial || {
@@ -88,9 +123,11 @@ function WordForm({ onSave, onCancel, initial }) {
 
 export function WordList() {
   const [words, error, loading] = useWords(100, 0);
+  const [displayScript] = useConfig("display_script");
   const dialogRef = useRef(null);
   const [showForm, setShowForm] = useState(false);
   const [editingWord, setEditingWord] = useState(null);
+  const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -182,21 +219,33 @@ export function WordList() {
       ) : (
         <ul className={styles.wordList}>
           {words.map(word => (
-            <li key={word.id} className={styles.wordItem}>
-              <span className={styles.wordChinese}>{word.simplified || word.traditional}</span>
-              {word.traditional && word.simplified && word.traditional !== word.simplified && (
-                <span className={styles.wordChinese} style={{ color: '#94a3b8', fontSize: 16 }}>{word.traditional}</span>
-              )}
-              <span className={styles.wordPinyin}>{word.pinyin}</span>
-              <span className={styles.wordEnglish}>{word.english}</span>
-              <div className={styles.wordActions}>
-                <button className={styles.smallButton} onClick={() => setEditingWord(word)}>Edit</button>
-                <button className={styles.deleteButton} onClick={() => handleDelete(word.id)}>Delete</button>
-              </div>
-            </li>
+            <WordRow
+              key={word.id}
+              word={word}
+              preferredScript={preferredScript}
+              onEdit={() => setEditingWord(word)}
+              onDelete={() => handleDelete(word.id)}
+            />
           ))}
         </ul>
       )}
     </div>
+  );
+}
+
+function WordRow({ word, preferredScript, onEdit, onDelete }) {
+  const primaryText = getPreferredChineseText(word, preferredScript);
+
+  return (
+    <li className={styles.wordItem}>
+      <span className={styles.wordChinese}>{primaryText}</span>
+      <span className={styles.wordPinyin}>{word.pinyin}</span>
+      <span className={styles.wordEnglish}>{word.english}</span>
+      <div className={styles.wordActions}>
+        <PlayButton text={primaryText} />
+        <button className={styles.smallButton} onClick={onEdit}>Edit</button>
+        <button className={styles.deleteButton} onClick={onDelete}>Delete</button>
+      </div>
+    </li>
   );
 }
