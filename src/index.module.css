@@ -404,6 +404,28 @@
   color: #475569;
 }
 
+.processingDetails {
+  margin-top: 16px;
+}
+
+.processingDetails p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.processingList {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13px;
+  color: #334155;
+}
+
+.processingList li + li {
+  margin-top: 4px;
+}
+
 .streamOutput {
   margin: 16px 0 0;
   padding: 12px;

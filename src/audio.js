@@ -4,10 +4,21 @@ import { generateTts } from './gemini';
 import React from 'react';
 
 const STORE_NAME = 'audio_clips';
+const BULK_AUDIO_CONCURRENCY = 10;
 export const store = new IndexedDBStore(STORE_NAME);
 
 export async function getCachedAudio(text) {
   return store.get(text);
+}
+
+export async function getAudioStats() {
+  const records = await store.getAll();
+  const totalBytes = records.reduce((sum, record) => sum + (record.blob?.size || 0), 0);
+
+  return {
+    clipCount: records.length,
+    totalBytes,
+  };
 }
 
 export async function cacheAudio(text, blob, metadata) {
@@ -42,28 +53,98 @@ export async function getOrGenerateAudio(text, { signal } = {}) {
   return record;
 }
 
-export async function generateAudioForWords(words, { onProgress, signal } = {}) {
-  let completed = 0;
+export async function generateAudioForWords(words, { onProgress, signal, getText } = {}) {
   const total = words.length;
+  let completed = 0;
+  let succeeded = 0;
+  let failed = 0;
+  let nextIndex = 0;
+  const failures = [];
+  const activeJobs = new Map();
 
-  for (const word of words) {
-    if (signal?.aborted) break;
-
-    const text = word.simplified || word.traditional;
-    if (!text) {
-      completed++;
-      if (onProgress) onProgress(completed, total, text);
-      continue;
-    }
-
-    const cached = await getCachedAudio(text);
-    if (!cached) {
-      await getOrGenerateAudio(text, { signal });
-    }
-
-    completed++;
-    if (onProgress) onProgress(completed, total, text);
+  if (total === 0) {
+    return { completed: 0, succeeded: 0, failed: 0, total: 0, failures };
   }
+
+  const emitProgress = (extra = {}) => {
+    if (!onProgress) {
+      return;
+    }
+
+    onProgress({
+      completed,
+      succeeded,
+      failed,
+      total,
+      activeJobs: Array.from(activeJobs.values()),
+      failures: [...failures],
+      ...extra,
+    });
+  };
+
+  const worker = async () => {
+    while (true) {
+      if (signal?.aborted) {
+        return;
+      }
+
+      const index = nextIndex++;
+      if (index >= total) {
+        return;
+      }
+
+      const word = words[index];
+      const text = getText ? getText(word) : (word.simplified || word.traditional);
+      let itemError = null;
+      const jobLabel = text || `(word #${index + 1}: no text)`;
+
+      activeJobs.set(index, jobLabel);
+      emitProgress({ current: jobLabel });
+
+      try {
+        if (text) {
+          const cached = await getCachedAudio(text);
+          if (!cached) {
+            await getOrGenerateAudio(text, { signal });
+          }
+        }
+      } catch (err) {
+        if (signal?.aborted || err?.name === 'AbortError') {
+          activeJobs.delete(index);
+          return;
+        }
+
+        itemError = err;
+        failed++;
+        failures.push({
+          text,
+          error: err.message || String(err),
+        });
+        console.error(`Bulk audio generation failed for "${text || '(empty text)'}":`, err);
+      }
+
+      if (!itemError) {
+        succeeded++;
+      }
+
+      if (signal?.aborted) {
+        activeJobs.delete(index);
+        return;
+      }
+
+      activeJobs.delete(index);
+      completed++;
+      emitProgress({
+        current: jobLabel,
+        lastError: itemError?.message || null,
+      });
+    }
+  };
+
+  const workerCount = Math.min(BULK_AUDIO_CONCURRENCY, total);
+  await Promise.all(Array.from({ length: workerCount }, () => worker()));
+
+  return { completed, succeeded, failed, total, failures };
 }
 
 let currentAudioEl = null;
@@ -120,4 +201,9 @@ export function useAudio(text) {
   }, [text]);
 
   return useAsync(() => text ? getCachedAudio(text) : Promise.resolve(null), [text, version]);
+}
+
+export function useAudioStats() {
+  const dbVersion = useDependency();
+  return useAsync(() => getAudioStats(), [dbVersion]);
 }
