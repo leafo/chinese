@@ -2,6 +2,8 @@ import { config } from './config.js';
 
 const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 const GEMINI_MODEL = 'gemini-flash-latest';
+const GEMINI_TTS_MODEL = 'gemini-2.5-pro-preview-tts';
+const GEMINI_TTS_VOICE = 'Zephyr';
 
 const OCR_WORDS_RESPONSE_SCHEMA = {
   type: "object",
@@ -96,9 +98,9 @@ async function getErrorMessage(response) {
   }
 }
 
-async function geminiFetch(endpoint, requestBody, { signal } = {}) {
+async function geminiFetch(endpoint, requestBody, { signal, model } = {}) {
   const apiKey = await getApiKey();
-  const response = await fetch(`${GEMINI_API_BASE}/models/${GEMINI_MODEL}:${endpoint}`, {
+  const response = await fetch(`${GEMINI_API_BASE}/models/${model || GEMINI_MODEL}:${endpoint}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -319,4 +321,177 @@ export async function ocrWords(file, options = {}) {
   }
 
   return geminiRequest(requestBody, { signal });
+}
+
+export async function generateTts(text, { signal } = {}) {
+  const requestBody = {
+    contents: [
+      {
+        role: "user",
+        parts: [
+          {
+            text: `Read slowly in proper chinese pronunciation appropriate for a learner\n${text}`
+          }
+        ]
+      }
+    ],
+    generationConfig: {
+      responseModalities: ["audio"],
+      temperature: 1,
+      speech_config: {
+        voice_config: {
+          prebuilt_voice_config: {
+            voice_name: GEMINI_TTS_VOICE
+          }
+        }
+      }
+    }
+  };
+
+  const response = await geminiFetch('streamGenerateContent?alt=sse', requestBody, {
+    signal,
+    model: GEMINI_TTS_MODEL,
+  });
+
+  if (!response.body) {
+    throw new Error('TTS streaming response did not include a readable body');
+  }
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let sseBuffer = '';
+  const audioChunks = [];
+  let mimeType = null;
+
+  while (true) {
+    const { value, done } = await reader.read();
+    sseBuffer += decoder.decode(value || new Uint8Array(), { stream: !done });
+    sseBuffer = sseBuffer.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+    const [events, remainder] = extractSseEvents(sseBuffer);
+    sseBuffer = remainder;
+
+    for (const eventBlock of events) {
+      const dataLines = [];
+      for (const rawLine of eventBlock.split('\n')) {
+        const line = rawLine.trimEnd();
+        if (line.startsWith('data:')) {
+          dataLines.push(line.slice(5).trimStart());
+        }
+      }
+
+      if (!dataLines.length) continue;
+      const payload = dataLines.join('\n');
+      if (!payload || payload === '[DONE]') continue;
+
+      const data = JSON.parse(payload);
+      if (data.error) {
+        throw new Error(data.error.message || 'TTS stream returned an error');
+      }
+
+      const parts = data?.candidates?.[0]?.content?.parts;
+      if (parts) {
+        for (const part of parts) {
+          if (part.inlineData) {
+            if (!mimeType && part.inlineData.mimeType) {
+              mimeType = part.inlineData.mimeType;
+            }
+            if (part.inlineData.data) {
+              audioChunks.push(part.inlineData.data);
+            }
+          }
+        }
+      }
+    }
+
+    if (done) break;
+  }
+
+  if (sseBuffer.trim()) {
+    const dataLines = [];
+    for (const rawLine of sseBuffer.split('\n')) {
+      const line = rawLine.trimEnd();
+      if (line.startsWith('data:')) {
+        dataLines.push(line.slice(5).trimStart());
+      }
+    }
+    const payload = dataLines.join('\n');
+    if (payload && payload !== '[DONE]') {
+      const data = JSON.parse(payload);
+      const parts = data?.candidates?.[0]?.content?.parts;
+      if (parts) {
+        for (const part of parts) {
+          if (part.inlineData) {
+            if (!mimeType && part.inlineData.mimeType) {
+              mimeType = part.inlineData.mimeType;
+            }
+            if (part.inlineData.data) {
+              audioChunks.push(part.inlineData.data);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  if (!audioChunks.length) {
+    throw new Error('TTS response did not contain any audio data');
+  }
+
+  const binaryChunks = audioChunks.map(b64 => {
+    const binary = atob(b64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+    return bytes;
+  });
+
+  const totalLength = binaryChunks.reduce((sum, chunk) => sum + chunk.length, 0);
+  const pcmData = new Uint8Array(totalLength);
+  let offset = 0;
+  for (const chunk of binaryChunks) {
+    pcmData.set(chunk, offset);
+    offset += chunk.length;
+  }
+
+  // Gemini TTS returns raw PCM 24kHz 16-bit LE mono — wrap in WAV header
+  const sampleRate = 24000;
+  const numChannels = 1;
+  const bitsPerSample = 16;
+  const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
+  const blockAlign = numChannels * (bitsPerSample / 8);
+  const wavHeader = new ArrayBuffer(44);
+  const view = new DataView(wavHeader);
+
+  const writeString = (offset, str) => {
+    for (let i = 0; i < str.length; i++) {
+      view.setUint8(offset + i, str.charCodeAt(i));
+    }
+  };
+
+  writeString(0, 'RIFF');
+  view.setUint32(4, 36 + pcmData.length, true);
+  writeString(8, 'WAVE');
+  writeString(12, 'fmt ');
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true); // PCM
+  view.setUint16(22, numChannels, true);
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, byteRate, true);
+  view.setUint16(32, blockAlign, true);
+  view.setUint16(34, bitsPerSample, true);
+  writeString(36, 'data');
+  view.setUint32(40, pcmData.length, true);
+
+  const blob = new Blob([wavHeader, pcmData], { type: 'audio/wav' });
+  const durationMs = Math.round((pcmData.length / blockAlign / sampleRate) * 1000);
+
+  return {
+    blob,
+    mimeType: 'audio/wav',
+    durationMs,
+    model: GEMINI_TTS_MODEL,
+    voice: GEMINI_TTS_VOICE,
+  };
 }

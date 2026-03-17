@@ -2,7 +2,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: sans-serif;
 }
 
 .header {
@@ -236,6 +236,7 @@
 }
 
 .formField input,
+.formField select,
 .formField textarea {
   padding: 8px 12px;
   border: 1px solid #cbd5e1;
@@ -514,4 +515,55 @@
   border-color: #cbd5e1;
   background: white;
   outline: none;
+}
+
+.playButton {
+  min-width: 28px;
+  text-align: center;
+  font-size: 10px;
+  padding: 4px 6px;
+}
+
+.playButtonCached {
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.playButtonCached:hover {
+  background: #f0fdf4;
+}
+
+.audioItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.audioItem:last-child {
+  border-bottom: none;
+}
+
+.audioStatus {
+  width: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #16a34a;
+  flex-shrink: 0;
+}
+
+.progressBar {
+  margin-top: 12px;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 3px;
+  transition: width 0.3s ease;
 }

@@ -13,6 +13,9 @@ export const MIGRATIONS = [
 
     db.createObjectStore("collections", { keyPath: 'id', autoIncrement: true });
   },
+  (db) => {
+    db.createObjectStore("audio_clips", { keyPath: "text" });
+  },
 ];
 
 export function openDatabase() {
