@@ -176,6 +176,12 @@
   font-size: 18px;
 }
 
+.sectionMeta {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
 .addButton {
   padding: 8px 16px;
   background: #3b82f6;
