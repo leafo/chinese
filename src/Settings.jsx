@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./index.module.css";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT } from "./display";
+import { useAudioStats } from "./audio";
+import { formatBytes } from "./util";
+import { exportDatabase, importDatabase } from "./backup";
 
 export function Settings() {
   const [apiKey, setApiKey, apiKeyLoading] = useConfig("gemini_api_key");
@@ -15,6 +18,14 @@ export function Settings() {
   const [openaiKeyDirty, setOpenaiKeyDirty] = useState(false);
   const [displayScriptDirty, setDisplayScriptDirty] = useState(false);
   const loading = apiKeyLoading || openaiKeyLoading;
+
+  // Backup state
+  const [includeAudio, setIncludeAudio] = useState(false);
+  const [exporting, setExporting] = useState(false);
+  const [importing, setImporting] = useState(false);
+  const [backupStatus, setBackupStatus] = useState(null);
+  const fileInputRef = useRef(null);
+  const [audioStats] = useAudioStats();
 
   useEffect(() => {
     if (!loading && !apiKeyDirty) {
@@ -47,6 +58,41 @@ export function Settings() {
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   };
+
+  const handleExport = async () => {
+    setExporting(true);
+    setBackupStatus(null);
+    try {
+      await exportDatabase({ includeAudio });
+      setBackupStatus({ type: 'success', message: 'Backup exported successfully.' });
+    } catch (err) {
+      setBackupStatus({ type: 'error', message: 'Export failed: ' + err.message });
+    } finally {
+      setExporting(false);
+    }
+  };
+
+  const handleImport = async () => {
+    const file = fileInputRef.current?.files?.[0];
+    if (!file) return;
+
+    setImporting(true);
+    setBackupStatus(null);
+    try {
+      const jsonString = await file.text();
+      const summary = await importDatabase(jsonString);
+      setBackupStatus({
+        type: 'success',
+        message: `Imported ${summary.words} words, ${summary.collections} collections, ${summary.config} config entries, ${summary.audioClips} audio clips. Reloading...`,
+      });
+      setTimeout(() => window.location.reload(), 1500);
+    } catch (err) {
+      setBackupStatus({ type: 'error', message: 'Import failed: ' + err.message });
+      setImporting(false);
+    }
+  };
+
+  const hasAudio = audioStats && audioStats.clipCount > 0;
 
   return (
     <div>
@@ -97,6 +143,69 @@ export function Settings() {
           </button>
         </div>
       </form>
+
+      <div className={styles.backupSection}>
+        <div className={styles.sectionHeader}>
+          <h2>Data Backup</h2>
+        </div>
+
+        <div className={styles.form}>
+          <div className={styles.formField}>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="checkbox"
+                checked={includeAudio}
+                onChange={(e) => setIncludeAudio(e.target.checked)}
+                disabled={!hasAudio}
+              />
+              Include audio cache
+              {audioStats
+                ? ` (${audioStats.clipCount} clips, ${formatBytes(audioStats.totalBytes)})`
+                : ''}
+            </label>
+          </div>
+          <div className={styles.formActions}>
+            <button
+              type="button"
+              className={styles.addButton}
+              onClick={handleExport}
+              disabled={exporting}
+            >
+              {exporting ? 'Exporting...' : 'Export Backup'}
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.form}>
+          <div className={styles.warningBox}>
+            <p>Importing will replace all existing data.</p>
+          </div>
+          <div className={styles.formField}>
+            <label>Select backup file</label>
+            <input
+              type="file"
+              accept=".json"
+              ref={fileInputRef}
+            />
+          </div>
+          <div className={styles.formActions}>
+            <button
+              type="button"
+              className={styles.addButton}
+              onClick={handleImport}
+              disabled={importing}
+            >
+              {importing ? 'Importing...' : 'Import Backup'}
+            </button>
+          </div>
+        </div>
+
+        {backupStatus && (
+          <div className={backupStatus.type === 'error' ? styles.errorBox : styles.successBox}>
+            <p>{backupStatus.message}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
