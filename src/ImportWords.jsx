@@ -1,12 +1,50 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import styles from "./index.module.css";
 import { setRoute } from "./router";
-import { insertWord } from "./words";
+import { insertWord, useAllWords } from "./words";
 import { useCollections } from "./collections";
 import { CollectionSelector } from "./CollectionSelector";
 import { useConfig } from "./config";
 import { ocrWords } from "./gemini";
 import { formatBytes } from "./util";
+
+function normalizeText(value) {
+  return value?.trim() || '';
+}
+
+function buildExistingWordsMap(existingWords) {
+  const map = new Map();
+  for (const word of existingWords) {
+    const s = normalizeText(word.simplified);
+    const t = normalizeText(word.traditional);
+    if (s && !map.has(s)) map.set(s, word);
+    if (t && !map.has(t)) map.set(t, word);
+  }
+  return map;
+}
+
+function getPossibleDuplicate(word, existingWordsMap) {
+  const simplified = normalizeText(word.simplified);
+  const traditional = normalizeText(word.traditional);
+
+  if (!simplified && !traditional) {
+    return null;
+  }
+
+  return (simplified && existingWordsMap.get(simplified)) ||
+    (traditional && existingWordsMap.get(traditional)) ||
+    null;
+}
+
+function formatDuplicateSummary(word) {
+  const parts = [
+    normalizeText(word.simplified) || normalizeText(word.traditional),
+    normalizeText(word.pinyin),
+    normalizeText(word.english),
+  ].filter(Boolean);
+
+  return parts.join(' | ');
+}
 
 export function ImportWords() {
   const fileRef = useRef(null);
@@ -24,6 +62,7 @@ export function ImportWords() {
   const [additionalInstructions, setAdditionalInstructions] = useState('');
   const [apiKey] = useConfig("gemini_api_key");
   const [collections, collectionsError, collectionsLoading] = useCollections();
+  const [existingWords] = useAllWords();
 
   useEffect(() => {
     if (!processing) {
@@ -95,9 +134,7 @@ export function ImportWords() {
       }
 
       setExtractedWords(result.words);
-      const sel = {};
-      result.words.forEach((_, i) => { sel[i] = true; });
-      setSelected(sel);
+      setSelected({});
     } catch (err) {
       if (controller.signal.aborted) {
         return;
@@ -161,15 +198,29 @@ export function ImportWords() {
     setSelected({});
   };
 
+  const existingWordsMap = useMemo(
+    () => buildExistingWordsMap(existingWords || []),
+    [existingWords]
+  );
+
+  const duplicateMatches = useMemo(
+    () => extractedWords?.map((word) => getPossibleDuplicate(word, existingWordsMap)) || [],
+    [extractedWords, existingWordsMap]
+  );
+
+  const isWordSelected = (index) => (
+    index in selected ? selected[index] : !duplicateMatches[index]
+  );
+
   const toggleAll = () => {
-    const allSelected = extractedWords.every((_, i) => selected[i]);
+    const allSelected = extractedWords.every((_, i) => isWordSelected(i));
     const sel = {};
     extractedWords.forEach((_, i) => { sel[i] = !allSelected; });
     setSelected(sel);
   };
 
   const toggleOne = (index) => {
-    setSelected({ ...selected, [index]: !selected[index] });
+    setSelected({ ...selected, [index]: !isWordSelected(index) });
   };
 
   const updateField = (index, field, value) => {
@@ -183,7 +234,9 @@ export function ImportWords() {
     const newSelected = {};
     updated.forEach((_, i) => {
       const oldIndex = i >= index ? i + 1 : i;
-      newSelected[i] = selected[oldIndex] ?? true;
+      if (oldIndex in selected) {
+        newSelected[i] = selected[oldIndex];
+      }
     });
     setExtractedWords(updated);
     setSelected(newSelected);
@@ -193,7 +246,7 @@ export function ImportWords() {
     setImporting(true);
     try {
       for (let i = 0; i < extractedWords.length; i++) {
-        if (selected[i]) {
+        if (isWordSelected(i)) {
           await insertWord({
             ...extractedWords[i],
             collection_ids: [...(extractedWords[i].collection_ids || []), ...collectionIds],
@@ -209,7 +262,7 @@ export function ImportWords() {
   };
 
   const selectedCount = extractedWords
-    ? extractedWords.filter((_, i) => selected[i]).length
+    ? extractedWords.filter((_, i) => isWordSelected(i)).length
     : 0;
 
   const reset = () => {
@@ -390,7 +443,7 @@ export function ImportWords() {
             <label className={styles.checkboxLabel}>
               <input
                 type="checkbox"
-                checked={extractedWords.every((_, i) => selected[i])}
+                checked={extractedWords.every((_, i) => isWordSelected(i))}
                 onChange={toggleAll}
               />
               Select All ({selectedCount}/{extractedWords.length})
@@ -409,45 +462,52 @@ export function ImportWords() {
 
           <ul className={styles.importList}>
             {extractedWords.map((word, index) => (
-              <li key={index} className={`${styles.importItem} ${!selected[index] ? styles.importItemDeselected : ''}`}>
+              <li key={index} className={`${styles.importItem} ${!isWordSelected(index) ? styles.importItemDeselected : ''}`}>
                 <input
                   type="checkbox"
-                  checked={!!selected[index]}
+                  checked={isWordSelected(index)}
                   onChange={() => toggleOne(index)}
                   className={styles.importCheckbox}
                 />
-                <div className={styles.importFields}>
-                  <input
-                    className={styles.importFieldChinese}
-                    value={word.simplified || ''}
-                    onChange={(e) => updateField(index, 'simplified', e.target.value)}
-                    placeholder="简体"
-                  />
-                  <input
-                    className={styles.importFieldSmall}
-                    value={word.traditional || ''}
-                    onChange={(e) => updateField(index, 'traditional', e.target.value)}
-                    placeholder="繁體"
-                  />
-                  <input
-                    className={styles.importFieldSmall}
-                    value={word.pinyin || ''}
-                    onChange={(e) => updateField(index, 'pinyin', e.target.value)}
-                    placeholder="pīnyīn"
-                  />
-                  <input
-                    className={styles.importFieldWide}
-                    value={word.english || ''}
-                    onChange={(e) => updateField(index, 'english', e.target.value)}
-                    placeholder="English"
-                  />
-                  <button
-                    className={styles.deleteButton}
-                    onClick={() => removeWord(index)}
-                    title="Remove"
-                  >
-                    &times;
-                  </button>
+                <div className={styles.importContent}>
+                  <div className={styles.importFields}>
+                    <input
+                      className={styles.importFieldChinese}
+                      value={word.simplified || ''}
+                      onChange={(e) => updateField(index, 'simplified', e.target.value)}
+                      placeholder="简体"
+                    />
+                    <input
+                      className={styles.importFieldSmall}
+                      value={word.traditional || ''}
+                      onChange={(e) => updateField(index, 'traditional', e.target.value)}
+                      placeholder="繁體"
+                    />
+                    <input
+                      className={styles.importFieldSmall}
+                      value={word.pinyin || ''}
+                      onChange={(e) => updateField(index, 'pinyin', e.target.value)}
+                      placeholder="pīnyīn"
+                    />
+                    <input
+                      className={styles.importFieldWide}
+                      value={word.english || ''}
+                      onChange={(e) => updateField(index, 'english', e.target.value)}
+                      placeholder="English"
+                    />
+                    <button
+                      className={styles.deleteButton}
+                      onClick={() => removeWord(index)}
+                      title="Remove"
+                    >
+                      &times;
+                    </button>
+                  </div>
+                  {duplicateMatches[index] && (
+                    <div className={styles.importStatusRow}>
+                      Possible duplicate: {formatDuplicateSummary(duplicateMatches[index])}
+                    </div>
+                  )}
                 </div>
               </li>
             ))}

@@ -94,3 +94,8 @@ export function useWords(limit = 50, offset = 0) {
   const dbVersion = useDependency();
   return useAsync(() => getWordsOrderedByIdDesc(limit, offset), [limit, offset, dbVersion]);
 }
+
+export function useAllWords() {
+  const dbVersion = useDependency();
+  return useAsync(() => getAllWords(), [dbVersion]);
+}
