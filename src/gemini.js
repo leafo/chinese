@@ -265,13 +265,9 @@ export async function completeWord(fields) {
   return geminiRequest(requestBody);
 }
 
-function buildOcrWordsRequestBody(base64Data, mimeType) {
-  return {
-    contents: [
-      {
-        parts: [
-          {
-            text: `Extract all Chinese vocabulary words from this image. This is likely a textbook page or word list.
+function buildOcrWordsPrompt(imageCount, additionalInstructions) {
+  const multi = imageCount > 1;
+  let prompt = `Extract all Chinese vocabulary words from ${multi ? 'these images' : 'this image'}. ${multi ? 'These are likely textbook pages or word lists' : 'This is likely a textbook page or word list'}.
 
 For each word found:
 - Provide both traditional and simplified Chinese characters
@@ -279,14 +275,30 @@ For each word found:
 - Provide the English definition
 - Include any usage notes, example sentences, or grammar notes if visible
 
-Extract every word you can identify in the image. If a word appears with its definition, include that definition. If you can see both traditional and simplified forms, include both.`
-          },
+Extract every word you can identify ${multi ? 'across all images' : 'in the image'}. If a word appears with its definition, include that definition. If you can see both traditional and simplified forms, include both.${multi ? ' Return a single combined words array for the full set of images.' : ''}`;
+
+  const trimmedInstructions = additionalInstructions?.trim();
+  if (trimmedInstructions) {
+    prompt += `\n\nAdditional instructions:\n${trimmedInstructions}`;
+  }
+
+  return prompt;
+}
+
+function buildOcrWordsRequestBody(images, additionalInstructions) {
+  return {
+    contents: [
+      {
+        parts: [
           {
+            text: buildOcrWordsPrompt(images.length, additionalInstructions)
+          },
+          ...images.map(({ base64Data, mimeType }) => ({
             inlineData: {
-              mimeType: mimeType,
+              mimeType,
               data: base64Data
             }
-          }
+          }))
         ]
       }
     ],
@@ -311,10 +323,15 @@ async function encodeFileAsInlineData(file) {
   };
 }
 
-export async function ocrWords(file, options = {}) {
-  const { base64Data, mimeType } = await encodeFileAsInlineData(file);
-  const requestBody = buildOcrWordsRequestBody(base64Data, mimeType);
-  const { onChunk, signal } = options;
+export async function ocrWords(files, options = {}) {
+  const fileList = Array.isArray(files) ? files : [files];
+  if (!fileList.length) {
+    throw new Error('At least one image is required for OCR');
+  }
+
+  const images = await Promise.all(fileList.map(encodeFileAsInlineData));
+  const { onChunk, signal, additionalInstructions } = options;
+  const requestBody = buildOcrWordsRequestBody(images, additionalInstructions);
 
   if (onChunk) {
     return geminiStreamRequest(requestBody, { onChunk, signal });

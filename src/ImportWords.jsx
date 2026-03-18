@@ -6,18 +6,22 @@ import { useCollections } from "./collections";
 import { CollectionSelector } from "./CollectionSelector";
 import { useConfig } from "./config";
 import { ocrWords } from "./gemini";
+import { formatBytes } from "./util";
 
 export function ImportWords() {
   const fileRef = useRef(null);
   const abortRef = useRef(null);
+  const nextImageIdRef = useRef(1);
   const [extractedWords, setExtractedWords] = useState(null);
   const [selected, setSelected] = useState({});
+  const [selectedImages, setSelectedImages] = useState([]);
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState(null);
   const [importing, setImporting] = useState(false);
   const [streamText, setStreamText] = useState('');
   const [elapsedMs, setElapsedMs] = useState(0);
   const [collectionIds, setCollectionIds] = useState([]);
+  const [additionalInstructions, setAdditionalInstructions] = useState('');
   const [apiKey] = useConfig("gemini_api_key");
   const [collections, collectionsError, collectionsLoading] = useCollections();
 
@@ -42,7 +46,29 @@ export function ImportWords() {
     };
   }, []);
 
-  const processFile = async (file) => {
+  const queueImages = (files) => {
+    const imageFiles = files.filter((file) => file?.type?.startsWith('image/'));
+    if (!imageFiles.length) {
+      return;
+    }
+
+    setError(null);
+    setSelectedImages((currentImages) => [
+      ...currentImages,
+      ...imageFiles.map((file) => ({
+        id: nextImageIdRef.current++,
+        file,
+        name: file.name || `Image ${nextImageIdRef.current - 1}`,
+        size: file.size || 0,
+      })),
+    ]);
+  };
+
+  const processImages = async (images) => {
+    if (!images.length) {
+      return;
+    }
+
     abortRef.current?.abort();
     const controller = new AbortController();
     abortRef.current = controller;
@@ -56,8 +82,9 @@ export function ImportWords() {
     setElapsedMs(0);
 
     try {
-      const result = await ocrWords(file, {
+      const result = await ocrWords(images.map(({ file }) => file), {
         signal: controller.signal,
+        additionalInstructions,
         onChunk: (_chunk, fullText) => {
           setStreamText(fullText);
         },
@@ -84,28 +111,44 @@ export function ImportWords() {
     }
   };
 
-  const handleFileChange = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    processFile(file);
+  const handleFileChange = (e) => {
+    const files = Array.from(e.target.files || []);
+    queueImages(files);
+    if (fileRef.current) {
+      fileRef.current.value = '';
+    }
   };
 
   useEffect(() => {
     const handlePaste = (e) => {
+      if (processing || extractedWords) {
+        return;
+      }
+
       const items = e.clipboardData?.items;
       if (!items) return;
+      const pastedFiles = [];
+
       for (const item of items) {
         if (item.type.startsWith('image/')) {
-          e.preventDefault();
-          processFile(item.getAsFile());
-          return;
+          const file = item.getAsFile();
+          if (file) {
+            pastedFiles.push(file);
+          }
         }
       }
+
+      if (!pastedFiles.length) {
+        return;
+      }
+
+      e.preventDefault();
+      queueImages(pastedFiles);
     };
 
     window.addEventListener('paste', handlePaste);
     return () => window.removeEventListener('paste', handlePaste);
-  }, []);
+  }, [extractedWords, processing]);
 
   const cancelProcessing = () => {
     abortRef.current?.abort();
@@ -116,10 +159,6 @@ export function ImportWords() {
     setError(null);
     setExtractedWords(null);
     setSelected({});
-    setCollectionIds([]);
-    if (fileRef.current) {
-      fileRef.current.value = '';
-    }
   };
 
   const toggleAll = () => {
@@ -176,6 +215,7 @@ export function ImportWords() {
   const reset = () => {
     abortRef.current?.abort();
     abortRef.current = null;
+    setSelectedImages([]);
     setExtractedWords(null);
     setSelected({});
     setError(null);
@@ -184,6 +224,14 @@ export function ImportWords() {
     setElapsedMs(0);
     setCollectionIds([]);
     if (fileRef.current) fileRef.current.value = '';
+  };
+
+  const removeSelectedImage = (imageId) => {
+    setSelectedImages((currentImages) => currentImages.filter((image) => image.id !== imageId));
+  };
+
+  const handleProcessImages = () => {
+    processImages(selectedImages);
   };
 
   const toggleCollection = (collectionId) => {
@@ -198,6 +246,7 @@ export function ImportWords() {
   const streamStatus = streamText
     ? 'Streaming structured JSON from Gemini...'
     : 'Uploading image and waiting for the first JSON chunk...';
+  const selectedImageCount = selectedImages.length;
 
   return (
     <div>
@@ -216,15 +265,73 @@ export function ImportWords() {
 
       {!extractedWords && !processing && (
         <div className={styles.importUpload}>
-          <p>Take a photo, select an image, or paste (Ctrl+V) a screenshot to extract words.</p>
-          <input
-            ref={fileRef}
-            type="file"
-            accept="image/*"
-            capture="environment"
-            onChange={handleFileChange}
-            className={styles.fileInput}
-          />
+          <div className={styles.importUploadHeader}>
+            <p>Select one or more images, or paste screenshots, then submit the batch for extraction.</p>
+          </div>
+          <div className={styles.importUploadOptions}>
+            <div className={styles.formField}>
+              <label htmlFor="bulk-import-additional-instructions">Additional Instructions</label>
+              <textarea
+                id="bulk-import-additional-instructions"
+                value={additionalInstructions}
+                onChange={(e) => setAdditionalInstructions(e.target.value)}
+                placeholder="Optional guidance for Gemini, such as textbook conventions, expected formatting, or what to ignore."
+                rows={4}
+              />
+              <p className={styles.fieldHint}>
+                Leave blank to use the standard extraction prompt with no changes.
+              </p>
+            </div>
+            <div className={styles.importUploadQueue}>
+              <div className={styles.importUploadQueueHeader}>
+                <strong>{selectedImageCount} image{selectedImageCount !== 1 ? 's' : ''} selected</strong>
+                {selectedImageCount > 0 && (
+                  <button className={styles.smallButton} onClick={() => setSelectedImages([])}>
+                    Clear Images
+                  </button>
+                )}
+              </div>
+              {selectedImageCount > 0 ? (
+                <ul className={styles.importUploadImageList}>
+                  {selectedImages.map((image) => (
+                    <li key={image.id} className={styles.importUploadImageItem}>
+                      <div className={styles.importUploadImageMeta}>
+                        <span className={styles.importUploadImageName}>{image.name}</span>
+                        <span className={styles.importUploadImageSize}>
+                          {formatBytes(image.size)}
+                        </span>
+                      </div>
+                      <button className={styles.deleteButton} onClick={() => removeSelectedImage(image.id)}>
+                        Remove
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className={styles.fieldHint}>
+                  No images queued yet. Use the file picker or paste one or more screenshots.
+                </p>
+              )}
+            </div>
+          </div>
+          <div className={styles.importUploadActions}>
+            <input
+              ref={fileRef}
+              type="file"
+              accept="image/*"
+              capture="environment"
+              multiple
+              onChange={handleFileChange}
+              className={styles.fileInput}
+            />
+            <button
+              className={styles.addButton}
+              onClick={handleProcessImages}
+              disabled={!selectedImageCount || !apiKey}
+            >
+              Process {selectedImageCount || ''} Image{selectedImageCount === 1 ? '' : 's'}
+            </button>
+          </div>
         </div>
       )}
 
@@ -232,6 +339,7 @@ export function ImportWords() {
         <div className={styles.processingState}>
           <p>{streamStatus}</p>
           <div className={styles.processingMeta}>
+            <span>Images: {selectedImageCount}</span>
             <span>Elapsed: {elapsedSeconds}s</span>
             <span>Received: {streamText.length.toLocaleString()} chars</span>
           </div>
@@ -247,7 +355,12 @@ export function ImportWords() {
       {error && (
         <div className={styles.errorBox}>
           <p>{error}</p>
-          <button className={styles.smallButton} onClick={reset}>Try Again</button>
+          <button
+            className={styles.smallButton}
+            onClick={selectedImageCount && !extractedWords ? () => setError(null) : reset}
+          >
+            {selectedImageCount && !extractedWords ? 'Dismiss' : 'Try Again'}
+          </button>
         </div>
       )}
 
