@@ -6,6 +6,7 @@ import { CollectionSelector } from "./CollectionSelector";
 import { completeWord } from "./gemini";
 import { setRoute } from "./router";
 import { PlayButton } from "./PlayButton";
+import { useAudio, deleteCachedAudio } from "./audio";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
@@ -111,6 +112,58 @@ function WordForm({ onSave, onCancel, initial, collections, collectionsLoading, 
   );
 }
 
+function AudioTableRow({ text }) {
+  const [cached] = useAudio(text);
+  if (!cached) return null;
+
+  const date = cached.createdAt
+    ? new Date(cached.createdAt).toLocaleDateString()
+    : '—';
+
+  return (
+    <tr>
+      <td><PlayButton text={text} /></td>
+      <td style={{ fontSize: 16 }}>{text}</td>
+      <td>{cached.model || '—'}</td>
+      <td>{date}</td>
+      <td>
+        <button
+          type="button"
+          className={styles.deleteButton}
+          onClick={async () => {
+            if (confirm(`Delete cached audio for "${text}"?`)) {
+              await deleteCachedAudio(text);
+            }
+          }}
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  );
+}
+
+function AudioTable({ texts }) {
+  return (
+    <table className={styles.audioTable}>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Word</th>
+          <th>Model</th>
+          <th>Created</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {texts.map(text => (
+          <AudioTableRow key={text} text={text} />
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
 function EditWordDialog({
   word,
   onSave,
@@ -122,6 +175,7 @@ function EditWordDialog({
 }) {
   const dialogRef = useRef(null);
   const [deleteArmed, setDeleteArmed] = useState(false);
+  const audioTexts = [...new Set([word.simplified, word.traditional].filter(Boolean))];
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -182,6 +236,10 @@ function EditWordDialog({
           collectionsLoading={collectionsLoading}
           collectionsError={collectionsError}
         />
+        <div className={styles.audioSection}>
+          <h4 className={styles.audioSectionTitle}>Audio Clips</h4>
+          <AudioTable texts={audioTexts} />
+        </div>
         <details className={styles.formDetails}>
           <summary className={styles.formDetailsSummary}>Delete...</summary>
           <div className={styles.formDetailsContent}>

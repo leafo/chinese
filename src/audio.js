@@ -11,6 +11,10 @@ export async function getCachedAudio(text) {
   return store.get(text);
 }
 
+export async function deleteCachedAudio(text) {
+  return store.remove(text);
+}
+
 export async function getAudioStats() {
   const records = await store.getAll();
   const totalBytes = records.reduce((sum, record) => sum + (record.blob?.size || 0), 0);

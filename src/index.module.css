@@ -839,6 +839,45 @@
   transition: width 0.3s ease;
 }
 
+.audioSection {
+  padding: 16px;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.audioSectionTitle {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.audioTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.audioTable th {
+  text-align: left;
+  font-weight: 600;
+  color: #64748b;
+  padding: 6px 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.audioTable td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.audioTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
 /* Flashcard styles */
 
 .primaryButton {
