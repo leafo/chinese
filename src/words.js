@@ -1,5 +1,6 @@
 import { IndexedDBStore } from './database';
 import { useAsync } from './util';
+import { deleteCardsForWord } from './flashcardData';
 import React from 'react';
 
 class Word {
@@ -44,7 +45,11 @@ export const updateWord = async (word) => store.put({
   ...word,
   collection_ids: normalizeCollectionIds(word.collection_ids),
 });
-export const deleteWord = async (id) => store.remove(parseId(id));
+export const deleteWord = async (id) => {
+  const parsedId = parseId(id);
+  await deleteCardsForWord(parsedId);
+  return store.remove(parsedId);
+};
 
 export const findWord = async (id) => {
   const result = await store.get(parseId(id));

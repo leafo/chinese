@@ -16,6 +16,11 @@ export const MIGRATIONS = [
   (db) => {
     db.createObjectStore("audio_clips", { keyPath: "text" });
   },
+  (db) => {
+    const reviews = db.createObjectStore("flashcard_reviews", { keyPath: "key" });
+    reviews.createIndex("by_dueDate", "dueDate", { unique: false });
+    reviews.createIndex("by_wordId", "wordId", { unique: false });
+  },
 ];
 
 export function openDatabase() {

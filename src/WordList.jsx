@@ -5,43 +5,9 @@ import { useCollections } from "./collections";
 import { CollectionSelector } from "./CollectionSelector";
 import { completeWord } from "./gemini";
 import { setRoute } from "./router";
-import { playAudio, playOpenAiTts, useAudio } from "./audio";
+import { PlayButton } from "./PlayButton";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
-
-function PlayButton({ text }) {
-  const [cached] = useAudio(text);
-  const [playing, setPlaying] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handlePlay = async (e) => {
-    if (!text) return;
-    setLoading(true);
-    try {
-      const audio = e.shiftKey
-        ? await playOpenAiTts(text)
-        : await playAudio(text);
-      setPlaying(true);
-      audio.addEventListener('ended', () => setPlaying(false), { once: true });
-      audio.addEventListener('error', () => setPlaying(false), { once: true });
-    } catch (err) {
-      console.error('Audio playback failed:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <button
-      className={`${styles.smallButton} ${styles.playButton} ${cached ? styles.playButtonCached : ''}`}
-      onClick={handlePlay}
-      disabled={loading || playing}
-      title={cached ? 'Play audio' : 'Generate & play audio'}
-    >
-      {loading ? '...' : playing ? '\u25A0' : '\u25B6'}
-    </button>
-  );
-}
 
 function WordForm({ onSave, onCancel, initial, collections, collectionsLoading, collectionsError }) {
   const [form, setForm] = useState({

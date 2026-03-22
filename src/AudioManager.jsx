@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./index.module.css";
 import { useWords } from "./words";
-import { useAudio, useAudioStats, playAudio, playOpenAiTts, getCachedAudio, generateAudioForWords } from "./audio";
+import { useAudio, useAudioStats, getCachedAudio, generateAudioForWords } from "./audio";
+import { PlayButton } from "./PlayButton";
 import { useConfig } from "./config";
 import { formatBytes } from "./util";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
@@ -9,25 +10,6 @@ import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 function AudioWordRow({ word, preferredScript }) {
   const text = getPreferredChineseText(word, preferredScript);
   const [cached] = useAudio(text);
-  const [playing, setPlaying] = useState(false);
-  const [generating, setGenerating] = useState(false);
-
-  const handlePlay = async (e) => {
-    if (!text) return;
-    setGenerating(true);
-    try {
-      const audio = e.shiftKey
-        ? await playOpenAiTts(text)
-        : await playAudio(text);
-      setPlaying(true);
-      setGenerating(false);
-      audio.addEventListener('ended', () => setPlaying(false), { once: true });
-      audio.addEventListener('error', () => setPlaying(false), { once: true });
-    } catch (err) {
-      console.error('Audio playback failed:', err);
-      setGenerating(false);
-    }
-  };
 
   return (
     <li className={styles.audioItem}>
@@ -38,13 +20,7 @@ function AudioWordRow({ word, preferredScript }) {
       <span className={styles.wordPinyin}>{word.pinyin}</span>
       <span className={styles.wordEnglish}>{word.english}</span>
       <div className={styles.wordActions}>
-        <button
-          className={`${styles.smallButton} ${styles.playButton} ${cached ? styles.playButtonCached : ''}`}
-          onClick={handlePlay}
-          disabled={generating || playing}
-        >
-          {generating ? '...' : playing ? '\u25A0' : '\u25B6'}
-        </button>
+        <PlayButton text={text} />
       </div>
     </li>
   );

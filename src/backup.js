@@ -2,6 +2,7 @@ import { store as wordsStore } from './words';
 import { store as collectionsStore } from './collections';
 import { config } from './config';
 import { store as audioStore } from './audio';
+import { store as flashcardStore } from './flashcardData';
 import { resetAll } from './database';
 
 const API_KEY_FIELDS = ['gemini_api_key', 'openai_api_key'];
@@ -52,11 +53,12 @@ function deserializeAudioClip(clip) {
 }
 
 export async function exportDatabase({ includeAudio = false } = {}) {
-  const [words, collections, configData, audioClips] = await Promise.all([
+  const [words, collections, configData, audioClips, flashcardReviews] = await Promise.all([
     wordsStore.getAll(),
     collectionsStore.getAll(),
     config.getAll(),
     includeAudio ? audioStore.getAll() : Promise.resolve(null),
+    flashcardStore.getAll(),
   ]);
 
   const filteredConfig = configData.filter(entry => !API_KEY_FIELDS.includes(entry.key));
@@ -68,6 +70,7 @@ export async function exportDatabase({ includeAudio = false } = {}) {
       config: filteredConfig,
       words,
       collections,
+      flashcard_reviews: flashcardReviews,
     },
   };
 
@@ -112,6 +115,7 @@ export async function importDatabase(jsonString) {
     ['words', stores.words],
     ['collections', stores.collections],
     ['audio_clips', stores.audio_clips],
+    ['flashcard_reviews', stores.flashcard_reviews],
   ].filter(([, records]) => records?.length);
 
   if (storesToWrite.length === 0) {
@@ -137,5 +141,6 @@ export async function importDatabase(jsonString) {
     collections: stores.collections?.length || 0,
     config: stores.config?.length || 0,
     audioClips: stores.audio_clips?.length || 0,
+    flashcardReviews: stores.flashcard_reviews?.length || 0,
   };
 }

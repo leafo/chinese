@@ -150,7 +150,7 @@ export async function generateAudioForWords(words, { onProgress, signal, getText
 let currentAudioEl = null;
 let currentAudioUrl = null;
 
-function stopCurrentAudio() {
+export function stopCurrentAudio() {
   if (currentAudioEl) {
     currentAudioEl.pause();
     currentAudioEl = null;
@@ -183,17 +183,19 @@ export function playBlob(blob) {
   return audio;
 }
 
-export async function playAudio(text, { signal } = {}) {
+export async function playAudio(text, { signal, onStart } = {}) {
   const record = await getOrGenerateAudio(text, { signal });
   const audio = playBlob(record.blob);
+  onStart?.(audio);
   await audio.play();
   return audio;
 }
 
-export async function playOpenAiTts(text) {
+export async function playOpenAiTts(text, { onStart } = {}) {
   const { generateTts } = await import('./openai.js');
   const result = await generateTts(text);
   const audio = playBlob(result.blob);
+  onStart?.(audio);
   await audio.play();
   return audio;
 }

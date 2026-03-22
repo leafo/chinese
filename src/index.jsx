@@ -6,6 +6,7 @@ import { CollectionList } from "./CollectionList";
 import { ImportWords } from "./ImportWords";
 import { Settings } from "./Settings";
 import { AudioManager } from "./AudioManager";
+import { Flashcards } from "./Flashcards";
 
 function App() {
   const route = useRoute(['view']);
@@ -35,6 +36,12 @@ function App() {
             Audio
           </button>
           <button
+            className={view === 'flashcards' ? styles.navButtonActive : styles.navButton}
+            onClick={() => setRoute({ view: 'flashcards' })}
+          >
+            Review
+          </button>
+          <button
             className={view === 'settings' ? styles.navButtonActive : styles.navButton}
             onClick={() => setRoute({ view: 'settings' })}
           >
@@ -47,6 +54,7 @@ function App() {
       {view === 'collections' && <CollectionList />}
       {view === 'import' && <ImportWords />}
       {view === 'audio' && <AudioManager />}
+      {view === 'flashcards' && <Flashcards />}
       {view === 'settings' && <Settings />}
     </div>
   );
