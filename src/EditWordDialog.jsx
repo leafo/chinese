@@ -109,9 +109,8 @@ export function WordForm({ onSave, onCancel, initial, collections, collectionsLo
 
 function AudioTableRow({ text }) {
   const [cached] = useAudio(text);
-  if (!cached) return null;
 
-  const date = cached.createdAt
+  const date = cached?.createdAt
     ? new Date(cached.createdAt).toLocaleDateString()
     : '—';
 
@@ -119,20 +118,22 @@ function AudioTableRow({ text }) {
     <tr>
       <td><PlayButton text={text} /></td>
       <td style={{ fontSize: 16 }}>{text}</td>
-      <td>{cached.model || '—'}</td>
+      <td>{cached?.model || '—'}</td>
       <td>{date}</td>
       <td>
-        <button
-          type="button"
-          className={styles.deleteButton}
-          onClick={async () => {
-            if (confirm(`Delete cached audio for "${text}"?`)) {
-              await deleteCachedAudio(text);
-            }
-          }}
-        >
-          Delete
-        </button>
+        {cached && (
+          <button
+            type="button"
+            className={styles.deleteButton}
+            onClick={async () => {
+              if (confirm(`Delete cached audio for "${text}"?`)) {
+                await deleteCachedAudio(text);
+              }
+            }}
+          >
+            Delete
+          </button>
+        )}
       </td>
     </tr>
   );

@@ -2,8 +2,10 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import styles from "./index.module.css";
 import { useFlashcardStats, ensureCardsForAllWords, getNextDueCard, rateCard, projectedInterval, formatInterval } from "./flashcardData";
 import { PlayButton } from "./PlayButton";
+import { updateWord, deleteWord, findWord } from "./words";
 import { useCollections } from "./collections";
 import { CollectionSelector } from "./CollectionSelector";
+import { EditWordDialog } from "./EditWordDialog";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
@@ -106,7 +108,7 @@ function ChineseDisplay({ word, displayScript, autoPlay }) {
   );
 }
 
-function FlashcardCard({ card, revealed, busy, onReveal, onRate, displayScript }) {
+function FlashcardCard({ card, revealed, busy, onReveal, onRate, onEdit, displayScript }) {
   const word = card.word;
   const isZh2En = card.direction === 'zh2en';
 
@@ -158,6 +160,7 @@ function FlashcardCard({ card, revealed, busy, onReveal, onRate, displayScript }
             <ChineseDisplay word={word} displayScript={displayScript} autoPlay={!isZh2En} />
             <div className={styles.flashcardEnglish}>{word.english}</div>
             {word.notes && <div className={styles.flashcardNotes}>{word.notes}</div>}
+            <button type="button" className={styles.smallButton} onClick={onEdit} disabled={busy}>Edit</button>
           </div>
         )}
       </div>
@@ -233,6 +236,7 @@ export function Flashcards() {
   const [results, setResults] = useState([]);
   const [loadingCard, setLoadingCard] = useState(false);
   const [ratingPending, setRatingPending] = useState(false);
+  const [editingWord, setEditingWord] = useState(null);
   const ratingPendingRef = useRef(false);
   const activeFilterRef = useRef(selectedCollectionIds);
 
@@ -344,11 +348,32 @@ export function Flashcards() {
       <FlashcardCard
         card={card}
         revealed={revealed}
-        busy={ratingPending}
+        busy={ratingPending || !!editingWord}
         onReveal={handleReveal}
         onRate={handleRate}
+        onEdit={() => setEditingWord(card.word)}
         displayScript={displayScript || DEFAULT_DISPLAY_SCRIPT}
       />
+      {editingWord && (
+        <EditWordDialog
+          key={editingWord.id}
+          word={editingWord}
+          onSave={async (form) => {
+            await updateWord(form);
+            setEditingWord(null);
+            const updated = await findWord(form.id);
+            setCard(prev => prev ? { ...prev, word: updated } : prev);
+          }}
+          onDelete={async (id) => {
+            await deleteWord(id);
+            setEditingWord(null);
+            await fetchNextCard();
+          }}
+          onClose={() => setEditingWord(null)}
+          collections={collections || []}
+          collectionsLoading={collectionsLoading}
+        />
+      )}
     </div>
   );
 }
