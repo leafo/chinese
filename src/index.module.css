@@ -927,6 +927,28 @@
   margin-top: 4px;
 }
 
+.flashcardFilter {
+  padding: 14px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.flashcardFilterHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.flashcardFilterLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .flashcardActions {
   display: flex;
   align-items: center;

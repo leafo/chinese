@@ -1,5 +1,5 @@
 import { IndexedDBStore } from './database';
-import { findWord, getAllWords } from './words';
+import { getAllWords } from './words';
 import { useAsync } from './util';
 import React from 'react';
 
@@ -115,23 +115,27 @@ export async function rateCard(key, rating) {
   return updated;
 }
 
-export async function getDueCards(limit = 20) {
-  const now = nowISO();
-  const allDueCards = (await store.getAll()).filter(card => card.dueDate <= now);
+function wordMatchesCollections(word, collectionIds) {
+  if (!collectionIds || collectionIds.length === 0) return true;
+  const wordCollections = word.collection_ids || [];
+  return collectionIds.some(id => wordCollections.includes(id));
+}
 
-  const wordIds = [...new Set(allDueCards.map(card => card.wordId))];
-  const words = await Promise.all(wordIds.map(async (wordId) => {
-    try {
-      return await findWord(wordId);
-    } catch {
-      return null;
-    }
-  }));
-  const wordMap = new Map(
-    wordIds
-      .map((wordId, index) => [wordId, words[index]])
-      .filter(([, word]) => word)
+async function buildWordMap(collectionIds) {
+  const allWords = await getAllWords();
+  return new Map(
+    allWords
+      .filter(word => wordMatchesCollections(word, collectionIds))
+      .map(word => [word.id, word])
   );
+}
+
+export async function getDueCards(limit = 20, { collectionIds } = {}) {
+  const now = nowISO();
+  const [allDueCards, wordMap] = await Promise.all([
+    store.getAll().then(cards => cards.filter(card => card.dueDate <= now)),
+    buildWordMap(collectionIds),
+  ]);
 
   const dueCards = allDueCards
     .filter(card => wordMap.has(card.wordId))
@@ -148,19 +152,21 @@ export async function getDueCards(limit = 20) {
   }));
 }
 
-export async function getNextDueCard() {
-  const cards = await getDueCards(1);
+export async function getNextDueCard({ collectionIds } = {}) {
+  const cards = await getDueCards(1, { collectionIds });
   return cards[0] || null;
 }
 
-export async function getStats() {
+export async function getStats({ collectionIds } = {}) {
   const now = nowISO();
-  const cards = await store.getAll();
+  const [allCards, wordMap] = await Promise.all([
+    store.getAll(),
+    buildWordMap(collectionIds),
+  ]);
 
-  let due = 0;
-  let newCount = 0;
-  let learning = 0;
-  let mature = 0;
+  const cards = allCards.filter(c => wordMap.has(c.wordId));
+
+  let due = 0, newCount = 0, learning = 0, mature = 0;
   for (const card of cards) {
     if (card.dueDate <= now) due++;
     if (card.repetitions === 0) newCount++;
@@ -192,9 +198,10 @@ export function useDependency() {
   return version;
 }
 
-export function useFlashcardStats() {
+export function useFlashcardStats(collectionIds) {
   const dbVersion = useDependency();
-  return useAsync(() => getStats(), [dbVersion]);
+  const key = collectionIds ? collectionIds.join(',') : '';
+  return useAsync(() => getStats({ collectionIds }), [dbVersion, key]);
 }
 
 export function useDueCards(limit = 20) {

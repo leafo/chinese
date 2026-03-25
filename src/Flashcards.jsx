@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import styles from "./index.module.css";
 import { useFlashcardStats, ensureCardsForAllWords, getNextDueCard, rateCard, projectedInterval, formatInterval } from "./flashcardData";
 import { PlayButton } from "./PlayButton";
+import { useCollections } from "./collections";
+import { CollectionSelector } from "./CollectionSelector";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
@@ -12,7 +14,7 @@ const RATINGS = [
   { key: 'easy', label: 'Easy', className: 'ratingEasy' },
 ];
 
-function FlashcardDashboard({ stats, loading, error, onStart }) {
+function FlashcardDashboard({ stats, loading, error, onStart, collections, collectionsLoading, selectedCollectionIds, onToggleCollection }) {
   const [syncing, setSyncing] = useState(false);
 
   const handleSync = async () => {
@@ -48,6 +50,24 @@ function FlashcardDashboard({ stats, loading, error, onStart }) {
           <div className={styles.flashcardStatLabel}>Mature</div>
         </div>
       </div>
+
+      {collections && collections.length > 0 && (
+        <div className={styles.flashcardFilter}>
+          <div className={styles.flashcardFilterHeader}>
+            <span className={styles.flashcardFilterLabel}>Filter by collection</span>
+            {selectedCollectionIds.length === 0 && (
+              <span className={styles.formHint}>All cards</span>
+            )}
+          </div>
+          <CollectionSelector
+            collections={collections}
+            loading={collectionsLoading}
+            selectedIds={selectedCollectionIds}
+            onToggle={onToggleCollection}
+            emptyMessage=""
+          />
+        </div>
+      )}
 
       <div className={styles.flashcardActions}>
         <button
@@ -203,7 +223,9 @@ function FlashcardSummary({ results, onContinue, onDone, allDone }) {
 
 export function Flashcards() {
   const [displayScript] = useConfig("display_script");
-  const [statsResult, statsError, statsLoading] = useFlashcardStats();
+  const [collections, , collectionsLoading] = useCollections();
+  const [selectedCollectionIds, setSelectedCollectionIds] = useState([]);
+  const [statsResult, statsError, statsLoading] = useFlashcardStats(selectedCollectionIds);
 
   const [active, setActive] = useState(false);
   const [card, setCard] = useState(null);
@@ -212,11 +234,18 @@ export function Flashcards() {
   const [loadingCard, setLoadingCard] = useState(false);
   const [ratingPending, setRatingPending] = useState(false);
   const ratingPendingRef = useRef(false);
+  const activeFilterRef = useRef(selectedCollectionIds);
+
+  const toggleCollection = useCallback((id) => {
+    setSelectedCollectionIds(prev =>
+      prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
+    );
+  }, []);
 
   const fetchNextCard = useCallback(async () => {
     setLoadingCard(true);
     try {
-      const next = await getNextDueCard();
+      const next = await getNextDueCard({ collectionIds: activeFilterRef.current });
       setCard(next);
       setRevealed(false);
     } finally {
@@ -225,11 +254,12 @@ export function Flashcards() {
   }, []);
 
   const startReview = useCallback(async () => {
+    activeFilterRef.current = selectedCollectionIds;
     await ensureCardsForAllWords();
     setResults([]);
     setActive(true);
     await fetchNextCard();
-  }, [fetchNextCard]);
+  }, [fetchNextCard, selectedCollectionIds]);
 
   const handleReveal = useCallback(() => {
     setRevealed(true);
@@ -279,6 +309,10 @@ export function Flashcards() {
           loading={statsLoading}
           error={statsError}
           onStart={startReview}
+          collections={collections}
+          collectionsLoading={collectionsLoading}
+          selectedCollectionIds={selectedCollectionIds}
+          onToggleCollection={toggleCollection}
         />
       </div>
     );
