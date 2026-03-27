@@ -29,7 +29,7 @@ function FlashcardDashboard({ stats, loading, error, onStart, collections, colle
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading && !stats) return <div>Loading...</div>;
   if (error) return <div>Error loading flashcards: {error.message || String(error)}</div>;
 
   return (

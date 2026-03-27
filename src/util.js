@@ -43,7 +43,6 @@ export function useAsync(fn, inputs) {
 
   React.useEffect(() => {
     setLoading(true);
-    setResult(null);
     setError(null);
 
     let isMounted = true;

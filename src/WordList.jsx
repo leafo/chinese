@@ -32,7 +32,7 @@ export function WordList() {
     setEditingWord(current => (current?.id === id ? null : current));
   };
 
-  if (loading) return <p>Loading words...</p>;
+  if (loading && !words) return <p>Loading words...</p>;
   if (error) return <p>Error loading words: {error.message}</p>;
 
   return (

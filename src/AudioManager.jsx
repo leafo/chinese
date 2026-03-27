@@ -115,7 +115,7 @@ export function AudioManager() {
     setBulkProgress(null);
   };
 
-  if (loading) return <p>Loading words...</p>;
+  if (loading && !words) return <p>Loading words...</p>;
   if (error) return <p>Error loading words: {error.message}</p>;
 
   return (

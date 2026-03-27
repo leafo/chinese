@@ -60,7 +60,7 @@ export function CollectionList() {
     setEditingCollection(null);
   };
 
-  if (loading) return <p>Loading collections...</p>;
+  if (loading && !collections) return <p>Loading collections...</p>;
   if (error) return <p>Error loading collections: {error.message}</p>;
 
   return (
