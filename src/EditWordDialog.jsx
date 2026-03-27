@@ -4,6 +4,7 @@ import { CollectionSelector } from "./CollectionSelector";
 import { completeWord } from "./gemini";
 import { PlayButton } from "./PlayButton";
 import { useAudio, deleteCachedAudio } from "./audio";
+import { useModalDialog } from "./util";
 
 export function WordForm({ onSave, onCancel, initial, collections, collectionsLoading, collectionsError }) {
   const [form, setForm] = useState({
@@ -169,26 +170,9 @@ export function EditWordDialog({
   collectionsLoading,
   collectionsError,
 }) {
-  const dialogRef = useRef(null);
+  const dialogRef = useModalDialog();
   const [deleteArmed, setDeleteArmed] = useState(false);
   const audioTexts = [...new Set([word.simplified, word.traditional].filter(Boolean))];
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog) {
-      return;
-    }
-
-    if (!dialog.open) {
-      dialog.showModal();
-    }
-
-    return () => {
-      if (dialog.open) {
-        dialog.close();
-      }
-    };
-  }, []);
 
   const handleSave = async (form) => {
     await onSave({ ...form, id: word.id });

@@ -197,6 +197,27 @@ export class IndexedDBStore {
     });
   }
 
+  async putMany(values) {
+    const db = await this.getDb();
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction([this.storeName], 'readwrite');
+      const store = transaction.objectStore(this.storeName);
+
+      for (const value of values) {
+        store.put(value);
+      }
+
+      transaction.oncomplete = () => {
+        this.eventEmitter.emit(null, null);
+        resolve(true);
+      };
+
+      transaction.onerror = (event) => {
+        reject(new Error(`'${this.storeName}': PutMany error ${event.target.errorCode}`));
+      };
+    });
+  }
+
   async remove(key) {
     const db = await this.getDb();
     return new Promise((resolve, reject) => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useRef } from 'react';
 
 export function formatBytes(bytes) {
   if (bytes === 0) {
@@ -10,6 +11,29 @@ export function formatBytes(bytes) {
   const value = bytes / (1024 ** exponent);
 
   return `${value >= 10 || exponent === 0 ? value.toFixed(0) : value.toFixed(1)} ${units[exponent]}`;
+}
+
+export function useModalDialog() {
+  const dialogRef = useRef(null);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
+    }
+
+    if (!dialog.open) {
+      dialog.showModal();
+    }
+
+    return () => {
+      if (dialog.open) {
+        dialog.close();
+      }
+    };
+  }, []);
+
+  return dialogRef;
 }
 
 export function useAsync(fn, inputs) {

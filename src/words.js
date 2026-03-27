@@ -70,9 +70,13 @@ export async function unassignCollectionFromWords(collectionId) {
   const words = await getAllWords();
   const affectedWords = words.filter(word => (word.collection_ids || []).includes(parsedId));
 
-  await Promise.all(affectedWords.map(word => updateWord({
+  if (affectedWords.length === 0) return;
+
+  await store.putMany(affectedWords.map(word => ({
     ...word,
-    collection_ids: (word.collection_ids || []).filter(id => id !== parsedId),
+    collection_ids: normalizeCollectionIds(
+      (word.collection_ids || []).filter(id => id !== parsedId)
+    ),
   })));
 }
 

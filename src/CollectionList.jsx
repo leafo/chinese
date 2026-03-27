@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import styles from "./index.module.css";
-import { useCollections, insertCollection, deleteCollection } from "./collections";
+import { useCollections, insertCollection, updateCollection, deleteCollection } from "./collections";
+import { useAllWords } from "./words";
+import { EditCollectionDialog } from "./EditCollectionDialog";
 
 function CollectionForm({ onSave, onCancel }) {
   const [name, setName] = useState('');
@@ -27,15 +29,35 @@ function CollectionForm({ onSave, onCancel }) {
 
 export function CollectionList() {
   const [collections, error, loading] = useCollections();
+  const [words] = useAllWords();
   const [showForm, setShowForm] = useState(false);
+  const [editingCollection, setEditingCollection] = useState(null);
+
+  const wordCountByCollection = useMemo(() => {
+    const counts = {};
+    if (words) {
+      for (const word of words) {
+        for (const id of (word.collection_ids || [])) {
+          counts[id] = (counts[id] || 0) + 1;
+        }
+      }
+    }
+    return counts;
+  }, [words]);
 
   const handleAdd = async (form) => {
     await insertCollection(form);
     setShowForm(false);
   };
 
+  const handleSave = async (form) => {
+    await updateCollection(form);
+    setEditingCollection(null);
+  };
+
   const handleDelete = async (id) => {
     await deleteCollection(id);
+    setEditingCollection(null);
   };
 
   if (loading) return <p>Loading collections...</p>;
@@ -64,12 +86,22 @@ export function CollectionList() {
           {collections.map(col => (
             <li key={col.id} className={styles.collectionItem}>
               <span className={styles.collectionName}>{col.name}</span>
+              <span className={styles.collectionWordCount}>{wordCountByCollection[col.id] || 0} words</span>
               <div className={styles.wordActions}>
-                <button className={styles.deleteButton} onClick={() => handleDelete(col.id)}>Delete</button>
+                <button className={styles.smallButton} onClick={() => setEditingCollection(col)}>Edit</button>
               </div>
             </li>
           ))}
         </ul>
+      )}
+
+      {editingCollection && (
+        <EditCollectionDialog
+          collection={editingCollection}
+          onSave={handleSave}
+          onDelete={handleDelete}
+          onClose={() => setEditingCollection(null)}
+        />
       )}
     </div>
   );
