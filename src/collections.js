@@ -22,6 +22,8 @@ const parseId = id => {
 
 export const insertCollection = async (collection) => store.add({
   name: collection.name || '',
+  notes: collection.notes || '',
+  objectives: collection.objectives || '',
 });
 
 export const updateCollection = async (collection) => store.put(collection);

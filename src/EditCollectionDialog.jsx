@@ -10,11 +10,13 @@ export function EditCollectionDialog({
 }) {
   const dialogRef = useModalDialog();
   const [name, setName] = useState(collection.name || '');
+  const [notes, setNotes] = useState(collection.notes || '');
+  const [objectives, setObjectives] = useState(collection.objectives || '');
   const [deleteArmed, setDeleteArmed] = useState(false);
 
   const handleSave = async (e) => {
     e.preventDefault();
-    await onSave({ id: collection.id, name });
+    await onSave({ id: collection.id, name, notes, objectives });
   };
 
   const handleDeleteSubmit = async (e) => {
@@ -51,6 +53,14 @@ export function EditCollectionDialog({
           <div className={styles.formField}>
             <label>Collection Name</label>
             <input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. HSK 1, Food, Travel" required />
+          </div>
+          <div className={styles.formField}>
+            <label>Notes</label>
+            <textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Additional info about this collection" rows={2} />
+          </div>
+          <div className={styles.formField}>
+            <label>Objectives</label>
+            <textarea value={objectives} onChange={(e) => setObjectives(e.target.value)} placeholder="Learning objectives used to guide sentence generation" rows={3} />
           </div>
           <div className={styles.formActions}>
             <div className={styles.formActionsRight}>

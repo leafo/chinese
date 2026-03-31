@@ -186,8 +186,16 @@ export function GenerateSentences() {
         throw new Error('No words found in the selected collections.');
       }
 
+      const objectives = selectedCollectionIds.length > 0 && collections
+        ? collections
+            .filter(c => selectedCollectionIds.includes(c.id) && c.objectives)
+            .map(c => c.objectives)
+            .join('\n')
+        : '';
+
       const result = await generateSentences(filteredWords, {
         count,
+        objectives: objectives || undefined,
         signal: controller.signal,
       });
 

@@ -6,11 +6,15 @@ import { EditCollectionDialog } from "./EditCollectionDialog";
 
 function CollectionForm({ onSave, onCancel }) {
   const [name, setName] = useState('');
+  const [notes, setNotes] = useState('');
+  const [objectives, setObjectives] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await onSave({ name });
+    await onSave({ name, notes, objectives });
     setName('');
+    setNotes('');
+    setObjectives('');
   };
 
   return (
@@ -18,6 +22,14 @@ function CollectionForm({ onSave, onCancel }) {
       <div className={styles.formField}>
         <label>Collection Name</label>
         <input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. HSK 1, Food, Travel" />
+      </div>
+      <div className={styles.formField}>
+        <label>Notes</label>
+        <textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Additional info about this collection" rows={2} />
+      </div>
+      <div className={styles.formField}>
+        <label>Objectives</label>
+        <textarea value={objectives} onChange={(e) => setObjectives(e.target.value)} placeholder="Learning objectives used to guide sentence generation" rows={3} />
       </div>
       <div className={styles.formActions}>
         <button type="button" className={styles.cancelButton} onClick={onCancel}>Cancel</button>
@@ -85,7 +97,7 @@ export function CollectionList() {
         <ul className={styles.collectionList}>
           {collections.map(col => (
             <li key={col.id} className={styles.collectionItem}>
-              <span className={styles.collectionName}>{col.name}</span>
+              <span className={styles.collectionName}>{col.name}{col.notes && <span className={styles.collectionNotes}> - {col.notes}</span>}</span>
               <span className={styles.collectionWordCount}>{wordCountByCollection[col.id] || 0} words</span>
               <div className={styles.wordActions}>
                 <button className={styles.smallButton} onClick={() => setEditingCollection(col)}>Edit</button>
