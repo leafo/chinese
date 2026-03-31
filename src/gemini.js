@@ -340,6 +340,86 @@ export async function ocrWords(files, options = {}) {
   return geminiRequest(requestBody, { signal });
 }
 
+const GENERATE_SENTENCES_RESPONSE_SCHEMA = {
+  type: "object",
+  properties: {
+    sentences: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          simplified: {
+            type: "string",
+            description: "The sentence in simplified Chinese"
+          },
+          traditional: {
+            type: "string",
+            description: "The sentence in traditional Chinese"
+          },
+          pinyin: {
+            type: "string",
+            description: "Pinyin with tone marks for the entire sentence (e.g. nǐ hǎo, not ni3 hao3)"
+          },
+          english: {
+            type: "string",
+            description: "English translation of the sentence"
+          },
+          words_used: {
+            type: "array",
+            items: { type: "string" },
+            description: "List of vocabulary words (simplified Chinese) from the provided list that appear in this sentence"
+          }
+        },
+        required: ["simplified", "traditional", "pinyin", "english", "words_used"]
+      }
+    }
+  },
+  required: ["sentences"]
+};
+
+export async function generateSentences(words, { count = 10, signal } = {}) {
+  if (!words || words.length === 0) {
+    throw new Error('At least one word is required to generate sentences');
+  }
+
+  let selectedWords = words;
+  if (words.length > 100) {
+    selectedWords = [...words].sort(() => Math.random() - 0.5).slice(0, 80);
+  }
+
+  const wordList = selectedWords
+    .map(w => `${w.simplified || w.traditional} (${w.pinyin}) - ${w.english}`)
+    .join('\n');
+
+  const requestBody = {
+    contents: [
+      {
+        parts: [
+          {
+            text: `Generate ${count} Chinese sentences for a language learner using words from this vocabulary list. Each sentence should use 2-4 vocabulary words where natural. Vary complexity and topics.
+
+Vocabulary:
+${wordList}
+
+Requirements:
+- Each sentence must use at least 1 vocabulary word from the list above
+- Vary grammar patterns and sentence structures
+- Intermediate difficulty level
+- Provide pinyin with tone marks (e.g. nǐ hǎo), not tone numbers
+- In words_used, list only the simplified Chinese forms of vocabulary words from the provided list that appear in the sentence`
+          }
+        ]
+      }
+    ],
+    generationConfig: {
+      responseMimeType: "application/json",
+      responseSchema: GENERATE_SENTENCES_RESPONSE_SCHEMA
+    }
+  };
+
+  return geminiRequest(requestBody, { signal });
+}
+
 export async function generateTts(text, { signal } = {}) {
   const requestBody = {
     contents: [

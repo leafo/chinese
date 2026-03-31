@@ -1138,6 +1138,83 @@
   margin-top: 24px;
 }
 
+/* Sentences */
+
+.sentenceToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.sentenceToolbarActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sentenceList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.sentenceCard {
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.sentenceMain {
+  display: flex;
+  gap: 12px;
+}
+
+.sentenceIndex {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  min-width: 24px;
+  padding-top: 2px;
+}
+
+.sentenceContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sentenceChinese {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sentencePinyin {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.sentenceEnglish {
+  font-size: 14px;
+  color: #334155;
+}
+
+.sentenceWordsUsed {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
 @media (max-width: 640px) {
   .header,
   .sectionHeader,
