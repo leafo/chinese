@@ -8,6 +8,7 @@ import { Settings } from "./Settings";
 import { AudioManager } from "./AudioManager";
 import { Flashcards } from "./Flashcards";
 import { GenerateSentences } from "./GenerateSentences";
+import { GenerateCollection } from "./GenerateCollection";
 
 function App() {
   const route = useRoute(['view']);
@@ -62,6 +63,7 @@ function App() {
       {view === 'import' && <ImportWords />}
       {view === 'audio' && <AudioManager />}
       {view === 'sentences' && <GenerateSentences />}
+      {view === 'generate-collection' && <GenerateCollection />}
       {view === 'flashcards' && <Flashcards />}
       {view === 'settings' && <Settings />}
     </div>

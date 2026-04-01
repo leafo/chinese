@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import styles from "./index.module.css";
+import { setRoute } from "./router";
 import { useCollections, insertCollection, updateCollection, deleteCollection } from "./collections";
 import { useAllWords } from "./words";
 import { EditCollectionDialog } from "./EditCollectionDialog";
@@ -79,9 +80,14 @@ export function CollectionList() {
     <div>
       <div className={styles.sectionHeader}>
         <h2>Collections</h2>
-        <button className={styles.addButton} onClick={() => setShowForm(!showForm)}>
-          + Add Collection
-        </button>
+        <div className={styles.importToolbarActions}>
+          <button className={styles.cancelButton} onClick={() => setRoute({ view: 'generate-collection' })}>
+            Generate
+          </button>
+          <button className={styles.addButton} onClick={() => setShowForm(!showForm)}>
+            + Add Collection
+          </button>
+        </div>
       </div>
 
       {showForm && (

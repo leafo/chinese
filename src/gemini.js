@@ -5,7 +5,7 @@ const GEMINI_MODEL = 'gemini-flash-latest';
 const GEMINI_TTS_MODEL = 'gemini-2.5-pro-preview-tts';
 const GEMINI_TTS_VOICE = 'Zephyr';
 
-const OCR_WORDS_RESPONSE_SCHEMA = {
+const WORDS_RESPONSE_SCHEMA = {
   type: "object",
   properties: {
     words: {
@@ -304,7 +304,7 @@ function buildOcrWordsRequestBody(images, additionalInstructions) {
     ],
     generationConfig: {
       responseMimeType: "application/json",
-      responseSchema: OCR_WORDS_RESPONSE_SCHEMA
+      responseSchema: WORDS_RESPONSE_SCHEMA
     }
   };
 }
@@ -332,6 +332,52 @@ export async function ocrWords(files, options = {}) {
   const images = await Promise.all(fileList.map(encodeFileAsInlineData));
   const { onChunk, signal, additionalInstructions } = options;
   const requestBody = buildOcrWordsRequestBody(images, additionalInstructions);
+
+  if (onChunk) {
+    return geminiStreamRequest(requestBody, { onChunk, signal });
+  }
+
+  return geminiRequest(requestBody, { signal });
+}
+
+export async function generateWords(topic, { count, instructions, signal, onChunk } = {}) {
+  if (!topic || !topic.trim()) {
+    throw new Error('A topic is required to generate words');
+  }
+
+  const hasCount = Number.isFinite(count);
+  let prompt = hasCount
+    ? `Generate a list of approximately ${count} Chinese vocabulary words for the topic: "${topic}".`
+    : `Generate a Chinese vocabulary list for the topic: "${topic}".`;
+
+  prompt += `
+
+For each word provide:
+- Simplified Chinese characters
+- Traditional Chinese characters
+- Pinyin with tone marks (e.g. nǐ hǎo), not tone numbers
+- English definition
+- Brief usage notes if helpful
+
+Generate a diverse and useful vocabulary list appropriate for an intermediate Chinese learner. Include a mix of nouns, verbs, adjectives, and other word types as appropriate for the topic.`;
+
+  if (instructions?.trim()) {
+    prompt += `\n\nAdditional instructions:\n${instructions.trim()}`;
+  }
+
+  const requestBody = {
+    contents: [
+      {
+        parts: [
+          { text: prompt }
+        ]
+      }
+    ],
+    generationConfig: {
+      responseMimeType: "application/json",
+      responseSchema: WORDS_RESPONSE_SCHEMA
+    }
+  };
 
   if (onChunk) {
     return geminiStreamRequest(requestBody, { onChunk, signal });
