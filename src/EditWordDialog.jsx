@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./index.module.css";
 import { CollectionSelector } from "./CollectionSelector";
 import { completeWord } from "./gemini";
+import { PinyinInput } from "./PinyinInput";
 import { PlayButton } from "./PlayButton";
 import { useAudio, deleteCachedAudio } from "./audio";
 import { useModalDialog } from "./util";
@@ -68,7 +69,7 @@ export function WordForm({ onSave, onCancel, initial, collections, collectionsLo
         </div>
         <div className={styles.formField}>
           <label>Pinyin</label>
-          <input value={form.pinyin} onChange={set('pinyin')} placeholder="pīnyīn" />
+          <PinyinInput value={form.pinyin} onChange={set('pinyin')} placeholder="pīnyīn" withHelp />
         </div>
       </div>
       <div className={styles.formField}>
