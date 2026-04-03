@@ -1,21 +1,33 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import styles from "./index.module.css";
-import { useWords, insertWord, deleteWord, updateWord } from "./words";
+import { useWords, useAllWords, insertWord, deleteWord, updateWord } from "./words";
 import { useCollections } from "./collections";
-import { setRoute } from "./router";
+import { setRoute, useRoute, updateRoute } from "./router";
 import { PlayButton } from "./PlayButton";
 import { WordForm, EditWordDialog } from "./EditWordDialog";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
 export function WordList() {
-  const [words, error, loading] = useWords(100, 0);
+  const { collection: collectionFilter } = useRoute(['collection']);
+  const collectionId = collectionFilter ? parseInt(collectionFilter, 10) : null;
+  const [allWords, allError, allLoading] = useAllWords();
+  const [recentWords, recentError, recentLoading] = useWords(100, 0);
+  const words = collectionId ? allWords : recentWords;
+  const error = collectionId ? allError : recentError;
+  const loading = collectionId ? allLoading : recentLoading;
   const [collections, collectionsError, collectionsLoading] = useCollections();
   const [displayScript] = useConfig("display_script");
   const [showForm, setShowForm] = useState(false);
   const [editingWord, setEditingWord] = useState(null);
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
   const collectionNamesById = Object.fromEntries((collections || []).map(collection => [collection.id, collection.name]));
+
+  const filteredWords = useMemo(() => {
+    if (!words) return null;
+    if (!collectionId) return words;
+    return words.filter(w => (w.collection_ids || []).includes(collectionId));
+  }, [words, collectionId]);
 
   const handleAdd = async (form) => {
     await insertWord(form);
@@ -38,7 +50,15 @@ export function WordList() {
   return (
     <div>
       <div className={styles.sectionHeader}>
-        <h2>Words</h2>
+        <h2>
+          Words
+          {collectionId && collectionNamesById[collectionId] && (
+            <span className={styles.filterIndicator}>
+              {' — '}{collectionNamesById[collectionId]}
+              <button className={styles.clearFilter} onClick={() => updateRoute({ collection: false })}>×</button>
+            </span>
+          )}
+        </h2>
         <div className={styles.importToolbarActions}>
           <button className={styles.cancelButton} onClick={() => setRoute({ view: 'import' })}>
             Bulk Add
@@ -72,14 +92,20 @@ export function WordList() {
         />
       )}
 
-      {(!words || words.length === 0) ? (
+      {(!filteredWords || filteredWords.length === 0) ? (
         <div className={styles.emptyState}>
-          <p>No words yet</p>
-          <p>Add your first word to get started</p>
+          {collectionId ? (
+            <p>No words in this collection</p>
+          ) : (
+            <>
+              <p>No words yet</p>
+              <p>Add your first word to get started</p>
+            </>
+          )}
         </div>
       ) : (
         <ul className={styles.wordList}>
-          {words.map(word => (
+          {filteredWords.map(word => (
             <WordRow
               key={word.id}
               word={word}

@@ -1,13 +1,14 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import styles from "./index.module.css";
 import { useFlashcardStats, ensureCardsForAllWords, getNextDueCard, rateCard, projectedInterval, formatInterval } from "./flashcardData";
-import { PlayButton } from "./PlayButton";
 import { updateWord, deleteWord, findWord } from "./words";
 import { useCollections } from "./collections";
+import { setRoute } from "./router";
 import { CollectionSelector } from "./CollectionSelector";
 import { EditWordDialog } from "./EditWordDialog";
+import { ChineseDisplay } from "./ChineseDisplay";
 import { useConfig } from "./config";
-import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
+import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 
 const RATINGS = [
   { key: 'again', label: 'Again', className: 'ratingAgain' },
@@ -80,6 +81,12 @@ function FlashcardDashboard({ stats, loading, error, onStart, collections, colle
           Start Review ({stats?.due || 0} due)
         </button>
         <button
+          className={styles.primaryButton}
+          onClick={() => setRoute({ view: 'learn' })}
+        >
+          Learn New Words
+        </button>
+        <button
           className={styles.smallButton}
           onClick={handleSync}
           disabled={syncing}
@@ -88,23 +95,6 @@ function FlashcardDashboard({ stats, loading, error, onStart, collections, colle
         </button>
       </div>
     </div>
-  );
-}
-
-function ChineseDisplay({ word, displayScript, autoPlay }) {
-  const primaryText = getPreferredChineseText(word, displayScript);
-
-  return (
-    <>
-      <div className={styles.flashcardChinese}>{primaryText}</div>
-      {word.simplified && word.traditional && word.simplified !== word.traditional && (
-        <div className={styles.flashcardAlt}>
-          {displayScript === 'traditional' ? word.simplified : word.traditional}
-        </div>
-      )}
-      <div className={styles.flashcardPinyin}>{word.pinyin}</div>
-      <PlayButton text={primaryText} autoPlay={autoPlay} />
-    </>
   );
 }
 

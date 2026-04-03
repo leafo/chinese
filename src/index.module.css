@@ -167,14 +167,23 @@
   border-bottom: none;
 }
 
-.collectionName {
-  font-size: 16px;
-  font-weight: 500;
+.collectionNameGroup {
   flex: 1;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 16px;
+}
+
+.collectionName {
+  font-weight: 500;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.collectionName:hover {
+  text-decoration: underline;
 }
 
 .collectionNotes {
@@ -199,6 +208,27 @@
 .sectionHeader h2 {
   margin: 0;
   font-size: 18px;
+}
+
+.filterIndicator {
+  font-weight: 400;
+  color: #64748b;
+  font-size: 16px;
+}
+
+.clearFilter {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+  margin-left: 4px;
+  line-height: 1;
+}
+
+.clearFilter:hover {
+  color: #ef4444;
 }
 
 .sectionMeta {
@@ -833,12 +863,20 @@
   border-bottom: none;
 }
 
-.audioStatus {
+.audioStatusCached,
+.audioStatusMissing {
   width: 20px;
   text-align: center;
   font-size: 14px;
-  color: #16a34a;
   flex-shrink: 0;
+}
+
+.audioStatusCached {
+  color: #16a34a;
+}
+
+.audioStatusMissing {
+  color: #94a3b8;
 }
 
 .progressBar {
@@ -1144,6 +1182,32 @@
 .flashcardSummary .flashcardActions {
   justify-content: center;
   margin-top: 24px;
+}
+
+/* Learn Mode */
+
+.learnIntroCard {
+  border-top: 4px solid #2563eb;
+}
+
+.learnNewLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.learnActions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.learnCollectionName {
+  font-size: 16px;
+  font-weight: 500;
+  flex: 1;
 }
 
 /* Sentences */

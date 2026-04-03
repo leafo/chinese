@@ -7,6 +7,7 @@ import { ImportWords } from "./ImportWords";
 import { Settings } from "./Settings";
 import { AudioManager } from "./AudioManager";
 import { Flashcards } from "./Flashcards";
+import { Learn } from "./Learn";
 import { GenerateSentences } from "./GenerateSentences";
 import { GenerateCollection } from "./GenerateCollection";
 
@@ -44,7 +45,7 @@ function App() {
             Sentences
           </button>
           <button
-            className={view === 'flashcards' ? styles.navButtonActive : styles.navButton}
+            className={(view === 'flashcards' || view === 'learn') ? styles.navButtonActive : styles.navButton}
             onClick={() => setRoute({ view: 'flashcards' })}
           >
             Review
@@ -64,6 +65,7 @@ function App() {
       {view === 'audio' && <AudioManager />}
       {view === 'sentences' && <GenerateSentences />}
       {view === 'generate-collection' && <GenerateCollection />}
+      {view === 'learn' && <Learn />}
       {view === 'flashcards' && <Flashcards />}
       {view === 'settings' && <Settings />}
     </div>

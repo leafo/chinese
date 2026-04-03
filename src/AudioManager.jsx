@@ -13,7 +13,7 @@ function AudioWordRow({ word, preferredScript }) {
 
   return (
     <li className={styles.audioItem}>
-      <span className={styles.audioStatus}>
+      <span className={cached ? styles.audioStatusCached : styles.audioStatusMissing}>
         {cached ? '\u2713' : '\u2014'}
       </span>
       <span className={styles.wordChinese} style={{ fontSize: 18 }}>{text}</span>

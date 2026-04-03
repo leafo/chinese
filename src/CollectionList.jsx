@@ -103,9 +103,16 @@ export function CollectionList() {
         <ul className={styles.collectionList}>
           {collections.map(col => (
             <li key={col.id} className={styles.collectionItem}>
-              <span className={styles.collectionName}>{col.name}{col.notes && <span className={styles.collectionNotes}> - {col.notes}</span>}</span>
+              <span className={styles.collectionNameGroup}>
+                <a
+                  href={`?view=words&collection=${col.id}`}
+                  className={styles.collectionName}
+                  onClick={(e) => { e.preventDefault(); setRoute({ view: 'words', collection: col.id }); }}
+                >{col.name}</a>{col.notes && <span className={styles.collectionNotes}> - {col.notes}</span>}
+              </span>
               <span className={styles.collectionWordCount}>{wordCountByCollection[col.id] || 0} words</span>
               <div className={styles.wordActions}>
+                <button className={styles.smallButton} style={{ visibility: wordCountByCollection[col.id] ? 'visible' : 'hidden' }} disabled={!wordCountByCollection[col.id]} onClick={() => setRoute({ view: 'learn', collection: col.id })}>Learn</button>
                 <button className={styles.smallButton} onClick={() => setEditingCollection(col)}>Edit</button>
               </div>
             </li>
