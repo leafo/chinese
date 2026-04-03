@@ -1,7 +1,15 @@
 import styles from "./index.module.css";
 import { formatDuplicateSummary } from "./duplicates";
 
-export function WordPreviewList({ words, isWordSelected, onToggle, onUpdate, onRemove, duplicateMatches }) {
+export function WordPreviewList({
+  words,
+  isWordSelected,
+  onToggle,
+  onUpdate,
+  onRemove,
+  duplicateMatches,
+  renderDuplicateActions,
+}) {
   const handleRemove = (index) => {
     const word = words[index];
     const summary = formatDuplicateSummary(word);
@@ -15,7 +23,7 @@ export function WordPreviewList({ words, isWordSelected, onToggle, onUpdate, onR
   return (
     <ul className={styles.importList}>
       {words.map((word, index) => (
-        <li key={index} className={`${styles.importItem} ${!isWordSelected(index) ? styles.importItemDeselected : ''}`}>
+        <li key={index} className={styles.importItem}>
           <input
             type="checkbox"
             checked={isWordSelected(index)}
@@ -23,7 +31,7 @@ export function WordPreviewList({ words, isWordSelected, onToggle, onUpdate, onR
             className={styles.importCheckbox}
           />
           <div className={styles.importContent}>
-            <div className={styles.importFields}>
+            <div className={`${styles.importFields} ${!isWordSelected(index) ? styles.importItemDeselected : ''}`}>
               <input
                 className={styles.importFieldChinese}
                 value={word.simplified || ''}
@@ -60,6 +68,7 @@ export function WordPreviewList({ words, isWordSelected, onToggle, onUpdate, onR
             {duplicateMatches[index] && (
               <div className={styles.importStatusRow}>
                 Possible duplicate: {formatDuplicateSummary(duplicateMatches[index])}
+                {renderDuplicateActions && renderDuplicateActions(index, duplicateMatches[index])}
               </div>
             )}
           </div>
