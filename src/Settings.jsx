@@ -138,7 +138,7 @@ export function Settings() {
           </select>
         </div>
         <div className={styles.formActions}>
-          <button type="submit" className={styles.addButton}>
+          <button type="submit" className={styles.primaryButton}>
             {saved ? 'Saved!' : 'Save'}
           </button>
         </div>
@@ -167,7 +167,7 @@ export function Settings() {
           <div className={styles.formActions}>
             <button
               type="button"
-              className={styles.addButton}
+              className={styles.primaryButton}
               onClick={handleExport}
               disabled={exporting}
             >
@@ -191,7 +191,7 @@ export function Settings() {
           <div className={styles.formActions}>
             <button
               type="button"
-              className={styles.addButton}
+              className={styles.primaryButton}
               onClick={handleImport}
               disabled={importing}
             >

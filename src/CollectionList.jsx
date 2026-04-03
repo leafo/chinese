@@ -33,8 +33,8 @@ function CollectionForm({ onSave, onCancel }) {
         <textarea value={objectives} onChange={(e) => setObjectives(e.target.value)} placeholder="Learning objectives used to guide sentence generation" rows={3} />
       </div>
       <div className={styles.formActions}>
-        <button type="button" className={styles.cancelButton} onClick={onCancel}>Cancel</button>
-        <button type="submit" className={styles.addButton}>Add Collection</button>
+        <button type="button" className={styles.secondaryButton} onClick={onCancel}>Cancel</button>
+        <button type="submit" className={styles.primaryButton}>Add Collection</button>
       </div>
     </form>
   );
@@ -81,10 +81,10 @@ export function CollectionList() {
       <div className={styles.sectionHeader}>
         <h2>Collections</h2>
         <div className={styles.importToolbarActions}>
-          <button className={styles.cancelButton} onClick={() => setRoute({ view: 'generate-collection' })}>
+          <button className={styles.secondaryButton} onClick={() => setRoute({ view: 'generate-collection' })}>
             Generate
           </button>
-          <button className={styles.addButton} onClick={() => setShowForm(!showForm)}>
+          <button className={styles.primaryButton} onClick={() => setShowForm(!showForm)}>
             + Add Collection
           </button>
         </div>

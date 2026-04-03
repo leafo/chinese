@@ -293,7 +293,7 @@ export function ImportWords() {
               className={styles.fileInput}
             />
             <button
-              className={styles.addButton}
+              className={styles.primaryButton}
               onClick={handleProcessImages}
               disabled={!selectedImageCount || !apiKey}
             >
@@ -315,7 +315,7 @@ export function ImportWords() {
             {streamText || '{\n  "words": [\n    ...waiting for first chunk\n  ]\n}'}
           </pre>
           <div className={styles.processingActions}>
-            <button className={styles.cancelButton} onClick={cancelProcessing}>Cancel</button>
+            <button className={styles.secondaryButton} onClick={cancelProcessing}>Cancel</button>
           </div>
         </div>
       )}
@@ -364,9 +364,9 @@ export function ImportWords() {
               Select All ({selectedCount}/{extractedWords.length})
             </label>
             <div className={styles.importToolbarActions}>
-              <button className={styles.cancelButton} onClick={reset}>Start Over</button>
+              <button className={styles.secondaryButton} onClick={reset}>Start Over</button>
               <button
-                className={styles.addButton}
+                className={styles.primaryButton}
                 onClick={handleImport}
                 disabled={selectedCount === 0 || importing}
               >

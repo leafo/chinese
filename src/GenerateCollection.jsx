@@ -248,10 +248,10 @@ export function GenerateCollection() {
             />
           </div>
           <div className={styles.formActions}>
-            <button type="button" className={styles.cancelButton} onClick={() => setRoute({ view: 'collections' })}>
+            <button type="button" className={styles.secondaryButton} onClick={() => setRoute({ view: 'collections' })}>
               Cancel
             </button>
-            <button type="submit" className={styles.addButton} disabled={!title.trim() || !apiKey}>
+            <button type="submit" className={styles.primaryButton} disabled={!title.trim() || !apiKey}>
               Generate Words
             </button>
           </div>
@@ -270,7 +270,7 @@ export function GenerateCollection() {
             {streamText || '{\n  "words": [\n    ...waiting for first chunk\n  ]\n}'}
           </pre>
           <div className={styles.processingActions}>
-            <button className={styles.cancelButton} onClick={cancelProcessing}>Cancel</button>
+            <button className={styles.secondaryButton} onClick={cancelProcessing}>Cancel</button>
           </div>
         </div>
       )}
@@ -306,9 +306,9 @@ export function GenerateCollection() {
               Select All ({selectedCount}/{extractedWords.length})
             </label>
             <div className={styles.importToolbarActions}>
-              <button className={styles.cancelButton} onClick={reset}>Start Over</button>
+              <button className={styles.secondaryButton} onClick={reset}>Start Over</button>
               <button
-                className={styles.addButton}
+                className={styles.primaryButton}
                 onClick={handleCreate}
                 disabled={totalWordsToAdd === 0 || importing}
               >

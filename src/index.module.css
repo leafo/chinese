@@ -237,20 +237,6 @@
   color: #64748b;
 }
 
-.addButton {
-  padding: 8px 16px;
-  background: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.addButton:hover {
-  background: #2563eb;
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -434,12 +420,13 @@
 }
 
 .autoCompleteButton {
-  padding: 8px 16px;
+  padding: 10px 20px;
   background: white;
   border: 1px solid #a78bfa;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   color: #7c3aed;
 }
 
@@ -452,17 +439,24 @@
   cursor: default;
 }
 
-.cancelButton {
-  padding: 8px 16px;
+.secondaryButton {
+  padding: 10px 20px;
   background: white;
-  border: 1px solid #cbd5e1;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
-.cancelButton:hover {
-  background: #f1f5f9;
+.secondaryButton:hover:not(:disabled) {
+  background: #eff6ff;
+}
+
+.secondaryButton:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 .tags {
@@ -955,6 +949,7 @@
   cursor: default;
 }
 
+
 .flashcardStatsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1202,6 +1197,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   gap: 8px;
+}
+
+.learnDescription {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 16px;
 }
 
 .learnCollectionName {

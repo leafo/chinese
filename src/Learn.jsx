@@ -212,6 +212,14 @@ function CollectionPicker({ collections, loading, onSelect }) {
   return (
     <div>
       <h2>Choose a collection to learn</h2>
+      <p className={styles.learnDescription}>
+        Unlike flashcard review, which tests words you've already learned over days and weeks,
+        learn mode is designed for your first encounter with new words. It shows you each word
+        fully before quizzing you, starts with just a couple of words at a time, and repeats them
+        within the same session until you can recall them in both directions. New words are only
+        added once you've demonstrated recall of the current ones. Nothing is saved between
+        sessions. Once you're comfortable, use Review for long-term retention.
+      </p>
       <ul className={styles.collectionList}>
         {collections.map(col => (
           <li key={col.id} className={styles.collectionItem}>
@@ -427,10 +435,21 @@ export function Learn() {
     return allWords.filter(w => (w.collection_ids || []).includes(collectionId));
   }, [allWords, collectionId]);
 
+  const collectionsWithWords = useMemo(() => {
+    if (!collections || !allWords) return collections;
+    const collectionIdsWithWords = new Set();
+    for (const word of allWords) {
+      for (const id of (word.collection_ids || [])) {
+        collectionIdsWithWords.add(id);
+      }
+    }
+    return collections.filter(c => collectionIdsWithWords.has(c.id));
+  }, [collections, allWords]);
+
   if (!collectionId) {
     return (
       <CollectionPicker
-        collections={collections}
+        collections={collectionsWithWords}
         loading={collectionsLoading}
         onSelect={(id) => setRoute({ view: 'learn', collection: id })}
       />

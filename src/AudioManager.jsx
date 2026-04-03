@@ -127,12 +127,12 @@ export function AudioManager() {
         </div>
         <div className={styles.importToolbarActions}>
           {bulkProgress ? (
-            <button className={styles.cancelButton} onClick={handleCancel}>
+            <button className={styles.secondaryButton} onClick={handleCancel}>
               Cancel
             </button>
           ) : (
             <button
-              className={styles.addButton}
+              className={styles.primaryButton}
               onClick={handleGenerateAll}
               disabled={!words || words.length === 0}
             >

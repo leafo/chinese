@@ -100,8 +100,8 @@ export function WordForm({ onSave, onCancel, initial, collections, collectionsLo
           {completing ? 'Completing...' : 'Auto complete'}
         </button>
         <div className={styles.formActionsRight}>
-          {onCancel && <button type="button" className={styles.cancelButton} onClick={onCancel}>Cancel</button>}
-          <button type="submit" className={styles.addButton}>{initial ? 'Save' : 'Add Word'}</button>
+          {onCancel && <button type="button" className={styles.secondaryButton} onClick={onCancel}>Cancel</button>}
+          <button type="submit" className={styles.primaryButton}>{initial ? 'Save' : 'Add Word'}</button>
         </div>
       </div>
     </form>
@@ -201,7 +201,7 @@ export function EditWordDialog({
         <h3>Edit Word</h3>
         <button
           type="button"
-          className={styles.cancelButton}
+          className={styles.secondaryButton}
           onClick={onClose}
         >
           Close

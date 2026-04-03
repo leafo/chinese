@@ -364,7 +364,7 @@ export function GenerateSentences() {
       {generationStatus === 'generating' && (
         <div className={styles.form}>
           <p>Generating sentences...</p>
-          <button className={styles.cancelButton} onClick={handleCancel}>
+          <button className={styles.secondaryButton} onClick={handleCancel}>
             Cancel
           </button>
         </div>
@@ -394,11 +394,11 @@ export function GenerateSentences() {
                 </button>
               )}
               {abortRef.current && (
-                <button className={styles.cancelButton} onClick={handleCancel}>
+                <button className={styles.secondaryButton} onClick={handleCancel}>
                   Cancel Audio
                 </button>
               )}
-              <button className={styles.cancelButton} onClick={handleReset}>
+              <button className={styles.secondaryButton} onClick={handleReset}>
                 New Generation
               </button>
             </div>

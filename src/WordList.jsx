@@ -60,10 +60,10 @@ export function WordList() {
           )}
         </h2>
         <div className={styles.importToolbarActions}>
-          <button className={styles.cancelButton} onClick={() => setRoute({ view: 'import' })}>
+          <button className={styles.secondaryButton} onClick={() => setRoute({ view: 'import' })}>
             Bulk Add
           </button>
-          <button className={styles.addButton} onClick={() => setShowForm(!showForm)}>
+          <button className={styles.primaryButton} onClick={() => setShowForm(!showForm)}>
             + Add Word
           </button>
         </div>

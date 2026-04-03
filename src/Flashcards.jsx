@@ -87,7 +87,7 @@ function FlashcardDashboard({ stats, loading, error, onStart, collections, colle
           Learn New Words
         </button>
         <button
-          className={styles.smallButton}
+          className={styles.secondaryButton}
           onClick={handleSync}
           disabled={syncing}
         >

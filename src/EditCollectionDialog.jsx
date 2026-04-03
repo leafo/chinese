@@ -42,7 +42,7 @@ export function EditCollectionDialog({
         <h3>Edit Collection</h3>
         <button
           type="button"
-          className={styles.cancelButton}
+          className={styles.secondaryButton}
           onClick={onClose}
         >
           Close
@@ -64,8 +64,8 @@ export function EditCollectionDialog({
           </div>
           <div className={styles.formActions}>
             <div className={styles.formActionsRight}>
-              <button type="button" className={styles.cancelButton} onClick={onClose}>Cancel</button>
-              <button type="submit" className={styles.addButton}>Save</button>
+              <button type="button" className={styles.secondaryButton} onClick={onClose}>Cancel</button>
+              <button type="submit" className={styles.primaryButton}>Save</button>
             </div>
           </div>
         </form>
