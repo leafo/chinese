@@ -5,7 +5,7 @@ import { useCollections } from "./collections";
 import { useRoute, setRoute } from "./router";
 import { ChineseDisplay } from "./ChineseDisplay";
 import { PinyinInput } from "./PinyinInput";
-import { matchPinyin, matchEnglish } from "./matching";
+import { matchPinyin, matchEnglish, comparePinyin } from "./matching";
 import { useShaker } from "./util";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT } from "./display";
@@ -13,9 +13,23 @@ import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 const GRADUATE_THRESHOLD = 1;
 const INITIAL_BATCH_SIZE = 2;
 
+function PinyinFeedback({ comparison }) {
+  if (!comparison) return null;
+  return (
+    <div className={styles.typingOverlay} aria-hidden>
+      {comparison.map((entry, i) => (
+        <span key={i} className={entry.correct ? undefined : styles.typingWrongChar}>
+          {entry.char}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
   const [typingValue, setTypingValue] = useState('');
   const [shakeClass, shake] = useShaker();
+  const [comparison, setComparison] = useState(null);
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -42,6 +56,7 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
     if (matchPinyin(typingValue, word.pinyin)) {
       onDone();
     } else {
+      setComparison(comparePinyin(typingValue, word.pinyin));
       shake();
     }
   };
@@ -57,14 +72,17 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
         </div>
       </div>
       <form className={styles.typingForm} onSubmit={handleTypingSubmit}>
-        <PinyinInput
-          withHelp
-          autoFocus
-          className={`${styles.typingInput} ${shakeClass}`}
-          value={typingValue}
-          onChange={(e) => setTypingValue(e.target.value)}
-          placeholder="Type pinyin..."
-        />
+        <div className={styles.typingInputWrap}>
+          <PinyinInput
+            withHelp
+            autoFocus
+            className={`${styles.typingInput} ${shakeClass} ${comparison ? styles.typingInputTransparent : ''}`}
+            value={typingValue}
+            onChange={(e) => { setTypingValue(e.target.value); setComparison(null); }}
+            placeholder="Type pinyin..."
+          />
+          <PinyinFeedback comparison={comparison} />
+        </div>
       </form>
       <div className={styles.learnActions}>
         <button className={`${styles.ratingButton} ${styles.ratingGood}`} onClick={onDone}>
@@ -82,6 +100,7 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
   const [revealed, setRevealed] = useState(false);
   const [typingValue, setTypingValue] = useState('');
   const [shakeClass, shake] = useShaker();
+  const [comparison, setComparison] = useState(null);
   const word = card.word;
   const isZh2En = card.direction === 'zh2en';
 
@@ -117,11 +136,13 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
     if (correct) {
       onGotIt();
     } else {
+      if (!isZh2En) setComparison(comparePinyin(typingValue, word.pinyin));
       shake();
     }
   };
 
-  const InputComponent = isZh2En ? 'input' : PinyinInput;
+  const inputClassName = `${styles.typingInput} ${shakeClass} ${comparison ? styles.typingInputTransparent : ''}`;
+  const handleTypingChange = (e) => { setTypingValue(e.target.value); setComparison(null); };
 
   return (
     <div className={styles.flashcardContainer}>
@@ -152,14 +173,27 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
 
       {!revealed ? (
         <form className={styles.typingForm} onSubmit={handleTypingSubmit}>
-          <InputComponent
-            withHelp
-            autoFocus
-            className={`${styles.typingInput} ${shakeClass}`}
-            value={typingValue}
-            onChange={(e) => setTypingValue(e.target.value)}
-            placeholder={isZh2En ? 'Type English...' : 'Type pinyin...'}
-          />
+          <div className={styles.typingInputWrap}>
+            {isZh2En ? (
+              <input
+                autoFocus
+                className={inputClassName}
+                value={typingValue}
+                onChange={handleTypingChange}
+                placeholder="Type English..."
+              />
+            ) : (
+              <PinyinInput
+                withHelp
+                autoFocus
+                className={inputClassName}
+                value={typingValue}
+                onChange={handleTypingChange}
+                placeholder="Type pinyin..."
+              />
+            )}
+            <PinyinFeedback comparison={comparison} />
+          </div>
         </form>
       ) : (
         <div className={styles.learnActions}>

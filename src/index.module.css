@@ -1217,6 +1217,40 @@
   border-color: #3b82f6;
 }
 
+.typingInputWrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+}
+
+.typingInputWrap .typingInput {
+  flex: 1;
+}
+
+.typingInputTransparent {
+  color: transparent;
+  caret-color: transparent;
+}
+
+.typingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: inherit;
+  pointer-events: none;
+  white-space: pre;
+  border: 2px solid transparent;
+}
+
+.typingWrongChar {
+  color: #dc2626;
+  font-weight: 600;
+}
+
 .shake {
   animation: shake 0.4s ease-in-out;
   border-color: #dc2626;
@@ -1381,6 +1415,7 @@
 .pinyinInputWrapper {
   position: relative;
   display: flex;
+  flex: 1;
 }
 
 .pinyinInputWrapper input {
