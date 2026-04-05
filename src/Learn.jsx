@@ -14,8 +14,14 @@ const GRADUATE_THRESHOLD = 1;
 const INITIAL_BATCH_SIZE = 2;
 
 function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
+  const [typingValue, setTypingValue] = useState('');
+  const [shakeClass, shake] = useShaker();
+
   useEffect(() => {
     const handleKey = (e) => {
+      const isTyping = document.activeElement?.tagName === 'INPUT';
+      if (isTyping) return;
+
       if (e.code === 'Space' || e.code === 'Enter') {
         e.preventDefault();
         onDone();
@@ -29,6 +35,17 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
     return () => window.removeEventListener('keydown', handleKey);
   }, [onDone, onKnown]);
 
+  const handleTypingSubmit = (e) => {
+    e.preventDefault();
+    if (!typingValue.trim()) return;
+
+    if (matchPinyin(typingValue, word.pinyin)) {
+      onDone();
+    } else {
+      shake();
+    }
+  };
+
   return (
     <div className={styles.flashcardContainer}>
       <div className={`${styles.flashcardCard} ${styles.learnIntroCard}`}>
@@ -39,6 +56,15 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
           {word.notes && <div className={styles.flashcardNotes}>{word.notes}</div>}
         </div>
       </div>
+      <form className={styles.typingForm} onSubmit={handleTypingSubmit}>
+        <PinyinInput
+          autoFocus
+          className={`${styles.typingInput} ${shakeClass}`}
+          value={typingValue}
+          onChange={(e) => setTypingValue(e.target.value)}
+          placeholder="Type pinyin..."
+        />
+      </form>
       <div className={styles.learnActions}>
         <button className={`${styles.ratingButton} ${styles.ratingGood}`} onClick={onDone}>
           <span className={styles.ratingLabel}>Got it</span>
@@ -432,6 +458,7 @@ function LearnSession({ words, collectionName, displayScript }) {
       <div>
         <LearnProgress collectionName={collectionName} introducedCount={introducedCount} totalCount={totalCount} onEnd={handleEndSession} />
         <LearnIntroCard
+          key={introWord.id}
           word={introWord}
           displayScript={displayScript}
           onDone={() => handleIntroComplete(false)}
