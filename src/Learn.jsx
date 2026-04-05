@@ -58,6 +58,7 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
       </div>
       <form className={styles.typingForm} onSubmit={handleTypingSubmit}>
         <PinyinInput
+          withHelp
           autoFocus
           className={`${styles.typingInput} ${shakeClass}`}
           value={typingValue}
@@ -83,11 +84,6 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
   const [shakeClass, shake] = useShaker();
   const word = card.word;
   const isZh2En = card.direction === 'zh2en';
-
-  useEffect(() => {
-    setRevealed(false);
-    setTypingValue('');
-  }, [card]);
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -125,10 +121,6 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
     }
   };
 
-  const handleTypingChange = (e) => {
-    setTypingValue(e.target.value);
-  };
-
   const InputComponent = isZh2En ? 'input' : PinyinInput;
 
   return (
@@ -161,10 +153,11 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
       {!revealed ? (
         <form className={styles.typingForm} onSubmit={handleTypingSubmit}>
           <InputComponent
+            withHelp
             autoFocus
             className={`${styles.typingInput} ${shakeClass}`}
             value={typingValue}
-            onChange={handleTypingChange}
+            onChange={(e) => setTypingValue(e.target.value)}
             placeholder={isZh2En ? 'Type English...' : 'Type pinyin...'}
           />
         </form>
