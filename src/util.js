@@ -1,5 +1,6 @@
 import React from 'react';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import styles from "./index.module.css";
 
 export function formatBytes(bytes) {
   if (bytes === 0) {
@@ -65,4 +66,28 @@ export function useAsync(fn, inputs) {
   }, inputs);
 
   return [result, error, loading];
+}
+
+export function useShaker(duration = 400) {
+  const [shaking, setShaking] = useState(false);
+  const timeoutRef = useRef(null);
+
+  const shake = useCallback(() => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setShaking(true);
+    timeoutRef.current = setTimeout(() => {
+      timeoutRef.current = null;
+      setShaking(false);
+    }, duration);
+  }, [duration]);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  const className = shaking ? styles.shake : '';
+
+  return [className, shake];
 }

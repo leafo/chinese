@@ -1199,6 +1199,37 @@
   gap: 8px;
 }
 
+.typingForm {
+  display: flex;
+}
+
+.typingInput {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+}
+
+.typingInput:focus {
+  border-color: #3b82f6;
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+  border-color: #dc2626;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
 .learnDescription {
   color: #64748b;
   font-size: 14px;

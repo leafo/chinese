@@ -4,6 +4,9 @@ import { useAllWords } from "./words";
 import { useCollections } from "./collections";
 import { useRoute, setRoute } from "./router";
 import { ChineseDisplay } from "./ChineseDisplay";
+import { PinyinInput } from "./PinyinInput";
+import { matchPinyin, matchEnglish } from "./matching";
+import { useShaker } from "./util";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 
@@ -50,18 +53,22 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
 
 function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
   const [revealed, setRevealed] = useState(false);
+  const [typingValue, setTypingValue] = useState('');
+  const [shakeClass, shake] = useShaker();
   const word = card.word;
   const isZh2En = card.direction === 'zh2en';
 
   useEffect(() => {
     setRevealed(false);
+    setTypingValue('');
   }, [card]);
 
   useEffect(() => {
     const handleKey = (e) => {
       if (e.repeat) return;
 
-      if (e.code === 'Space' && !revealed) {
+      const isTyping = document.activeElement?.tagName === 'INPUT';
+      if (e.code === 'Space' && !revealed && !isTyping) {
         e.preventDefault();
         setRevealed(true);
         return;
@@ -76,6 +83,27 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [revealed, onGotIt, onForgot, onReset]);
+
+  const handleTypingSubmit = (e) => {
+    e.preventDefault();
+    if (!typingValue.trim()) return;
+
+    const correct = isZh2En
+      ? matchEnglish(typingValue, word.english)
+      : matchPinyin(typingValue, word.pinyin);
+
+    if (correct) {
+      onGotIt();
+    } else {
+      shake();
+    }
+  };
+
+  const handleTypingChange = (e) => {
+    setTypingValue(e.target.value);
+  };
+
+  const InputComponent = isZh2En ? 'input' : PinyinInput;
 
   return (
     <div className={styles.flashcardContainer}>
@@ -93,7 +121,7 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
             ) : (
               <div className={styles.flashcardPrompt}>{word.english}</div>
             )}
-            <div className={styles.flashcardTapHint}>Tap or press Space to reveal</div>
+            <div className={styles.flashcardTapHint}>Type your answer or tap to reveal</div>
           </div>
         ) : (
           <div className={styles.flashcardBack}>
@@ -104,7 +132,17 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
         )}
       </div>
 
-      {revealed && (
+      {!revealed ? (
+        <form className={styles.typingForm} onSubmit={handleTypingSubmit}>
+          <InputComponent
+            autoFocus
+            className={`${styles.typingInput} ${shakeClass}`}
+            value={typingValue}
+            onChange={handleTypingChange}
+            placeholder={isZh2En ? 'Type English...' : 'Type pinyin...'}
+          />
+        </form>
+      ) : (
         <div className={styles.learnActions}>
           <button className={`${styles.ratingButton} ${styles.ratingGood}`} onClick={onGotIt}>
             <span className={styles.ratingLabel}>Got it</span>

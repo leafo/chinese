@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import styles from "./index.module.css";
 import { useModalDialog } from "./util";
 
@@ -194,6 +194,51 @@ function PinyinHelpDialog({ onClose }) {
 
 export function PinyinInput({ value, onChange, withHelp, ...props }) {
   const [helpOpen, setHelpOpen] = useState(false);
+  const inputRef = useRef(null);
+  const valueRef = useRef(value);
+  valueRef.current = value;
+
+  const handleBeforeInput = useCallback((e) => {
+    if (e.inputType !== 'deleteContentBackward') return;
+    const input = e.target;
+    const start = input.selectionStart;
+    const end = input.selectionEnd;
+    const val = valueRef.current;
+
+    let charToCheck, replaceStart, cursorAfter;
+
+    if (start === end) {
+      // Caret deletion (physical keyboard): check char before cursor
+      if (start === 0) return;
+      charToCheck = val[start - 1];
+      replaceStart = start - 1;
+      cursorAfter = start;
+    } else if (end - start === 1) {
+      // Selection deletion (touch keyboard): check the selected char
+      charToCheck = val[start];
+      replaceStart = start;
+      cursorAfter = start + 1;
+    } else {
+      return;
+    }
+
+    const base = TONELESS_MAP[charToCheck];
+    if (!base) return;
+
+    e.preventDefault();
+    const newValue = val.slice(0, replaceStart) + base + val.slice(replaceStart + 1);
+    onChange({ target: { value: newValue } });
+    requestAnimationFrame(() => {
+      input.setSelectionRange(cursorAfter, cursorAfter);
+    });
+  }, [onChange]);
+
+  useEffect(() => {
+    const input = inputRef.current;
+    if (!input) return;
+    input.addEventListener('beforeinput', handleBeforeInput);
+    return () => input.removeEventListener('beforeinput', handleBeforeInput);
+  }, [handleBeforeInput]);
 
   const handleChange = (e) => {
     const input = e.target;
@@ -213,6 +258,7 @@ export function PinyinInput({ value, onChange, withHelp, ...props }) {
 
   const input = (
     <input
+      ref={inputRef}
       value={value}
       onChange={handleChange}
       {...props}
