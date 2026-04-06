@@ -66,6 +66,58 @@
   border-bottom: none;
 }
 
+.wordItemSelected {
+  background: #eff6ff;
+}
+
+.bulkCheckbox {
+  margin-top: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.bulkEditToolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.bulkEditControls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bulkEditSelect {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 180px;
+  background: white;
+}
+
+.bulkEditMeta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.bulkEditStatus {
+  color: #16a34a;
+  font-weight: 500;
+}
+
 .wordChinese {
   font-size: 22px;
   font-weight: 600;

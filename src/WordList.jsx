@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import styles from "./index.module.css";
-import { useWords, useAllWords, insertWord, deleteWord, updateWord } from "./words";
+import { useWords, useAllWords, insertWord, deleteWord, updateWord, bulkUpdateCollections } from "./words";
 import { useCollections } from "./collections";
 import { setRoute, useRoute, updateRoute } from "./router";
 import { PlayButton } from "./PlayButton";
@@ -20,6 +20,10 @@ export function WordList() {
   const [displayScript] = useConfig("display_script");
   const [showForm, setShowForm] = useState(false);
   const [editingWord, setEditingWord] = useState(null);
+  const [bulkEditMode, setBulkEditMode] = useState(false);
+  const [selectedWordIds, setSelectedWordIds] = useState(new Set());
+  const [bulkCollectionId, setBulkCollectionId] = useState('');
+  const [bulkStatus, setBulkStatus] = useState(null);
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
   const collectionNamesById = Object.fromEntries((collections || []).map(collection => [collection.id, collection.name]));
 
@@ -44,6 +48,38 @@ export function WordList() {
     setEditingWord(current => (current?.id === id ? null : current));
   };
 
+  const toggleBulkEdit = () => {
+    setBulkEditMode(prev => !prev);
+    setSelectedWordIds(new Set());
+    setBulkCollectionId('');
+    setBulkStatus(null);
+  };
+
+  const toggleWordSelection = (wordId) => {
+    setSelectedWordIds(prev => {
+      const next = new Set(prev);
+      if (next.has(wordId)) next.delete(wordId);
+      else next.add(wordId);
+      return next;
+    });
+  };
+
+  const selectAll = () => {
+    if (!filteredWords) return;
+    setSelectedWordIds(new Set(filteredWords.map(w => w.id)));
+  };
+
+  const selectNone = () => setSelectedWordIds(new Set());
+
+  const handleBulkAction = async (action) => {
+    if (!bulkCollectionId || selectedWordIds.size === 0) return;
+    setBulkStatus(null);
+    const count = selectedWordIds.size;
+    await bulkUpdateCollections([...selectedWordIds], parseInt(bulkCollectionId, 10), action);
+    setBulkStatus(`${action === 'add' ? 'Added' : 'Removed'} ${count} word${count === 1 ? '' : 's'}`);
+    setSelectedWordIds(new Set());
+  };
+
   if (loading && !words) return <p>Loading words...</p>;
   if (error) return <p>Error loading words: {error.message}</p>;
 
@@ -60,12 +96,24 @@ export function WordList() {
           )}
         </h2>
         <div className={styles.importToolbarActions}>
-          <button className={styles.secondaryButton} onClick={() => setRoute({ view: 'import' })}>
-            Bulk Add
-          </button>
-          <button className={styles.primaryButton} onClick={() => setShowForm(!showForm)}>
-            + Add Word
-          </button>
+          {!bulkEditMode && (
+            <>
+              <button className={styles.secondaryButton} onClick={() => setRoute({ view: 'import' })}>
+                Bulk Add
+              </button>
+              <button className={styles.secondaryButton} onClick={toggleBulkEdit}>
+                Bulk Edit
+              </button>
+              <button className={styles.primaryButton} onClick={() => setShowForm(!showForm)}>
+                + Add Word
+              </button>
+            </>
+          )}
+          {bulkEditMode && (
+            <button className={styles.secondaryButton} onClick={toggleBulkEdit}>
+              Done
+            </button>
+          )}
         </div>
       </div>
 
@@ -92,6 +140,43 @@ export function WordList() {
         />
       )}
 
+      {bulkEditMode && (
+        <div className={styles.bulkEditToolbar}>
+          <div className={styles.bulkEditControls}>
+            <select
+              value={bulkCollectionId}
+              onChange={e => setBulkCollectionId(e.target.value)}
+              className={styles.bulkEditSelect}
+            >
+              <option value="">Select collection...</option>
+              {(collections || []).map(c => (
+                <option key={c.id} value={c.id}>{c.name}</option>
+              ))}
+            </select>
+            <button
+              className={styles.primaryButton}
+              disabled={!bulkCollectionId || selectedWordIds.size === 0}
+              onClick={() => handleBulkAction('add')}
+            >
+              Add to Collection
+            </button>
+            <button
+              className={styles.secondaryButton}
+              disabled={!bulkCollectionId || selectedWordIds.size === 0}
+              onClick={() => handleBulkAction('remove')}
+            >
+              Remove from Collection
+            </button>
+          </div>
+          <div className={styles.bulkEditMeta}>
+            <span>{selectedWordIds.size} selected</span>
+            <button className={styles.smallButton} onClick={selectAll}>Select All</button>
+            <button className={styles.smallButton} onClick={selectNone}>Select None</button>
+            {bulkStatus && <span className={styles.bulkEditStatus}>{bulkStatus}</span>}
+          </div>
+        </div>
+      )}
+
       {(!filteredWords || filteredWords.length === 0) ? (
         <div className={styles.emptyState}>
           {collectionId ? (
@@ -112,6 +197,9 @@ export function WordList() {
               preferredScript={preferredScript}
               collectionNamesById={collectionNamesById}
               onEdit={() => setEditingWord(word)}
+              bulkEditMode={bulkEditMode}
+              selected={selectedWordIds.has(word.id)}
+              onToggleSelect={() => toggleWordSelection(word.id)}
             />
           ))}
         </ul>
@@ -120,14 +208,25 @@ export function WordList() {
   );
 }
 
-function WordRow({ word, preferredScript, collectionNamesById, onEdit }) {
+function WordRow({ word, preferredScript, collectionNamesById, onEdit, bulkEditMode, selected, onToggleSelect }) {
   const primaryText = getPreferredChineseText(word, preferredScript);
   const collectionNames = (word.collection_ids || [])
     .map(id => collectionNamesById[id])
     .filter(Boolean);
 
   return (
-    <li className={styles.wordItem}>
+    <li
+      className={`${styles.wordItem}${bulkEditMode && selected ? ` ${styles.wordItemSelected}` : ''}`}
+    >
+      {bulkEditMode && (
+        <input
+          type="checkbox"
+          checked={selected}
+          onChange={onToggleSelect}
+          onClick={e => e.stopPropagation()}
+          className={styles.bulkCheckbox}
+        />
+      )}
       <span className={styles.wordChinese}>{primaryText}</span>
       <div className={styles.wordDetails}>
         <div className={styles.wordSummary}>

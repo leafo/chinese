@@ -65,19 +65,31 @@ export async function getAllWords() {
   return store.getAll();
 }
 
+export async function bulkUpdateCollections(wordIds, collectionId, action) {
+  const parsedCollectionId = parseId(collectionId);
+  const words = await getAllWords();
+  const targetWords = words.filter(w => wordIds.includes(w.id));
+  if (targetWords.length === 0) return;
+
+  const updated = targetWords.map(word => {
+    const currentIds = word.collection_ids || [];
+    const nextIds = action === 'add'
+      ? [...currentIds, parsedCollectionId]
+      : currentIds.filter(id => id !== parsedCollectionId);
+    return { ...word, collection_ids: normalizeCollectionIds(nextIds) };
+  });
+
+  await store.putMany(updated);
+}
+
 export async function unassignCollectionFromWords(collectionId) {
   const parsedId = parseId(collectionId);
   const words = await getAllWords();
-  const affectedWords = words.filter(word => (word.collection_ids || []).includes(parsedId));
-
-  if (affectedWords.length === 0) return;
-
-  await store.putMany(affectedWords.map(word => ({
-    ...word,
-    collection_ids: normalizeCollectionIds(
-      (word.collection_ids || []).filter(id => id !== parsedId)
-    ),
-  })));
+  const affectedIds = words
+    .filter(w => (w.collection_ids || []).includes(parsedId))
+    .map(w => w.id);
+  if (affectedIds.length === 0) return;
+  await bulkUpdateCollections(affectedIds, collectionId, 'remove');
 }
 
 export function useDependency() {
