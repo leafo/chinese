@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 import { useCollections } from "./collections";
 import { CollectionSelector } from "./CollectionSelector";
 import { getAllWords } from "./words";
-import { generateSentences, generateTts } from "./gemini";
+import { generateSentences, generateTts as geminiTts } from "./gemini";
 import { playBlob, stopCurrentAudio } from "./audio";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
@@ -11,7 +11,15 @@ import { StreamingPreview } from "./StreamingPreview";
 
 const AUDIO_CONCURRENCY = 3;
 
-function SentencePlayButton({ sentence, onAudioReady }) {
+async function getTtsFunction(provider) {
+  if (provider === 'openai') {
+    const { generateTts } = await import('./openai.js');
+    return generateTts;
+  }
+  return geminiTts;
+}
+
+function SentencePlayButton({ sentence, onAudioReady, ttsProvider }) {
   const [loading, setLoading] = useState(false);
   const [playing, setPlaying] = useState(false);
   const mountedRef = useRef(true);
@@ -58,7 +66,8 @@ function SentencePlayButton({ sentence, onAudioReady }) {
     requestAbortRef.current = controller;
 
     try {
-      const result = await generateTts(sentence.simplified, { signal: controller.signal });
+      const tts = await getTtsFunction(ttsProvider);
+      const result = await tts(sentence.simplified, { signal: controller.signal });
       if (mountedRef.current && !controller.signal.aborted) {
         onAudioReady(sentence.id, result.blob);
         const audio = playBlob(result.blob);
@@ -96,7 +105,7 @@ function SentencePlayButton({ sentence, onAudioReady }) {
   );
 }
 
-function SentenceCard({ sentence, index, displayScript, pinyinMap, onAudioReady }) {
+function SentenceCard({ sentence, index, displayScript, pinyinMap, ttsProvider, onAudioReady }) {
   const chineseText = getPreferredChineseText(sentence, displayScript);
 
   return (
@@ -107,6 +116,7 @@ function SentenceCard({ sentence, index, displayScript, pinyinMap, onAudioReady 
           <div className={styles.sentenceChinese}>
             <SentencePlayButton
               sentence={sentence}
+              ttsProvider={ttsProvider}
               onAudioReady={onAudioReady}
             />
             <span>{chineseText}</span>
@@ -138,6 +148,7 @@ export function GenerateSentences() {
 
   const [audioProgress, setAudioProgress] = useState(null);
   const [streamText, setStreamText] = useState('');
+  const [ttsProvider, setTtsProvider] = useState('gemini');
   const [pinyinMap, setPinyinMap] = useState({});
   const abortRef = useRef(null);
   const runRef = useRef(0);
@@ -273,6 +284,7 @@ export function GenerateSentences() {
 
     setAudioProgress({ completed: 0, total });
 
+    const tts = await getTtsFunction(ttsProvider);
     const queue = [...toGenerate];
     let nextIndex = 0;
 
@@ -284,7 +296,7 @@ export function GenerateSentences() {
         const sentence = queue[current];
 
         try {
-          const result = await generateTts(sentence.simplified, { signal: controller.signal });
+          const result = await tts(sentence.simplified, { signal: controller.signal });
           if (controller.signal.aborted || runRef.current !== runId) return;
 
           setSentences(prev => prev.map(s =>
@@ -402,6 +414,10 @@ export function GenerateSentences() {
               Generated {sentences.length} sentences using {uniqueWordsUsed.length} vocabulary words
             </p>
             <div className={styles.sentenceToolbarActions}>
+              <select value={ttsProvider} onChange={e => setTtsProvider(e.target.value)}>
+                <option value="gemini">Gemini TTS</option>
+                <option value="openai">OpenAI TTS</option>
+              </select>
               {audioCount < sentences.length && !abortRef.current && (
                 <button className={styles.primaryButton} onClick={handleGenerateAllAudio}>
                   Generate All Audio ({sentences.length - audioCount} remaining)
@@ -435,6 +451,7 @@ export function GenerateSentences() {
                 index={index}
                 displayScript={preferredScript}
                 pinyinMap={pinyinMap}
+                ttsProvider={ttsProvider}
                 onAudioReady={handleSentenceAudioReady}
               />
             ))}
