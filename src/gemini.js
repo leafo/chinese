@@ -423,7 +423,7 @@ const GENERATE_SENTENCES_RESPONSE_SCHEMA = {
   required: ["sentences"]
 };
 
-export async function generateSentences(words, { count = 10, objectives, signal } = {}) {
+export async function generateSentences(words, { count = 10, objectives, signal, onChunk } = {}) {
   if (!words || words.length === 0) {
     throw new Error('At least one word is required to generate sentences');
   }
@@ -467,6 +467,10 @@ Use these objectives to guide the topics and style of the generated sentences.` 
       responseSchema: GENERATE_SENTENCES_RESPONSE_SCHEMA
     }
   };
+
+  if (onChunk) {
+    return geminiStreamRequest(requestBody, { onChunk, signal });
+  }
 
   return geminiRequest(requestBody, { signal });
 }

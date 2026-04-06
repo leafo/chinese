@@ -5,7 +5,7 @@ import { insertWord, updateWord, useAllWords } from "./words";
 import { insertCollection } from "./collections";
 import { useConfig } from "./config";
 import { generateWords } from "./gemini";
-import { useElapsedTimer } from "./useElapsedTimer";
+import { StreamingPreview } from "./StreamingPreview";
 import { useWordSelection } from "./useWordSelection";
 import { WordPreviewList } from "./WordPreviewList";
 
@@ -23,7 +23,6 @@ export function GenerateCollection() {
   const [apiKey] = useConfig("gemini_api_key");
   const [existingWords] = useAllWords();
 
-  const elapsedMs = useElapsedTimer(processing);
   const {
     setSelected, duplicateMatches, isWordSelected,
     selectedCount,
@@ -185,10 +184,6 @@ export function GenerateCollection() {
     }
   };
 
-  const elapsedSeconds = (elapsedMs / 1000).toFixed(1);
-  const streamStatus = streamText
-    ? 'Streaming structured JSON from Gemini...'
-    : 'Waiting for the first JSON chunk...';
   const existingLinkedCount = Array.from(
     new Set(
       duplicateMatches
@@ -258,22 +253,12 @@ export function GenerateCollection() {
         </form>
       )}
 
-      {processing && (
-        <div className={styles.processingState}>
-          <p>{streamStatus}</p>
-          <div className={styles.processingMeta}>
-            <span>Topic: {title}</span>
-            <span>Elapsed: {elapsedSeconds}s</span>
-            <span>Received: {streamText.length.toLocaleString()} chars</span>
-          </div>
-          <pre className={styles.streamOutput}>
-            {streamText || '{\n  "words": [\n    ...waiting for first chunk\n  ]\n}'}
-          </pre>
-          <div className={styles.processingActions}>
-            <button className={styles.secondaryButton} onClick={cancelProcessing}>Cancel</button>
-          </div>
-        </div>
-      )}
+      <StreamingPreview
+        active={processing}
+        streamText={streamText}
+        meta={`Topic: ${title}`}
+        onCancel={cancelProcessing}
+      />
 
       {error && (
         <div className={styles.errorBox}>

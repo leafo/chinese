@@ -7,7 +7,7 @@ import { CollectionSelector } from "./CollectionSelector";
 import { useConfig } from "./config";
 import { ocrWords } from "./gemini";
 import { formatBytes } from "./util";
-import { useElapsedTimer } from "./useElapsedTimer";
+import { StreamingPreview } from "./StreamingPreview";
 import { useWordSelection } from "./useWordSelection";
 import { WordPreviewList } from "./WordPreviewList";
 
@@ -27,7 +27,6 @@ export function ImportWords() {
   const [collections, collectionsError, collectionsLoading] = useCollections();
   const [existingWords] = useAllWords();
 
-  const elapsedMs = useElapsedTimer(processing);
   const {
     setSelected, duplicateMatches, isWordSelected,
     toggleAll, toggleOne, selectedCount,
@@ -210,10 +209,6 @@ export function ImportWords() {
     ));
   };
 
-  const elapsedSeconds = (elapsedMs / 1000).toFixed(1);
-  const streamStatus = streamText
-    ? 'Streaming structured JSON from Gemini...'
-    : 'Uploading image and waiting for the first JSON chunk...';
   const selectedImageCount = selectedImages.length;
 
   return (
@@ -303,22 +298,12 @@ export function ImportWords() {
         </div>
       )}
 
-      {processing && (
-        <div className={styles.processingState}>
-          <p>{streamStatus}</p>
-          <div className={styles.processingMeta}>
-            <span>Images: {selectedImageCount}</span>
-            <span>Elapsed: {elapsedSeconds}s</span>
-            <span>Received: {streamText.length.toLocaleString()} chars</span>
-          </div>
-          <pre className={styles.streamOutput}>
-            {streamText || '{\n  "words": [\n    ...waiting for first chunk\n  ]\n}'}
-          </pre>
-          <div className={styles.processingActions}>
-            <button className={styles.secondaryButton} onClick={cancelProcessing}>Cancel</button>
-          </div>
-        </div>
-      )}
+      <StreamingPreview
+        active={processing}
+        streamText={streamText}
+        meta={`Images: ${selectedImageCount}`}
+        onCancel={cancelProcessing}
+      />
 
       {error && (
         <div className={styles.errorBox}>

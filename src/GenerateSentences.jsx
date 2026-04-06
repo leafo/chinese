@@ -7,6 +7,7 @@ import { generateSentences, generateTts } from "./gemini";
 import { playBlob, stopCurrentAudio } from "./audio";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
+import { StreamingPreview } from "./StreamingPreview";
 
 const AUDIO_CONCURRENCY = 3;
 
@@ -95,7 +96,7 @@ function SentencePlayButton({ sentence, onAudioReady }) {
   );
 }
 
-function SentenceCard({ sentence, index, displayScript, onAudioReady }) {
+function SentenceCard({ sentence, index, displayScript, pinyinMap, onAudioReady }) {
   const chineseText = getPreferredChineseText(sentence, displayScript);
 
   return (
@@ -115,7 +116,7 @@ function SentenceCard({ sentence, index, displayScript, onAudioReady }) {
           {sentence.words_used && sentence.words_used.length > 0 && (
             <div className={styles.sentenceWordsUsed}>
               {sentence.words_used.map((word, i) => (
-                <span key={i} className={styles.tag}>{word}</span>
+                <span key={i} className={styles.tag} title={pinyinMap?.[word]}>{word}</span>
               ))}
             </div>
           )}
@@ -136,6 +137,8 @@ export function GenerateSentences() {
   const [generationError, setGenerationError] = useState(null);
 
   const [audioProgress, setAudioProgress] = useState(null);
+  const [streamText, setStreamText] = useState('');
+  const [pinyinMap, setPinyinMap] = useState({});
   const abortRef = useRef(null);
   const runRef = useRef(0);
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
@@ -170,12 +173,20 @@ export function GenerateSentences() {
     setGenerationError(null);
     setSentences([]);
     setAudioProgress(null);
+    setStreamText('');
 
     const controller = new AbortController();
     abortRef.current = controller;
 
     try {
       const allWords = await getAllWords();
+      const lookup = {};
+      for (const w of allWords) {
+        if (w.simplified) lookup[w.simplified] = w.pinyin;
+        if (w.traditional) lookup[w.traditional] = w.pinyin;
+      }
+      setPinyinMap(lookup);
+
       const filteredWords = selectedCollectionIds.length > 0
         ? allWords.filter(w =>
             w.collection_ids?.some(id => selectedCollectionIds.includes(id))
@@ -197,6 +208,11 @@ export function GenerateSentences() {
         count,
         objectives: objectives || undefined,
         signal: controller.signal,
+        onChunk: (_chunk, fullText) => {
+          if (abortRef.current === controller && !controller.signal.aborted) {
+            setStreamText(fullText);
+          }
+        },
       });
 
       if (controller.signal.aborted || runRef.current !== runId) return;
@@ -361,14 +377,12 @@ export function GenerateSentences() {
         </div>
       )}
 
-      {generationStatus === 'generating' && (
-        <div className={styles.form}>
-          <p>Generating sentences...</p>
-          <button className={styles.secondaryButton} onClick={handleCancel}>
-            Cancel
-          </button>
-        </div>
-      )}
+      <StreamingPreview
+        active={generationStatus === 'generating'}
+        streamText={streamText}
+        meta={`Sentences: ${count}`}
+        onCancel={handleCancel}
+      />
 
       {generationStatus === 'error' && (
         <div>
@@ -420,6 +434,7 @@ export function GenerateSentences() {
                 sentence={sentence}
                 index={index}
                 displayScript={preferredScript}
+                pinyinMap={pinyinMap}
                 onAudioReady={handleSentenceAudioReady}
               />
             ))}
