@@ -289,7 +289,16 @@ function allCardsGraduated(cards) {
   return true;
 }
 
-function CollectionPicker({ collections, loading, onSelect }) {
+function shuffle(array) {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function CollectionPicker({ collections, loading, onSelect, shuffleWords, onToggleShuffle }) {
   if (loading) return <p>Loading collections...</p>;
   if (!collections || collections.length === 0) {
     return (
@@ -311,6 +320,12 @@ function CollectionPicker({ collections, loading, onSelect }) {
         added once you've demonstrated recall of the current ones. Nothing is saved between
         sessions. Once you're comfortable, use Review for long-term retention.
       </p>
+      <div className={styles.learnOptions}>
+        <label className={styles.checkboxRow}>
+          <input type="checkbox" checked={shuffleWords} onChange={onToggleShuffle} />
+          <span>Shuffle words</span>
+        </label>
+      </div>
       <ul className={styles.collectionList}>
         {collections.map(col => (
           <li key={col.id} className={styles.collectionItem}>
@@ -520,6 +535,7 @@ export function Learn() {
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
   const [collections, , collectionsLoading] = useCollections();
   const [allWords] = useAllWords();
+  const [shuffleWords, setShuffleWords] = useState(false);
   const collectionId = routeCollection ? parseInt(routeCollection, 10) : null;
 
   const collectionWords = useMemo(() => {
@@ -543,6 +559,8 @@ export function Learn() {
       <CollectionPicker
         collections={collectionsWithWords}
         loading={collectionsLoading}
+        shuffleWords={shuffleWords}
+        onToggleShuffle={() => setShuffleWords(prev => !prev)}
         onSelect={(id) => setRoute({ view: 'learn', collection: id })}
       />
     );
@@ -566,7 +584,7 @@ export function Learn() {
   return (
     <LearnSession
       key={collectionId}
-      words={collectionWords}
+      words={shuffleWords ? shuffle(collectionWords) : collectionWords}
       collectionName={collectionName}
       displayScript={preferredScript}
     />

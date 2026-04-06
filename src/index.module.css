@@ -1229,7 +1229,6 @@
 
 .typingInputTransparent {
   color: transparent;
-  caret-color: transparent;
 }
 
 .typingOverlay {
@@ -1269,6 +1268,14 @@
   font-size: 14px;
   line-height: 1.5;
   margin: 0 0 16px;
+}
+
+.learnOptions {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
 }
 
 .learnCollectionName {
