@@ -11,6 +11,7 @@ import { Learn } from "./Learn";
 import { GenerateSentences } from "./GenerateSentences";
 import { GenerateCollection } from "./GenerateCollection";
 import { FlashcardDebug } from "./FlashcardDebug";
+import { ImportCollection } from "./ImportCollection";
 
 function App() {
   const route = useRoute(['view']);
@@ -68,6 +69,7 @@ function App() {
       {view === 'generate-collection' && <GenerateCollection />}
       {view === 'learn' && <Learn />}
       {view === 'flashcards' && <Flashcards />}
+      {view === 'import-collection' && <ImportCollection />}
       {view === 'flashcard-debug' && <FlashcardDebug />}
       {view === 'settings' && <Settings />}
     </div>

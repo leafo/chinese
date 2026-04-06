@@ -6,20 +6,9 @@ export function WordPreviewList({
   isWordSelected,
   onToggle,
   onUpdate,
-  onRemove,
   duplicateMatches,
   renderDuplicateActions,
 }) {
-  const handleRemove = (index) => {
-    const word = words[index];
-    const summary = formatDuplicateSummary(word);
-    const label = summary || 'this word';
-
-    if (confirm(`Remove ${label}?`)) {
-      onRemove(index);
-    }
-  };
-
   return (
     <ul className={styles.importList}>
       {words.map((word, index) => (
@@ -56,14 +45,6 @@ export function WordPreviewList({
                 onChange={(e) => onUpdate(index, 'english', e.target.value)}
                 placeholder="English"
               />
-              <button
-                type="button"
-                className={styles.deleteButton}
-                onClick={() => handleRemove(index)}
-                title="Remove"
-              >
-                &times;
-              </button>
             </div>
             {duplicateMatches[index] && (
               <div className={styles.importStatusRow}>

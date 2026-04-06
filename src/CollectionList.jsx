@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import styles from "./index.module.css";
 import { setRoute } from "./router";
 import { useCollections, insertCollection, updateCollection, deleteCollection } from "./collections";
@@ -128,6 +128,46 @@ export function CollectionList() {
           onClose={() => setEditingCollection(null)}
         />
       )}
+
+      <PremadeCollections />
     </div>
+  );
+}
+
+function PremadeCollections() {
+  const [manifest, setManifest] = useState(null);
+
+  useEffect(() => {
+    fetch('collections/index.json')
+      .then(res => res.ok ? res.json() : null)
+      .catch(() => null)
+      .then(data => setManifest(data));
+  }, []);
+
+  if (!manifest || manifest.length === 0) return null;
+
+  return (
+    <section className={styles.subsection}>
+      <div className={styles.sectionHeader}>
+        <h2>Premade Collections</h2>
+      </div>
+      <ul className={styles.collectionList}>
+        {manifest.map(entry => (
+          <li key={entry.file} className={styles.collectionItem}>
+            <span className={styles.collectionNameGroup}>
+              <span>{entry.name}</span>
+              {entry.notes && <span className={styles.collectionNotes}> - {entry.notes}</span>}
+            </span>
+            <span className={styles.collectionWordCount}>{entry.wordCount} words</span>
+            <div className={styles.wordActions}>
+              <button
+                className={styles.smallButton}
+                onClick={() => setRoute({ view: 'import-collection', file: entry.file })}
+              >Import</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

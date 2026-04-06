@@ -155,12 +155,6 @@ export function ImportWords() {
     setExtractedWords(updated);
   };
 
-  const removeWord = (index) => {
-    const updated = extractedWords.filter((_, i) => i !== index);
-    setExtractedWords(updated);
-    setSelected({});
-  };
-
   const handleImport = async () => {
     setImporting(true);
     try {
@@ -365,7 +359,7 @@ export function ImportWords() {
             isWordSelected={isWordSelected}
             onToggle={toggleOne}
             onUpdate={updateField}
-            onRemove={removeWord}
+
             duplicateMatches={duplicateMatches}
           />
         </div>

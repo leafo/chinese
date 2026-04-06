@@ -39,7 +39,7 @@ function serializeAudioClip(clip) {
   return { ...clip };
 }
 
-function deserializeAudioClip(clip) {
+export function deserializeAudioClip(clip) {
   if (typeof clip.blobBase64 === 'string') {
     const { blobBase64, blobMimeType, ...rest } = clip;
     return { ...rest, blob: base64ToBlob(blobBase64, blobMimeType || clip.mimeType) };
@@ -78,12 +78,14 @@ export async function exportDatabase({ includeAudio = false } = {}) {
     data.stores.audio_clips = await Promise.all(audioClips.map(serializeAudioClip));
   }
 
+  const date = new Date().toISOString().slice(0, 10);
+  downloadJson(data, `chinese-backup-${date}.json`);
+}
+
+function downloadJson(data, filename) {
   const json = JSON.stringify(data, null, 2);
   const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
-
-  const date = new Date().toISOString().slice(0, 10);
-  const filename = `chinese-backup-${date}.json`;
 
   const a = document.createElement('a');
   a.href = url;
@@ -138,19 +140,8 @@ export async function exportCollection(collectionId) {
     audio_clips: audioClips,
   };
 
-  const json = JSON.stringify(data, null, 2);
-  const blob = new Blob([json], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
   const slug = collection.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  const filename = `collection-${slug || 'export'}.json`;
-
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  downloadJson(data, `collection-${slug || 'export'}.json`);
 }
 
 export async function importDatabase(jsonString) {

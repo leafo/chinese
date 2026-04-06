@@ -250,6 +250,10 @@
   text-align: right;
 }
 
+.subsection {
+  margin-top: 2rem;
+}
+
 .sectionHeader {
   display: flex;
   align-items: center;

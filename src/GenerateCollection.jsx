@@ -1,12 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./index.module.css";
 import { setRoute } from "./router";
-import { insertWord, updateWord, useAllWords } from "./words";
-import { insertCollection } from "./collections";
 import { useConfig } from "./config";
 import { generateWords } from "./gemini";
 import { StreamingPreview } from "./StreamingPreview";
-import { useWordSelection } from "./useWordSelection";
+import { useCollectionWordManager } from "./useCollectionWordManager";
 import { WordPreviewList } from "./WordPreviewList";
 
 export function GenerateCollection() {
@@ -15,65 +13,24 @@ export function GenerateCollection() {
   const [instructions, setInstructions] = useState('');
   const [wordCount, setWordCount] = useState('');
   const [extractedWords, setExtractedWords] = useState(null);
-  const [addExistingToCollection, setAddExistingToCollection] = useState({});
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState(null);
   const [importing, setImporting] = useState(false);
   const [streamText, setStreamText] = useState('');
   const [apiKey] = useConfig("gemini_api_key");
-  const [existingWords] = useAllWords();
 
   const {
-    setSelected, duplicateMatches, isWordSelected,
-    selectedCount,
-  } = useWordSelection(extractedWords, existingWords);
+    addExistingToCollection, duplicateMatches, isWordSelected,
+    selectedCount, totalWordsToAdd,
+    updateField, toggleAllCreateNew, toggleCreateNew, toggleAddExisting,
+    saveCollectionWithWords, resetSelection,
+  } = useCollectionWordManager(extractedWords, setExtractedWords);
 
   useEffect(() => {
     return () => {
       abortRef.current?.abort();
     };
   }, []);
-
-  const updateField = (index, field, value) => {
-    const updated = [...extractedWords];
-    updated[index] = { ...updated[index], [field]: value };
-    setExtractedWords(updated);
-  };
-
-  const removeWord = (index) => {
-    const updated = extractedWords.filter((_, i) => i !== index);
-    setExtractedWords(updated);
-    setSelected({});
-    setAddExistingToCollection({});
-  };
-
-  const toggleAllCreateNew = () => {
-    const allSelected = extractedWords.every((_, i) => isWordSelected(i));
-    const nextSelected = !allSelected;
-    const selection = {};
-
-    extractedWords.forEach((_, i) => {
-      selection[i] = nextSelected;
-    });
-
-    setSelected(selection);
-
-    if (nextSelected) {
-      setAddExistingToCollection({});
-    }
-  };
-
-  const toggleCreateNew = (index) => {
-    const nextSelected = !isWordSelected(index);
-    setSelected((current) => ({ ...current, [index]: nextSelected }));
-
-    if (duplicateMatches[index] && nextSelected) {
-      setAddExistingToCollection((current) => ({
-        ...current,
-        [index]: false,
-      }));
-    }
-  };
 
   const cancelProcessing = () => {
     abortRef.current?.abort();
@@ -90,7 +47,7 @@ export function GenerateCollection() {
     setProcessing(true);
     setError(null);
     setStreamText('');
-    setAddExistingToCollection({});
+    resetSelection();
 
     try {
       const result = await generateWords(title, {
@@ -114,8 +71,7 @@ export function GenerateCollection() {
       }
 
       setExtractedWords(words);
-      setSelected({});
-      setAddExistingToCollection({});
+      resetSelection();
     } catch (err) {
       if (controller.signal.aborted) {
         return;
@@ -132,34 +88,11 @@ export function GenerateCollection() {
   const handleCreate = async () => {
     setImporting(true);
     try {
-      const collectionId = await insertCollection({
+      await saveCollectionWithWords({
         name: title,
         notes: '',
         objectives: instructions || '',
       });
-
-      const existingWordsToLink = new Map();
-      duplicateMatches.forEach((duplicate, index) => {
-        if (duplicate && addExistingToCollection[index]) {
-          existingWordsToLink.set(duplicate.id, duplicate);
-        }
-      });
-
-      for (const duplicate of existingWordsToLink.values()) {
-        await updateWord({
-          ...duplicate,
-          collection_ids: [...(duplicate.collection_ids || []), collectionId],
-        });
-      }
-
-      for (let i = 0; i < extractedWords.length; i++) {
-        if (isWordSelected(i)) {
-          await insertWord({
-            ...extractedWords[i],
-            collection_ids: [collectionId],
-          });
-        }
-      }
       setRoute({ view: 'collections' });
     } catch (err) {
       setError(err.message || String(err));
@@ -171,27 +104,9 @@ export function GenerateCollection() {
   const reset = () => {
     cancelProcessing();
     setExtractedWords(null);
-    setSelected({});
-    setAddExistingToCollection({});
+    resetSelection();
     setError(null);
   };
-
-  const toggleAddExisting = (index) => {
-    const nextValue = !addExistingToCollection[index];
-    setAddExistingToCollection((current) => ({ ...current, [index]: nextValue }));
-    if (nextValue) {
-      setSelected((selected) => ({ ...selected, [index]: false }));
-    }
-  };
-
-  const existingLinkedCount = Array.from(
-    new Set(
-      duplicateMatches
-        .filter((duplicate, index) => duplicate && addExistingToCollection[index])
-        .map((duplicate) => duplicate.id)
-    )
-  ).length;
-  const totalWordsToAdd = selectedCount + existingLinkedCount;
 
   return (
     <div>
@@ -280,7 +195,7 @@ export function GenerateCollection() {
       )}
 
       {extractedWords && extractedWords.length > 0 && (
-        <div>
+        <>
           <div className={styles.importToolbar}>
             <label className={styles.checkboxLabel}>
                 <input
@@ -307,22 +222,19 @@ export function GenerateCollection() {
             isWordSelected={isWordSelected}
             onToggle={toggleCreateNew}
             onUpdate={updateField}
-            onRemove={removeWord}
             duplicateMatches={duplicateMatches}
             renderDuplicateActions={(index) => (
-              <div>
-                <label className={styles.checkboxLabel}>
-                  <input
-                    type="checkbox"
-                    checked={!!addExistingToCollection[index]}
-                    onChange={() => toggleAddExisting(index)}
-                  />
-                  <span>Use existing word in this collection</span>
-                </label>
-              </div>
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  checked={!!addExistingToCollection[index]}
+                  onChange={() => toggleAddExisting(index)}
+                />
+                <span>Use existing word in this collection</span>
+              </label>
             )}
           />
-        </div>
+        </>
       )}
     </div>
   );

@@ -1,0 +1,5 @@
+[
+  { "file": "collection-chapter-1.json", "name": "Chapter 1", "notes": "Hello!", "wordCount": 13 },
+  { "file": "collection-chapter-2.json", "name": "Chapter 2", "notes": "I have two younger brothers", "wordCount": 14 },
+  { "file": "collection-chapter-3.json", "name": "Chapter 3", "notes": "She is not a student", "wordCount": 24 }
+]
