@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./index.module.css";
 import { useModalDialog } from "./util";
+import { exportCollection } from "./backup";
 
 export function EditCollectionDialog({
   collection,
@@ -90,6 +91,16 @@ export function EditCollectionDialog({
                 <span>Confirm delete</span>
               </label>
             </form>
+          </div>
+        </details>
+        <details className={styles.formDetails}>
+          <summary className={styles.formDetailsSummary}>Export...</summary>
+          <div className={styles.formDetailsContent}>
+            <button
+              type="button"
+              className={styles.primaryButton}
+              onClick={() => exportCollection(collection.id)}
+            >Export Collection</button>
           </div>
         </details>
       </div>

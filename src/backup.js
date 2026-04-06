@@ -94,6 +94,65 @@ export async function exportDatabase({ includeAudio = false } = {}) {
   URL.revokeObjectURL(url);
 }
 
+export async function exportCollection(collectionId) {
+  const collection = await collectionsStore.get(collectionId);
+  if (!collection) throw new Error('Collection not found');
+
+  const allWords = await wordsStore.getAll();
+  const collectionWords = allWords.filter(w =>
+    (w.collection_ids || []).includes(collectionId)
+  );
+
+  const textKeys = [...new Set(
+    collectionWords
+      .map(w => w.simplified || w.traditional)
+      .filter(Boolean)
+  )];
+
+  const audioClips = [];
+  const missingAudio = [];
+  for (const text of textKeys) {
+    const clip = await audioStore.get(text);
+    if (clip) {
+      const serialized = await serializeAudioClip(clip);
+      const { createdAt, ...rest } = serialized;
+      audioClips.push(rest);
+    } else {
+      missingAudio.push(text);
+    }
+  }
+
+  if (missingAudio.length > 0) {
+    console.warn('Words missing audio:', missingAudio);
+  }
+
+  const cleanWords = collectionWords.map(({ id, collection_ids, ...rest }) => rest);
+  const { id, ...collectionMeta } = collection;
+
+  const data = {
+    format: 'chinese-collection-export',
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    collection: collectionMeta,
+    words: cleanWords,
+    audio_clips: audioClips,
+  };
+
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const slug = collection.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const filename = `collection-${slug || 'export'}.json`;
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 export async function importDatabase(jsonString) {
   let data;
   try {
