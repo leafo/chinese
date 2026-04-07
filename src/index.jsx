@@ -21,7 +21,8 @@ function App() {
   return (
     <div className={styles.app}>
       <div className={styles.header}>
-        <h1>Chinese</h1>
+        <h1 className={styles.srOnly}>Chinese</h1>
+        <img src="icon.svg" alt="" className={styles.headerLogo} />
         <nav className={styles.nav}>
           <button
             className={view === 'words' ? styles.navButtonActive : styles.navButton}
