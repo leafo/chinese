@@ -1,0 +1,396 @@
+{
+  "format": "chinese-collection-export",
+  "version": 1,
+  "exportedAt": "2026-04-07T20:01:27.613Z",
+  "collection": {
+    "name": "Chapter 4",
+    "notes": "My father works at a computer company",
+    "objectives": ""
+  },
+  "words": [
+    {
+      "traditional": "爸爸",
+      "simplified": "爸爸",
+      "pinyin": "bàba",
+      "english": "father",
+      "notes": "Handwritten addition: \"bà ba\""
+    },
+    {
+      "traditional": "喜歡",
+      "simplified": "喜欢",
+      "pinyin": "xǐhuān",
+      "english": "to like",
+      "notes": "From example sentence"
+    },
+    {
+      "traditional": "媽媽",
+      "simplified": "妈妈",
+      "pinyin": "māma",
+      "english": "mother, mom",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "老師",
+      "simplified": "老师",
+      "pinyin": "lǎoshī",
+      "english": "teacher",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "忙",
+      "simplified": "忙",
+      "pinyin": "máng",
+      "english": "busy",
+      "notes": "Part of speech: Vs (Stative Verb)"
+    },
+    {
+      "traditional": "很",
+      "simplified": "很",
+      "pinyin": "hěn",
+      "english": "very",
+      "notes": "Part of speech: Adv (Adverb)"
+    },
+    {
+      "traditional": "每天",
+      "simplified": "每天",
+      "pinyin": "měitiān",
+      "english": "every day",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "累",
+      "simplified": "累",
+      "pinyin": "lèi",
+      "english": "tired, tiring",
+      "notes": "Part of speech: Vs (Stative Verb)"
+    },
+    {
+      "traditional": "小孩子",
+      "simplified": "小孩子",
+      "pinyin": "xiǎo háizi",
+      "english": "children, kids",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "說",
+      "simplified": "说",
+      "pinyin": "shuō",
+      "english": "to say",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "教",
+      "simplified": "教",
+      "pinyin": "jiāo",
+      "english": "to teach",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "法文",
+      "simplified": "法文",
+      "pinyin": "Fǎwén",
+      "english": "French language",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "教書",
+      "simplified": "教书",
+      "pinyin": "jiāo shū",
+      "english": "the job of teaching / teach book",
+      "notes": "Category: Phrases"
+    },
+    {
+      "traditional": "今天",
+      "simplified": "今天",
+      "pinyin": "jīntiān",
+      "english": "today",
+      "notes": "Category: Supplementary Vocabulary; Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "非常",
+      "simplified": "非常",
+      "pinyin": "fēicháng",
+      "english": "extremely",
+      "notes": "Based on handwritten note at top: \"feichan - extremely\""
+    },
+    {
+      "traditional": "工程師",
+      "simplified": "工程师",
+      "pinyin": "gōngchéngshī",
+      "english": "engineer",
+      "notes": ""
+    },
+    {
+      "traditional": "廚師",
+      "simplified": "厨师",
+      "pinyin": "chúshī",
+      "english": "chef",
+      "notes": ""
+    },
+    {
+      "traditional": "服務員",
+      "simplified": "服务员",
+      "pinyin": "fúwùyuán",
+      "english": "server, waiter, waitress",
+      "notes": ""
+    },
+    {
+      "traditional": "醫生",
+      "simplified": "医生",
+      "pinyin": "yīshēng",
+      "english": "doctor",
+      "notes": ""
+    },
+    {
+      "traditional": "護士",
+      "simplified": "护士",
+      "pinyin": "hùshì",
+      "english": "nurse",
+      "notes": ""
+    },
+    {
+      "traditional": "律師",
+      "simplified": "律师",
+      "pinyin": "lǜshī",
+      "english": "lawyer",
+      "notes": ""
+    },
+    {
+      "traditional": "軍人",
+      "simplified": "军人",
+      "pinyin": "jūnrén",
+      "english": "soldier",
+      "notes": ""
+    },
+    {
+      "traditional": "商人",
+      "simplified": "商人",
+      "pinyin": "shāngrén",
+      "english": "businessman",
+      "notes": ""
+    },
+    {
+      "traditional": "農人",
+      "simplified": "农人",
+      "pinyin": "nóngrén",
+      "english": "farmer",
+      "notes": ""
+    },
+    {
+      "traditional": "退休了",
+      "simplified": "退休了",
+      "pinyin": "tuìxiū le",
+      "english": "retired",
+      "notes": ""
+    },
+    {
+      "traditional": "會計師",
+      "simplified": "会计师",
+      "pinyin": "kuài jì shī",
+      "english": "accountant",
+      "notes": "Handwritten addition at the bottom"
+    }
+  ],
+  "audio_clips": [
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "bàba",
+      "url": "collections/audio/ba4ba.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1931,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xǐhuān",
+      "url": "collections/audio/xi3hua1n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "māma",
+      "url": "collections/audio/ma1ma.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1771,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "lǎoshī",
+      "url": "collections/audio/la3oshi1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "hěn",
+      "url": "collections/audio/he3n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2571,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "měitiān",
+      "url": "collections/audio/me3itia1n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1011,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "lèi",
+      "url": "collections/audio/le4i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2531,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xiǎoháizi",
+      "url": "collections/audio/xia3oha2izi.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1491,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "shuō",
+      "url": "collections/audio/shuo1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1131,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jiāo",
+      "url": "collections/audio/jia1o.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2251,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "fǎwén",
+      "url": "collections/audio/fa3we2n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2131,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jiāoshū",
+      "url": "collections/audio/jia1oshu1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jīntiān",
+      "url": "collections/audio/ji1ntia1n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2371,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "fēicháng",
+      "url": "collections/audio/fe1icha2ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2291,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "gōngchéngshī",
+      "url": "collections/audio/go1ngche2ngshi1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2011,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "chúshī",
+      "url": "collections/audio/chu2shi1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2651,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "fúwùyuán",
+      "url": "collections/audio/fu2wu4yua2n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "yīshēng",
+      "url": "collections/audio/yi1she1ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "hùshì",
+      "url": "collections/audio/hu4shi4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "lǜshī",
+      "url": "collections/audio/lv4shi1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jūnrén",
+      "url": "collections/audio/ju1nre2n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2011,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "shāngrén",
+      "url": "collections/audio/sha1ngre2n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2371,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "nóngrén",
+      "url": "collections/audio/no2ngre2n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "tuìxiūle",
+      "url": "collections/audio/tui4xiu1le.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2651,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "kuàijìshī",
+      "url": "collections/audio/kua4iji4shi1.mp3"
+    }
+  ]
+}

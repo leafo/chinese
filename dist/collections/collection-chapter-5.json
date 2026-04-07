@@ -1,0 +1,314 @@
+{
+  "format": "chinese-collection-export",
+  "version": 1,
+  "exportedAt": "2026-04-07T20:01:36.959Z",
+  "collection": {
+    "name": "Chapter 5",
+    "notes": "Welcome",
+    "objectives": ""
+  },
+  "words": [
+    {
+      "traditional": "這",
+      "simplified": "这",
+      "pinyin": "zhè",
+      "english": "this",
+      "notes": ""
+    },
+    {
+      "traditional": "朋友",
+      "simplified": "朋友",
+      "pinyin": "péngyǒu",
+      "english": "friend",
+      "notes": "N"
+    },
+    {
+      "traditional": "認識",
+      "simplified": "认识",
+      "pinyin": "rènshì",
+      "english": "to know, meet, recognize",
+      "notes": "V"
+    },
+    {
+      "traditional": "高興",
+      "simplified": "高兴",
+      "pinyin": "gāoxìng",
+      "english": "happy, glad",
+      "notes": "Vs"
+    },
+    {
+      "traditional": "平常",
+      "simplified": "平常",
+      "pinyin": "píngcháng",
+      "english": "usually, normally",
+      "notes": "Adv"
+    },
+    {
+      "traditional": "住在",
+      "simplified": "住在",
+      "pinyin": "zhù zài",
+      "english": "to live in / at",
+      "notes": "V"
+    },
+    {
+      "traditional": "現在",
+      "simplified": "现在",
+      "pinyin": "xiànzài",
+      "english": "now",
+      "notes": "N"
+    },
+    {
+      "traditional": "學校",
+      "simplified": "学校",
+      "pinyin": "xuéxiào",
+      "english": "school",
+      "notes": "N"
+    },
+    {
+      "traditional": "放假",
+      "simplified": "放假",
+      "pinyin": "fàngjià",
+      "english": "to be on school break, to be on vacation",
+      "notes": "V"
+    },
+    {
+      "traditional": "來",
+      "simplified": "来",
+      "pinyin": "lái",
+      "english": "to come",
+      "notes": "V"
+    },
+    {
+      "traditional": "玩",
+      "simplified": "玩",
+      "pinyin": "wán",
+      "english": "to have fun, to play",
+      "notes": "V"
+    },
+    {
+      "traditional": "歡迎",
+      "simplified": "欢迎",
+      "pinyin": "huānyíng",
+      "english": "to welcome",
+      "notes": "V"
+    },
+    {
+      "traditional": "想",
+      "simplified": "想",
+      "pinyin": "xiǎng",
+      "english": "would like, to want, to have a desire to",
+      "notes": "Vaux"
+    },
+    {
+      "traditional": "去",
+      "simplified": "去",
+      "pinyin": "qù",
+      "english": "to go",
+      "notes": "V"
+    },
+    {
+      "traditional": "國家",
+      "simplified": "国家",
+      "pinyin": "guójiā",
+      "english": "nation, country",
+      "notes": "N"
+    },
+    {
+      "traditional": "公園",
+      "simplified": "公园",
+      "pinyin": "gōngyuán",
+      "english": "park",
+      "notes": "N"
+    },
+    {
+      "traditional": "好久不見",
+      "simplified": "好久不见",
+      "pinyin": "hǎojiǔ bújiàn",
+      "english": "long time no see",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "加州",
+      "simplified": "加州",
+      "pinyin": "Jiāzhōu",
+      "english": "California",
+      "notes": "N"
+    },
+    {
+      "traditional": "父母",
+      "simplified": "父母",
+      "pinyin": "fùmǔ",
+      "english": "parents (formal)",
+      "notes": "N"
+    },
+    {
+      "traditional": "舊金山",
+      "simplified": "旧金山",
+      "pinyin": "jiù jīn shān",
+      "english": "San Francisco",
+      "notes": "Handwritten supplementary vocabulary"
+    }
+  ],
+  "audio_clips": [
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 971,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "zhè",
+      "url": "collections/audio/zhe4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1771,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "péngyǒu",
+      "url": "collections/audio/pe2ngyo3u.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "rènshì",
+      "url": "collections/audio/re4nshi4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1811,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "gāoxìng",
+      "url": "collections/audio/ga1oxi4ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "píngcháng",
+      "url": "collections/audio/pi2ngcha2ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2091,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "zhùzài",
+      "url": "collections/audio/zhu4za4i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xiànzài",
+      "url": "collections/audio/xia4nza4i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2131,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xuéxiào",
+      "url": "collections/audio/xue2xia4o.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1931,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "fàngjià",
+      "url": "collections/audio/fa4ngjia4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "lái",
+      "url": "collections/audio/la2i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1531,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "wán",
+      "url": "collections/audio/wa2n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "huānyíng",
+      "url": "collections/audio/hua1nyi2ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xiǎng",
+      "url": "collections/audio/xia3ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1371,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "qù",
+      "url": "collections/audio/qu4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2131,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "guójiā",
+      "url": "collections/audio/guo2jia1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2131,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "gōngyuán",
+      "url": "collections/audio/go1ngyua2n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "hǎojiǔbújiàn",
+      "url": "collections/audio/ha3ojiu3bu2jia4n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2131,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jiāzhōu",
+      "url": "collections/audio/jia1zho1u.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1651,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "fùmǔ",
+      "url": "collections/audio/fu4mu3.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jiùjīnshān",
+      "url": "collections/audio/jiu4ji1nsha1n.mp3"
+    }
+  ]
+}

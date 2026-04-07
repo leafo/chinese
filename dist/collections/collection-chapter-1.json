@@ -1,0 +1,209 @@
+{
+  "format": "chinese-collection-export",
+  "version": 1,
+  "exportedAt": "2026-04-07T20:00:50.275Z",
+  "collection": {
+    "name": "Chapter 1",
+    "notes": "Hello!",
+    "objectives": "Greet others, tell your name and nationality and ask the same of others"
+  },
+  "words": [
+    {
+      "traditional": "你",
+      "simplified": "你",
+      "pinyin": "nǐ",
+      "english": "you (default)",
+      "notes": "Handwritten addition at the top of the page"
+    },
+    {
+      "traditional": "好",
+      "simplified": "好",
+      "pinyin": "hǎo",
+      "english": "good, fine",
+      "notes": "Handwritten note breaks character into 'girl' and 'boy' components"
+    },
+    {
+      "traditional": "我",
+      "simplified": "我",
+      "pinyin": "wǒ",
+      "english": "I, me",
+      "notes": ""
+    },
+    {
+      "traditional": "姓",
+      "simplified": "姓",
+      "pinyin": "xìng",
+      "english": "to be surnamed",
+      "notes": ""
+    },
+    {
+      "traditional": "叫",
+      "simplified": "叫",
+      "pinyin": "jiào",
+      "english": "to be called",
+      "notes": ""
+    },
+    {
+      "traditional": "什麼",
+      "simplified": "什么",
+      "pinyin": "shénme",
+      "english": "what",
+      "notes": ""
+    },
+    {
+      "traditional": "名字",
+      "simplified": "名字",
+      "pinyin": "míngzi",
+      "english": "name",
+      "notes": ""
+    },
+    {
+      "traditional": "是",
+      "simplified": "是",
+      "pinyin": "shì",
+      "english": "to be (am, is, are)",
+      "notes": "Handwritten note: \"for things that don't typically change\""
+    },
+    {
+      "traditional": "人",
+      "simplified": "人",
+      "pinyin": "rén",
+      "english": "people, person",
+      "notes": ""
+    },
+    {
+      "traditional": "請問",
+      "simplified": "请问",
+      "pinyin": "qǐng wèn",
+      "english": "May I ask you..., Excuse me, ...",
+      "notes": ""
+    },
+    {
+      "traditional": "貴姓",
+      "simplified": "贵姓",
+      "pinyin": "guì xìng",
+      "english": "Polite way to ask someone's surname",
+      "notes": "Handwritten note on 貴: \"precious\""
+    },
+    {
+      "traditional": "哪國人",
+      "simplified": "哪国人",
+      "pinyin": "nǎ guó rén",
+      "english": "an interrogative phrase used to ask what someone's nationality",
+      "notes": ""
+    },
+    {
+      "traditional": "美國人",
+      "simplified": "美国人",
+      "pinyin": "Měiguó rén",
+      "english": "American",
+      "notes": ""
+    }
+  ],
+  "audio_clips": [
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "nǐ",
+      "url": "collections/audio/ni3.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1091,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "hǎo",
+      "url": "collections/audio/ha3o.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "wǒ",
+      "url": "collections/audio/wo3.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1091,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xìng",
+      "url": "collections/audio/xi4ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jiào",
+      "url": "collections/audio/jia4o.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "shénme",
+      "url": "collections/audio/she2nme.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1571,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "míngzi",
+      "url": "collections/audio/mi2ngzi.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1291,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "shì",
+      "url": "collections/audio/shi4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1531,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "rén",
+      "url": "collections/audio/re2n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1571,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "qǐngwèn",
+      "url": "collections/audio/qi3ngwe4n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "guìxìng",
+      "url": "collections/audio/gui4xi4ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "nǎguórén",
+      "url": "collections/audio/na3guo2re2n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "měiguórén",
+      "url": "collections/audio/me3iguo2re2n.mp3"
+    }
+  ]
+}

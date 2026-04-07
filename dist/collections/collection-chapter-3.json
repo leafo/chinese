@@ -1,0 +1,374 @@
+{
+  "format": "chinese-collection-export",
+  "version": 1,
+  "exportedAt": "2026-04-07T20:01:10.826Z",
+  "collection": {
+    "name": "Chapter 3",
+    "notes": "She is not a student",
+    "objectives": "Ask others if they are a student. Ask common occupation and workplace"
+  },
+  "words": [
+    {
+      "traditional": "她 / 他",
+      "simplified": "她 / 他",
+      "pinyin": "tā",
+      "english": "she, her / he, him",
+      "notes": "N"
+    },
+    {
+      "traditional": "不",
+      "simplified": "不",
+      "pinyin": "bú / bù",
+      "english": "no, not",
+      "notes": "Adv"
+    },
+    {
+      "traditional": "學生",
+      "simplified": "学生",
+      "pinyin": "xuésheng",
+      "english": "student",
+      "notes": "N"
+    },
+    {
+      "traditional": "大學",
+      "simplified": "大学",
+      "pinyin": "dàxué",
+      "english": "university, college",
+      "notes": "N"
+    },
+    {
+      "traditional": "在",
+      "simplified": "在",
+      "pinyin": "zài",
+      "english": "in, on, at",
+      "notes": "Prep; handwritten note: location or currently doing"
+    },
+    {
+      "traditional": "哪裡 (哪兒)",
+      "simplified": "哪里 (哪儿)",
+      "pinyin": "nǎlǐ (nǎr)",
+      "english": "where",
+      "notes": "QPr"
+    },
+    {
+      "traditional": "工作",
+      "simplified": "工作",
+      "pinyin": "gōngzuò",
+      "english": "to work, work",
+      "notes": "V / N"
+    },
+    {
+      "traditional": "銀行",
+      "simplified": "银行",
+      "pinyin": "yínháng",
+      "english": "bank",
+      "notes": "N; handwritten note: yín (银) means silver"
+    },
+    {
+      "traditional": "先生",
+      "simplified": "先生",
+      "pinyin": "xiānsheng",
+      "english": "husband, Mr.",
+      "notes": "N"
+    },
+    {
+      "traditional": "電腦",
+      "simplified": "电脑",
+      "pinyin": "diànnǎo",
+      "english": "computer",
+      "notes": "N; handwritten note: literally \"electric brain\""
+    },
+    {
+      "traditional": "公司",
+      "simplified": "公司",
+      "pinyin": "gōngsī",
+      "english": "company",
+      "notes": "N"
+    },
+    {
+      "traditional": "孩子",
+      "simplified": "孩子",
+      "pinyin": "háizi",
+      "english": "child",
+      "notes": "N"
+    },
+    {
+      "traditional": "兒子",
+      "simplified": "儿子",
+      "pinyin": "érzi",
+      "english": "son",
+      "notes": "N"
+    },
+    {
+      "traditional": "女兒",
+      "simplified": "女儿",
+      "pinyin": "nǚ'ér",
+      "english": "daughter",
+      "notes": "N"
+    },
+    {
+      "traditional": "小孩",
+      "simplified": "小孩",
+      "pinyin": "xiǎohái",
+      "english": "child",
+      "notes": "N"
+    },
+    {
+      "traditional": "都",
+      "simplified": "都",
+      "pinyin": "dōu",
+      "english": "both, all",
+      "notes": "Adv"
+    },
+    {
+      "traditional": "小學",
+      "simplified": "小学",
+      "pinyin": "xiǎoxué",
+      "english": "elementary school",
+      "notes": "N"
+    },
+    {
+      "traditional": "學",
+      "simplified": "学",
+      "pinyin": "xué",
+      "english": "to learn",
+      "notes": "Handwritten note at top of page"
+    },
+    {
+      "traditional": "中學",
+      "simplified": "中学",
+      "pinyin": "zhōngxué",
+      "english": "middle school",
+      "notes": "Handwritten note at bottom of page"
+    },
+    {
+      "traditional": "畢業了",
+      "simplified": "毕业了",
+      "pinyin": "bìyè le",
+      "english": "graduated",
+      "notes": "Handwritten note: le indicates \"lit. already done (past tense)\""
+    },
+    {
+      "traditional": "結婚了",
+      "simplified": "结婚了",
+      "pinyin": "jiéhūn le",
+      "english": "married",
+      "notes": ""
+    },
+    {
+      "traditional": "他們 / 她們",
+      "simplified": "他们 / 她们",
+      "pinyin": "tāmen",
+      "english": "they (plural of \"he / she\")",
+      "notes": ""
+    },
+    {
+      "traditional": "唸書",
+      "simplified": "念书",
+      "pinyin": "niàn shū",
+      "english": "to study",
+      "notes": "Handwritten note: shū (书) means book"
+    },
+    {
+      "traditional": "法國",
+      "simplified": "法国",
+      "pinyin": "Fǎguó",
+      "english": "France",
+      "notes": "N; handwritten note: guó (国) means country"
+    }
+  ],
+  "audio_clips": [
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "tā",
+      "url": "collections/audio/ta1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1011,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "bú",
+      "url": "collections/audio/bu2.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xuésheng",
+      "url": "collections/audio/xue2sheng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "dàxué",
+      "url": "collections/audio/da4xue2.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1211,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "zài",
+      "url": "collections/audio/za4i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 4051,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "nǎlǐ(nǎr)",
+      "url": "collections/audio/na3li3(na3r).mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2051,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "gōngzuò",
+      "url": "collections/audio/go1ngzuo4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2051,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "yínháng",
+      "url": "collections/audio/yi2nha2ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xiānsheng",
+      "url": "collections/audio/xia1nsheng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "diànnǎo",
+      "url": "collections/audio/dia4nna3o.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2371,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "gōngsī",
+      "url": "collections/audio/go1ngsi1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1731,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "háizi",
+      "url": "collections/audio/ha2izi.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "érzi",
+      "url": "collections/audio/e2rzi.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "nǚ'ér",
+      "url": "collections/audio/nv3'e2r.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2251,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xiǎohái",
+      "url": "collections/audio/xia3oha2i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1691,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "dōu",
+      "url": "collections/audio/do1u.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xiǎoxué",
+      "url": "collections/audio/xia3oxue2.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xué",
+      "url": "collections/audio/xue2.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1931,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "zhōngxué",
+      "url": "collections/audio/zho1ngxue2.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2251,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "bìyèle",
+      "url": "collections/audio/bi4ye4le.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jiéhūnle",
+      "url": "collections/audio/jie2hu1nle.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 3531,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "tāmen",
+      "url": "collections/audio/ta1men.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1971,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "niànshū",
+      "url": "collections/audio/nia4nshu1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "fǎguó",
+      "url": "collections/audio/fa3guo2.mp3"
+    }
+  ]
+}

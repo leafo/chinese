@@ -1,5 +1,38 @@
 [
-  { "file": "collection-chapter-1.json", "name": "Chapter 1", "notes": "Hello!", "wordCount": 13 },
-  { "file": "collection-chapter-2.json", "name": "Chapter 2", "notes": "I have two younger brothers", "wordCount": 14 },
-  { "file": "collection-chapter-3.json", "name": "Chapter 3", "notes": "She is not a student", "wordCount": 24 }
+  {
+    "file": "collection-chapter-1.json",
+    "name": "Chapter 1",
+    "notes": "Hello!",
+    "wordCount": 13
+  },
+  {
+    "file": "collection-chapter-2.json",
+    "name": "Chapter 2",
+    "notes": "I have two younger brothers",
+    "wordCount": 14
+  },
+  {
+    "file": "collection-chapter-3.json",
+    "name": "Chapter 3",
+    "notes": "She is not a student",
+    "wordCount": 24
+  },
+  {
+    "file": "collection-chapter-4.json",
+    "name": "Chapter 4",
+    "notes": "My father works at a computer company",
+    "wordCount": 26
+  },
+  {
+    "file": "collection-chapter-5.json",
+    "name": "Chapter 5",
+    "notes": "Welcome",
+    "wordCount": 20
+  },
+  {
+    "file": "collection-chapter-6.json",
+    "name": "Chapter 6",
+    "notes": "What do you usually like to do?",
+    "wordCount": 25
+  }
 ]

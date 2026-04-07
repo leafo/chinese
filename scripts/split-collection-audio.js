@@ -2,13 +2,28 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 
 const COLLECTIONS_DIR = path.join(__dirname, '..', 'dist', 'collections');
 
-function mimeToExt(mimeType) {
-  if (mimeType === 'audio/wav' || mimeType === 'audio/x-wav') return '.wav';
-  if (mimeType === 'audio/mpeg') return '.mp3';
-  return '.bin';
+const TONE_MAP = {
+  'ā': 'a1', 'á': 'a2', 'ǎ': 'a3', 'à': 'a4',
+  'ē': 'e1', 'é': 'e2', 'ě': 'e3', 'è': 'e4',
+  'ī': 'i1', 'í': 'i2', 'ǐ': 'i3', 'ì': 'i4',
+  'ō': 'o1', 'ó': 'o2', 'ǒ': 'o3', 'ò': 'o4',
+  'ū': 'u1', 'ú': 'u2', 'ǔ': 'u3', 'ù': 'u4',
+  'ǖ': 'v1', 'ǘ': 'v2', 'ǚ': 'v3', 'ǜ': 'v4', 'ü': 'v',
+};
+
+function toNumberedPinyin(pinyin) {
+  return pinyin.replace(/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü]/g, ch => TONE_MAP[ch] || ch);
+}
+
+function convertToMp3(wavPath) {
+  const mp3Path = wavPath.replace(/\.wav$/, '.mp3');
+  execFileSync('ffmpeg', ['-y', '-i', wavPath, '-q:a', '6', mp3Path], { stdio: 'pipe' });
+  fs.unlinkSync(wavPath);
+  return mp3Path;
 }
 
 function processCollection(filePath) {
@@ -35,16 +50,16 @@ function processCollection(filePath) {
   const updatedClips = clips.map(clip => {
     if (!clip.blobBase64) return clip;
 
-    const ext = mimeToExt(clip.blobMimeType || clip.mimeType);
-    const safeText = clip.text.replace(/[/\\]/g, '_');
-    const filename = `${safeText}${ext}`;
-    const audioPath = path.join(audioDir, filename);
+    const safeText = toNumberedPinyin(clip.text).replace(/[/\\]/g, '_');
+    const wavPath = path.join(audioDir, `${safeText}.wav`);
+    fs.writeFileSync(wavPath, Buffer.from(clip.blobBase64, 'base64'));
 
-    fs.writeFileSync(audioPath, Buffer.from(clip.blobBase64, 'base64'));
+    const mp3Path = convertToMp3(wavPath);
+    const filename = path.basename(mp3Path);
     written++;
 
     const { blobBase64, blobMimeType, ...rest } = clip;
-    return { ...rest, url: `collections/audio/${encodeURIComponent(filename)}` };
+    return { ...rest, mimeType: 'audio/mpeg', url: `collections/audio/${encodeURIComponent(filename)}` };
   });
 
   data.audio_clips = updatedClips;

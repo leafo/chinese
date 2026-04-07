@@ -1,0 +1,381 @@
+{
+  "format": "chinese-collection-export",
+  "version": 1,
+  "exportedAt": "2026-04-07T20:01:42.667Z",
+  "collection": {
+    "name": "Chapter 6",
+    "notes": "What do you usually like to do?",
+    "objectives": ""
+  },
+  "words": [
+    {
+      "traditional": "運動",
+      "simplified": "运动",
+      "pinyin": "yùndòng",
+      "english": "to exercise",
+      "notes": "V (verb)"
+    },
+    {
+      "traditional": "做",
+      "simplified": "做",
+      "pinyin": "zuò",
+      "english": "to do",
+      "notes": "V (verb)"
+    },
+    {
+      "traditional": "週末",
+      "simplified": "周末",
+      "pinyin": "zhōumò",
+      "english": "weekend",
+      "notes": "N (noun)"
+    },
+    {
+      "traditional": "打",
+      "simplified": "打",
+      "pinyin": "dǎ",
+      "english": "to play (ball), hit",
+      "notes": "V (verb)"
+    },
+    {
+      "traditional": "網球",
+      "simplified": "网球",
+      "pinyin": "wǎngqiú",
+      "english": "tennis",
+      "notes": "N (noun)"
+    },
+    {
+      "traditional": "聽",
+      "simplified": "听",
+      "pinyin": "tīng",
+      "english": "to listen",
+      "notes": "V (verb)"
+    },
+    {
+      "traditional": "音樂",
+      "simplified": "音乐",
+      "pinyin": "yīnyuè",
+      "english": "music",
+      "notes": "N (noun)"
+    },
+    {
+      "traditional": "和",
+      "simplified": "和",
+      "pinyin": "hàn / hé",
+      "english": "and",
+      "notes": "Conj (conjunction)"
+    },
+    {
+      "traditional": "可是",
+      "simplified": "可是",
+      "pinyin": "kěshì",
+      "english": "but, however",
+      "notes": "Conj (conjunction)"
+    },
+    {
+      "traditional": "還",
+      "simplified": "还",
+      "pinyin": "hái",
+      "english": "also, in addition, as well",
+      "notes": "Adv (adverb). Grammar note: connects two actions performed by the same person and implies a surprise element for the second action."
+    },
+    {
+      "traditional": "看",
+      "simplified": "看",
+      "pinyin": "kàn",
+      "english": "to see, look, watch, read",
+      "notes": "V (verb)"
+    },
+    {
+      "traditional": "電視",
+      "simplified": "电视",
+      "pinyin": "diànshì",
+      "english": "television",
+      "notes": "N (noun)"
+    },
+    {
+      "traditional": "晚上",
+      "simplified": "晚上",
+      "pinyin": "wǎnshàng",
+      "english": "night, at night",
+      "notes": "N (noun)"
+    },
+    {
+      "traditional": "常常",
+      "simplified": "常常",
+      "pinyin": "chángcháng",
+      "english": "often",
+      "notes": "Adv (adverb)"
+    },
+    {
+      "traditional": "家",
+      "simplified": "家",
+      "pinyin": "jiā",
+      "english": "house, home, family",
+      "notes": "N (noun)"
+    },
+    {
+      "traditional": "跑步",
+      "simplified": "跑步",
+      "pinyin": "pǎobù",
+      "english": "to run, to jog",
+      "notes": "Phrase"
+    },
+    {
+      "traditional": "唱歌",
+      "simplified": "唱歌",
+      "pinyin": "chàng gē",
+      "english": "to sing a song",
+      "notes": "Phrase"
+    },
+    {
+      "traditional": "跳舞",
+      "simplified": "跳舞",
+      "pinyin": "tiào wǔ",
+      "english": "to dance",
+      "notes": "Phrase"
+    },
+    {
+      "traditional": "上午",
+      "simplified": "上午",
+      "pinyin": "shàngwǔ",
+      "english": "later morning",
+      "notes": "N (noun)"
+    },
+    {
+      "traditional": "太太",
+      "simplified": "太太",
+      "pinyin": "tàitai",
+      "english": "wife, Mrs.",
+      "notes": "N (noun)"
+    },
+    {
+      "traditional": "看書",
+      "simplified": "看书",
+      "pinyin": "kàn shū",
+      "english": "to read",
+      "notes": ""
+    },
+    {
+      "traditional": "看電影",
+      "simplified": "看电影",
+      "pinyin": "kàn diànyǐng",
+      "english": "to watch movies",
+      "notes": ""
+    },
+    {
+      "traditional": "打籃球",
+      "simplified": "打篮球",
+      "pinyin": "dǎ lánqiú",
+      "english": "to play basket ball",
+      "notes": ""
+    },
+    {
+      "traditional": "踢足球",
+      "simplified": "踢足球",
+      "pinyin": "tī zúqiú",
+      "english": "to play soccer",
+      "notes": ""
+    },
+    {
+      "traditional": "上午",
+      "simplified": "上午",
+      "pinyin": "shàngwǔ",
+      "english": "morning",
+      "notes": ""
+    }
+  ],
+  "audio_clips": [
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1731,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "yùndòng",
+      "url": "collections/audio/yu4ndo4ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1291,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "zuò",
+      "url": "collections/audio/zuo4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "zhōumò",
+      "url": "collections/audio/zho1umo4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1251,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "dǎ",
+      "url": "collections/audio/da3.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2251,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "wǎngqiú",
+      "url": "collections/audio/wa3ngqiu2.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1251,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "tīng",
+      "url": "collections/audio/ti1ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1491,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "yīnyuè",
+      "url": "collections/audio/yi1nyue4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "hàn",
+      "url": "collections/audio/ha4n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "kěshì",
+      "url": "collections/audio/ke3shi4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1491,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "hái",
+      "url": "collections/audio/ha2i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "kàn",
+      "url": "collections/audio/ka4n.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1731,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "diànshì",
+      "url": "collections/audio/dia4nshi4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1571,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "wǎnshàng",
+      "url": "collections/audio/wa3nsha4ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2291,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "chángcháng",
+      "url": "collections/audio/cha2ngcha2ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1211,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jiā",
+      "url": "collections/audio/jia1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "pǎobù",
+      "url": "collections/audio/pa3obu4.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1931,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "chànggē",
+      "url": "collections/audio/cha4ngge1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2251,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "tiàowǔ",
+      "url": "collections/audio/tia4owu3.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "shàngwǔ",
+      "url": "collections/audio/sha4ngwu3.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1771,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "tàitai",
+      "url": "collections/audio/ta4itai.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2211,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "kànshū",
+      "url": "collections/audio/ka4nshu1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "kàndiànyǐng",
+      "url": "collections/audio/ka4ndia4nyi3ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2651,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "dǎlánqiú",
+      "url": "collections/audio/da3la2nqiu2.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 3451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "tīzúqiú",
+      "url": "collections/audio/ti1zu2qiu2.mp3"
+    }
+  ]
+}

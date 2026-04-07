@@ -1,0 +1,224 @@
+{
+  "format": "chinese-collection-export",
+  "version": 1,
+  "exportedAt": "2026-04-07T20:01:00.011Z",
+  "collection": {
+    "name": "Chapter 2",
+    "notes": "I have two younger brothers",
+    "objectives": "Ask others if they have siblings and tell how many siblings you have"
+  },
+  "words": [
+    {
+      "traditional": "有",
+      "simplified": "有",
+      "pinyin": "yǒu",
+      "english": "to have, there is / are",
+      "notes": "V"
+    },
+    {
+      "traditional": "兩",
+      "simplified": "两",
+      "pinyin": "liǎng",
+      "english": "two (to express for quantity)",
+      "notes": "N"
+    },
+    {
+      "traditional": "個",
+      "simplified": "个",
+      "pinyin": "ge",
+      "english": "generic measure word",
+      "notes": "M"
+    },
+    {
+      "traditional": "弟弟",
+      "simplified": "弟弟",
+      "pinyin": "dìdi",
+      "english": "younger brother",
+      "notes": "N"
+    },
+    {
+      "traditional": "你 / 妳",
+      "simplified": "你 / 妳",
+      "pinyin": "nǐ",
+      "english": "you (male or generic) / you (female only)",
+      "notes": "N"
+    },
+    {
+      "traditional": "嗎",
+      "simplified": "吗",
+      "pinyin": "ma",
+      "english": "question particle",
+      "notes": "Ptc; Handwritten note: \"only when you think answer is true\""
+    },
+    {
+      "traditional": "一",
+      "simplified": "一",
+      "pinyin": "yī",
+      "english": "one",
+      "notes": "Num; listed with three tones to show tone sandhi variations"
+    },
+    {
+      "traditional": "姐姐",
+      "simplified": "姐姐",
+      "pinyin": "jiějie",
+      "english": "older sister",
+      "notes": ""
+    },
+    {
+      "traditional": "也",
+      "simplified": "也",
+      "pinyin": "yě",
+      "english": "also",
+      "notes": "Adv"
+    },
+    {
+      "traditional": "哥哥",
+      "simplified": "哥哥",
+      "pinyin": "gēge",
+      "english": "older brother",
+      "notes": "N; Handwritten pronunciation guide: \"guh guh\""
+    },
+    {
+      "traditional": "沒",
+      "simplified": "没",
+      "pinyin": "méi",
+      "english": "not",
+      "notes": "Adv"
+    },
+    {
+      "traditional": "只",
+      "simplified": "只",
+      "pinyin": "zhǐ",
+      "english": "only",
+      "notes": "Adv"
+    },
+    {
+      "traditional": "兄弟姐妹",
+      "simplified": "兄弟姐妹",
+      "pinyin": "xiōngdì jiěmèi",
+      "english": "siblings",
+      "notes": "Phrase; \"xiōng\" refers to the older brother"
+    },
+    {
+      "traditional": "妹妹",
+      "simplified": "妹妹",
+      "pinyin": "mèimei",
+      "english": "younger sister",
+      "notes": "N; Supplementary Vocabulary"
+    }
+  ],
+  "audio_clips": [
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1491,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "yǒu",
+      "url": "collections/audio/yo3u.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "liǎng",
+      "url": "collections/audio/lia3ng.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1131,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "ge",
+      "url": "collections/audio/ge.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "dìdi",
+      "url": "collections/audio/di4di.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "nǐ",
+      "url": "collections/audio/ni3.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 931,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "ma",
+      "url": "collections/audio/ma.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "yī",
+      "url": "collections/audio/yi1.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jiějie",
+      "url": "collections/audio/jie3jie.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1571,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "yě",
+      "url": "collections/audio/ye3.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1531,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "gēge",
+      "url": "collections/audio/ge1ge.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "méi",
+      "url": "collections/audio/me2i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1371,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "zhǐ",
+      "url": "collections/audio/zhi3.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 2971,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xiōngdìjiěmèi",
+      "url": "collections/audio/xio1ngdi4jie3me4i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "mèimei",
+      "url": "collections/audio/me4imei.mp3"
+    }
+  ]
+}
