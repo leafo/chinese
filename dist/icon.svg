@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" role="img" aria-label="Mandarin Learning App Icon">
+  <defs>
+    <!-- Background Gradient (Primary Blue) -->
+    <linearGradient id="base-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <!-- Base Inner Highlight Gradient -->
+    <linearGradient id="stroke-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Left Card Gradient (Warning / Orange) -->
+    <linearGradient id="orange-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdba74" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+
+    <!-- Right Card Gradient (Danger / Red) -->
+    <linearGradient id="red-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fca5a5" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+
+    <!-- Drop Shadows for Physical Depth -->
+    <filter id="shadow-sm" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.25"/>
+    </filter>
+    <filter id="shadow-lg" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Base App Squircle -->
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#base-grad)" />
+  
+  <!-- Subtle Background Radial Glow -->
+  <circle cx="256" cy="256" r="160" fill="#93c5fd" opacity="0.3" filter="blur(24px)" />
+  
+  <!-- Inner Glass Highlight for Base -->
+  <rect x="18" y="18" width="476" height="476" rx="110" fill="none" stroke="url(#stroke-grad)" stroke-width="4" />
+
+  <!-- Back Left Card (Orange) -->
+  <g transform="translate(256, 256) rotate(-14) translate(-256, -256)">
+    <rect x="126" y="96" width="260" height="320" rx="32" fill="url(#orange-grad)" filter="url(#shadow-sm)"/>
+    <rect x="126" y="96" width="260" height="320" rx="32" fill="none" stroke="#fff7ed" stroke-width="2" stroke-opacity="0.6"/>
+  </g>
+
+  <!-- Back Right Card (Red) -->
+  <g transform="translate(256, 256) rotate(14) translate(-256, -256)">
+    <rect x="126" y="96" width="260" height="320" rx="32" fill="url(#red-grad)" filter="url(#shadow-sm)"/>
+    <rect x="126" y="96" width="260" height="320" rx="32" fill="none" stroke="#fef2f2" stroke-width="2" stroke-opacity="0.6"/>
+  </g>
+
+  <!-- Front Center Card (White) -->
+  <g>
+    <!-- Card Base & Shadow -->
+    <rect x="126" y="96" width="260" height="320" rx="32" fill="#f8fafc" filter="url(#shadow-lg)"/>
+    <rect x="126" y="96" width="260" height="320" rx="32" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+
+    <!-- Tian Zi Ge (田字格) Character Grid -->
+    <rect x="166" y="166" width="180" height="180" rx="16" fill="none" stroke="#e2e8f0" stroke-width="3" />
+    <line x1="256" y1="166" x2="256" y2="346" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 8" />
+    <line x1="166" y1="256" x2="346" y2="256" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 8" />
+
+    <!-- Stylized Pinyin First Tone Mark -->
+    <path d="M 216 122 Q 256 114 296 122" fill="none" stroke="#ea580c" stroke-width="12" stroke-linecap="round" />
+
+    <!-- Geometric Chinese Character "中" (Zhong) -->
+    <!-- Horizontal Box (Filled with front card color to seamlessly mask the grid lines behind it) -->
+    <rect x="186" y="216" width="140" height="80" rx="20" fill="#f8fafc" stroke="#0f172a" stroke-width="28" stroke-linejoin="round" />
+    
+    <!-- Central Vertical Stroke -->
+    <line x1="256" y1="160" x2="256" y2="352" stroke="#0f172a" stroke-width="28" stroke-linecap="round" />
+  </g>
+</svg>
