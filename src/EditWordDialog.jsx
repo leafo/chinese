@@ -4,7 +4,7 @@ import { CollectionSelector } from "./CollectionSelector";
 import { completeWord } from "./gemini";
 import { PinyinInput } from "./PinyinInput";
 import { PlayButton } from "./PlayButton";
-import { useAudio, deleteCachedAudio } from "./audio";
+import { useAudio, deleteCachedAudio, audioKey } from "./audio";
 import { useModalDialog } from "./util";
 
 export function WordForm({ onSave, onCancel, initial, collections, collectionsLoading, collectionsError }) {
@@ -109,56 +109,34 @@ export function WordForm({ onSave, onCancel, initial, collections, collectionsLo
   );
 }
 
-function AudioTableRow({ text }) {
-  const [cached] = useAudio(text);
+function AudioInfo({ word }) {
+  const key = audioKey(word.pinyin);
+  const [cached] = useAudio(key);
 
   const date = cached?.createdAt
     ? new Date(cached.createdAt).toLocaleDateString()
     : '—';
 
   return (
-    <tr>
-      <td><PlayButton text={text} /></td>
-      <td style={{ fontSize: 16 }}>{text}</td>
-      <td>{cached?.model || '—'}</td>
-      <td>{date}</td>
-      <td>
-        {cached && (
-          <button
-            type="button"
-            className={styles.deleteButton}
-            onClick={async () => {
-              if (confirm(`Delete cached audio for "${text}"?`)) {
-                await deleteCachedAudio(text);
-              }
-            }}
-          >
-            Delete
-          </button>
-        )}
-      </td>
-    </tr>
-  );
-}
-
-function AudioTable({ texts }) {
-  return (
-    <table className={styles.audioTable}>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Word</th>
-          <th>Model</th>
-          <th>Created</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {texts.map(text => (
-          <AudioTableRow key={text} text={text} />
-        ))}
-      </tbody>
-    </table>
+    <div className={styles.audioInfo}>
+      <PlayButton word={word} />
+      <span>{word.pinyin}</span>
+      <span>{cached?.model || '—'}</span>
+      <span>{date}</span>
+      {cached && (
+        <button
+          type="button"
+          className={styles.deleteButton}
+          onClick={async () => {
+            if (confirm(`Delete cached audio for "${word.pinyin}"?`)) {
+              await deleteCachedAudio(key);
+            }
+          }}
+        >
+          Delete
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -173,7 +151,6 @@ export function EditWordDialog({
 }) {
   const dialogRef = useModalDialog();
   const [deleteArmed, setDeleteArmed] = useState(false);
-  const audioTexts = [...new Set([word.simplified, word.traditional].filter(Boolean))];
 
   const handleSave = async (form) => {
     await onSave({ ...form, id: word.id });
@@ -219,7 +196,7 @@ export function EditWordDialog({
         />
         <div className={styles.audioSection}>
           <h4 className={styles.audioSectionTitle}>Audio Clips</h4>
-          <AudioTable texts={audioTexts} />
+          <AudioInfo word={word} />
         </div>
         <details className={styles.formDetails}>
           <summary className={styles.formDetailsSummary}>Delete...</summary>

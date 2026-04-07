@@ -3,6 +3,11 @@ import { useAsync } from './util';
 import { generateTts } from './gemini';
 import React from 'react';
 
+export function audioKey(pinyin) {
+  const primary = pinyin.split('/').map(s => s.trim()).find(Boolean) || pinyin;
+  return primary.toLowerCase().replace(/\s+/g, '');
+}
+
 const STORE_NAME = 'audio_clips';
 const BULK_AUDIO_CONCURRENCY = 10;
 export const store = new IndexedDBStore(STORE_NAME);
@@ -37,11 +42,11 @@ export async function cacheAudio(text, blob, metadata) {
   });
 }
 
-export async function getOrGenerateAudio(text, { signal } = {}) {
+export async function getOrGenerateAudio(text, { signal, chineseText } = {}) {
   const cached = await getCachedAudio(text);
   if (cached) return cached;
 
-  const result = await generateTts(text, { signal });
+  const result = await generateTts(chineseText || text, { signal });
 
   const record = {
     text,
@@ -98,9 +103,10 @@ export async function generateAudioForWords(words, { onProgress, signal, getText
       }
 
       const word = words[index];
-      const text = getText ? getText(word) : (word.simplified || word.traditional);
+      const text = audioKey(word.pinyin);
+      const chineseText = getText ? getText(word) : (word.simplified || word.traditional);
       let itemError = null;
-      const jobLabel = text || `(word #${index + 1}: no text)`;
+      const jobLabel = chineseText || text || `(word #${index + 1}: no text)`;
 
       activeJobs.set(index, jobLabel);
       emitProgress({ current: jobLabel });
@@ -109,7 +115,7 @@ export async function generateAudioForWords(words, { onProgress, signal, getText
         if (text) {
           const cached = await getCachedAudio(text);
           if (!cached) {
-            await getOrGenerateAudio(text, { signal });
+            await getOrGenerateAudio(text, { signal, chineseText });
           }
         }
       } catch (err) {
@@ -195,8 +201,8 @@ export function playRecord(record) {
   return playBlob(record.blob);
 }
 
-export async function playAudio(text, { signal, onStart } = {}) {
-  const record = await getOrGenerateAudio(text, { signal });
+export async function playAudio(text, { signal, onStart, chineseText } = {}) {
+  const record = await getOrGenerateAudio(text, { signal, chineseText });
   const audio = playRecord(record);
   onStart?.(audio);
   await audio.play();

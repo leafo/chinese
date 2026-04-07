@@ -242,7 +242,7 @@ function WordRow({ word, preferredScript, collectionNamesById, onEdit, bulkEditM
         )}
       </div>
       <div className={styles.wordActions}>
-        <PlayButton text={primaryText} />
+        <PlayButton word={word} />
         <button className={styles.smallButton} onClick={onEdit}>Edit</button>
       </div>
     </li>

@@ -1,7 +1,7 @@
 import { store as wordsStore } from './words';
 import { store as collectionsStore } from './collections';
 import { config } from './config';
-import { store as audioStore } from './audio';
+import { store as audioStore, audioKey } from './audio';
 import { store as flashcardStore } from './flashcardData';
 import { resetAll } from './database';
 
@@ -129,7 +129,7 @@ export async function exportCollection(collectionId) {
 
   const textKeys = [...new Set(
     collectionWords
-      .map(w => w.simplified || w.traditional)
+      .map(w => w.pinyin ? audioKey(w.pinyin) : null)
       .filter(Boolean)
   )];
 

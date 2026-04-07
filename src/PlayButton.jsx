@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import styles from "./index.module.css";
-import { playAudio, playOpenAiTts, useAudio, getCachedAudio, playRecord, stopCurrentAudio } from "./audio";
+import { playAudio, playOpenAiTts, useAudio, getCachedAudio, playRecord, stopCurrentAudio, audioKey } from "./audio";
 
-export function PlayButton({ text, autoPlay = false }) {
+export function PlayButton({ word, autoPlay = false }) {
+  const text = audioKey(word.pinyin);
+  const chineseText = word.simplified || word.traditional;
   const [cached] = useAudio(text);
   const [playing, setPlaying] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -63,9 +65,9 @@ export function PlayButton({ text, autoPlay = false }) {
     setLoading(true);
     try {
       if (e.shiftKey) {
-        await playOpenAiTts(text, { onStart: trackAudio });
+        await playOpenAiTts(chineseText, { onStart: trackAudio });
       } else {
-        await playAudio(text, { onStart: trackAudio });
+        await playAudio(text, { onStart: trackAudio, chineseText });
       }
     } catch (err) {
       console.error('Audio playback failed:', err);

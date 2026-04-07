@@ -14,7 +14,7 @@ export function ChineseDisplay({ word, displayScript, autoPlay }) {
         </div>
       )}
       <div className={styles.flashcardPinyin}>{word.pinyin}</div>
-      <PlayButton text={primaryText} autoPlay={autoPlay} />
+      <PlayButton word={word} autoPlay={autoPlay} />
     </>
   );
 }

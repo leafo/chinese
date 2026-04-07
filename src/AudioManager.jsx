@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import styles from "./index.module.css";
 import { useWords } from "./words";
-import { useAudio, useAudioStats, getCachedAudio, generateAudioForWords } from "./audio";
+import { useAudio, useAudioStats, getCachedAudio, generateAudioForWords, audioKey } from "./audio";
 import { PlayButton } from "./PlayButton";
 import { useConfig } from "./config";
 import { formatBytes } from "./util";
@@ -9,7 +9,7 @@ import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
 function AudioWordRow({ word, preferredScript }) {
   const text = getPreferredChineseText(word, preferredScript);
-  const [cached] = useAudio(text);
+  const [cached] = useAudio(audioKey(word.pinyin));
 
   return (
     <li className={styles.audioItem}>
@@ -20,7 +20,7 @@ function AudioWordRow({ word, preferredScript }) {
       <span className={styles.wordPinyin}>{word.pinyin}</span>
       <span className={styles.wordEnglish}>{word.english}</span>
       <div className={styles.wordActions}>
-        <PlayButton text={text} />
+        <PlayButton word={word} />
       </div>
     </li>
   );
@@ -49,17 +49,12 @@ export function AudioManager() {
     if (!words || words.length === 0) return;
 
     const audioJobs = await Promise.all(words.map(async (word) => {
-      const text = getPreferredChineseText(word, preferredScript);
-      if (!text) {
-        return null;
-      }
+      if (!word.pinyin) return null;
 
-      const cached = await getCachedAudio(text);
-      if (cached) {
-        return null;
-      }
+      const cached = await getCachedAudio(audioKey(word.pinyin));
+      if (cached) return null;
 
-      return { ...word, audioText: text };
+      return word;
     }));
     const missingWords = audioJobs.filter(Boolean);
     if (missingWords.length === 0) {
@@ -88,7 +83,7 @@ export function AudioManager() {
     try {
       const result = await generateAudioForWords(missingWords, {
         signal: controller.signal,
-        getText: (word) => word.audioText,
+        getText: (word) => getPreferredChineseText(word, preferredScript),
         onProgress: (progress) => {
           if (!controller.signal.aborted) {
             setBulkProgress(progress);
