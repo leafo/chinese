@@ -82,11 +82,8 @@ export async function exportDatabase({ includeAudio = false } = {}) {
   downloadJson(data, `chinese-backup-${date}.json`);
 }
 
-function downloadJson(data, filename) {
-  const json = JSON.stringify(data, null, 2);
-  const blob = new Blob([json], { type: 'application/json' });
+function downloadFile(blob, filename) {
   const url = URL.createObjectURL(blob);
-
   const a = document.createElement('a');
   a.href = url;
   a.download = filename;
@@ -94,6 +91,29 @@ function downloadJson(data, filename) {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+function downloadJson(data, filename) {
+  const json = JSON.stringify(data, null, 2);
+  downloadFile(new Blob([json], { type: 'application/json' }), filename);
+}
+
+function escapeCsvField(value) {
+  const str = String(value ?? '');
+  if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+    return '"' + str.replace(/"/g, '""') + '"';
+  }
+  return str;
+}
+
+export async function exportWordsCsv() {
+  const words = await wordsStore.getAll();
+  const columns = ['traditional', 'simplified', 'pinyin', 'english', 'notes'];
+  const header = columns.join(',');
+  const rows = words.map(w => columns.map(c => escapeCsvField(w[c])).join(','));
+  const csv = [header, ...rows].join('\n');
+  const date = new Date().toISOString().slice(0, 10);
+  downloadFile(new Blob([csv], { type: 'text/csv' }), `chinese-words-${date}.csv`);
 }
 
 export async function exportCollection(collectionId) {

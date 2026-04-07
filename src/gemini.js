@@ -423,7 +423,7 @@ const GENERATE_SENTENCES_RESPONSE_SCHEMA = {
   required: ["sentences"]
 };
 
-export async function generateSentences(words, { count = 10, objectives, signal, onChunk } = {}) {
+export async function generateSentences(words, { count = 10, objectives, additionalInstructions, signal, onChunk } = {}) {
   if (!words || words.length === 0) {
     throw new Error('At least one word is required to generate sentences');
   }
@@ -457,7 +457,10 @@ Requirements:
 Objectives for this vocabulary set:
 ${objectives}
 
-Use these objectives to guide the topics and style of the generated sentences.` : ''}`
+Use these objectives to guide the topics and style of the generated sentences.` : ''}${additionalInstructions ? `
+
+Additional instructions:
+${additionalInstructions}` : ''}`
           }
         ]
       }

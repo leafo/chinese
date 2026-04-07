@@ -4,7 +4,7 @@ import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 import { useAudioStats } from "./audio";
 import { formatBytes } from "./util";
-import { exportDatabase, importDatabase } from "./backup";
+import { exportDatabase, importDatabase, exportWordsCsv } from "./backup";
 
 export function Settings() {
   const [apiKey, setApiKey, apiKeyLoading] = useConfig("gemini_api_key");
@@ -172,6 +172,13 @@ export function Settings() {
               disabled={exporting}
             >
               {exporting ? 'Exporting...' : 'Export Backup'}
+            </button>
+            <button
+              type="button"
+              className={styles.secondaryButton}
+              onClick={exportWordsCsv}
+            >
+              Export CSV
             </button>
           </div>
         </div>

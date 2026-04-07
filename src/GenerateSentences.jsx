@@ -142,6 +142,7 @@ export function GenerateSentences() {
 
   const [selectedCollectionIds, setSelectedCollectionIds] = useState([]);
   const [count, setCount] = useState(10);
+  const [additionalInstructions, setAdditionalInstructions] = useState('');
   const [sentences, setSentences] = useState([]);
   const [generationStatus, setGenerationStatus] = useState('idle');
   const [generationError, setGenerationError] = useState(null);
@@ -218,6 +219,7 @@ export function GenerateSentences() {
       const result = await generateSentences(filteredWords, {
         count,
         objectives: objectives || undefined,
+        additionalInstructions: additionalInstructions.trim() || undefined,
         signal: controller.signal,
         onChunk: (_chunk, fullText) => {
           if (abortRef.current === controller && !controller.signal.aborted) {
@@ -378,6 +380,16 @@ export function GenerateSentences() {
               <option value={15}>15</option>
               <option value={20}>20</option>
             </select>
+          </div>
+
+          <div className={styles.formField}>
+            <label>Additional instructions (optional)</label>
+            <textarea
+              rows={3}
+              placeholder="e.g. Focus on food-related topics, use past tense..."
+              value={additionalInstructions}
+              onChange={(e) => setAdditionalInstructions(e.target.value)}
+            />
           </div>
 
           <div className={styles.formActions}>
