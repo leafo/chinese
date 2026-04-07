@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "esbuild src/index.jsx --bundle --outdir=dist --jsx=automatic --minify",
-    "start": "esbuild src/index.jsx --bundle --outdir=dist --jsx=automatic --servedir=dist --watch"
+    "start": "esbuild src/index.jsx --bundle --outdir=dist --jsx=automatic --serve=8000 --servedir=dist --watch",
+    "split-audio": "node scripts/split-collection-audio.js"
   },
   "keywords": [],
   "author": "",

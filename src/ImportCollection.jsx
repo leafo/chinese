@@ -50,8 +50,7 @@ export function ImportCollection() {
 
       if (audio_clips?.length) {
         for (const clip of audio_clips) {
-          const deserialized = deserializeAudioClip(clip);
-          await audioStore.put(deserialized);
+          await audioStore.put(deserializeAudioClip(clip));
         }
       }
 

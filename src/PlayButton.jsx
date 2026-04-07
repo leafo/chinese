@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import styles from "./index.module.css";
-import { playAudio, playOpenAiTts, useAudio, getCachedAudio, playBlob, stopCurrentAudio } from "./audio";
+import { playAudio, playOpenAiTts, useAudio, getCachedAudio, playRecord, stopCurrentAudio } from "./audio";
 
 export function PlayButton({ text, autoPlay = false }) {
   const [cached] = useAudio(text);
@@ -40,7 +40,7 @@ export function PlayButton({ text, autoPlay = false }) {
     let cancelled = false;
     getCachedAudio(text).then(record => {
       if (record && !cancelled && mountedRef.current) {
-        const audio = playBlob(record.blob);
+        const audio = playRecord(record);
         trackAudio(audio);
         audio.play().catch(() => {
           if (mountedRef.current) {

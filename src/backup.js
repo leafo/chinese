@@ -28,6 +28,7 @@ function base64ToBlob(base64, mimeType) {
 }
 
 function serializeAudioClip(clip) {
+  if (clip.url) return { ...clip };
   const { blob, ...rest } = clip;
   if (blob instanceof Blob) {
     return blobToBase64(blob).then(data => ({
@@ -40,6 +41,7 @@ function serializeAudioClip(clip) {
 }
 
 export function deserializeAudioClip(clip) {
+  if (clip.url) return clip;
   if (typeof clip.blobBase64 === 'string') {
     const { blobBase64, blobMimeType, ...rest } = clip;
     return { ...rest, blob: base64ToBlob(blobBase64, blobMimeType || clip.mimeType) };

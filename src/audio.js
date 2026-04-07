@@ -165,16 +165,15 @@ export function stopCurrentAudio() {
   }
 }
 
-export function playBlob(blob) {
+function playUrl(url, { revoke = false } = {}) {
   stopCurrentAudio();
 
-  const url = URL.createObjectURL(blob);
   const audio = new Audio(url);
   currentAudioEl = audio;
-  currentAudioUrl = url;
+  if (revoke) currentAudioUrl = url;
 
   const cleanup = () => {
-    if (currentAudioUrl === url) {
+    if (revoke && currentAudioUrl === url) {
       URL.revokeObjectURL(url);
       currentAudioUrl = null;
     }
@@ -187,9 +186,18 @@ export function playBlob(blob) {
   return audio;
 }
 
+export function playBlob(blob) {
+  return playUrl(URL.createObjectURL(blob), { revoke: true });
+}
+
+export function playRecord(record) {
+  if (record.url) return playUrl(record.url);
+  return playBlob(record.blob);
+}
+
 export async function playAudio(text, { signal, onStart } = {}) {
   const record = await getOrGenerateAudio(text, { signal });
-  const audio = playBlob(record.blob);
+  const audio = playRecord(record);
   onStart?.(audio);
   await audio.play();
   return audio;
