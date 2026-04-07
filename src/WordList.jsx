@@ -184,7 +184,7 @@ export function WordList() {
           ) : (
             <>
               <p>No words yet</p>
-              <p>Add your first word to get started</p>
+              <p>Add a word above, or <a href="?view=collections" className={styles.emptyStateLink} onClick={(e) => { e.preventDefault(); setRoute({ view: 'collections' }); }}>import a premade collection</a> to get started</p>
             </>
           )}
         </div>

@@ -18,18 +18,6 @@ const RATINGS = [
 ];
 
 function FlashcardDashboard({ stats, loading, error, onStart, collections, collectionsLoading, selectedCollectionIds, onToggleCollection }) {
-  const [syncing, setSyncing] = useState(false);
-
-  const handleSync = async () => {
-    setSyncing(true);
-    try {
-      const created = await ensureCardsForAllWords();
-      if (created > 0) alert(`Created ${created} new cards.`);
-    } finally {
-      setSyncing(false);
-    }
-  };
-
   if (loading && !stats) return <div>Loading...</div>;
   if (error) return <div>Error loading flashcards: {error.message || String(error)}</div>;
 
@@ -76,7 +64,6 @@ function FlashcardDashboard({ stats, loading, error, onStart, collections, colle
         <button
           className={styles.primaryButton}
           onClick={onStart}
-          disabled={syncing}
         >
           Start Review ({stats?.due || 0} due)
         </button>
@@ -86,14 +73,8 @@ function FlashcardDashboard({ stats, loading, error, onStart, collections, colle
         >
           Learn New Words
         </button>
-        <button
-          className={styles.secondaryButton}
-          onClick={handleSync}
-          disabled={syncing}
-        >
-          {syncing ? 'Syncing...' : 'Sync Cards'}
-        </button>
       </div>
+      <p className={styles.flashcardHint}>Cards for new words are automatically created when starting a review.</p>
     </div>
   );
 }

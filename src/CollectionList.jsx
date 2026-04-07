@@ -151,6 +151,7 @@ function PremadeCollections() {
       <div className={styles.sectionHeader}>
         <h2>Premade Collections</h2>
       </div>
+      <p className={styles.sectionDescription}>Import a collection to add its words and audio to your local library. You can review and edit the words before importing.</p>
       <ul className={styles.collectionList}>
         {manifest.map(entry => (
           <li key={entry.file} className={styles.collectionItem}>

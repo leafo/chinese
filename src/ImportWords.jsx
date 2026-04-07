@@ -5,6 +5,7 @@ import { insertWord, useAllWords } from "./words";
 import { useCollections } from "./collections";
 import { CollectionSelector } from "./CollectionSelector";
 import { useConfig } from "./config";
+import { ApiKeyWarning } from "./ApiKeyWarning";
 import { ocrWords } from "./gemini";
 import { formatBytes } from "./util";
 import { StreamingPreview } from "./StreamingPreview";
@@ -211,14 +212,7 @@ export function ImportWords() {
         <h2>Import from Image</h2>
       </div>
 
-      {!apiKey && (
-        <div className={styles.warningBox}>
-          Gemini API key not set.{' '}
-          <button className={styles.linkButton} onClick={() => setRoute({ view: 'settings' })}>
-            Go to Settings
-          </button>
-        </div>
-      )}
+      <ApiKeyWarning />
 
       {!extractedWords && !processing && (
         <div className={styles.importUpload}>

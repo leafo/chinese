@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import styles from "./index.module.css";
 import { setRoute } from "./router";
 import { useConfig } from "./config";
+import { ApiKeyWarning } from "./ApiKeyWarning";
 import { generateWords } from "./gemini";
 import { StreamingPreview } from "./StreamingPreview";
 import { useCollectionWordManager } from "./useCollectionWordManager";
@@ -114,14 +115,7 @@ export function GenerateCollection() {
         <h2>Generate Collection</h2>
       </div>
 
-      {!apiKey && (
-        <div className={styles.warningBox}>
-          Gemini API key not set.{' '}
-          <button className={styles.linkButton} onClick={() => setRoute({ view: 'settings' })}>
-            Go to Settings
-          </button>
-        </div>
-      )}
+      <ApiKeyWarning />
 
       {!extractedWords && !processing && (
         <form className={styles.form} onSubmit={(e) => { e.preventDefault(); handleGenerate(); }}>

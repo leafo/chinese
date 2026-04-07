@@ -6,6 +6,7 @@ import { getAllWords } from "./words";
 import { generateSentences, generateTts as geminiTts } from "./gemini";
 import { playBlob, stopCurrentAudio } from "./audio";
 import { useConfig } from "./config";
+import { ApiKeyWarning } from "./ApiKeyWarning";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 import { StreamingPreview } from "./StreamingPreview";
 
@@ -139,7 +140,6 @@ function SentenceCard({ sentence, index, displayScript, pinyinMap, ttsProvider, 
 export function GenerateSentences() {
   const [collections, collectionsError, collectionsLoading] = useCollections();
   const [displayScript] = useConfig('display_script');
-
   const [selectedCollectionIds, setSelectedCollectionIds] = useState([]);
   const [count, setCount] = useState(10);
   const [additionalInstructions, setAdditionalInstructions] = useState('');
@@ -350,6 +350,8 @@ export function GenerateSentences() {
       <div className={styles.sectionHeader}>
         <h2>Generate Sentences</h2>
       </div>
+
+      <ApiKeyWarning />
 
       {generationStatus === 'idle' && sentences.length === 0 && (
         <div className={styles.form}>
