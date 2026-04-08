@@ -37,12 +37,17 @@
 
   /* Accent (purple) */
   --color-accent: #7c3aed;
+
+  /* Spacing */
+  --space-page: 20px;
+  --space-section: 16px;
+  --space-section-gap: 12px;
 }
 
 .app {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: var(--space-page);
   font-family: sans-serif;
 }
 
@@ -369,11 +374,11 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px;
+  gap: var(--space-section-gap);
+  padding: var(--space-section);
   background: var(--color-bg-subtle);
   border-radius: 8px;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-section);
 }
 
 .modalDialog {
@@ -397,7 +402,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
+  padding: var(--space-section);
   border-bottom: 1px solid var(--color-border);
   background: var(--color-bg-surface);
 }
@@ -410,8 +415,8 @@
 .modalBody {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 16px;
+  gap: var(--space-section);
+  padding: var(--space-section);
   background: var(--color-bg-surface);
 }
 
@@ -1503,16 +1508,18 @@
 }
 
 @media (max-width: 640px) {
-  .app {
-    padding: 12px;
+  :root {
+    --space-page: 12px;
+    --space-section: 10px;
+    --space-section-gap: 10px;
   }
 
   .header {
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    margin: 0 -12px;
-    padding: 0 12px 10px;
+    margin: 0 calc(-1 * var(--space-page));
+    padding: 0 var(--space-page) 10px;
     margin-bottom: 12px;
   }
 
@@ -1528,8 +1535,8 @@
     gap: 4px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    margin-right: -12px;
-    padding-right: 12px;
+    margin-right: calc(-1 * var(--space-page));
+    padding-right: var(--space-page);
   }
 
   .nav::-webkit-scrollbar {
@@ -1557,12 +1564,49 @@
     align-items: stretch;
   }
 
+  .modalDialog {
+    width: calc(100vw - 16px);
+    max-width: calc(100vw - 16px);
+    max-height: calc(100vh - 16px);
+    border-radius: 8px;
+  }
+
+  .modalBody {
+    overflow-y: auto;
+  }
+
+  .formField textarea {
+    min-height: 40px;
+  }
+
   .wordItem {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 4px;
     padding: 8px 0;
     align-items: center;
+  }
+
+  .wordItemSelected,
+  .wordItem:has(.bulkCheckbox) {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .bulkCheckbox {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .wordItem:has(.bulkCheckbox) .wordChinese {
+    grid-column: 2;
+  }
+
+  .wordItem:has(.bulkCheckbox) .wordActions {
+    grid-column: 3;
+  }
+
+  .wordItem:has(.bulkCheckbox) .wordDetails {
+    grid-column: 2 / -1;
   }
 
   .wordChinese {
