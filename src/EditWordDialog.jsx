@@ -120,7 +120,7 @@ function AudioInfo({ word }) {
   return (
     <div className={styles.audioInfo}>
       <PlayButton word={word} />
-      <span>{word.pinyin}</span>
+      <span>{key}</span>
       <span>{cached?.model || '—'}</span>
       <span>{date}</span>
       {cached && (
