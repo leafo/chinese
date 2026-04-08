@@ -1,11 +1,25 @@
 import { IndexedDBStore } from './database';
 import { useAsync } from './util';
 import { generateTts } from './gemini';
+import audioManifest from './audio-manifest';
 import React from 'react';
 
 export function audioKey(pinyin) {
   const primary = pinyin.split('/').map(s => s.trim()).find(Boolean) || pinyin;
   return primary.toLowerCase().replace(/\s+/g, '');
+}
+
+const TONE_MAP = {
+  'ā': 'a1', 'á': 'a2', 'ǎ': 'a3', 'à': 'a4',
+  'ē': 'e1', 'é': 'e2', 'ě': 'e3', 'è': 'e4',
+  'ī': 'i1', 'í': 'i2', 'ǐ': 'i3', 'ì': 'i4',
+  'ō': 'o1', 'ó': 'o2', 'ǒ': 'o3', 'ò': 'o4',
+  'ū': 'u1', 'ú': 'u2', 'ǔ': 'u3', 'ù': 'u4',
+  'ǖ': 'v1', 'ǘ': 'v2', 'ǚ': 'v3', 'ǜ': 'v4', 'ü': 'v',
+};
+
+function toNumberedPinyin(text) {
+  return text.replace(/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü]/g, ch => TONE_MAP[ch] || ch);
 }
 
 const STORE_NAME = 'audio_clips';
@@ -45,6 +59,21 @@ export async function cacheAudio(text, blob, metadata) {
 export async function getOrGenerateAudio(text, { signal, chineseText } = {}) {
   const cached = await getCachedAudio(text);
   if (cached) return cached;
+
+  const manifestUrl = audioManifest[toNumberedPinyin(text)];
+  if (manifestUrl) {
+    const record = {
+      text,
+      url: manifestUrl,
+      mimeType: 'audio/mpeg',
+      durationMs: null,
+      model: 'precomputed',
+      voice: null,
+      createdAt: Date.now(),
+    };
+    await store.put(record);
+    return record;
+  }
 
   const result = await generateTts(chineseText || text, { signal });
 
