@@ -141,7 +141,7 @@ export function GenerateSentences() {
   const [collections, collectionsError, collectionsLoading] = useCollections();
   const [displayScript] = useConfig('display_script');
   const [selectedCollectionIds, setSelectedCollectionIds] = useState([]);
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState('');
   const [additionalInstructions, setAdditionalInstructions] = useState('');
   const [sentences, setSentences] = useState([]);
   const [generationStatus, setGenerationStatus] = useState('idle');
@@ -217,7 +217,7 @@ export function GenerateSentences() {
         : '';
 
       const result = await generateSentences(filteredWords, {
-        count,
+        count: count ? Number(count) : undefined,
         objectives: objectives || undefined,
         additionalInstructions: additionalInstructions.trim() || undefined,
         signal: controller.signal,
@@ -372,16 +372,14 @@ export function GenerateSentences() {
 
           <div className={styles.formField}>
             <label>Number of sentences</label>
-            <select
+            <input
+              type="number"
+              min={1}
+              max={50}
               value={count}
-              onChange={(e) => setCount(Number(e.target.value))}
-              style={{ width: 'auto' }}
-            >
-              <option value={5}>5</option>
-              <option value={10}>10</option>
-              <option value={15}>15</option>
-              <option value={20}>20</option>
-            </select>
+              onChange={(e) => setCount(e.target.value)}
+              placeholder="Optional"
+            />
           </div>
 
           <div className={styles.formField}>
@@ -406,7 +404,7 @@ export function GenerateSentences() {
       <StreamingPreview
         active={generationStatus === 'generating'}
         streamText={streamText}
-        meta={`Sentences: ${count}`}
+        meta={count ? `Sentences: ${count}` : undefined}
         onCancel={handleCancel}
       />
 
