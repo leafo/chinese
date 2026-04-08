@@ -1,3 +1,7 @@
+:global(body) {
+  margin: 0;
+}
+
 :root {
   /* Neutral / Slate scale */
   --color-text-primary: #0f172a;
@@ -1499,7 +1503,47 @@
 }
 
 @media (max-width: 640px) {
-  .header,
+  .app {
+    padding: 12px;
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin: 0 -12px;
+    padding: 0 12px 10px;
+    margin-bottom: 12px;
+  }
+
+  .headerLogo {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-right: -12px;
+    padding-right: 12px;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navButton,
+  .navButtonActive {
+    padding: 6px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
   .sectionHeader,
   .importToolbar,
   .formActions,
@@ -1508,7 +1552,6 @@
     align-items: stretch;
   }
 
-  .nav,
   .importToolbarActions,
   .formActionsRight,
   .wordActions,
