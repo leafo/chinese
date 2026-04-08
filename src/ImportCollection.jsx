@@ -6,8 +6,14 @@ import { WordPreviewList } from "./WordPreviewList";
 import { deserializeAudioClip } from "./backup";
 import { store as audioStore } from "./audio";
 
+// Module-level store for passing local file data to the import view
+let _pendingLocalData = null;
+export function setLocalImportData(data) {
+  _pendingLocalData = data;
+}
+
 export function ImportCollection() {
-  const route = useRoute(['file']);
+  const route = useRoute(['file', 'source']);
   const [collectionData, setCollectionData] = useState(null);
   const [extractedWords, setExtractedWords] = useState(null);
   const [importing, setImporting] = useState(false);
@@ -21,6 +27,22 @@ export function ImportCollection() {
   } = useCollectionWordManager(extractedWords, setExtractedWords);
 
   useEffect(() => {
+    if (route.source === 'local') {
+      const data = _pendingLocalData;
+      _pendingLocalData = null;
+      if (!data) {
+        setError('No file data available. Please select a file again.');
+        return;
+      }
+      if (data.format !== 'chinese-collection-export') {
+        setError('Invalid collection file format');
+        return;
+      }
+      setCollectionData(data);
+      setExtractedWords(data.words || []);
+      return;
+    }
+
     if (!route.file) return;
     fetch(`collections/${route.file}`)
       .then(res => {
@@ -35,7 +57,7 @@ export function ImportCollection() {
         setExtractedWords(data.words || []);
       })
       .catch(err => setError(err.message || String(err)));
-  }, [route.file]);
+  }, [route.file, route.source]);
 
   const handleImport = async () => {
     setImporting(true);

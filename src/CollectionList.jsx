@@ -1,9 +1,10 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import styles from "./index.module.css";
 import { setRoute } from "./router";
 import { useCollections, insertCollection, updateCollection, deleteCollection } from "./collections";
 import { useAllWords } from "./words";
 import { EditCollectionDialog } from "./EditCollectionDialog";
+import { setLocalImportData } from "./ImportCollection";
 
 function CollectionForm({ onSave, onCancel }) {
   const [name, setName] = useState('');
@@ -136,6 +137,7 @@ export function CollectionList() {
 
 function PremadeCollections() {
   const [manifest, setManifest] = useState(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     fetch('collections/index.json')
@@ -144,12 +146,40 @@ function PremadeCollections() {
       .then(data => setManifest(data));
   }, []);
 
+  const handleFileImport = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      try {
+        const data = JSON.parse(evt.target.result);
+        setLocalImportData(data);
+        setRoute({ view: 'import-collection', source: 'local' });
+      } catch {
+        alert('Failed to parse JSON file');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
+
   if (!manifest || manifest.length === 0) return null;
 
   return (
     <section className={styles.subsection}>
       <div className={styles.sectionHeader}>
         <h2>Premade Collections</h2>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".json"
+          style={{ display: 'none' }}
+          onChange={handleFileImport}
+        />
+        <button
+          className={styles.smallButton}
+          onClick={() => fileInputRef.current?.click()}
+        >Import from File</button>
       </div>
       <p className={styles.sectionDescription}>Import a collection to add its words and audio to your local library. You can review and edit the words before importing.</p>
       <ul className={styles.collectionList}>
