@@ -187,6 +187,16 @@
   min-width: 80px;
 }
 
+.wordWarning {
+  color: #c59000;
+  width: 14px;
+  height: 14px;
+  cursor: help;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
 .wordDetails {
   display: flex;
   flex: 1;

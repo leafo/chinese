@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, memo } from "react";
 import styles from "./index.module.css";
 import { useWords, useAllWords, insertWord, deleteWord, updateWord, bulkUpdateCollections } from "./words";
 import { useCollections } from "./collections";
@@ -208,6 +208,26 @@ export function WordList() {
   );
 }
 
+const IncompleteWordIcon = memo(function IncompleteWordIcon({ word }) {
+  const missingFields = [
+    !word.pinyin && 'pinyin',
+    !word.english && 'english',
+    !word.traditional && 'traditional',
+    !word.simplified && 'simplified',
+  ].filter(Boolean);
+
+  if (missingFields.length === 0) return null;
+
+  return (
+    <svg className={styles.wordWarning} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>{`Missing: ${missingFields.join(', ')}`}</title>
+      <rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <line x1="8" y1="4.5" x2="8" y2="9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="8" cy="11.5" r="0.75" fill="currentColor" />
+    </svg>
+  );
+});
+
 function WordRow({ word, preferredScript, collectionNamesById, onEdit, bulkEditMode, selected, onToggleSelect }) {
   const primaryText = getPreferredChineseText(word, preferredScript);
   const collectionNames = (word.collection_ids || [])
@@ -231,7 +251,7 @@ function WordRow({ word, preferredScript, collectionNamesById, onEdit, bulkEditM
       <div className={styles.wordDetails}>
         <div className={styles.wordSummary}>
           <span className={styles.wordPinyin}>{word.pinyin}</span>
-          <span className={styles.wordEnglish}>{word.english}</span>
+          <span className={styles.wordEnglish}>{word.english}<IncompleteWordIcon word={word} /></span>
         </div>
         {collectionNames.length > 0 && (
           <div className={styles.tags}>
