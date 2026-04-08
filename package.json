@@ -6,7 +6,8 @@
   "scripts": {
     "build": "esbuild src/index.jsx --bundle --outdir=dist --jsx=automatic --minify",
     "start": "esbuild src/index.jsx --bundle --outdir=dist --jsx=automatic --serve=8000 --servedir=dist --watch",
-    "split-audio": "node scripts/split-collection-audio.js"
+    "split-audio": "node scripts/split-collection-audio.js",
+    "generate-audio-manifest": "node scripts/generate-audio-manifest.js"
   },
   "keywords": [],
   "author": "",
