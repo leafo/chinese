@@ -67,7 +67,7 @@ function flexibleMatch(input, expected) {
 }
 
 function splitDefinitions(text) {
-  return text.split(/[,;]/).map(s => s.trim()).filter(Boolean);
+  return stripParenthesized(text).split(/[,;/]/).map(s => s.trim()).filter(Boolean);
 }
 
 export function matchPinyin(input, expected) {
