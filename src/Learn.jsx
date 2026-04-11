@@ -79,6 +79,7 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
             className={`${styles.typingInput} ${shakeClass} ${comparison ? styles.typingInputTransparent : ''}`}
             value={typingValue}
             onChange={(e) => { setTypingValue(e.target.value); setComparison(null); }}
+            onKeyDown={() => comparison && setComparison(null)}
             placeholder="Type pinyin..."
           />
           <PinyinFeedback comparison={comparison} />
@@ -143,6 +144,7 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
 
   const inputClassName = `${styles.typingInput} ${shakeClass} ${comparison ? styles.typingInputTransparent : ''}`;
   const handleTypingChange = (e) => { setTypingValue(e.target.value); setComparison(null); };
+  const handleTypingKeyDown = () => comparison && setComparison(null);
 
   return (
     <div className={styles.flashcardContainer}>
@@ -180,6 +182,7 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
                 className={inputClassName}
                 value={typingValue}
                 onChange={handleTypingChange}
+                onKeyDown={handleTypingKeyDown}
                 placeholder="Type English..."
               />
             ) : (
@@ -189,6 +192,7 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
                 className={inputClassName}
                 value={typingValue}
                 onChange={handleTypingChange}
+                onKeyDown={handleTypingKeyDown}
                 placeholder="Type pinyin..."
               />
             )}
