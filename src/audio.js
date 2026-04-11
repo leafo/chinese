@@ -6,7 +6,7 @@ import React from 'react';
 
 export function audioKey(pinyin) {
   const primary = pinyin.split('/').map(s => s.trim()).find(Boolean) || pinyin;
-  return primary.toLowerCase().replace(/\s+/g, '');
+  return primary.toLowerCase().replace(/[^a-zA-Zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü]/g, '');
 }
 
 const TONE_MAP = {

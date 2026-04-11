@@ -117,7 +117,7 @@ export default {
   "yi1she1ng": "collections/audio/yi1she1ng.mp3",
   "yi2nha2ng": "collections/audio/yi2nha2ng.mp3",
   "yo3u": "collections/audio/yo3u.mp3",
-  "yo3ujiu3ma?": "collections/audio/yo3ujiu3ma?.mp3",
+  "yo3ujiu3ma": "collections/audio/yo3ujiu3ma.mp3",
   "yu4ndo4ng": "collections/audio/yu4ndo4ng.mp3",
   "za4i": "collections/audio/za4i.mp3",
   "za4ime3nglie4xie1": "collections/audio/za4ime3nglie4xie1.mp3",

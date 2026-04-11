@@ -50,7 +50,7 @@ function processCollection(filePath) {
   const updatedClips = clips.map(clip => {
     if (!clip.blobBase64) return clip;
 
-    const safeText = toNumberedPinyin(clip.text).replace(/[/\\]/g, '_');
+    const safeText = toNumberedPinyin(clip.text).replace(/[^a-zA-Z0-9]/g, '');
     const wavPath = path.join(audioDir, `${safeText}.wav`);
     fs.writeFileSync(wavPath, Buffer.from(clip.blobBase64, 'base64'));
 
