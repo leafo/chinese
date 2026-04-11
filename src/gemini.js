@@ -1,4 +1,5 @@
 import { config } from './config.js';
+import { sampleWords, formatWordList, generateSentencesPrompt } from './prompts.js';
 
 const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 const GEMINI_MODEL = 'gemini-flash-latest';
@@ -428,40 +429,14 @@ export async function generateSentences(words, { count = 10, objectives, additio
     throw new Error('At least one word is required to generate sentences');
   }
 
-  let selectedWords = words;
-  if (words.length > 100) {
-    selectedWords = [...words].sort(() => Math.random() - 0.5).slice(0, 80);
-  }
-
-  const wordList = selectedWords
-    .map(w => `${w.simplified || w.traditional} (${w.pinyin}) - ${w.english}`)
-    .join('\n');
+  const wordList = formatWordList(sampleWords(words));
+  const prompt = generateSentencesPrompt(wordList, { count, objectives, additionalInstructions });
 
   const requestBody = {
     contents: [
       {
         parts: [
-          {
-            text: `Generate ${count} Chinese sentences for a language learner using words from this vocabulary list. Each sentence should use 2-4 vocabulary words where natural. Vary complexity and topics.
-
-Vocabulary:
-${wordList}
-
-Requirements:
-- Each sentence must use at least 1 vocabulary word from the list above
-- Vary grammar patterns and sentence structures
-- Intermediate difficulty level
-- Provide pinyin with tone marks (e.g. nǐ hǎo), not tone numbers
-- In words_used, list only the simplified Chinese forms of vocabulary words from the provided list that appear in the sentence${objectives ? `
-
-Objectives for this vocabulary set:
-${objectives}
-
-Use these objectives to guide the topics and style of the generated sentences.` : ''}${additionalInstructions ? `
-
-Additional instructions:
-${additionalInstructions}` : ''}`
-          }
+          { text: prompt }
         ]
       }
     ],

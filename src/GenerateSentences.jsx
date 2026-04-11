@@ -150,6 +150,7 @@ export function GenerateSentences() {
   const [audioProgress, setAudioProgress] = useState(null);
   const [streamText, setStreamText] = useState('');
   const [ttsProvider, setTtsProvider] = useState('gemini');
+  const [sentenceProvider, setSentenceProvider] = useState('gemini');
   const [pinyinMap, setPinyinMap] = useState({});
   const abortRef = useRef(null);
   const runRef = useRef(0);
@@ -216,7 +217,11 @@ export function GenerateSentences() {
             .join('\n')
         : '';
 
-      const result = await generateSentences(filteredWords, {
+      const genFn = sentenceProvider === 'openai'
+        ? (await import('./openai.js')).generateSentences
+        : generateSentences;
+
+      const result = await genFn(filteredWords, {
         count: count ? Number(count) : undefined,
         objectives: objectives || undefined,
         additionalInstructions: additionalInstructions.trim() || undefined,
@@ -390,6 +395,14 @@ export function GenerateSentences() {
               value={additionalInstructions}
               onChange={(e) => setAdditionalInstructions(e.target.value)}
             />
+          </div>
+
+          <div className={styles.formField}>
+            <label>Provider</label>
+            <select value={sentenceProvider} onChange={e => setSentenceProvider(e.target.value)}>
+              <option value="gemini">Gemini</option>
+              <option value="openai">OpenAI</option>
+            </select>
           </div>
 
           <div className={styles.formActions}>

@@ -3,9 +3,9 @@ import { setRoute } from "./router";
 import { useConfig } from "./config";
 
 export function ApiKeyWarning() {
-  const [apiKey] = useConfig("gemini_api_key");
+  const [apiKey, , loading] = useConfig("gemini_api_key");
 
-  if (apiKey) return null;
+  if (loading || apiKey) return null;
 
   return (
     <div className={styles.warningBox}>
