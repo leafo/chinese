@@ -5,6 +5,7 @@ import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 import { useAudioStats } from "./audio";
 import { formatBytes } from "./util";
 import { exportDatabase, importDatabase, exportWordsCsv } from "./backup";
+import gitVersion from "./git-version";
 
 export function Settings() {
   const [apiKey, setApiKey, apiKeyLoading] = useConfig("gemini_api_key");
@@ -144,7 +145,7 @@ export function Settings() {
         </div>
       </form>
 
-      <div className={styles.backupSection}>
+      <div className={styles.settingsSection}>
         <div className={styles.sectionHeader}>
           <h2>Data Backup</h2>
         </div>
@@ -178,7 +179,7 @@ export function Settings() {
               className={styles.secondaryButton}
               onClick={exportWordsCsv}
             >
-              Export CSV
+              Export Wordlist CSV
             </button>
           </div>
         </div>
@@ -212,6 +213,23 @@ export function Settings() {
             <p>{backupStatus.message}</p>
           </div>
         )}
+      </div>
+
+      <div className={styles.settingsSection}>
+        <div className={styles.sectionHeader}>
+          <h2>About</h2>
+        </div>
+        <p>
+          Open source on GitHub: <a href="https://github.com/leafo/chinese" target="_blank" rel="noopener noreferrer">leafo/chinese</a>
+          {" — "}
+          {gitVersion === "head" ? (
+            <span>dev</span>
+          ) : (
+            <a href={`https://github.com/leafo/chinese/commit/${gitVersion}`} target="_blank" rel="noopener noreferrer">
+              {gitVersion.slice(0, 7)}
+            </a>
+          )}
+        </p>
       </div>
     </div>
   );

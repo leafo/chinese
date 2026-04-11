@@ -2,6 +2,14 @@
   margin: 0;
 }
 
+:global(a) {
+  color: var(--color-primary);
+}
+
+:global(a:hover) {
+  color: var(--color-primary-hover);
+}
+
 :root {
   /* Neutral / Slate scale */
   --color-text-primary: #0f172a;
@@ -789,7 +797,7 @@
   margin-top: 16px;
 }
 
-.backupSection {
+.settingsSection {
   margin-top: 32px;
   padding-top: 24px;
   border-top: 1px solid var(--color-border);
