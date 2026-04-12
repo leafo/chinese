@@ -81,6 +81,7 @@ export function AnswerInput({ word, direction, onCorrect, disabled, gaveUp, onGi
         <div className={styles.typingInputWrap}>
           <input
             autoFocus
+            autoComplete="off"
             className={inputClassName}
             value={typingValue}
             onChange={handleChange}

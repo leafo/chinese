@@ -272,6 +272,7 @@ export function PinyinInput({ value, onChange, withHelp, ...props }) {
       ref={inputRef}
       value={value}
       onChange={handleChange}
+      autoComplete="off"
       {...props}
     />
   );
