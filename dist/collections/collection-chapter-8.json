@@ -1,0 +1,569 @@
+{
+  "format": "chinese-collection-export",
+  "version": 1,
+  "exportedAt": "2026-05-11T23:24:06.199Z",
+  "collection": {
+    "name": "Chapter 8",
+    "notes": "Happy birthday to you",
+    "objectives": ""
+  },
+  "words": [
+    {
+      "traditional": "今天",
+      "simplified": "今天",
+      "pinyin": "jīntiān",
+      "english": "today",
+      "notes": "Category: Supplementary Vocabulary; Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "祝",
+      "simplified": "祝",
+      "pinyin": "zhù",
+      "english": "to wish",
+      "notes": "Verb (V)"
+    },
+    {
+      "traditional": "生日",
+      "simplified": "生日",
+      "pinyin": "shēngrì",
+      "english": "birthday",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "快樂",
+      "simplified": "快乐",
+      "pinyin": "kuàilè",
+      "english": "happy",
+      "notes": "Stative Verb (Vs)"
+    },
+    {
+      "traditional": "大哥",
+      "simplified": "大哥",
+      "pinyin": "dàgē",
+      "english": "oldest brother",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "明天",
+      "simplified": "明天",
+      "pinyin": "míngtiān",
+      "english": "tomorrow",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "月",
+      "simplified": "月",
+      "pinyin": "yuè",
+      "english": "month",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "號",
+      "simplified": "号",
+      "pinyin": "hào",
+      "english": "days of the month",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "噢",
+      "simplified": "噢",
+      "pinyin": "òu",
+      "english": "Oh",
+      "notes": "Particle (Ptc)"
+    },
+    {
+      "traditional": "歲",
+      "simplified": "岁",
+      "pinyin": "suì",
+      "english": "year of age",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "要",
+      "simplified": "要",
+      "pinyin": "yào",
+      "english": "to want, to need",
+      "notes": "Verb (V)"
+    },
+    {
+      "traditional": "禮物",
+      "simplified": "礼物",
+      "pinyin": "lǐwù",
+      "english": "gift, present",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "雙",
+      "simplified": "双",
+      "pinyin": "shuāng",
+      "english": "measure word for a pair",
+      "notes": "Measure word (M)"
+    },
+    {
+      "traditional": "運動鞋",
+      "simplified": "运动鞋",
+      "pinyin": "yùndòng xié",
+      "english": "sports shoes, sneakers",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "買",
+      "simplified": "买",
+      "pinyin": "mǎi",
+      "english": "to buy",
+      "notes": "Verb (V)"
+    },
+    {
+      "traditional": "請",
+      "simplified": "请",
+      "pinyin": "qǐng",
+      "english": "to treat, please (polite form of request)",
+      "notes": "Verb (V)"
+    },
+    {
+      "traditional": "吃",
+      "simplified": "吃",
+      "pinyin": "chī",
+      "english": "to eat",
+      "notes": "Verb (V)"
+    },
+    {
+      "traditional": "大餐",
+      "simplified": "大餐",
+      "pinyin": "dàcān",
+      "english": "a fancy meal",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "是啊",
+      "simplified": "是啊",
+      "pinyin": "shì a!",
+      "english": "That's right.",
+      "notes": "Phrase"
+    },
+    {
+      "traditional": "可以嗎",
+      "simplified": "可以吗",
+      "pinyin": "kěyǐ ma?",
+      "english": "Could I? Is it okay?",
+      "notes": "Phrase"
+    },
+    {
+      "traditional": "好不好",
+      "simplified": "好不好",
+      "pinyin": "hǎo bù hǎo?",
+      "english": "Is it okay? How does that sound?",
+      "notes": "Phrase"
+    },
+    {
+      "traditional": "沒問題",
+      "simplified": "没问题",
+      "pinyin": "méi wèntí",
+      "english": "No problem.",
+      "notes": "Phrase"
+    },
+    {
+      "traditional": "今年",
+      "simplified": "今年",
+      "pinyin": "jīnnián",
+      "english": "this year",
+      "notes": "Noun (N)"
+    },
+    {
+      "traditional": "送",
+      "simplified": "送",
+      "pinyin": "sòng",
+      "english": "to give a gift to someone",
+      "notes": "Verb (V)"
+    },
+    {
+      "traditional": "日",
+      "simplified": "日",
+      "pinyin": "rì",
+      "english": "days of the month (in written)",
+      "notes": "Noun (N); '日' tends to be more written while '號' is more colloquial."
+    },
+    {
+      "traditional": "一月",
+      "simplified": "一月",
+      "pinyin": "yīyuè",
+      "english": "January",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "二月",
+      "simplified": "二月",
+      "pinyin": "èryuè",
+      "english": "February",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "三月",
+      "simplified": "三月",
+      "pinyin": "sānyuè",
+      "english": "March",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "四月",
+      "simplified": "四月",
+      "pinyin": "sìyuè",
+      "english": "April",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "五月",
+      "simplified": "五月",
+      "pinyin": "wǔyuè",
+      "english": "May",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "六月",
+      "simplified": "六月",
+      "pinyin": "liùyuè",
+      "english": "June",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "七月",
+      "simplified": "七月",
+      "pinyin": "qīyuè",
+      "english": "July",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "八月",
+      "simplified": "八月",
+      "pinyin": "bāyuè",
+      "english": "August",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "九月",
+      "simplified": "九月",
+      "pinyin": "jiǔyuè",
+      "english": "September",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "十月",
+      "simplified": "十月",
+      "pinyin": "shíyuè",
+      "english": "October",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "十一月",
+      "simplified": "十一月",
+      "pinyin": "shíyīyuè",
+      "english": "November",
+      "notes": "Month of the year"
+    },
+    {
+      "traditional": "十二月",
+      "simplified": "十二月",
+      "pinyin": "shí'èryuè",
+      "english": "December",
+      "notes": "Month of the year"
+    }
+  ],
+  "audio_clips": [
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "jīntiān",
+      "url": "collections/audio/ji1ntia1n.mp3"
+    },
+    {
+      "text": "zhù",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1571,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhu4.mp3"
+    },
+    {
+      "text": "shēngrì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2011,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/she1ngri4.mp3"
+    },
+    {
+      "text": "kuàilè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1640,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/kua4ile4.mp3"
+    },
+    {
+      "text": "dàgē",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1571,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/da4ge1.mp3"
+    },
+    {
+      "text": "míngtiān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/mi2ngtia1n.mp3"
+    },
+    {
+      "text": "yuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1091,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/yue4.mp3"
+    },
+    {
+      "text": "hào",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1491,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ha4o.mp3"
+    },
+    {
+      "text": "òu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/o4u.mp3"
+    },
+    {
+      "text": "suì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1731,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/sui4.mp3"
+    },
+    {
+      "text": "yào",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ya4o.mp3"
+    },
+    {
+      "text": "lǐwù",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/li3wu4.mp3"
+    },
+    {
+      "text": "shuāng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/shua1ng.mp3"
+    },
+    {
+      "text": "yùndòngxié",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/yu4ndo4ngxie2.mp3"
+    },
+    {
+      "text": "mǎi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1240,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ma3i.mp3"
+    },
+    {
+      "text": "qǐng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1491,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/qi3ng.mp3"
+    },
+    {
+      "text": "chī",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/chi1.mp3"
+    },
+    {
+      "text": "dàcān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/da4ca1n.mp3"
+    },
+    {
+      "text": "shìa",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1531,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/shi4a.mp3"
+    },
+    {
+      "text": "kěyǐma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ke3yi3ma.mp3"
+    },
+    {
+      "text": "hǎobùhǎo",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2771,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ha3obu4ha3o.mp3"
+    },
+    {
+      "text": "méiwèntí",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/me2iwe4nti2.mp3"
+    },
+    {
+      "text": "jīnnián",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji1nnia2n.mp3"
+    },
+    {
+      "text": "sòng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1531,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/so4ng.mp3"
+    },
+    {
+      "text": "rì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1611,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ri4.mp3"
+    },
+    {
+      "text": "yīyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1771,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/yi1yue4.mp3"
+    },
+    {
+      "text": "èryuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2811,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/e4ryue4.mp3"
+    },
+    {
+      "text": "sānyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1800,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/sa1nyue4.mp3"
+    },
+    {
+      "text": "sìyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1680,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/si4yue4.mp3"
+    },
+    {
+      "text": "wǔyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1811,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/wu3yue4.mp3"
+    },
+    {
+      "text": "liùyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/liu4yue4.mp3"
+    },
+    {
+      "text": "qīyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/qi1yue4.mp3"
+    },
+    {
+      "text": "bāyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ba1yue4.mp3"
+    },
+    {
+      "text": "jiǔyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/jiu3yue4.mp3"
+    },
+    {
+      "text": "shíyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1880,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/shi2yue4.mp3"
+    },
+    {
+      "text": "shíyīyuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2080,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/shi2yi1yue4.mp3"
+    },
+    {
+      "text": "shíèryuè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/shi2e4ryue4.mp3"
+    }
+  ]
+}
