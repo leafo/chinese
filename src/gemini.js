@@ -3,7 +3,8 @@ import { sampleWords, formatWordList, generateSentencesPrompt } from './prompts.
 
 const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 const GEMINI_MODEL = 'gemini-flash-latest';
-const GEMINI_TTS_MODEL = 'gemini-2.5-pro-preview-tts';
+// const GEMINI_TTS_MODEL = 'gemini-2.5-pro-preview-tts';
+const GEMINI_TTS_MODEL = 'gemini-3.1-flash-tts-preview';
 const GEMINI_TTS_VOICE = 'Zephyr';
 
 const WORDS_RESPONSE_SCHEMA = {
