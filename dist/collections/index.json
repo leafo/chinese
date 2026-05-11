@@ -34,5 +34,11 @@
     "name": "Chapter 6",
     "notes": "What do you usually like to do?",
     "wordCount": 25
+  },
+  {
+    "file": "collection-chapter-7.json",
+    "name": "Chapter 7",
+    "notes": "May I ask who this is",
+    "wordCount": 33
   }
 ]

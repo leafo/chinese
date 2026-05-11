@@ -1,0 +1,509 @@
+{
+  "format": "chinese-collection-export",
+  "version": 1,
+  "exportedAt": "2026-05-11T23:05:49.943Z",
+  "collection": {
+    "name": "Chapter 7",
+    "notes": "May I ask who this is",
+    "objectives": ""
+  },
+  "words": [
+    {
+      "traditional": "哪",
+      "simplified": "哪",
+      "pinyin": "nǎ",
+      "english": "which, who",
+      "notes": "Part of speech: QPr (Question Pronoun)"
+    },
+    {
+      "traditional": "位",
+      "simplified": "位",
+      "pinyin": "wèi",
+      "english": "polite measure word for people",
+      "notes": "Part of speech: M (Measure word)"
+    },
+    {
+      "traditional": "喂",
+      "simplified": "喂",
+      "pinyin": "wéi",
+      "english": "Hello! (over the phone)",
+      "notes": "Part of speech: Ptc (Particle)"
+    },
+    {
+      "traditional": "小姐",
+      "simplified": "小姐",
+      "pinyin": "xiǎojiě",
+      "english": "Ms., Miss",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "辦公室",
+      "simplified": "办公室",
+      "pinyin": "bàngōngshì",
+      "english": "office",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "回來",
+      "simplified": "回来",
+      "pinyin": "huílái",
+      "english": "to return, get back",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "下午",
+      "simplified": "下午",
+      "pinyin": "xiàwǔ",
+      "english": "afternoon",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "麻煩",
+      "simplified": "麻烦",
+      "pinyin": "máfán",
+      "english": "please, \"If it's not too much trouble\", \"can I trouble you to\"",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "以後",
+      "simplified": "以后",
+      "pinyin": "yǐhòu",
+      "english": "after",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "給",
+      "simplified": "给",
+      "pinyin": "gěi",
+      "english": "to",
+      "notes": "Part of speech: Prep (Preposition)"
+    },
+    {
+      "traditional": "電話",
+      "simplified": "电话",
+      "pinyin": "diànhuà",
+      "english": "telephone",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "手機",
+      "simplified": "手机",
+      "pinyin": "shǒujī",
+      "english": "cell phone",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "號碼",
+      "simplified": "号码",
+      "pinyin": "hàomǎ",
+      "english": "number",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "謝謝",
+      "simplified": "谢谢",
+      "pinyin": "xièxiè",
+      "english": "to thank, thanks",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "再見",
+      "simplified": "再见",
+      "pinyin": "zàijiàn",
+      "english": "goodbye, see you again",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "零",
+      "simplified": "零",
+      "pinyin": "líng",
+      "english": "0, zero",
+      "notes": "Part of speech: Num (Numeral)"
+    },
+    {
+      "traditional": "二",
+      "simplified": "二",
+      "pinyin": "èr",
+      "english": "2, two",
+      "notes": "Part of speech: Num (Numeral)"
+    },
+    {
+      "traditional": "三",
+      "simplified": "三",
+      "pinyin": "sān",
+      "english": "3, three",
+      "notes": "Part of speech: Num (Numeral)"
+    },
+    {
+      "traditional": "四",
+      "simplified": "四",
+      "pinyin": "sì",
+      "english": "4, four",
+      "notes": "Part of speech: Num (Numeral)"
+    },
+    {
+      "traditional": "五",
+      "simplified": "五",
+      "pinyin": "wǔ",
+      "english": "5, five",
+      "notes": "Part of speech: Num (Numeral)"
+    },
+    {
+      "traditional": "六",
+      "simplified": "六",
+      "pinyin": "liù",
+      "english": "6, six",
+      "notes": "Part of speech: Num (Numeral)"
+    },
+    {
+      "traditional": "七",
+      "simplified": "七",
+      "pinyin": "qī",
+      "english": "7, seven",
+      "notes": "Part of speech: Num (Numeral)"
+    },
+    {
+      "traditional": "八",
+      "simplified": "八",
+      "pinyin": "bā",
+      "english": "8, eight",
+      "notes": "Part of speech: Num (Numeral)"
+    },
+    {
+      "traditional": "九",
+      "simplified": "九",
+      "pinyin": "jiǔ",
+      "english": "9, nine",
+      "notes": "Part of speech: Num (Numeral)"
+    },
+    {
+      "traditional": "什麼時候",
+      "simplified": "什么时候",
+      "pinyin": "shénme shíhòu",
+      "english": "when",
+      "notes": "Short phrase"
+    },
+    {
+      "traditional": "打電話",
+      "simplified": "打电话",
+      "pinyin": "dǎ diànhuà",
+      "english": "to make a phone call",
+      "notes": "Short phrase"
+    },
+    {
+      "traditional": "幾號",
+      "simplified": "几号",
+      "pinyin": "jǐ hào",
+      "english": "What is the phone number?",
+      "notes": "Short phrase"
+    },
+    {
+      "traditional": "好的",
+      "simplified": "好的",
+      "pinyin": "hǎode",
+      "english": "yes, okay",
+      "notes": "Short phrase"
+    },
+    {
+      "traditional": "不客氣",
+      "simplified": "不客气",
+      "pinyin": "bú kèqì",
+      "english": "You are welcome.",
+      "notes": "Short phrase"
+    },
+    {
+      "traditional": "十",
+      "simplified": "十",
+      "pinyin": "shí",
+      "english": "ten",
+      "notes": "Numeral"
+    },
+    {
+      "traditional": "百",
+      "simplified": "百",
+      "pinyin": "bǎi",
+      "english": "hundred",
+      "notes": "Numeral"
+    },
+    {
+      "traditional": "太太",
+      "simplified": "太太",
+      "pinyin": "tàitai",
+      "english": "wife; Mrs.; madam",
+      "notes": "bonus"
+    },
+    {
+      "traditional": "以前",
+      "simplified": "以前",
+      "pinyin": "yǐqián",
+      "english": "before, previously, ago",
+      "notes": "bonus"
+    }
+  ],
+  "audio_clips": [
+    {
+      "text": "nǎ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1571,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/na3.mp3"
+    },
+    {
+      "text": "wèi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1291,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/we4i.mp3"
+    },
+    {
+      "text": "wéi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/we2i.mp3"
+    },
+    {
+      "text": "xiǎojiě",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1971,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/xia3ojie3.mp3"
+    },
+    {
+      "text": "bàngōngshì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ba4ngo1ngshi4.mp3"
+    },
+    {
+      "text": "huílái",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1371,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/hui2la2i.mp3"
+    },
+    {
+      "text": "xiàwǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2131,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/xia4wu3.mp3"
+    },
+    {
+      "text": "máfán",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ma2fa2n.mp3"
+    },
+    {
+      "text": "yǐhòu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1491,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/yi3ho4u.mp3"
+    },
+    {
+      "text": "gěi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ge3i.mp3"
+    },
+    {
+      "text": "diànhuà",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/dia4nhua4.mp3"
+    },
+    {
+      "text": "shǒujī",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2451,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/sho3uji1.mp3"
+    },
+    {
+      "text": "hàomǎ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2051,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ha4oma3.mp3"
+    },
+    {
+      "text": "xièxiè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1851,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/xie4xie4.mp3"
+    },
+    {
+      "text": "zàijiàn",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/za4ijia4n.mp3"
+    },
+    {
+      "text": "líng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1251,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/li2ng.mp3"
+    },
+    {
+      "text": "èr",
+      "mimeType": "audio/mpeg",
+      "durationMs": 891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/e4r.mp3"
+    },
+    {
+      "text": "sān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1891,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/sa1n.mp3"
+    },
+    {
+      "text": "sì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1731,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/si4.mp3"
+    },
+    {
+      "text": "wǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1491,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/wu3.mp3"
+    },
+    {
+      "text": "liù",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/liu4.mp3"
+    },
+    {
+      "text": "qī",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/qi1.mp3"
+    },
+    {
+      "text": "bā",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1291,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ba1.mp3"
+    },
+    {
+      "text": "jiǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1251,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/jiu3.mp3"
+    },
+    {
+      "text": "shénmeshíhòu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3051,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/she2nmeshi2ho4u.mp3"
+    },
+    {
+      "text": "dǎdiànhuà",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2091,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/da3dia4nhua4.mp3"
+    },
+    {
+      "text": "jǐhào",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1491,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji3ha4o.mp3"
+    },
+    {
+      "text": "hǎode",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1371,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ha3ode.mp3"
+    },
+    {
+      "text": "búkèqì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3171,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/bu2ke4qi4.mp3"
+    },
+    {
+      "text": "shí",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/shi2.mp3"
+    },
+    {
+      "text": "bǎi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1211,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ba3i.mp3"
+    },
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1771,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "tàitai",
+      "url": "collections/audio/ta4itai.mp3"
+    },
+    {
+      "text": "yǐqián",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2091,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/yi3qia2n.mp3"
+    }
+  ]
+}
