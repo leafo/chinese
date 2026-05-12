@@ -56,11 +56,13 @@ export async function cacheAudio(text, blob, metadata) {
   });
 }
 
-export async function getOrGenerateAudio(text, { signal, chineseText } = {}) {
-  const cached = await getCachedAudio(text);
-  if (cached) return cached;
+export async function getOrGenerateAudio(text, { signal, chineseText, force } = {}) {
+  if (!force) {
+    const cached = await getCachedAudio(text);
+    if (cached) return cached;
+  }
 
-  const manifestUrl = audioManifest[toNumberedPinyin(text)];
+  const manifestUrl = !force && audioManifest[toNumberedPinyin(text)];
   if (manifestUrl) {
     const record = {
       text,
@@ -230,8 +232,8 @@ export function playRecord(record) {
   return playBlob(record.blob);
 }
 
-export async function playAudio(text, { signal, onStart, chineseText } = {}) {
-  const record = await getOrGenerateAudio(text, { signal, chineseText });
+export async function playAudio(text, { signal, onStart, chineseText, force } = {}) {
+  const record = await getOrGenerateAudio(text, { signal, chineseText, force });
   const audio = playRecord(record);
   onStart?.(audio);
   await audio.play();

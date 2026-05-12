@@ -64,7 +64,9 @@ export function PlayButton({ word, autoPlay = false }) {
 
     setLoading(true);
     try {
-      if (e.shiftKey) {
+      if (e.altKey) {
+        await playAudio(text, { onStart: trackAudio, chineseText, force: true });
+      } else if (e.shiftKey) {
         await playOpenAiTts(chineseText, { onStart: trackAudio });
       } else {
         await playAudio(text, { onStart: trackAudio, chineseText });
@@ -85,7 +87,7 @@ export function PlayButton({ word, autoPlay = false }) {
       className={`${styles.smallButton} ${styles.playButton} ${cached ? styles.playButtonCached : ''}`}
       onClick={handlePlay}
       disabled={loading || playing}
-      title={cached ? 'Play audio' : 'Generate & play audio'}
+      title={`${cached ? 'Play audio' : 'Generate & play audio'} (Alt-click: regenerate with Gemini, Shift-click: OpenAI)`}
     >
       {loading ? '...' : playing
         ? <svg width="10" height="10" viewBox="0 0 10 10"><rect width="10" height="10" fill="currentColor"/></svg>
