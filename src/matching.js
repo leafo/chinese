@@ -1,5 +1,15 @@
+const PINYIN_PUNCT_CHARS = `.,!?;:'"‘’“”–—`;
+
+function isPinyinPunctuation(char) {
+  return PINYIN_PUNCT_CHARS.includes(char);
+}
+
+function stripPinyinPunctuation(text) {
+  return text.replace(/[.,!?;:'"‘’“”–—]/g, '');
+}
+
 function normalizePinyin(text) {
-  return text.toLowerCase().replace(/\s+/g, '');
+  return stripPinyinPunctuation(text).toLowerCase().replace(/\s+/g, '');
 }
 
 function splitPinyinVariants(text) {
@@ -7,7 +17,7 @@ function splitPinyinVariants(text) {
 }
 
 function comparePinyinSingle(input, expected) {
-  const expectedChars = expected.replace(/\s+/g, '').split('');
+  const expectedChars = stripPinyinPunctuation(expected).replace(/\s+/g, '').split('');
   const result = [];
   let ei = 0;
   let wrongCount = 0;
@@ -18,6 +28,11 @@ function comparePinyinSingle(input, expected) {
       continue;
     }
 
+    if (isPinyinPunctuation(char)) {
+      result.push({ char, correct: true });
+      continue;
+    }
+
     const correct = ei < expectedChars.length && char.toLowerCase() === expectedChars[ei].toLowerCase();
     if (!correct) wrongCount++;
     result.push({ char, correct });
@@ -25,7 +40,8 @@ function comparePinyinSingle(input, expected) {
   }
 
   // Extra or missing characters count as wrong
-  wrongCount += Math.abs((input.replace(/\s+/g, '').length) - expectedChars.length);
+  const inputLen = stripPinyinPunctuation(input).replace(/\s+/g, '').length;
+  wrongCount += Math.abs(inputLen - expectedChars.length);
 
   return { result, wrongCount };
 }
@@ -47,7 +63,12 @@ export function comparePinyin(input, expected) {
 }
 
 function normalizeEnglish(text) {
-  return text.toLowerCase().trim();
+  return text
+    .toLowerCase()
+    .replace(/['"‘’“”]/g, '')
+    .replace(/[.,!?;:–—]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function stripArticles(text) {

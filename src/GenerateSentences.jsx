@@ -286,25 +286,49 @@ function SentencePlayButton({ sentence, onAudioReady, ttsProvider }) {
   );
 }
 
-function SentenceCard({ sentence, index, displayScript, pinyinMap, ttsProvider, onAudioReady }) {
+function SentenceCard({ sentence, index, displayScript, pinyinMap, ttsProvider, onAudioReady, showMode, revealed, onReveal }) {
   const chineseText = getPreferredChineseText(sentence, displayScript);
+  const showChinese = showMode === 'both' || showMode === 'zh' || revealed;
+  const showEnglish = showMode === 'both' || showMode === 'en' || revealed;
 
   return (
     <div className={styles.sentenceCard}>
       <div className={styles.sentenceMain}>
         <div className={styles.sentenceIndex}>{index + 1}</div>
         <div className={styles.sentenceContent}>
-          <div className={styles.sentenceChinese}>
-            <SentencePlayButton
-              sentence={sentence}
-              ttsProvider={ttsProvider}
-              onAudioReady={onAudioReady}
-            />
-            <span>{chineseText}</span>
-          </div>
-          <div className={styles.sentencePinyin}>{sentence.pinyin}</div>
-          <div className={styles.sentenceEnglish}>{sentence.english}</div>
-          {sentence.words_used && sentence.words_used.length > 0 && (
+          {showChinese ? (
+            <>
+              <div className={styles.sentenceChinese}>
+                <SentencePlayButton
+                  sentence={sentence}
+                  ttsProvider={ttsProvider}
+                  onAudioReady={onAudioReady}
+                />
+                <span>{chineseText}</span>
+              </div>
+              <div className={styles.sentencePinyin}>{sentence.pinyin}</div>
+            </>
+          ) : (
+            <button
+              type="button"
+              className={styles.sentenceRevealButton}
+              onClick={() => onReveal(sentence.id)}
+            >
+              Click to reveal Chinese
+            </button>
+          )}
+          {showEnglish ? (
+            <div className={styles.sentenceEnglish}>{sentence.english}</div>
+          ) : (
+            <button
+              type="button"
+              className={styles.sentenceRevealButton}
+              onClick={() => onReveal(sentence.id)}
+            >
+              Click to reveal English
+            </button>
+          )}
+          {showChinese && sentence.words_used && sentence.words_used.length > 0 && (
             <div className={styles.sentenceWordsUsed}>
               {sentence.words_used.map((word, i) => (
                 <span key={i} className={styles.tag} title={pinyinMap?.[word]}>{word}</span>
@@ -322,8 +346,23 @@ function SentenceResults({ initialSentences, pinyinMap, onReset }) {
   const [sentences, setSentences] = useState(initialSentences);
   const [ttsProvider, setTtsProvider] = useState('gemini');
   const [audioProgress, setAudioProgress] = useState(null);
+  const [showMode, setShowMode] = useState('both'); // 'both' | 'zh' | 'en'
+  const [revealedIds, setRevealedIds] = useState(() => new Set());
   const abortRef = useRef(null);
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
+
+  const handleShowModeChange = (mode) => {
+    setShowMode(mode);
+    setRevealedIds(new Set());
+  };
+
+  const handleReveal = (id) => {
+    setRevealedIds(prev => {
+      const next = new Set(prev);
+      next.add(id);
+      return next;
+    });
+  };
 
   useEffect(() => {
     return () => {
@@ -411,6 +450,29 @@ function SentenceResults({ initialSentences, pinyinMap, onReset }) {
           Generated {sentences.length} sentences using {uniqueWordsUsed.length} vocabulary words
         </p>
         <div className={styles.sentenceToolbarActions}>
+          <div className={styles.sentenceShowModeGroup} role="group" aria-label="Show mode">
+            <button
+              type="button"
+              className={`${styles.sentenceShowModeButton} ${showMode === 'both' ? styles.sentenceShowModeButtonActive : ''}`}
+              onClick={() => handleShowModeChange('both')}
+            >
+              Both
+            </button>
+            <button
+              type="button"
+              className={`${styles.sentenceShowModeButton} ${showMode === 'zh' ? styles.sentenceShowModeButtonActive : ''}`}
+              onClick={() => handleShowModeChange('zh')}
+            >
+              Chinese only
+            </button>
+            <button
+              type="button"
+              className={`${styles.sentenceShowModeButton} ${showMode === 'en' ? styles.sentenceShowModeButtonActive : ''}`}
+              onClick={() => handleShowModeChange('en')}
+            >
+              English only
+            </button>
+          </div>
           <select value={ttsProvider} onChange={e => setTtsProvider(e.target.value)}>
             <option value="gemini">Gemini TTS</option>
             <option value="openai">OpenAI TTS</option>
@@ -450,6 +512,9 @@ function SentenceResults({ initialSentences, pinyinMap, onReset }) {
             pinyinMap={pinyinMap}
             ttsProvider={ttsProvider}
             onAudioReady={handleAudioReady}
+            showMode={showMode}
+            revealed={revealedIds.has(sentence.id)}
+            onReveal={handleReveal}
           />
         ))}
       </div>
