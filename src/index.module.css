@@ -1803,3 +1803,53 @@
   border-radius: 4px;
   font-size: 13px;
 }
+
+.writingWriter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-bg-surface);
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+
+.writingTarget {
+  width: 260px;
+  height: 260px;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg-subtle);
+}
+
+.writingStatus {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.writingControls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.writingNav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.writingDone {
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.writingExitButton {
+  margin-left: auto;
+}
