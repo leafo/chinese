@@ -1,8 +1,23 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import HanziWriter from "hanzi-writer";
 import styles from "./index.module.css";
+import { useRoute, updateRoute } from "./router";
 
-const DEFAULT_CHARACTERS = "一二三四五六七八九十";
+// Built-in character sets the user can pick from. Each one renders as its own
+// row with its characters visible and a Start button. The custom textarea is
+// a separate section at the bottom.
+const PRESETS = [
+  {
+    id: "numbers",
+    label: "Numbers",
+    characters: "一二三四五六七八九十百千",
+  },
+  {
+    id: "common10",
+    label: "Most common 10",
+    characters: "的是不了人我在有他这",
+  },
+];
 
 // How many non-graduated characters stay in active rotation at once. New
 // characters are only introduced once an active one graduates, so you're
@@ -400,60 +415,107 @@ function WritingSession({ characters, onExit }) {
 }
 
 export function Writing() {
-  const [inputValue, setInputValue] = useState(DEFAULT_CHARACTERS);
-  const [sessionChars, setSessionChars] = useState(null);
+  const route = useRoute(["writing", "chars"]);
+  const [customInput, setCustomInput] = useState(() => route.chars || "");
 
-  const parsedPreview = useMemo(
-    () => parseCharacters(inputValue),
-    [inputValue]
+  const customPreview = useMemo(
+    () => parseCharacters(customInput),
+    [customInput]
   );
+
+  // Resolve the active session from the URL so the browser back button
+  // exits cleanly back to the setup screen and session URLs are shareable.
+  let sessionChars = null;
+  if (route.writing === "custom") {
+    const parsed = parseCharacters(route.chars || "");
+    if (parsed.length > 0) sessionChars = parsed;
+  } else if (route.writing) {
+    const preset = PRESETS.find((p) => p.id === route.writing);
+    if (preset) sessionChars = parseCharacters(preset.characters);
+  }
 
   if (sessionChars) {
     return (
       <WritingSession
-        key={sessionChars.join("")}
+        key={`${route.writing}:${route.chars || ""}`}
         characters={sessionChars}
-        onExit={() => setSessionChars(null)}
+        onExit={() => updateRoute({ writing: false, chars: false })}
       />
     );
   }
+
+  const startPreset = (preset) => {
+    updateRoute({ writing: preset.id, chars: false });
+  };
+
+  const startCustom = () => {
+    updateRoute({ writing: "custom", chars: customInput });
+  };
 
   return (
     <div>
       <h2>Practice Writing</h2>
       <p className={styles.learnDescription}>
-        Learn to write Chinese characters. Each new character starts at the
-        Guided tier with the outline visible — flash the next stroke any time,
-        and a hint shows after any wrong stroke. Once you can write it
-        confidently you advance to the Memory tier: no outline, just the
-        printed character as a reference. Peek is still available there if you
-        really need it, but using it blocks the Confident rating, so the
-        character is only mastered once you can write it from memory. New
-        characters are introduced a couple at a time, so you're quizzed on
-        each one soon after learning it while practicing the others. Nothing
-        is saved between sessions.
+        Trace Chinese characters with stroke-order guidance, then write them
+        from memory.
       </p>
-      <div className={styles.formField}>
-        <label htmlFor="writing-chars">Characters to practice</label>
-        <textarea
-          id="writing-chars"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          rows={3}
-        />
+
+      <ul className={styles.writingPresetList}>
+        {PRESETS.map((preset) => {
+          const chars = parseCharacters(preset.characters);
+          return (
+            <li key={preset.id} className={styles.writingPresetItem}>
+              <div className={styles.writingPresetInfo}>
+                <div className={styles.writingPresetName}>
+                  {preset.label}
+                  <span className={styles.writingPresetCount}>
+                    {chars.length} character{chars.length === 1 ? "" : "s"}
+                  </span>
+                </div>
+                {preset.description && (
+                  <div className={styles.writingPresetDescription}>
+                    {preset.description}
+                  </div>
+                )}
+                <div className={styles.writingPresetChars}>
+                  {chars.join(" ")}
+                </div>
+              </div>
+              <button
+                className={styles.primaryButton}
+                onClick={() => startPreset(preset)}
+              >
+                Start
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className={styles.writingCustomSection}>
+        <h3 className={styles.writingCustomHeading}>Custom</h3>
+        <div className={styles.formField}>
+          <label htmlFor="writing-chars">Characters to practice</label>
+          <textarea
+            id="writing-chars"
+            value={customInput}
+            onChange={(e) => setCustomInput(e.target.value)}
+            rows={3}
+          />
+        </div>
+        <p className={styles.formHint}>
+          {customPreview.length > 0
+            ? `${customPreview.length} character${customPreview.length === 1 ? "" : "s"}: ${customPreview.join(" ")}`
+            : "Type any Chinese characters you want to practice."}
+        </p>
+        <button
+          className={`${styles.primaryButton} ${styles.writingStartButton}`}
+          disabled={customPreview.length === 0}
+          onClick={startCustom}
+        >
+          Start learning
+        </button>
       </div>
-      <p className={styles.formHint}>
-        {parsedPreview.length > 0
-          ? `${parsedPreview.length} character${parsedPreview.length === 1 ? "" : "s"}: ${parsedPreview.join(" ")}`
-          : "No Chinese characters detected."}
-      </p>
-      <button
-        className={`${styles.primaryButton} ${styles.writingStartButton}`}
-        disabled={parsedPreview.length === 0}
-        onClick={() => setSessionChars(parsedPreview)}
-      >
-        Start learning
-      </button>
     </div>
   );
 }
