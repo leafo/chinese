@@ -197,7 +197,6 @@ export function EditSentenceDialog({
         <SentenceForm
           initial={sentence}
           onSave={handleSave}
-          onCancel={onClose}
           collections={collections}
           collectionsLoading={collectionsLoading}
           collectionsError={collectionsError}

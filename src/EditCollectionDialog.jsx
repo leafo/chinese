@@ -65,7 +65,6 @@ export function EditCollectionDialog({
           </div>
           <div className={styles.formActions}>
             <div className={styles.formActionsRight}>
-              <button type="button" className={styles.secondaryButton} onClick={onClose}>Cancel</button>
               <button type="submit" className={styles.primaryButton}>Save</button>
             </div>
           </div>

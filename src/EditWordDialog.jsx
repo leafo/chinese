@@ -189,7 +189,6 @@ export function EditWordDialog({
         <WordForm
           initial={word}
           onSave={handleSave}
-          onCancel={onClose}
           collections={collections}
           collectionsLoading={collectionsLoading}
           collectionsError={collectionsError}
