@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./index.module.css";
 import { CollectionSelector } from "./CollectionSelector";
 import { audioKey, useAudio, deleteCachedAudio } from "./audio";
+import { completeSentence } from "./gemini";
 import { useModalDialog } from "./util";
 import { SentenceAudioButton } from "./SentenceAudioButton";
 
@@ -23,6 +24,8 @@ function SentenceForm({ onSave, onCancel, initial, collections, collectionsLoadi
     word_ids: [],
     ...initial,
   });
+  const [completing, setCompleting] = useState(false);
+  const [completeError, setCompleteError] = useState(null);
 
   const set = (field) => (e) => setForm({ ...form, [field]: e.target.value });
   const toggleCollection = (collectionId) => {
@@ -37,6 +40,27 @@ function SentenceForm({ onSave, onCancel, initial, collections, collectionsLoadi
   const handleSubmit = async (e) => {
     e.preventDefault();
     await onSave(form);
+  };
+
+  const hasContent = form.traditional || form.simplified || form.pinyin || form.english || form.notes;
+
+  const handleAutoComplete = async () => {
+    setCompleting(true);
+    setCompleteError(null);
+    try {
+      const result = await completeSentence(form);
+      setForm(prev => ({
+        ...prev,
+        traditional: prev.traditional || result.traditional || '',
+        simplified: prev.simplified || result.simplified || '',
+        pinyin: prev.pinyin || result.pinyin || '',
+        english: prev.english || result.english || '',
+      }));
+    } catch (err) {
+      setCompleteError(err.message || String(err));
+    } finally {
+      setCompleting(false);
+    }
   };
 
   return (
@@ -73,8 +97,16 @@ function SentenceForm({ onSave, onCancel, initial, collections, collectionsLoadi
           onToggle={toggleCollection}
         />
       </div>
+      {completeError && <div className={styles.errorBox}><p>{completeError}</p></div>}
       <div className={styles.formActions}>
-        <div />
+        <button
+          type="button"
+          className={styles.autoCompleteButton}
+          onClick={handleAutoComplete}
+          disabled={!hasContent || completing}
+        >
+          {completing ? 'Completing...' : 'Auto complete'}
+        </button>
         <div className={styles.formActionsRight}>
           {onCancel && <button type="button" className={styles.secondaryButton} onClick={onCancel}>Cancel</button>}
           <button type="submit" className={styles.primaryButton}>Save</button>

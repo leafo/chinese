@@ -66,6 +66,29 @@ const COMPLETE_WORD_RESPONSE_SCHEMA = {
   required: ["traditional", "simplified", "pinyin", "english"]
 };
 
+const COMPLETE_SENTENCE_RESPONSE_SCHEMA = {
+  type: "object",
+  properties: {
+    traditional: {
+      type: "string",
+      description: "The sentence in traditional Chinese characters"
+    },
+    simplified: {
+      type: "string",
+      description: "The sentence in simplified Chinese characters"
+    },
+    pinyin: {
+      type: "string",
+      description: "The pinyin romanization with tone marks, with spaces between words"
+    },
+    english: {
+      type: "string",
+      description: "The natural English translation of the sentence"
+    },
+  },
+  required: ["traditional", "simplified", "pinyin", "english"]
+};
+
 async function getApiKey() {
   const apiKey = await config.getValue("gemini_api_key");
 
@@ -261,6 +284,37 @@ export async function completeWord(fields) {
     generationConfig: {
       responseMimeType: "application/json",
       responseSchema: COMPLETE_WORD_RESPONSE_SCHEMA
+    }
+  };
+
+  return geminiRequest(requestBody);
+}
+
+export async function completeSentence(fields) {
+  const provided = [];
+  if (fields.traditional) provided.push(`Traditional: ${fields.traditional}`);
+  if (fields.simplified) provided.push(`Simplified: ${fields.simplified}`);
+  if (fields.pinyin) provided.push(`Pinyin: ${fields.pinyin}`);
+  if (fields.english) provided.push(`English: ${fields.english}`);
+  if (fields.notes) provided.push(`Notes: ${fields.notes}`);
+
+  if (provided.length === 0) {
+    throw new Error('At least one field must be provided');
+  }
+
+  const requestBody = {
+    contents: [
+      {
+        parts: [
+          {
+            text: `I have a Chinese sentence with the following information:\n${provided.join('\n')}\n\nPlease complete the traditional, simplified, pinyin, and English fields for this sentence. Treat notes as context only; do not return notes. Provide pinyin with tone marks, not tone numbers. Use spaces between words in the pinyin. Keep the English translation natural and concise.`
+          }
+        ]
+      }
+    ],
+    generationConfig: {
+      responseMimeType: "application/json",
+      responseSchema: COMPLETE_SENTENCE_RESPONSE_SCHEMA
     }
   };
 
