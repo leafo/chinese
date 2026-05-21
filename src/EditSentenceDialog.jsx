@@ -5,6 +5,13 @@ import { audioKey, useAudio, deleteCachedAudio } from "./audio";
 import { useModalDialog } from "./util";
 import { SentenceAudioButton } from "./SentenceAudioButton";
 
+const AUDIO_KEY_DISPLAY_LENGTH = 32;
+
+function truncateAudioKey(key) {
+  if (!key || key.length <= AUDIO_KEY_DISPLAY_LENGTH) return key || '—';
+  return `${key.slice(0, AUDIO_KEY_DISPLAY_LENGTH)}...`;
+}
+
 function SentenceForm({ onSave, onCancel, initial, collections, collectionsLoading, collectionsError }) {
   const [form, setForm] = useState({
     traditional: '',
@@ -88,6 +95,7 @@ function SentenceAudioInfo({ sentence }) {
   return (
     <div className={styles.audioInfo}>
       <SentenceAudioButton sentence={sentence} />
+      <span title={key || undefined}>{truncateAudioKey(key)}</span>
       <span>{cached?.model || '—'}</span>
       <span>{date}</span>
       {cached && (
