@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 import { CollectionSelector } from "./CollectionSelector";
 import { audioKey, useAudio, deleteCachedAudio } from "./audio";
 import { completeSentence } from "./gemini";
+import { PinyinInput } from "./PinyinInput";
 import { useModalDialog } from "./util";
 import { SentenceAudioButton } from "./SentenceAudioButton";
 
@@ -77,7 +78,7 @@ function SentenceForm({ onSave, onCancel, initial, collections, collectionsLoadi
       </div>
       <div className={styles.formField}>
         <label>Pinyin</label>
-        <textarea rows={2} value={form.pinyin} onChange={set('pinyin')} placeholder="pīnyīn" />
+        <PinyinInput value={form.pinyin} onChange={set('pinyin')} placeholder="pīnyīn" withHelp />
       </div>
       <div className={styles.formField}>
         <label>English</label>
