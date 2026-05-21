@@ -4,7 +4,7 @@ import { useCollections } from "./collections";
 import { CollectionSelector } from "./CollectionSelector";
 import { getAllWords } from "./words";
 import { generateSentences as geminiGenerateSentences, generateTts as geminiTts } from "./gemini";
-import { playBlob, stopCurrentAudio, cacheAudio } from "./audio";
+import { audioKey, playBlob, stopCurrentAudio, cacheAudio } from "./audio";
 import { insertSentence } from "./sentences";
 import { useConfig } from "./config";
 import { ApiKeyWarning } from "./ApiKeyWarning";
@@ -306,8 +306,8 @@ function SentenceCard({ sentence, index, displayScript, pinyinMap, wordIdMap, co
         .map(text => wordIdMap?.[text])
         .filter(id => id != null);
 
-      if (sentence.audioBlob) {
-        await cacheAudio(sentence.simplified, sentence.audioBlob, {
+      if (sentence.audioBlob && sentence.pinyin) {
+        await cacheAudio(audioKey(sentence.pinyin), sentence.audioBlob, {
           mimeType: sentence.audioMetadata?.mimeType || sentence.audioBlob.type || 'audio/wav',
           durationMs: sentence.audioMetadata?.durationMs || null,
           model: sentence.audioMetadata?.model || 'generated',

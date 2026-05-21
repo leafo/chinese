@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./index.module.css";
 import { CollectionSelector } from "./CollectionSelector";
-import { useAudio, deleteCachedAudio } from "./audio";
+import { audioKey, useAudio, deleteCachedAudio } from "./audio";
 import { useModalDialog } from "./util";
 import { SentenceAudioButton } from "./SentenceAudioButton";
 
@@ -78,7 +78,7 @@ function SentenceForm({ onSave, onCancel, initial, collections, collectionsLoadi
 }
 
 function SentenceAudioInfo({ sentence }) {
-  const key = sentence.simplified || sentence.traditional;
+  const key = sentence.pinyin ? audioKey(sentence.pinyin) : '';
   const [cached] = useAudio(key);
 
   const date = cached?.createdAt

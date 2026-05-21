@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import styles from "./index.module.css";
-import { playAudio, useAudio, stopCurrentAudio } from "./audio";
+import { audioKey, playAudio, useAudio, stopCurrentAudio } from "./audio";
 import { AudioPlayIcon } from "./AudioPlayIcon";
 
 export function SentenceAudioButton({ sentence }) {
-  const text = sentence.simplified || sentence.traditional;
+  const text = sentence.pinyin ? audioKey(sentence.pinyin) : '';
+  const chineseText = sentence.simplified || sentence.traditional;
   const [cached] = useAudio(text);
   const [playing, setPlaying] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -38,11 +39,11 @@ export function SentenceAudioButton({ sentence }) {
 
   const handlePlay = async (e) => {
     e.stopPropagation();
-    if (!text) return;
+    if (!text || !chineseText) return;
 
     setLoading(true);
     try {
-      await playAudio(text, { onStart: trackAudio, chineseText: text, force: e.altKey });
+      await playAudio(text, { onStart: trackAudio, chineseText, force: e.altKey });
     } catch (err) {
       console.error('Audio playback failed:', err);
       if (mountedRef.current) {
@@ -58,7 +59,7 @@ export function SentenceAudioButton({ sentence }) {
     <button
       className={`${styles.smallButton} ${styles.playButton} ${cached ? styles.playButtonCached : ''}`}
       onClick={handlePlay}
-      disabled={loading || playing}
+      disabled={loading || playing || !text || !chineseText}
       title={`${cached ? 'Play audio' : 'Generate & play audio'} (Alt-click: regenerate)`}
     >
       <AudioPlayIcon loading={loading} playing={playing} />
