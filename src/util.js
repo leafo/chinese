@@ -68,6 +68,40 @@ export function useAsync(fn, inputs) {
   return [result, error, loading];
 }
 
+export const parseId = (id) => {
+  const parsed = parseInt(id, 10);
+  if (isNaN(parsed)) {
+    throw new Error('Invalid ID: ID must be an integer');
+  }
+  return parsed;
+};
+
+export const normalizeIds = (ids = []) => {
+  if (!Array.isArray(ids)) {
+    return [];
+  }
+
+  return [...new Set(
+    ids
+      .map(id => parseInt(id, 10))
+      .filter(id => !isNaN(id))
+  )];
+};
+
+export function useStoreDependency(store) {
+  const [version, setVersion] = useState(0);
+
+  useEffect(() => {
+    const handler = () => setVersion(v => v + 1);
+    store.eventEmitter.subscribe('*', handler);
+    return () => {
+      store.eventEmitter.unsubscribe('*', handler);
+    };
+  }, [store]);
+
+  return version;
+}
+
 export function useShaker(duration = 400) {
   const [shaking, setShaking] = useState(false);
   const timeoutRef = useRef(null);

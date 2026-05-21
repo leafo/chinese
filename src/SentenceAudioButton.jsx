@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import styles from "./index.module.css";
-import { playAudio, playOpenAiTts, useAudio, getCachedAudio, playRecord, stopCurrentAudio, audioKey } from "./audio";
+import { playAudio, useAudio, stopCurrentAudio } from "./audio";
 import { AudioPlayIcon } from "./AudioPlayIcon";
 
-export function PlayButton({ word, autoPlay = false }) {
-  const text = audioKey(word.pinyin);
-  const chineseText = word.simplified || word.traditional;
+export function SentenceAudioButton({ sentence }) {
+  const text = sentence.simplified || sentence.traditional;
   const [cached] = useAudio(text);
   const [playing, setPlaying] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -37,41 +36,13 @@ export function PlayButton({ word, autoPlay = false }) {
     audio.addEventListener('error', cleanup, { once: true });
   }, []);
 
-  useEffect(() => {
-    if (!autoPlay || !text) return;
-
-    let cancelled = false;
-    getCachedAudio(text).then(record => {
-      if (record && !cancelled && mountedRef.current) {
-        const audio = playRecord(record);
-        trackAudio(audio);
-        audio.play().catch(() => {
-          if (mountedRef.current) {
-            audioRef.current = null;
-            setPlaying(false);
-          }
-        });
-      }
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [autoPlay, text, trackAudio]);
-
   const handlePlay = async (e) => {
     e.stopPropagation();
     if (!text) return;
 
     setLoading(true);
     try {
-      if (e.altKey) {
-        await playAudio(text, { onStart: trackAudio, chineseText, force: true });
-      } else if (e.shiftKey) {
-        await playOpenAiTts(chineseText, { onStart: trackAudio });
-      } else {
-        await playAudio(text, { onStart: trackAudio, chineseText });
-      }
+      await playAudio(text, { onStart: trackAudio, chineseText: text, force: e.altKey });
     } catch (err) {
       console.error('Audio playback failed:', err);
       if (mountedRef.current) {
@@ -88,7 +59,7 @@ export function PlayButton({ word, autoPlay = false }) {
       className={`${styles.smallButton} ${styles.playButton} ${cached ? styles.playButtonCached : ''}`}
       onClick={handlePlay}
       disabled={loading || playing}
-      title={`${cached ? 'Play audio' : 'Generate & play audio'} (Alt-click: regenerate with Gemini, Shift-click: OpenAI)`}
+      title={`${cached ? 'Play audio' : 'Generate & play audio'} (Alt-click: regenerate)`}
     >
       <AudioPlayIcon loading={loading} playing={playing} />
     </button>

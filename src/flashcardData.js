@@ -1,7 +1,6 @@
 import { IndexedDBStore } from './database';
 import { getAllWords } from './words';
-import { useAsync } from './util';
-import React from 'react';
+import { useAsync, useStoreDependency } from './util';
 
 const STORE_NAME = 'flashcard_reviews';
 export const store = new IndexedDBStore(STORE_NAME);
@@ -184,19 +183,7 @@ export async function deleteCardsForWord(wordId) {
   ]);
 }
 
-export function useDependency() {
-  const [version, setVersion] = React.useState(0);
-
-  React.useEffect(() => {
-    const handler = () => setVersion(v => v + 1);
-    store.eventEmitter.subscribe('*', handler);
-    return () => {
-      store.eventEmitter.unsubscribe('*', handler);
-    };
-  }, []);
-
-  return version;
-}
+export const useDependency = () => useStoreDependency(store);
 
 export function useFlashcardStats(collectionIds) {
   const dbVersion = useDependency();

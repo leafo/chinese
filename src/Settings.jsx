@@ -84,7 +84,7 @@ export function Settings() {
       const summary = await importDatabase(jsonString);
       setBackupStatus({
         type: 'success',
-        message: `Imported ${summary.words} words, ${summary.collections} collections, ${summary.config} config entries, ${summary.audioClips} audio clips. Reloading...`,
+        message: `Imported ${summary.words} words, ${summary.sentences} sentences, ${summary.collections} collections, ${summary.config} config entries, ${summary.audioClips} audio clips. Reloading...`,
       });
       setTimeout(() => window.location.reload(), 1500);
     } catch (err) {

@@ -1,7 +1,7 @@
 import { IndexedDBStore } from './database';
-import { useAsync } from './util';
+import { useAsync, parseId, normalizeIds, useStoreDependency } from './util';
 import { deleteCardsForWord } from './flashcardData';
-import React from 'react';
+import { unassignWordFromSentences } from './sentences';
 
 class Word {
   constructor(data) {
@@ -12,42 +12,23 @@ class Word {
 const STORE_NAME = 'words';
 export const store = new IndexedDBStore(STORE_NAME, Word);
 
-const parseId = id => {
-  const parsed = parseInt(id, 10);
-  if (isNaN(parsed)) {
-    throw new Error('Invalid ID: ID must be an integer');
-  }
-  return parsed;
-};
-
-const normalizeCollectionIds = (collectionIds = []) => {
-  if (!Array.isArray(collectionIds)) {
-    return [];
-  }
-
-  return [...new Set(
-    collectionIds
-      .map(id => parseInt(id, 10))
-      .filter(id => !isNaN(id))
-  )];
-};
-
 export const insertWord = async (word) => store.add({
   traditional: word.traditional || '',
   simplified: word.simplified || '',
   pinyin: word.pinyin || '',
   english: word.english || '',
   notes: word.notes || '',
-  collection_ids: normalizeCollectionIds(word.collection_ids),
+  collection_ids: normalizeIds(word.collection_ids),
 });
 
 export const updateWord = async (word) => store.put({
   ...word,
-  collection_ids: normalizeCollectionIds(word.collection_ids),
+  collection_ids: normalizeIds(word.collection_ids),
 });
 export const deleteWord = async (id) => {
   const parsedId = parseId(id);
   await deleteCardsForWord(parsedId);
+  await unassignWordFromSentences(parsedId);
   return store.remove(parsedId);
 };
 
@@ -76,7 +57,7 @@ export async function bulkUpdateCollections(wordIds, collectionId, action) {
     const nextIds = action === 'add'
       ? [...currentIds, parsedCollectionId]
       : currentIds.filter(id => id !== parsedCollectionId);
-    return { ...word, collection_ids: normalizeCollectionIds(nextIds) };
+    return { ...word, collection_ids: normalizeIds(nextIds) };
   });
 
   await store.putMany(updated);
@@ -92,19 +73,7 @@ export async function unassignCollectionFromWords(collectionId) {
   await bulkUpdateCollections(affectedIds, collectionId, 'remove');
 }
 
-export function useDependency() {
-  const [version, setVersion] = React.useState(0);
-
-  React.useEffect(() => {
-    const handler = () => setVersion(v => v + 1);
-    store.eventEmitter.subscribe('*', handler);
-    return () => {
-      store.eventEmitter.unsubscribe('*', handler);
-    };
-  }, []);
-
-  return version;
-}
+export const useDependency = () => useStoreDependency(store);
 
 export function useWord(wordId) {
   const dbVersion = useDependency();

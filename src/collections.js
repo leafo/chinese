@@ -1,7 +1,7 @@
 import { IndexedDBStore } from './database';
-import { useAsync } from './util';
-import React from 'react';
+import { useAsync, parseId, useStoreDependency } from './util';
 import { unassignCollectionFromWords } from './words';
+import { unassignCollectionFromSentences } from './sentences';
 
 class Collection {
   constructor(data) {
@@ -11,14 +11,6 @@ class Collection {
 
 const STORE_NAME = 'collections';
 export const store = new IndexedDBStore(STORE_NAME, Collection);
-
-const parseId = id => {
-  const parsed = parseInt(id, 10);
-  if (isNaN(parsed)) {
-    throw new Error('Invalid ID: ID must be an integer');
-  }
-  return parsed;
-};
 
 export const insertCollection = async (collection) => store.add({
   name: collection.name || '',
@@ -30,6 +22,7 @@ export const updateCollection = async (collection) => store.put(collection);
 export const deleteCollection = async (id) => {
   const parsedId = parseId(id);
   await unassignCollectionFromWords(parsedId);
+  await unassignCollectionFromSentences(parsedId);
   return store.remove(parsedId);
 };
 
@@ -43,19 +36,7 @@ export async function getAllCollections() {
   return store.getAll();
 }
 
-export function useDependency() {
-  const [version, setVersion] = React.useState(0);
-
-  React.useEffect(() => {
-    const handler = () => setVersion(v => v + 1);
-    store.eventEmitter.subscribe('*', handler);
-    return () => {
-      store.eventEmitter.unsubscribe('*', handler);
-    };
-  }, []);
-
-  return version;
-}
+export const useDependency = () => useStoreDependency(store);
 
 export function useCollections() {
   const dbVersion = useDependency();

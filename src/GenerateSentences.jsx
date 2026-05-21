@@ -4,11 +4,13 @@ import { useCollections } from "./collections";
 import { CollectionSelector } from "./CollectionSelector";
 import { getAllWords } from "./words";
 import { generateSentences as geminiGenerateSentences, generateTts as geminiTts } from "./gemini";
-import { playBlob, stopCurrentAudio } from "./audio";
+import { playBlob, stopCurrentAudio, cacheAudio } from "./audio";
+import { insertSentence } from "./sentences";
 import { useConfig } from "./config";
 import { ApiKeyWarning } from "./ApiKeyWarning";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 import { StreamingPreview } from "./StreamingPreview";
+import { AudioPlayIcon } from "./AudioPlayIcon";
 
 const AUDIO_CONCURRENCY = 3;
 
@@ -72,6 +74,12 @@ function SentenceForm({ onComplete }) {
           )
         : allWords;
 
+      const wordIdMap = {};
+      for (const w of filteredWords) {
+        if (w.simplified) wordIdMap[w.simplified] = w.id;
+        if (w.traditional) wordIdMap[w.traditional] = w.id;
+      }
+
       if (filteredWords.length === 0) {
         throw new Error('No words found in the selected collections.');
       }
@@ -105,11 +113,12 @@ function SentenceForm({ onComplete }) {
         ...s,
         id: `gen-${Date.now()}-${i}`,
         audioBlob: null,
+        audioMetadata: null,
         audioStatus: 'idle',
         audioError: null,
       }));
 
-      onComplete({ sentences, pinyinMap });
+      onComplete({ sentences, pinyinMap, wordIdMap, collectionIds: selectedCollectionIds });
     } catch (err) {
       if (err.name === 'AbortError' || controller.signal.aborted) {
         setStatus('idle');
@@ -250,7 +259,7 @@ function SentencePlayButton({ sentence, onAudioReady, ttsProvider }) {
       const tts = await getTtsFunction(ttsProvider);
       const result = await tts(sentence.simplified, { signal: controller.signal });
       if (mountedRef.current && !controller.signal.aborted) {
-        onAudioReady(sentence.id, result.blob);
+        onAudioReady(sentence.id, result);
         const audio = playBlob(result.blob);
         trackAudio(audio);
         await audio.play();
@@ -279,17 +288,55 @@ function SentencePlayButton({ sentence, onAudioReady, ttsProvider }) {
       disabled={loading || playing}
       title={sentence.audioBlob ? 'Play audio' : 'Generate & play audio'}
     >
-      {loading ? '...' : playing
-        ? <svg width="10" height="10" viewBox="0 0 10 10"><rect width="10" height="10" fill="currentColor"/></svg>
-        : <svg width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,5 0,10" fill="currentColor"/></svg>}
+      <AudioPlayIcon loading={loading} playing={playing} />
     </button>
   );
 }
 
-function SentenceCard({ sentence, index, displayScript, pinyinMap, ttsProvider, onAudioReady, showMode, revealed, onReveal }) {
+function SentenceCard({ sentence, index, displayScript, pinyinMap, wordIdMap, collectionIds, ttsProvider, onAudioReady, showMode, revealed, onReveal }) {
   const chineseText = getPreferredChineseText(sentence, displayScript);
   const showChinese = showMode === 'both' || showMode === 'zh' || revealed;
   const showEnglish = showMode === 'both' || showMode === 'en' || revealed;
+  const [saveState, setSaveState] = useState('idle'); // idle | saving | saved | error
+
+  const handleSave = async () => {
+    setSaveState('saving');
+    try {
+      const wordIds = (sentence.words_used || [])
+        .map(text => wordIdMap?.[text])
+        .filter(id => id != null);
+
+      if (sentence.audioBlob) {
+        await cacheAudio(sentence.simplified, sentence.audioBlob, {
+          mimeType: sentence.audioMetadata?.mimeType || sentence.audioBlob.type || 'audio/wav',
+          durationMs: sentence.audioMetadata?.durationMs || null,
+          model: sentence.audioMetadata?.model || 'generated',
+          voice: sentence.audioMetadata?.voice || null,
+        });
+      }
+
+      await insertSentence({
+        simplified: sentence.simplified,
+        traditional: sentence.traditional,
+        pinyin: sentence.pinyin,
+        english: sentence.english,
+        collection_ids: collectionIds || [],
+        word_ids: wordIds,
+      });
+
+      setSaveState('saved');
+    } catch (err) {
+      console.error('Failed to save sentence:', err);
+      setSaveState('error');
+    }
+  };
+
+  const saveLabel = {
+    idle: 'Save',
+    saving: 'Saving…',
+    saved: 'Saved ✓',
+    error: 'Retry Save',
+  }[saveState];
 
   return (
     <div className={styles.sentenceCard}>
@@ -336,12 +383,23 @@ function SentenceCard({ sentence, index, displayScript, pinyinMap, ttsProvider, 
             </div>
           )}
         </div>
+        <div className={styles.sentenceCardActions}>
+          <button
+            type="button"
+            className={styles.smallButton}
+            onClick={handleSave}
+            disabled={saveState === 'saving' || saveState === 'saved'}
+            title={saveState === 'saved' ? 'Sentence saved' : 'Save this sentence'}
+          >
+            {saveLabel}
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
-function SentenceResults({ initialSentences, pinyinMap, onReset }) {
+function SentenceResults({ initialSentences, pinyinMap, wordIdMap, collectionIds, onReset }) {
   const [displayScript] = useConfig('display_script');
   const [sentences, setSentences] = useState(initialSentences);
   const [ttsProvider, setTtsProvider] = useState('gemini');
@@ -371,9 +429,11 @@ function SentenceResults({ initialSentences, pinyinMap, onReset }) {
     };
   }, []);
 
-  const handleAudioReady = (sentenceId, blob) => {
+  const handleAudioReady = (sentenceId, audioResult) => {
     setSentences(prev => prev.map(s =>
-      s.id === sentenceId ? { ...s, audioBlob: blob, audioStatus: 'ready' } : s
+      s.id === sentenceId
+        ? { ...s, audioBlob: audioResult.blob, audioMetadata: audioResult, audioStatus: 'ready' }
+        : s
     ));
   };
 
@@ -410,7 +470,9 @@ function SentenceResults({ initialSentences, pinyinMap, onReset }) {
           if (controller.signal.aborted) return;
 
           setSentences(prev => prev.map(s =>
-            s.id === sentence.id ? { ...s, audioBlob: result.blob, audioStatus: 'ready' } : s
+            s.id === sentence.id
+              ? { ...s, audioBlob: result.blob, audioMetadata: result, audioStatus: 'ready' }
+              : s
           ));
         } catch (err) {
           if (err.name === 'AbortError' || controller.signal.aborted) return;
@@ -510,6 +572,8 @@ function SentenceResults({ initialSentences, pinyinMap, onReset }) {
             index={index}
             displayScript={preferredScript}
             pinyinMap={pinyinMap}
+            wordIdMap={wordIdMap}
+            collectionIds={collectionIds}
             ttsProvider={ttsProvider}
             onAudioReady={handleAudioReady}
             showMode={showMode}
@@ -538,12 +602,14 @@ export function GenerateSentences() {
           key={result.key}
           initialSentences={result.sentences}
           pinyinMap={result.pinyinMap}
+          wordIdMap={result.wordIdMap}
+          collectionIds={result.collectionIds}
           onReset={() => setResult(null)}
         />
       ) : (
         <SentenceForm
-          onComplete={({ sentences, pinyinMap }) =>
-            setResult({ sentences, pinyinMap, key: Date.now() })
+          onComplete={({ sentences, pinyinMap, wordIdMap, collectionIds }) =>
+            setResult({ sentences, pinyinMap, wordIdMap, collectionIds, key: Date.now() })
           }
         />
       )}

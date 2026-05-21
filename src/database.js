@@ -21,6 +21,10 @@ export const MIGRATIONS = [
     reviews.createIndex("by_dueDate", "dueDate", { unique: false });
     reviews.createIndex("by_wordId", "wordId", { unique: false });
   },
+  (db) => {
+    const sentences = db.createObjectStore("sentences", { keyPath: 'id', autoIncrement: true });
+    sentences.createIndex("by_simplified", "simplified", { unique: false });
+  },
 ];
 
 export function openDatabase() {

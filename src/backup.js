@@ -1,4 +1,5 @@
 import { store as wordsStore } from './words';
+import { store as sentencesStore } from './sentences';
 import { store as collectionsStore } from './collections';
 import { config } from './config';
 import { store as audioStore, audioKey } from './audio';
@@ -55,8 +56,9 @@ export function deserializeAudioClip(clip) {
 }
 
 export async function exportDatabase({ includeAudio = false } = {}) {
-  const [words, collections, configData, audioClips, flashcardReviews] = await Promise.all([
+  const [words, sentences, collections, configData, audioClips, flashcardReviews] = await Promise.all([
     wordsStore.getAll(),
+    sentencesStore.getAll(),
     collectionsStore.getAll(),
     config.getAll(),
     includeAudio ? audioStore.getAll() : Promise.resolve(null),
@@ -71,6 +73,7 @@ export async function exportDatabase({ includeAudio = false } = {}) {
     stores: {
       config: filteredConfig,
       words,
+      sentences,
       collections,
       flashcard_reviews: flashcardReviews,
     },
@@ -185,13 +188,14 @@ export async function importDatabase(jsonString) {
   const storesToWrite = [
     ['config', stores.config],
     ['words', stores.words],
+    ['sentences', stores.sentences],
     ['collections', stores.collections],
     ['audio_clips', stores.audio_clips],
     ['flashcard_reviews', stores.flashcard_reviews],
   ].filter(([, records]) => records?.length);
 
   if (storesToWrite.length === 0) {
-    return { words: 0, collections: 0, config: 0, audioClips: 0 };
+    return { words: 0, sentences: 0, collections: 0, config: 0, audioClips: 0 };
   }
 
   const tx = db.transaction(storesToWrite.map(([name]) => name), 'readwrite');
@@ -210,6 +214,7 @@ export async function importDatabase(jsonString) {
 
   return {
     words: stores.words?.length || 0,
+    sentences: stores.sentences?.length || 0,
     collections: stores.collections?.length || 0,
     config: stores.config?.length || 0,
     audioClips: stores.audio_clips?.length || 0,

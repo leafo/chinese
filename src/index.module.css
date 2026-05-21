@@ -1534,6 +1534,13 @@
   margin-top: 4px;
 }
 
+.sentenceCardActions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
 .sentenceShowModeGroup {
   display: flex;
   gap: 4px;

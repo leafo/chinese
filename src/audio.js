@@ -1,5 +1,5 @@
 import { IndexedDBStore } from './database';
-import { useAsync } from './util';
+import { useAsync, useStoreDependency } from './util';
 import { generateTts } from './gemini';
 import audioManifest from './audio-manifest';
 import React from 'react';
@@ -249,19 +249,7 @@ export async function playOpenAiTts(text, { onStart } = {}) {
   return audio;
 }
 
-export function useDependency() {
-  const [version, setVersion] = React.useState(0);
-
-  React.useEffect(() => {
-    const handler = () => setVersion(v => v + 1);
-    store.eventEmitter.subscribe('*', handler);
-    return () => {
-      store.eventEmitter.unsubscribe('*', handler);
-    };
-  }, []);
-
-  return version;
-}
+export const useDependency = () => useStoreDependency(store);
 
 export function useAudio(text) {
   const [version, setVersion] = React.useState(0);

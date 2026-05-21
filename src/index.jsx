@@ -9,6 +9,7 @@ import { AudioManager } from "./AudioManager";
 import { Flashcards } from "./Flashcards";
 import { Learn } from "./Learn";
 import { Writing } from "./Writing";
+import { SentenceList } from "./SentenceList";
 import { GenerateSentences } from "./GenerateSentences";
 import { GenerateCollection } from "./GenerateCollection";
 import { FlashcardDebug } from "./FlashcardDebug";
@@ -74,7 +75,8 @@ function App() {
       {view === 'collections' && <CollectionList />}
       {view === 'import' && <ImportWords />}
       {view === 'audio' && <AudioManager />}
-      {view === 'sentences' && <GenerateSentences />}
+      {view === 'sentences' && <SentenceList />}
+      {view === 'generate-sentences' && <GenerateSentences />}
       {view === 'generate-collection' && <GenerateCollection />}
       {view === 'learn' && <Learn />}
       {view === 'writing' && <Writing />}
