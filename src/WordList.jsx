@@ -1,4 +1,4 @@
-import { useState, useMemo, memo } from "react";
+import { useState, useMemo, useCallback, memo } from "react";
 import styles from "./index.module.css";
 import { useAllWords, insertWord, deleteWord, updateWord, bulkUpdateCollections } from "./words";
 import { useCollections } from "./collections";
@@ -30,7 +30,10 @@ export function WordList() {
   const [bulkCollectionId, setBulkCollectionId] = useState('');
   const [bulkStatus, setBulkStatus] = useState(null);
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
-  const collectionNamesById = Object.fromEntries((collections || []).map(collection => [collection.id, collection.name]));
+  const collectionNamesById = useMemo(
+    () => Object.fromEntries((collections || []).map(collection => [collection.id, collection.name])),
+    [collections],
+  );
 
   const { filteredWords, matchCount } = useMemo(() => {
     if (!words) return { filteredWords: null, matchCount: 0 };
@@ -65,14 +68,16 @@ export function WordList() {
     setBulkStatus(null);
   };
 
-  const toggleWordSelection = (wordId) => {
+  const handleEditWord = useCallback((word) => setEditingWord(word), []);
+
+  const toggleWordSelection = useCallback((wordId) => {
     setSelectedWordIds(prev => {
       const next = new Set(prev);
       if (next.has(wordId)) next.delete(wordId);
       else next.add(wordId);
       return next;
     });
-  };
+  }, []);
 
   const selectAll = () => {
     if (!filteredWords) return;
@@ -126,26 +131,6 @@ export function WordList() {
           )}
         </div>
       </div>
-
-      <div className={styles.wordFilterBar}>
-        <input
-          type="search"
-          className={styles.wordFilterInput}
-          placeholder="Filter words…"
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-        />
-        {query && (
-          <button className={styles.clearFilter} onClick={() => setQuery('')}>×</button>
-        )}
-      </div>
-      {query.trim() && words && (
-        <p className={styles.wordFilterCount}>
-          {matchCount > SEARCH_RESULT_LIMIT
-            ? `Showing first ${SEARCH_RESULT_LIMIT} of ${matchCount} matches`
-            : `${matchCount} match${matchCount === 1 ? '' : 'es'}`}
-        </p>
-      )}
 
       {showForm && (
         <WordForm
@@ -207,6 +192,26 @@ export function WordList() {
         </div>
       )}
 
+      <div className={styles.wordFilterBar}>
+        <input
+          type="text"
+          className={styles.wordFilterInput}
+          placeholder="Filter words…"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+        />
+        {query && (
+          <button className={styles.clearFilter} onClick={() => setQuery('')}>×</button>
+        )}
+      </div>
+      {query.trim() && words && (
+        <p className={styles.wordFilterCount}>
+          {matchCount > SEARCH_RESULT_LIMIT
+            ? `Showing first ${SEARCH_RESULT_LIMIT} of ${matchCount} matches`
+            : `${matchCount} match${matchCount === 1 ? '' : 'es'}`}
+        </p>
+      )}
+
       {(!filteredWords || filteredWords.length === 0) ? (
         <div className={styles.emptyState}>
           {query.trim() ? (
@@ -228,10 +233,10 @@ export function WordList() {
               word={word}
               preferredScript={preferredScript}
               collectionNamesById={collectionNamesById}
-              onEdit={() => setEditingWord(word)}
+              onEdit={handleEditWord}
               bulkEditMode={bulkEditMode}
               selected={selectedWordIds.has(word.id)}
-              onToggleSelect={() => toggleWordSelection(word.id)}
+              onToggleSelect={toggleWordSelection}
             />
           ))}
         </ul>
@@ -260,11 +265,11 @@ const IncompleteWordIcon = memo(function IncompleteWordIcon({ word }) {
   );
 });
 
-function WordRow({ word, preferredScript, collectionNamesById, onEdit, bulkEditMode, selected, onToggleSelect }) {
+const WordRow = memo(function WordRow({ word, preferredScript, collectionNamesById, onEdit, bulkEditMode, selected, onToggleSelect }) {
   const primaryText = getPreferredChineseText(word, preferredScript);
-  const collectionNames = (word.collection_ids || [])
-    .map(id => collectionNamesById[id])
-    .filter(Boolean);
+  const wordCollections = (word.collection_ids || [])
+    .map(id => ({ id, name: collectionNamesById[id] }))
+    .filter(c => c.name);
 
   return (
     <li
@@ -274,7 +279,7 @@ function WordRow({ word, preferredScript, collectionNamesById, onEdit, bulkEditM
         <input
           type="checkbox"
           checked={selected}
-          onChange={onToggleSelect}
+          onChange={() => onToggleSelect(word.id)}
           onClick={e => e.stopPropagation()}
           className={styles.bulkCheckbox}
         />
@@ -285,18 +290,24 @@ function WordRow({ word, preferredScript, collectionNamesById, onEdit, bulkEditM
           <span className={styles.wordPinyin}>{word.pinyin}</span>
           <span className={styles.wordEnglish}>{word.english}<IncompleteWordIcon word={word} /></span>
         </div>
-        {collectionNames.length > 0 && (
+        {wordCollections.length > 0 && (
           <div className={styles.tags}>
-            {collectionNames.map(name => (
-              <span key={name} className={styles.tag}>{name}</span>
+            {wordCollections.map(c => (
+              <button
+                key={c.id}
+                className={`${styles.tag} ${styles.tagLink}`}
+                onClick={() => updateRoute({ collection: c.id })}
+              >
+                {c.name}
+              </button>
             ))}
           </div>
         )}
       </div>
       <div className={styles.wordActions}>
         <PlayButton word={word} />
-        <button className={styles.smallButton} onClick={onEdit}>Edit</button>
+        <button className={styles.smallButton} onClick={() => onEdit(word)}>Edit</button>
       </div>
     </li>
   );
-}
+});

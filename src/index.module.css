@@ -648,6 +648,17 @@
   color: var(--color-text-secondary);
 }
 
+.tagLink {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.tagLink:hover {
+  background: var(--color-border-input);
+  color: var(--color-text-primary);
+}
+
 .importUpload {
   display: flex;
   flex-direction: column;
