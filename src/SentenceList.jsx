@@ -60,6 +60,8 @@ export function SentenceList() {
           collections={collections || []}
           collectionsLoading={collectionsLoading}
           collectionsError={collectionsError}
+          allWords={allWords || []}
+          preferredScript={preferredScript}
         />
       )}
 
