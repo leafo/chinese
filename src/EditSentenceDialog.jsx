@@ -171,7 +171,7 @@ function ConnectedWordsField({
   );
 }
 
-function SentenceForm({
+export function SentenceForm({
   onSave,
   onCancel,
   initial,

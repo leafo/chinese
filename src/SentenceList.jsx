@@ -1,13 +1,13 @@
 import { useState, useMemo } from "react";
 import styles from "./index.module.css";
 import { setRoute } from "./router";
-import { useSentences, updateSentence, deleteSentence } from "./sentences";
+import { useSentences, insertSentence, updateSentence, deleteSentence } from "./sentences";
 import { useCollections } from "./collections";
 import { useAllWords } from "./words";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 import { SentenceAudioButton } from "./SentenceAudioButton";
-import { EditSentenceDialog } from "./EditSentenceDialog";
+import { EditSentenceDialog, SentenceForm } from "./EditSentenceDialog";
 
 export function SentenceList() {
   const [sentences, error, loading] = useSentences(200, 0);
@@ -15,6 +15,7 @@ export function SentenceList() {
   const [allWords] = useAllWords();
   const [displayScript] = useConfig("display_script");
   const [editing, setEditing] = useState(null);
+  const [showForm, setShowForm] = useState(false);
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
 
   const collectionNamesById = useMemo(
@@ -25,6 +26,11 @@ export function SentenceList() {
     () => Object.fromEntries((allWords || []).map(w => [w.id, w])),
     [allWords]
   );
+
+  const handleAdd = async (form) => {
+    await insertSentence(form);
+    setShowForm(false);
+  };
 
   const handleUpdate = async (form) => {
     await updateSentence(form);
@@ -47,8 +53,23 @@ export function SentenceList() {
           <button className={styles.secondaryButton} onClick={() => setRoute({ view: 'generate-sentences' })}>
             Generate
           </button>
+          <button className={styles.primaryButton} onClick={() => setShowForm(!showForm)}>
+            + Add Sentence
+          </button>
         </div>
       </div>
+
+      {showForm && (
+        <SentenceForm
+          onSave={handleAdd}
+          onCancel={() => setShowForm(false)}
+          collections={collections || []}
+          collectionsLoading={collectionsLoading}
+          collectionsError={collectionsError}
+          allWords={allWords || []}
+          preferredScript={preferredScript}
+        />
+      )}
 
       {editing && (
         <EditSentenceDialog
