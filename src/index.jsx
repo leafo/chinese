@@ -39,12 +39,6 @@ function App() {
             Collections
           </button>
           <button
-            className={view === 'audio' ? styles.navButtonActive : styles.navButton}
-            onClick={() => setRoute({ view: 'audio' })}
-          >
-            Audio
-          </button>
-          <button
             className={view === 'sentences' ? styles.navButtonActive : styles.navButton}
             onClick={() => setRoute({ view: 'sentences' })}
           >
@@ -61,6 +55,12 @@ function App() {
             onClick={() => setRoute({ view: 'flashcards' })}
           >
             Review
+          </button>
+          <button
+            className={view === 'audio' ? styles.navButtonActive : styles.navButton}
+            onClick={() => setRoute({ view: 'audio' })}
+          >
+            Audio
           </button>
           <button
             className={view === 'settings' ? styles.navButtonActive : styles.navButton}

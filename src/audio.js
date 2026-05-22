@@ -44,6 +44,10 @@ export async function getAudioStats() {
   };
 }
 
+export async function getAllAudio() {
+  return store.getAll();
+}
+
 export async function cacheAudio(text, blob, metadata) {
   return store.put({
     text,
@@ -269,4 +273,9 @@ export function useAudio(text) {
 export function useAudioStats() {
   const dbVersion = useDependency();
   return useAsync(() => getAudioStats(), [dbVersion]);
+}
+
+export function useAllAudio() {
+  const dbVersion = useDependency();
+  return useAsync(() => getAllAudio(), [dbVersion]);
 }

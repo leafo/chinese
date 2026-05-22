@@ -1,43 +1,119 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import styles from "./index.module.css";
-import { useWords } from "./words";
-import { useAudio, useAudioStats, getCachedAudio, generateAudioForWords, audioKey } from "./audio";
-import { PlayButton } from "./PlayButton";
+import { useAllWords } from "./words";
+import { useAllSentences } from "./sentences";
+import {
+  useAllAudio,
+  generateAudioForWords,
+  audioKey,
+  deleteCachedAudio,
+  playRecord,
+  stopCurrentAudio,
+} from "./audio";
+import { AudioPlayIcon } from "./AudioPlayIcon";
 import { useConfig } from "./config";
+import { useRouteToggle } from "./router";
 import { formatBytes } from "./util";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
-function AudioWordRow({ word, preferredScript }) {
-  const text = getPreferredChineseText(word, preferredScript);
-  const [cached] = useAudio(audioKey(word.pinyin));
+// Cap rendered linked clips so a large cache doesn't make the page laggy.
+// Orphan clips are always shown in full so they can all be cleaned up.
+const CLIP_RENDER_LIMIT = 50;
+
+function ClipPlayButton({ clip }) {
+  const [playing, setPlaying] = useState(false);
+  const mountedRef = useRef(true);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      if (audioRef.current) {
+        stopCurrentAudio();
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  const handlePlay = () => {
+    const audio = playRecord(clip);
+    audioRef.current = audio;
+    setPlaying(true);
+    const done = () => {
+      if (audioRef.current === audio) audioRef.current = null;
+      if (mountedRef.current) setPlaying(false);
+    };
+    // 'pause' fires when another clip interrupts this one via stopCurrentAudio.
+    audio.addEventListener('pause', done, { once: true });
+    audio.addEventListener('ended', done, { once: true });
+    audio.addEventListener('error', done, { once: true });
+    audio.play().catch(done);
+  };
+
+  return (
+    <button
+      type="button"
+      className={`${styles.smallButton} ${styles.playButton} ${styles.playButtonCached}`}
+      onClick={handlePlay}
+      disabled={playing}
+      title="Play clip"
+    >
+      <AudioPlayIcon playing={playing} />
+    </button>
+  );
+}
+
+function ClipRow({ clip, entities }) {
+  const orphan = entities.length === 0;
+  const size = clip.blob?.size ? formatBytes(clip.blob.size) : (clip.url ? 'precomputed' : '—');
+  const date = clip.createdAt ? new Date(clip.createdAt).toLocaleDateString() : '—';
+  const label = orphan
+    ? clip.text
+    : entities.map(e => e.label).join('  ·  ');
 
   return (
     <li className={styles.audioItem}>
-      <span className={cached ? styles.audioStatusCached : styles.audioStatusMissing}>
-        {cached ? '\u2713' : '\u2014'}
-      </span>
-      <span className={styles.wordChinese} style={{ fontSize: 18 }}>{text}</span>
-      <span className={styles.wordPinyin}>{word.pinyin}</span>
-      <span className={styles.wordEnglish}>{word.english}</span>
+      <ClipPlayButton clip={clip} />
+      <div className={styles.audioClipMain}>
+        <span className={`${styles.audioClipText}${orphan ? ` ${styles.audioClipOrphan}` : ''}`}>
+          {label}
+        </span>
+        {!orphan && <span className={styles.audioClipKey}>{clip.text}</span>}
+      </div>
+      <div className={styles.audioClipMeta}>
+        <span>{clip.model || '—'}</span>
+        <span>{size}</span>
+        <span>{date}</span>
+      </div>
       <div className={styles.wordActions}>
-        <PlayButton word={word} />
+        <button
+          type="button"
+          className={styles.deleteButton}
+          onClick={() => {
+            if (confirm(`Delete the audio clip for "${clip.text}"? This can't be undone.`)) {
+              deleteCachedAudio(clip.text);
+            }
+          }}
+        >
+          Delete
+        </button>
       </div>
     </li>
   );
 }
 
 export function AudioManager() {
-  const [words, error, loading] = useWords(100, 0);
-  const [audioStats] = useAudioStats();
+  const [words, wordsError, wordsLoading] = useAllWords();
+  const [sentences, sentencesError, sentencesLoading] = useAllSentences();
+  const [clips, clipsError, clipsLoading] = useAllAudio();
   const [displayScript] = useConfig("display_script");
   const [bulkProgress, setBulkProgress] = useState(null);
   const [bulkError, setBulkError] = useState(null);
   const [bulkSummary, setBulkSummary] = useState(null);
+  const [showOrphansOnly, setShowOrphansOnly] = useRouteToggle('orphans');
   const abortRef = useRef(null);
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
-  const audioSummary = audioStats
-    ? `${audioStats.clipCount} clips, ${formatBytes(audioStats.totalBytes)} stored`
-    : 'Loading audio cache...';
 
   useEffect(() => {
     return () => {
@@ -45,24 +121,56 @@ export function AudioManager() {
     };
   }, []);
 
-  const handleGenerateAll = async () => {
-    if (!words || words.length === 0) return;
+  // Map each normalized pinyin key to the words/sentences that use it, so a
+  // cached clip can be shown alongside what it belongs to.
+  const entityIndex = useMemo(() => {
+    const map = new Map();
+    const add = (item, type) => {
+      if (!item.pinyin) return;
+      const key = audioKey(item.pinyin);
+      if (!key) return;
+      const label = getPreferredChineseText(item, preferredScript) || item.pinyin;
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push({ type, label });
+    };
+    (words || []).forEach(w => add(w, 'word'));
+    (sentences || []).forEach(s => add(s, 'sentence'));
+    return map;
+  }, [words, sentences, preferredScript]);
 
-    const audioJobs = await Promise.all(words.map(async (word) => {
-      if (!word.pinyin) return null;
-
-      const cached = await getCachedAudio(audioKey(word.pinyin));
-      if (cached) return null;
-
-      return word;
-    }));
-    const missingWords = audioJobs.filter(Boolean);
-    if (missingWords.length === 0) {
-      setBulkProgress(null);
-      setBulkSummary({ completed: 0, succeeded: 0, failed: 0, total: 0, failures: [] });
-      setBulkError('Completed: 0. Failed: 0.');
-      return;
+  const { linkedClips, orphanClips } = useMemo(() => {
+    const sorted = [...(clips || [])].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    const linked = [];
+    const orphans = [];
+    for (const clip of sorted) {
+      if (entityIndex.has(clip.text)) linked.push(clip);
+      else orphans.push(clip);
     }
+    return { linkedClips: linked, orphanClips: orphans };
+  }, [clips, entityIndex]);
+
+  // One representative word/sentence per pinyin key that has no cached clip.
+  const missingItems = useMemo(() => {
+    const clipKeys = new Set((clips || []).map(c => c.text));
+    const byKey = new Map();
+    const consider = (item) => {
+      if (!item.pinyin) return;
+      const key = audioKey(item.pinyin);
+      if (!key || clipKeys.has(key) || byKey.has(key)) return;
+      byKey.set(key, item);
+    };
+    (words || []).forEach(consider);
+    (sentences || []).forEach(consider);
+    return [...byKey.values()];
+  }, [clips, words, sentences]);
+
+  const totalBytes = useMemo(
+    () => (clips || []).reduce((sum, c) => sum + (c.blob?.size || 0), 0),
+    [clips],
+  );
+
+  const handleGenerateAll = async () => {
+    if (missingItems.length === 0) return;
 
     abortRef.current?.abort();
     const controller = new AbortController();
@@ -72,7 +180,7 @@ export function AudioManager() {
       completed: 0,
       succeeded: 0,
       failed: 0,
-      total: missingWords.length,
+      total: missingItems.length,
       activeJobs: [],
       current: '',
       failures: [],
@@ -81,9 +189,9 @@ export function AudioManager() {
     setBulkSummary(null);
 
     try {
-      const result = await generateAudioForWords(missingWords, {
+      const result = await generateAudioForWords(missingItems, {
         signal: controller.signal,
-        getText: (word) => getPreferredChineseText(word, preferredScript),
+        getText: (item) => getPreferredChineseText(item, preferredScript),
         onProgress: (progress) => {
           if (!controller.signal.aborted) {
             setBulkProgress(progress);
@@ -110,28 +218,69 @@ export function AudioManager() {
     setBulkProgress(null);
   };
 
-  if (loading && !words) return <p>Loading words...</p>;
-  if (error) return <p>Error loading words: {error.message}</p>;
+  const handleDeleteOrphans = async () => {
+    if (orphanClips.length === 0) return;
+    if (!confirm(`Delete ${orphanClips.length} orphaned audio clip${orphanClips.length === 1 ? '' : 's'}?`)) {
+      return;
+    }
+    await Promise.all(orphanClips.map(clip => deleteCachedAudio(clip.text)));
+    setShowOrphansOnly(false);
+  };
+
+  const loading = (wordsLoading && !words) || (sentencesLoading && !sentences) || (clipsLoading && !clips);
+  const error = wordsError || sentencesError || clipsError;
+  if (loading) return <p>Loading audio cache...</p>;
+  if (error) return <p>Error loading audio: {error.message}</p>;
 
   return (
     <div>
       <div className={styles.sectionHeader}>
         <div>
-          <h2>Audio</h2>
-          <p className={styles.sectionMeta}>{audioSummary}</p>
+          <h2>
+            Audio
+            {showOrphansOnly && (
+              <span className={styles.filterIndicator}>
+                {' — '}Orphans
+                <button className={styles.clearFilter} onClick={() => setShowOrphansOnly(false)}>×</button>
+              </span>
+            )}
+          </h2>
+          <p className={styles.sectionMeta}>
+            {(clips || []).length} clips · {formatBytes(totalBytes)} stored · {missingItems.length} missing
+            {orphanClips.length > 0 && (
+              <>
+                {' · '}
+                <button
+                  type="button"
+                  className={styles.linkButton}
+                  onClick={() => setShowOrphansOnly(true)}
+                >
+                  {orphanClips.length} orphaned
+                </button>
+              </>
+            )}
+          </p>
         </div>
         <div className={styles.importToolbarActions}>
           {bulkProgress ? (
             <button className={styles.secondaryButton} onClick={handleCancel}>
               Cancel
             </button>
+          ) : showOrphansOnly ? (
+            <button
+              className={styles.primaryButton}
+              onClick={handleDeleteOrphans}
+              disabled={orphanClips.length === 0}
+            >
+              Delete {orphanClips.length} Orphans
+            </button>
           ) : (
             <button
               className={styles.primaryButton}
               onClick={handleGenerateAll}
-              disabled={!words || words.length === 0}
+              disabled={missingItems.length === 0}
             >
-              Generate All Missing
+              Generate {missingItems.length} Missing
             </button>
           )}
         </div>
@@ -195,19 +344,37 @@ export function AudioManager() {
         </div>
       )}
 
-      {(!words || words.length === 0) ? (
+      {showOrphansOnly ? (
+        orphanClips.length === 0 ? (
+          <div className={styles.emptyState}>
+            <p>No orphaned clips</p>
+          </div>
+        ) : (
+          <ul className={styles.wordList}>
+            {orphanClips.map(clip => (
+              <ClipRow key={clip.text} clip={clip} entities={[]} />
+            ))}
+          </ul>
+        )
+      ) : linkedClips.length === 0 ? (
         <div className={styles.emptyState}>
-          <p>No words yet</p>
-          <p>Add words first, then generate audio</p>
+          <p>No audio clips yet</p>
+          <p>Generate audio for your words and sentences to populate the cache</p>
         </div>
       ) : (
-        <ul className={styles.wordList}>
-          {words.map(word => (
-            <AudioWordRow key={word.id} word={word} preferredScript={preferredScript} />
-          ))}
-        </ul>
+        <>
+          {linkedClips.length > CLIP_RENDER_LIMIT && (
+            <p className={styles.wordFilterCount}>
+              Showing first {CLIP_RENDER_LIMIT} of {linkedClips.length} clips
+            </p>
+          )}
+          <ul className={styles.wordList}>
+            {linkedClips.slice(0, CLIP_RENDER_LIMIT).map(clip => (
+              <ClipRow key={clip.text} clip={clip} entities={entityIndex.get(clip.text)} />
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );
 }
-
