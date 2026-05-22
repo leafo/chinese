@@ -1,6 +1,6 @@
 import { useState, useMemo, memo } from "react";
 import styles from "./index.module.css";
-import { useWords, useAllWords, insertWord, deleteWord, updateWord, bulkUpdateCollections } from "./words";
+import { useAllWords, insertWord, deleteWord, updateWord, bulkUpdateCollections } from "./words";
 import { useCollections } from "./collections";
 import { setRoute, useRoute, updateRoute } from "./router";
 import { PlayButton } from "./PlayButton";
@@ -9,18 +9,18 @@ import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 import { wordMatchesQuery } from "./wordSearch";
 
+// Cap the unfiltered word list so a large library doesn't render every row at
+// once. Collection-filtered views show all matches.
+const DEFAULT_WORD_LIMIT = 100;
+// Cap rendered text-search results — a broad query (e.g. one letter) can match
+// most of the library, and rendering every row makes typing laggy.
+const SEARCH_RESULT_LIMIT = 50;
+
 export function WordList() {
   const { collection: collectionFilter } = useRoute(['collection']);
   const collectionId = collectionFilter ? parseInt(collectionFilter, 10) : null;
   const [query, setQuery] = useState('');
-  const [allWords, allError, allLoading] = useAllWords();
-  const [recentWords, recentError, recentLoading] = useWords(100, 0);
-  const useFull = collectionId || query.trim();
-  // Fall back to whichever word set is already loaded so the view (and the
-  // filter input's focus) is never torn down while the other set resolves.
-  const words = (useFull ? allWords : recentWords) || recentWords || allWords;
-  const error = useFull ? allError : recentError;
-  const loading = useFull ? allLoading : recentLoading;
+  const [words, error, loading] = useAllWords();
   const [collections, collectionsError, collectionsLoading] = useCollections();
   const [displayScript] = useConfig("display_script");
   const [showForm, setShowForm] = useState(false);
@@ -32,12 +32,15 @@ export function WordList() {
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
   const collectionNamesById = Object.fromEntries((collections || []).map(collection => [collection.id, collection.name]));
 
-  const filteredWords = useMemo(() => {
-    if (!words) return null;
-    let result = words;
+  const { filteredWords, matchCount } = useMemo(() => {
+    if (!words) return { filteredWords: null, matchCount: 0 };
+    let result = [...words].sort((a, b) => b.id - a.id);
     if (collectionId) result = result.filter(w => (w.collection_ids || []).includes(collectionId));
     if (query.trim()) result = result.filter(w => wordMatchesQuery(w, query));
-    return result;
+    const total = result.length;
+    if (query.trim()) result = result.slice(0, SEARCH_RESULT_LIMIT);
+    else if (!collectionId) result = result.slice(0, DEFAULT_WORD_LIMIT);
+    return { filteredWords: result, matchCount: total };
   }, [words, collectionId, query]);
 
   const handleAdd = async (form) => {
@@ -138,7 +141,9 @@ export function WordList() {
       </div>
       {query.trim() && words && (
         <p className={styles.wordFilterCount}>
-          {filteredWords ? filteredWords.length : 0} of {words.length} words
+          {matchCount > SEARCH_RESULT_LIMIT
+            ? `Showing first ${SEARCH_RESULT_LIMIT} of ${matchCount} matches`
+            : `${matchCount} match${matchCount === 1 ? '' : 'es'}`}
         </p>
       )}
 
