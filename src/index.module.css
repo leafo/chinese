@@ -377,6 +377,29 @@
   color: color-mix(in oklab, var(--color-danger), white 10%);
 }
 
+.wordFilterBar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.wordFilterInput {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border-input);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.wordFilterCount {
+  margin: -4px 0 12px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
 .sectionMeta {
   margin: 4px 0 0;
   font-size: 13px;

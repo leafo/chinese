@@ -7,15 +7,20 @@ import { PlayButton } from "./PlayButton";
 import { WordForm, EditWordDialog } from "./EditWordDialog";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
+import { wordMatchesQuery } from "./wordSearch";
 
 export function WordList() {
   const { collection: collectionFilter } = useRoute(['collection']);
   const collectionId = collectionFilter ? parseInt(collectionFilter, 10) : null;
+  const [query, setQuery] = useState('');
   const [allWords, allError, allLoading] = useAllWords();
   const [recentWords, recentError, recentLoading] = useWords(100, 0);
-  const words = collectionId ? allWords : recentWords;
-  const error = collectionId ? allError : recentError;
-  const loading = collectionId ? allLoading : recentLoading;
+  const useFull = collectionId || query.trim();
+  // Fall back to whichever word set is already loaded so the view (and the
+  // filter input's focus) is never torn down while the other set resolves.
+  const words = (useFull ? allWords : recentWords) || recentWords || allWords;
+  const error = useFull ? allError : recentError;
+  const loading = useFull ? allLoading : recentLoading;
   const [collections, collectionsError, collectionsLoading] = useCollections();
   const [displayScript] = useConfig("display_script");
   const [showForm, setShowForm] = useState(false);
@@ -29,9 +34,11 @@ export function WordList() {
 
   const filteredWords = useMemo(() => {
     if (!words) return null;
-    if (!collectionId) return words;
-    return words.filter(w => (w.collection_ids || []).includes(collectionId));
-  }, [words, collectionId]);
+    let result = words;
+    if (collectionId) result = result.filter(w => (w.collection_ids || []).includes(collectionId));
+    if (query.trim()) result = result.filter(w => wordMatchesQuery(w, query));
+    return result;
+  }, [words, collectionId, query]);
 
   const handleAdd = async (form) => {
     await insertWord(form);
@@ -117,6 +124,24 @@ export function WordList() {
         </div>
       </div>
 
+      <div className={styles.wordFilterBar}>
+        <input
+          type="search"
+          className={styles.wordFilterInput}
+          placeholder="Filter words…"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+        />
+        {query && (
+          <button className={styles.clearFilter} onClick={() => setQuery('')}>×</button>
+        )}
+      </div>
+      {query.trim() && words && (
+        <p className={styles.wordFilterCount}>
+          {filteredWords ? filteredWords.length : 0} of {words.length} words
+        </p>
+      )}
+
       {showForm && (
         <WordForm
           onSave={handleAdd}
@@ -179,7 +204,9 @@ export function WordList() {
 
       {(!filteredWords || filteredWords.length === 0) ? (
         <div className={styles.emptyState}>
-          {collectionId ? (
+          {query.trim() ? (
+            <p>No words match "{query.trim()}"</p>
+          ) : collectionId ? (
             <p>No words in this collection</p>
           ) : (
             <>

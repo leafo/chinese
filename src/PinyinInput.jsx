@@ -41,7 +41,7 @@ const TONELESS_MAP = {
   ǜ: 'ü',
 };
 
-function normalizePinyin(text) {
+export function stripPinyinTones(text) {
   return text.replace(/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜv]/g, (char) => TONELESS_MAP[char] || 'ü');
 }
 
@@ -122,7 +122,7 @@ function applyTone(text, cursorPos) {
   const syllableStart = findSyllableStart(text, cursorPos);
   if (syllableStart === -1) return null;
   const syllable = text.slice(syllableStart, cursorPos - 1);
-  const normalized = normalizePinyin(syllable);
+  const normalized = stripPinyinTones(syllable);
 
   if (toneNum === 0 || toneNum === 5) {
     // Neutral tone: just remove the digit, keep normalization

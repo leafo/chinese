@@ -7,6 +7,7 @@ import { PinyinInput } from "./PinyinInput";
 import { useModalDialog } from "./util";
 import { SentenceAudioButton } from "./SentenceAudioButton";
 import { getPreferredChineseText } from "./display";
+import { wordMatchesQuery } from "./wordSearch";
 
 const AUDIO_KEY_DISPLAY_LENGTH = 32;
 
@@ -74,16 +75,10 @@ function ConnectedWordsField({
     .map(id => words.find(word => word.id === id))
     .filter(Boolean);
 
-  const normalizedQuery = query.trim().toLowerCase();
-  const availableWords = normalizedQuery
+  const availableWords = query.trim()
     ? words
         .filter(word => !selectedIdSet.has(word.id))
-        .filter(word => [
-          word.traditional,
-          word.simplified,
-          word.pinyin,
-          word.english,
-        ].some(value => value?.toLowerCase().includes(normalizedQuery)))
+        .filter(word => wordMatchesQuery(word, query))
         .slice(0, 8)
     : [];
 
