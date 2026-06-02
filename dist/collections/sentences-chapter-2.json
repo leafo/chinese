@@ -1,0 +1,131 @@
+{
+  "format": "chinese-sentences-export",
+  "version": 1,
+  "collection": {
+    "name": "Chapter 2",
+    "file": "collection-chapter-2.json"
+  },
+  "supplemental_words": [
+    "他",
+    "她",
+    "的",
+    "很",
+    "呢",
+    "们",
+    "这",
+    "那",
+    "谁"
+  ],
+  "sentences": [
+    {
+      "simplified": "我有两个弟弟。",
+      "traditional": "我有兩個弟弟。",
+      "pinyin": "Wǒ yǒu liǎng ge dìdi.",
+      "english": "I have two younger brothers.",
+      "words_used": [
+        "我",
+        "有",
+        "两",
+        "个",
+        "弟弟"
+      ]
+    },
+    {
+      "simplified": "你有姐姐吗？",
+      "traditional": "你有姐姐嗎？",
+      "pinyin": "Nǐ yǒu jiějie ma?",
+      "english": "Do you have an older sister?",
+      "words_used": [
+        "你",
+        "有",
+        "姐姐",
+        "吗"
+      ]
+    },
+    {
+      "simplified": "他没有哥哥，也没有妹妹。",
+      "traditional": "他沒有哥哥，也沒有妹妹。",
+      "pinyin": "Tā méi yǒu gēge, yě méi yǒu mèimei.",
+      "english": "He has no older brother, and also no younger sister.",
+      "words_used": [
+        "他",
+        "没",
+        "有",
+        "哥哥",
+        "也",
+        "妹妹"
+      ]
+    },
+    {
+      "simplified": "她只有一个哥哥。",
+      "traditional": "她只有一個哥哥。",
+      "pinyin": "Tā zhǐ yǒu yí ge gēge.",
+      "english": "She has only one older brother.",
+      "words_used": [
+        "她",
+        "只",
+        "有",
+        "一",
+        "个",
+        "哥哥"
+      ]
+    },
+    {
+      "simplified": "这是谁的妹妹？",
+      "traditional": "這是誰的妹妹？",
+      "pinyin": "Zhè shì shéi de mèimei?",
+      "english": "Whose younger sister is this?",
+      "words_used": [
+        "这",
+        "是",
+        "谁",
+        "的",
+        "妹妹"
+      ]
+    },
+    {
+      "simplified": "我有一个姐姐，你呢？",
+      "traditional": "我有一個姐姐，你呢？",
+      "pinyin": "Wǒ yǒu yí ge jiějie, nǐ ne?",
+      "english": "I have one older sister, and you?",
+      "words_used": [
+        "我",
+        "有",
+        "一",
+        "个",
+        "姐姐",
+        "你",
+        "呢"
+      ]
+    },
+    {
+      "simplified": "那两个人是我的兄弟姐妹。",
+      "traditional": "那兩個人是我的兄弟姐妹。",
+      "pinyin": "Nà liǎng ge rén shì wǒ de xiōngdì jiěmèi.",
+      "english": "Those two people are my siblings.",
+      "words_used": [
+        "那",
+        "两",
+        "个",
+        "人",
+        "是",
+        "我",
+        "的",
+        "兄弟姐妹"
+      ]
+    },
+    {
+      "simplified": "他们有弟弟吗？",
+      "traditional": "他們有弟弟嗎？",
+      "pinyin": "Tāmen yǒu dìdi ma?",
+      "english": "Do they have younger brothers?",
+      "words_used": [
+        "他",
+        "们",
+        "有",
+        "弟弟",
+        "吗"
+      ]
+    }
+  ]
+}

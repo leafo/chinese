@@ -1,0 +1,115 @@
+{
+  "format": "chinese-sentences-export",
+  "version": 1,
+  "collection": {
+    "name": "Chapter 1",
+    "file": "collection-chapter-1.json"
+  },
+  "supplemental_words": [
+    "他",
+    "她",
+    "的",
+    "很",
+    "呢",
+    "们",
+    "这",
+    "那",
+    "谁"
+  ],
+  "sentences": [
+    {
+      "simplified": "你好！请问你叫什么名字？",
+      "traditional": "你好！請問你叫什麼名字？",
+      "pinyin": "Nǐ hǎo! Qǐng wèn nǐ jiào shénme míngzi?",
+      "english": "Hello! May I ask, what is your name?",
+      "words_used": [
+        "你",
+        "好",
+        "请问",
+        "叫",
+        "什么",
+        "名字"
+      ]
+    },
+    {
+      "simplified": "我姓王，我叫王明。",
+      "traditional": "我姓王，我叫王明。",
+      "pinyin": "Wǒ xìng Wáng, wǒ jiào Wáng Míng.",
+      "english": "My surname is Wang; I am called Wang Ming.",
+      "words_used": [
+        "我",
+        "姓",
+        "叫"
+      ]
+    },
+    {
+      "simplified": "他是美国人，她呢？",
+      "traditional": "他是美國人，她呢？",
+      "pinyin": "Tā shì Měiguó rén, tā ne?",
+      "english": "He is American; and her?",
+      "words_used": [
+        "他",
+        "是",
+        "美国人",
+        "她",
+        "呢"
+      ]
+    },
+    {
+      "simplified": "请问您贵姓？",
+      "traditional": "請問您貴姓？",
+      "pinyin": "Qǐng wèn nín guì xìng?",
+      "english": "May I ask your honorable surname?",
+      "words_used": [
+        "请问",
+        "贵姓"
+      ]
+    },
+    {
+      "simplified": "李美是谁？",
+      "traditional": "李美是誰？",
+      "pinyin": "Lǐ Měi shì shéi?",
+      "english": "Who is Li Mei?",
+      "words_used": [
+        "是",
+        "谁"
+      ]
+    },
+    {
+      "simplified": "那是李美的名字。",
+      "traditional": "那是李美的名字。",
+      "pinyin": "Nà shì Lǐ Měi de míngzi.",
+      "english": "That is Li Mei's name.",
+      "words_used": [
+        "那",
+        "是",
+        "的",
+        "名字"
+      ]
+    },
+    {
+      "simplified": "你是哪国人？",
+      "traditional": "你是哪國人？",
+      "pinyin": "Nǐ shì nǎ guó rén?",
+      "english": "What is your nationality?",
+      "words_used": [
+        "你",
+        "是",
+        "哪国人"
+      ]
+    },
+    {
+      "simplified": "王明很好，他是美国人。",
+      "traditional": "王明很好，他是美國人。",
+      "pinyin": "Wáng Míng hěn hǎo, tā shì Měiguó rén.",
+      "english": "Wang Ming is very well; he is American.",
+      "words_used": [
+        "很",
+        "好",
+        "他",
+        "是",
+        "美国人"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "format": "chinese-sentences-export",
+  "version": 1,
+  "collection": {
+    "name": "Chapter 7",
+    "file": "collection-chapter-7.json"
+  },
+  "supplemental_words": [
+    "他",
+    "她",
+    "的",
+    "很",
+    "呢",
+    "们",
+    "这",
+    "那",
+    "谁"
+  ],
+  "sentences": [
+    {
+      "simplified": "喂，请问你是哪位？",
+      "traditional": "喂，請問你是哪位？",
+      "pinyin": "Wéi, qǐng wèn nǐ shì nǎ wèi?",
+      "english": "Hello, may I ask who you are?",
+      "words_used": [
+        "喂",
+        "请问",
+        "你",
+        "是",
+        "哪",
+        "位"
+      ]
+    },
+    {
+      "simplified": "王小姐下午回来。",
+      "traditional": "王小姐下午回來。",
+      "pinyin": "Wáng xiǎojiě xiàwǔ huílái.",
+      "english": "Miss Wang will come back in the afternoon.",
+      "words_used": [
+        "小姐",
+        "下午",
+        "回来"
+      ]
+    },
+    {
+      "simplified": "他的手机号码是三八零九。",
+      "traditional": "他的手機號碼是三八零九。",
+      "pinyin": "Tā de shǒujī hàomǎ shì sān bā líng jiǔ.",
+      "english": "His cell phone number is three-eight-zero-nine.",
+      "words_used": [
+        "他",
+        "的",
+        "手机",
+        "号码",
+        "是",
+        "三",
+        "八",
+        "零",
+        "九"
+      ]
+    },
+    {
+      "simplified": "你什么时候给我打电话？",
+      "traditional": "你什麼時候給我打電話？",
+      "pinyin": "Nǐ shénme shíhòu gěi wǒ dǎ diànhuà?",
+      "english": "When will you call me?",
+      "words_used": [
+        "你",
+        "什么时候",
+        "给",
+        "我",
+        "打电话"
+      ]
+    },
+    {
+      "simplified": "麻烦你，办公室的电话是几号？",
+      "traditional": "麻煩你，辦公室的電話是幾號？",
+      "pinyin": "Máfan nǐ, bàngōngshì de diànhuà shì jǐ hào?",
+      "english": "Could you please tell me, what is the office's phone number?",
+      "words_used": [
+        "麻烦",
+        "你",
+        "办公室",
+        "的",
+        "电话",
+        "是",
+        "几号"
+      ]
+    },
+    {
+      "simplified": "这是谁的手机？",
+      "traditional": "這是誰的手機？",
+      "pinyin": "Zhè shì shéi de shǒujī?",
+      "english": "Whose cell phone is this?",
+      "words_used": [
+        "这",
+        "是",
+        "谁",
+        "的",
+        "手机"
+      ]
+    },
+    {
+      "simplified": "我以前给她打电话，你呢？",
+      "traditional": "我以前給她打電話，你呢？",
+      "pinyin": "Wǒ yǐqián gěi tā dǎ diànhuà, nǐ ne?",
+      "english": "I called her before; what about you?",
+      "words_used": [
+        "我",
+        "以前",
+        "给",
+        "她",
+        "打电话",
+        "你",
+        "呢"
+      ]
+    },
+    {
+      "simplified": "好的，谢谢，再见！",
+      "traditional": "好的，謝謝，再見！",
+      "pinyin": "Hǎode, xièxiè, zàijiàn!",
+      "english": "Okay, thank you, goodbye!",
+      "words_used": [
+        "好的",
+        "谢谢",
+        "再见"
+      ]
+    }
+  ]
+}

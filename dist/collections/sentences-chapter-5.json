@@ -1,0 +1,122 @@
+{
+  "format": "chinese-sentences-export",
+  "version": 1,
+  "collection": {
+    "name": "Chapter 5",
+    "file": "collection-chapter-5.json"
+  },
+  "supplemental_words": [
+    "他",
+    "她",
+    "的",
+    "很",
+    "呢",
+    "们",
+    "这",
+    "那",
+    "谁"
+  ],
+  "sentences": [
+    {
+      "simplified": "这是我的朋友。",
+      "traditional": "這是我的朋友。",
+      "pinyin": "Zhè shì wǒ de péngyǒu.",
+      "english": "This is my friend.",
+      "words_used": [
+        "这",
+        "是",
+        "我",
+        "的",
+        "朋友"
+      ]
+    },
+    {
+      "simplified": "认识你我很高兴。",
+      "traditional": "認識你我很高興。",
+      "pinyin": "Rènshì nǐ wǒ hěn gāoxìng.",
+      "english": "I am very happy to meet you.",
+      "words_used": [
+        "认识",
+        "你",
+        "我",
+        "很",
+        "高兴"
+      ]
+    },
+    {
+      "simplified": "他平常住在加州。",
+      "traditional": "他平常住在加州。",
+      "pinyin": "Tā píngcháng zhù zài Jiāzhōu.",
+      "english": "He usually lives in California.",
+      "words_used": [
+        "他",
+        "平常",
+        "住在",
+        "加州"
+      ]
+    },
+    {
+      "simplified": "你的父母现在在哪里？",
+      "traditional": "你的父母現在在哪裡？",
+      "pinyin": "Nǐ de fùmǔ xiànzài zài nǎlǐ?",
+      "english": "Where are your parents now?",
+      "words_used": [
+        "你",
+        "的",
+        "父母",
+        "现在",
+        "在",
+        "哪里"
+      ]
+    },
+    {
+      "simplified": "她们想去公园玩。",
+      "traditional": "她們想去公園玩。",
+      "pinyin": "Tāmen xiǎng qù gōngyuán wán.",
+      "english": "They would like to go to the park to have fun.",
+      "words_used": [
+        "她",
+        "们",
+        "想",
+        "去",
+        "公园",
+        "玩"
+      ]
+    },
+    {
+      "simplified": "谁来学校？",
+      "traditional": "誰來學校？",
+      "pinyin": "Shéi lái xuéxiào?",
+      "english": "Who is coming to the school?",
+      "words_used": [
+        "谁",
+        "来",
+        "学校"
+      ]
+    },
+    {
+      "simplified": "欢迎来旧金山，好久不见！",
+      "traditional": "歡迎來舊金山，好久不見！",
+      "pinyin": "Huānyíng lái Jiùjīnshān, hǎojiǔ bújiàn!",
+      "english": "Welcome to San Francisco, long time no see!",
+      "words_used": [
+        "欢迎",
+        "来",
+        "旧金山",
+        "好久不见"
+      ]
+    },
+    {
+      "simplified": "学校放假了，你呢？",
+      "traditional": "學校放假了，你呢？",
+      "pinyin": "Xuéxiào fàngjià le, nǐ ne?",
+      "english": "School is on break, and you?",
+      "words_used": [
+        "学校",
+        "放假",
+        "你",
+        "呢"
+      ]
+    }
+  ]
+}

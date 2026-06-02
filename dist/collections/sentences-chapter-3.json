@@ -1,0 +1,137 @@
+{
+  "format": "chinese-sentences-export",
+  "version": 1,
+  "collection": {
+    "name": "Chapter 3",
+    "file": "collection-chapter-3.json"
+  },
+  "supplemental_words": [
+    "他",
+    "她",
+    "的",
+    "很",
+    "呢",
+    "们",
+    "这",
+    "那",
+    "谁"
+  ],
+  "sentences": [
+    {
+      "simplified": "我不是学生，我在银行工作。",
+      "traditional": "我不是學生，我在銀行工作。",
+      "pinyin": "Wǒ bú shì xuésheng, wǒ zài yínháng gōngzuò.",
+      "english": "I am not a student; I work at a bank.",
+      "words_used": [
+        "我",
+        "不",
+        "是",
+        "学生",
+        "在",
+        "银行",
+        "工作"
+      ]
+    },
+    {
+      "simplified": "他在大学念书，你呢？",
+      "traditional": "他在大學念書，你呢？",
+      "pinyin": "Tā zài dàxué niàn shū, nǐ ne?",
+      "english": "He studies at the university; and you?",
+      "words_used": [
+        "他",
+        "在",
+        "大学",
+        "念书",
+        "你",
+        "呢"
+      ]
+    },
+    {
+      "simplified": "那个孩子是法国人的儿子。",
+      "traditional": "那個孩子是法國人的兒子。",
+      "pinyin": "Nà ge háizi shì Fǎguó rén de érzi.",
+      "english": "That child is the French person's son.",
+      "words_used": [
+        "那",
+        "个",
+        "孩子",
+        "是",
+        "法国",
+        "人",
+        "的",
+        "儿子"
+      ]
+    },
+    {
+      "simplified": "你的女儿在小学学电脑吗？",
+      "traditional": "你的女兒在小學學電腦嗎？",
+      "pinyin": "Nǐ de nǚ'ér zài xiǎoxué xué diànnǎo ma?",
+      "english": "Does your daughter study computers at elementary school?",
+      "words_used": [
+        "你",
+        "的",
+        "女儿",
+        "在",
+        "小学",
+        "学",
+        "电脑",
+        "吗"
+      ]
+    },
+    {
+      "simplified": "谁在那个公司工作？",
+      "traditional": "誰在那個公司工作？",
+      "pinyin": "Shéi zài nà ge gōngsī gōngzuò?",
+      "english": "Who works at that company?",
+      "words_used": [
+        "谁",
+        "在",
+        "那",
+        "个",
+        "公司",
+        "工作"
+      ]
+    },
+    {
+      "simplified": "她毕业了，也结婚了。",
+      "traditional": "她畢業了，也結婚了。",
+      "pinyin": "Tā bìyè le, yě jiéhūn le.",
+      "english": "She has graduated, and she has also gotten married.",
+      "words_used": [
+        "她",
+        "毕业了",
+        "也",
+        "结婚了"
+      ]
+    },
+    {
+      "simplified": "他们的孩子都是学生吗？",
+      "traditional": "他們的孩子都是學生嗎？",
+      "pinyin": "Tāmen de háizi dōu shì xuésheng ma?",
+      "english": "Are their children all students?",
+      "words_used": [
+        "他",
+        "们",
+        "的",
+        "孩子",
+        "都",
+        "是",
+        "学生",
+        "吗"
+      ]
+    },
+    {
+      "simplified": "王先生的电脑很好。",
+      "traditional": "王先生的電腦很好。",
+      "pinyin": "Wáng xiānsheng de diànnǎo hěn hǎo.",
+      "english": "Mr. Wang's computer is very good.",
+      "words_used": [
+        "先生",
+        "的",
+        "电脑",
+        "很",
+        "好"
+      ]
+    }
+  ]
+}

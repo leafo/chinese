@@ -1,0 +1,131 @@
+{
+  "format": "chinese-sentences-export",
+  "version": 1,
+  "collection": {
+    "name": "Chapter 4",
+    "file": "collection-chapter-4.json"
+  },
+  "supplemental_words": [
+    "他",
+    "她",
+    "的",
+    "很",
+    "呢",
+    "们",
+    "这",
+    "那",
+    "谁"
+  ],
+  "sentences": [
+    {
+      "simplified": "我爸爸在电脑公司工作。",
+      "traditional": "我爸爸在電腦公司工作。",
+      "pinyin": "Wǒ bàba zài diànnǎo gōngsī gōngzuò.",
+      "english": "My dad works at a computer company.",
+      "words_used": [
+        "我",
+        "爸爸",
+        "在",
+        "电脑",
+        "公司",
+        "工作"
+      ]
+    },
+    {
+      "simplified": "她妈妈是老师，每天都很忙。",
+      "traditional": "她媽媽是老師，每天都很忙。",
+      "pinyin": "Tā māma shì lǎoshī, měitiān dōu hěn máng.",
+      "english": "Her mom is a teacher, and she is very busy every day.",
+      "words_used": [
+        "她",
+        "妈妈",
+        "是",
+        "老师",
+        "每天",
+        "都",
+        "很",
+        "忙"
+      ]
+    },
+    {
+      "simplified": "那个医生是谁？",
+      "traditional": "那個醫生是誰？",
+      "pinyin": "Nà ge yīshēng shì shéi?",
+      "english": "Who is that doctor?",
+      "words_used": [
+        "那",
+        "个",
+        "医生",
+        "是",
+        "谁"
+      ]
+    },
+    {
+      "simplified": "你喜欢教书吗？",
+      "traditional": "你喜歡教書嗎？",
+      "pinyin": "Nǐ xǐhuān jiāo shū ma?",
+      "english": "Do you like teaching?",
+      "words_used": [
+        "你",
+        "喜欢",
+        "教书",
+        "吗"
+      ]
+    },
+    {
+      "simplified": "他们今天非常累。",
+      "traditional": "他們今天非常累。",
+      "pinyin": "Tāmen jīntiān fēicháng lèi.",
+      "english": "They are extremely tired today.",
+      "words_used": [
+        "他",
+        "们",
+        "今天",
+        "非常",
+        "累"
+      ]
+    },
+    {
+      "simplified": "我哥哥是工程师，你哥哥呢？",
+      "traditional": "我哥哥是工程師，你哥哥呢？",
+      "pinyin": "Wǒ gēge shì gōngchéngshī, nǐ gēge ne?",
+      "english": "My older brother is an engineer; what about your older brother?",
+      "words_used": [
+        "我",
+        "哥哥",
+        "是",
+        "工程师",
+        "你",
+        "呢"
+      ]
+    },
+    {
+      "simplified": "这是老师的女儿。",
+      "traditional": "這是老師的女兒。",
+      "pinyin": "Zhè shì lǎoshī de nǚ'ér.",
+      "english": "This is the teacher's daughter.",
+      "words_used": [
+        "这",
+        "是",
+        "老师",
+        "的",
+        "女儿"
+      ]
+    },
+    {
+      "simplified": "王先生教法文，他说法文很好。",
+      "traditional": "王先生教法文，他說法文很好。",
+      "pinyin": "Wáng xiānsheng jiāo Fǎwén, tā shuō Fǎwén hěn hǎo.",
+      "english": "Mr. Wang teaches French; he speaks French very well.",
+      "words_used": [
+        "先生",
+        "教",
+        "法文",
+        "他",
+        "说",
+        "很",
+        "好"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "format": "chinese-sentences-export",
+  "version": 1,
+  "collection": {
+    "name": "Chapter 6",
+    "file": "collection-chapter-6.json"
+  },
+  "supplemental_words": [
+    "他",
+    "她",
+    "的",
+    "很",
+    "呢",
+    "们",
+    "这",
+    "那",
+    "谁"
+  ],
+  "sentences": [
+    {
+      "simplified": "我周末喜欢打网球。",
+      "traditional": "我週末喜歡打網球。",
+      "pinyin": "Wǒ zhōumò xǐhuān dǎ wǎngqiú.",
+      "english": "On weekends I like to play tennis.",
+      "words_used": [
+        "我",
+        "周末",
+        "喜欢",
+        "打",
+        "网球"
+      ]
+    },
+    {
+      "simplified": "你平常喜欢做什么运动？",
+      "traditional": "你平常喜歡做什麼運動？",
+      "pinyin": "Nǐ píngcháng xǐhuān zuò shénme yùndòng?",
+      "english": "What sport do you usually like to do?",
+      "words_used": [
+        "你",
+        "平常",
+        "喜欢",
+        "做",
+        "什么",
+        "运动"
+      ]
+    },
+    {
+      "simplified": "她晚上常常在家看电视。",
+      "traditional": "她晚上常常在家看電視。",
+      "pinyin": "Tā wǎnshàng chángcháng zài jiā kàn diànshì.",
+      "english": "She often watches television at home at night.",
+      "words_used": [
+        "她",
+        "晚上",
+        "常常",
+        "在",
+        "家",
+        "看",
+        "电视"
+      ]
+    },
+    {
+      "simplified": "谁喜欢唱歌和跳舞？",
+      "traditional": "誰喜歡唱歌和跳舞？",
+      "pinyin": "Shéi xǐhuān chàng gē hé tiào wǔ?",
+      "english": "Who likes to sing and dance?",
+      "words_used": [
+        "谁",
+        "喜欢",
+        "唱歌",
+        "和",
+        "跳舞"
+      ]
+    },
+    {
+      "simplified": "我哥哥喜欢踢足球，你呢？",
+      "traditional": "我哥哥喜歡踢足球，你呢？",
+      "pinyin": "Wǒ gēge xǐhuān tī zúqiú, nǐ ne?",
+      "english": "My older brother likes to play soccer; how about you?",
+      "words_used": [
+        "我",
+        "哥哥",
+        "喜欢",
+        "踢足球",
+        "你",
+        "呢"
+      ]
+    },
+    {
+      "simplified": "那是我爸爸的电视。",
+      "traditional": "那是我爸爸的電視。",
+      "pinyin": "Nà shì wǒ bàba de diànshì.",
+      "english": "That is my father's TV.",
+      "words_used": [
+        "那",
+        "是",
+        "我",
+        "爸爸",
+        "的",
+        "电视"
+      ]
+    },
+    {
+      "simplified": "他们上午想去公园跑步。",
+      "traditional": "他們上午想去公園跑步。",
+      "pinyin": "Tāmen shàngwǔ xiǎng qù gōngyuán pǎobù.",
+      "english": "They want to go jogging in the park in the morning.",
+      "words_used": [
+        "他",
+        "们",
+        "上午",
+        "想",
+        "去",
+        "公园",
+        "跑步"
+      ]
+    },
+    {
+      "simplified": "王太太喜欢听音乐，可是她先生喜欢看电影。",
+      "traditional": "王太太喜歡聽音樂，可是她先生喜歡看電影。",
+      "pinyin": "Wáng tàitai xǐhuān tīng yīnyuè, kěshì tā xiānsheng xǐhuān kàn diànyǐng.",
+      "english": "Mrs. Wang likes to listen to music, but her husband likes to watch movies.",
+      "words_used": [
+        "太太",
+        "喜欢",
+        "听",
+        "音乐",
+        "可是",
+        "她",
+        "先生",
+        "看电影"
+      ]
+    }
+  ]
+}

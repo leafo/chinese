@@ -1,0 +1,140 @@
+{
+  "format": "chinese-sentences-export",
+  "version": 1,
+  "collection": {
+    "name": "Chapter 9",
+    "file": "collection-chapter-9.json"
+  },
+  "supplemental_words": [
+    "他",
+    "她",
+    "的",
+    "很",
+    "呢",
+    "们",
+    "这",
+    "那",
+    "谁"
+  ],
+  "sentences": [
+    {
+      "simplified": "李先生星期五有时间。",
+      "traditional": "李先生星期五有時間。",
+      "pinyin": "Lǐ xiānsheng xīngqīwǔ yǒu shíjiān.",
+      "english": "Mr. Li has time on Friday.",
+      "words_used": [
+        "先生",
+        "星期五",
+        "有",
+        "时间"
+      ]
+    },
+    {
+      "simplified": "你想跟我一起吃饭，好不好？",
+      "traditional": "你想跟我一起吃飯，好不好？",
+      "pinyin": "Nǐ xiǎng gēn wǒ yìqǐ chī fàn, hǎo bù hǎo?",
+      "english": "Do you want to eat together with me, okay?",
+      "words_used": [
+        "你",
+        "想",
+        "跟",
+        "我",
+        "一起",
+        "吃饭",
+        "好不好"
+      ]
+    },
+    {
+      "simplified": "他的同事在那个餐厅工作。",
+      "traditional": "他的同事在那個餐廳工作。",
+      "pinyin": "Tā de tóngshì zài nà ge cāntīng gōngzuò.",
+      "english": "His coworker works at that restaurant.",
+      "words_used": [
+        "他",
+        "的",
+        "同事",
+        "在",
+        "那",
+        "个",
+        "餐厅",
+        "工作"
+      ]
+    },
+    {
+      "simplified": "这家餐厅的牛肉面最好吃。",
+      "traditional": "這家餐廳的牛肉麵最好吃。",
+      "pinyin": "Zhè jiā cāntīng de niúròumiàn zuì hǎochī.",
+      "english": "This restaurant's beef noodle soup is the most delicious.",
+      "words_used": [
+        "这",
+        "家",
+        "餐厅",
+        "的",
+        "牛肉面",
+        "最",
+        "好吃"
+      ]
+    },
+    {
+      "simplified": "谁要跟我们一起去吃晚饭？",
+      "traditional": "誰要跟我們一起去吃晚飯？",
+      "pinyin": "Shéi yào gēn wǒmen yìqǐ qù chī wǎn fàn?",
+      "english": "Who wants to go eat dinner together with us?",
+      "words_used": [
+        "谁",
+        "要",
+        "跟",
+        "我",
+        "们",
+        "一起",
+        "去",
+        "晚饭"
+      ]
+    },
+    {
+      "simplified": "我下课以后五点半回来。",
+      "traditional": "我下課以後五點半回來。",
+      "pinyin": "Wǒ xiàkè yǐhòu wǔ diǎn bàn huílái.",
+      "english": "I'll come back at five thirty after class.",
+      "words_used": [
+        "我",
+        "下课",
+        "以后",
+        "五",
+        "点",
+        "半",
+        "回来"
+      ]
+    },
+    {
+      "simplified": "我们星期六见，你的哥哥呢？",
+      "traditional": "我們星期六見，你的哥哥呢？",
+      "pinyin": "Wǒmen xīngqīliù jiàn, nǐ de gēge ne?",
+      "english": "We'll meet on Saturday; and your older brother?",
+      "words_used": [
+        "我",
+        "们",
+        "星期六",
+        "见",
+        "你",
+        "的",
+        "哥哥",
+        "呢"
+      ]
+    },
+    {
+      "simplified": "那个餐厅怎么样？行不行？",
+      "traditional": "那個餐廳怎麼樣？行不行？",
+      "pinyin": "Nà ge cāntīng zěnmeyàng? Xíng bù xíng?",
+      "english": "How about that restaurant? Is it okay or not?",
+      "words_used": [
+        "那",
+        "个",
+        "餐厅",
+        "怎么样",
+        "行",
+        "不行"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "format": "chinese-sentences-export",
+  "version": 1,
+  "collection": {
+    "name": "Chapter 8",
+    "file": "collection-chapter-8.json"
+  },
+  "supplemental_words": [
+    "他",
+    "她",
+    "的",
+    "很",
+    "呢",
+    "们",
+    "这",
+    "那",
+    "谁"
+  ],
+  "sentences": [
+    {
+      "simplified": "今天是我哥哥的生日。",
+      "traditional": "今天是我哥哥的生日。",
+      "pinyin": "Jīntiān shì wǒ gēge de shēngrì.",
+      "english": "Today is my older brother's birthday.",
+      "words_used": [
+        "今天",
+        "是",
+        "我",
+        "哥哥",
+        "的",
+        "生日"
+      ]
+    },
+    {
+      "simplified": "祝你生日快乐！",
+      "traditional": "祝你生日快樂！",
+      "pinyin": "Zhù nǐ shēngrì kuàilè!",
+      "english": "Happy birthday to you!",
+      "words_used": [
+        "祝",
+        "你",
+        "生日",
+        "快乐"
+      ]
+    },
+    {
+      "simplified": "他今年要买一双运动鞋。",
+      "traditional": "他今年要買一雙運動鞋。",
+      "pinyin": "Tā jīnnián yào mǎi yì shuāng yùndòngxié.",
+      "english": "He wants to buy a pair of sneakers this year.",
+      "words_used": [
+        "他",
+        "今年",
+        "要",
+        "买",
+        "一",
+        "双",
+        "运动鞋"
+      ]
+    },
+    {
+      "simplified": "你想送什么礼物给她呢？",
+      "traditional": "你想送什麼禮物給她呢？",
+      "pinyin": "Nǐ xiǎng sòng shénme lǐwù gěi tā ne?",
+      "english": "And you, what gift do you want to give her?",
+      "words_used": [
+        "你",
+        "想",
+        "送",
+        "什么",
+        "礼物",
+        "给",
+        "她",
+        "呢"
+      ]
+    },
+    {
+      "simplified": "谁的生日是十二月八号？",
+      "traditional": "誰的生日是十二月八號？",
+      "pinyin": "Shéi de shēngrì shì shí'èryuè bā hào?",
+      "english": "Whose birthday is on December eighth?",
+      "words_used": [
+        "谁",
+        "的",
+        "生日",
+        "是",
+        "十二月",
+        "八",
+        "号"
+      ]
+    },
+    {
+      "simplified": "我请你吃大餐，好不好？",
+      "traditional": "我請你吃大餐，好不好？",
+      "pinyin": "Wǒ qǐng nǐ chī dàcān, hǎo bù hǎo?",
+      "english": "I'll treat you to a fancy meal, how does that sound?",
+      "words_used": [
+        "我",
+        "请",
+        "你",
+        "吃",
+        "大餐",
+        "好不好"
+      ]
+    },
+    {
+      "simplified": "那个孩子今年六岁。",
+      "traditional": "那個孩子今年六歲。",
+      "pinyin": "Nà ge háizi jīnnián liù suì.",
+      "english": "That child is six years old this year.",
+      "words_used": [
+        "那",
+        "个",
+        "孩子",
+        "今年",
+        "六",
+        "岁"
+      ]
+    },
+    {
+      "simplified": "明天我大哥来我家吃大餐。",
+      "traditional": "明天我大哥來我家吃大餐。",
+      "pinyin": "Míngtiān wǒ dàgē lái wǒ jiā chī dàcān.",
+      "english": "Tomorrow my oldest brother is coming to my home to eat a fancy meal.",
+      "words_used": [
+        "明天",
+        "我",
+        "大哥",
+        "来",
+        "家",
+        "吃",
+        "大餐"
+      ]
+    }
+  ]
+}
