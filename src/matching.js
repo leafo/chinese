@@ -91,6 +91,14 @@ function splitDefinitions(text) {
   return stripParenthesized(text).split(/[,;/]/).map(s => s.trim()).filter(Boolean);
 }
 
+// Split on sentence terminators so each clause is an independently-acceptable
+// answer (e.g. "Could I? Is it okay?"). Only ? and ! are used as separators —
+// periods appear in this dataset solely as trailing punctuation or inside
+// abbreviations ("Mrs.") and ellipses, so splitting on them would be harmful.
+function splitSentences(text) {
+  return text.split(/[?!]+/).map(s => s.trim()).filter(Boolean);
+}
+
 export function matchPinyin(input, expected) {
   const normalizedInput = normalizePinyin(input);
   return splitPinyinVariants(expected).some(v => normalizedInput === normalizePinyin(v));
@@ -101,6 +109,13 @@ export function matchEnglish(input, expected) {
   if (!normalizedInput) return false;
 
   if (flexibleMatch(normalizedInput, normalizeEnglish(expected))) return true;
+
+  // Each sentence-terminated clause is an independently-acceptable answer
+  const sentences = splitSentences(expected);
+  if (sentences.length > 1 &&
+      sentences.some(s => flexibleMatch(normalizedInput, normalizeEnglish(s)))) {
+    return true;
+  }
 
   const parts = splitDefinitions(expected);
   return parts.some(part => flexibleMatch(normalizedInput, normalizeEnglish(part)));
