@@ -8,53 +8,13 @@ import { useModalDialog } from "./util";
 import { SentenceAudioButton } from "./SentenceAudioButton";
 import { getPreferredChineseText } from "./display";
 import { wordMatchesQuery } from "./wordSearch";
+import { findConnectedWordIds } from "./wordMatching";
 
 const AUDIO_KEY_DISPLAY_LENGTH = 32;
 
 function truncateAudioKey(key) {
   if (!key || key.length <= AUDIO_KEY_DISPLAY_LENGTH) return key || '—';
   return `${key.slice(0, AUDIO_KEY_DISPLAY_LENGTH)}...`;
-}
-
-function buildWordIndex(words, script) {
-  const byText = new Map();
-  let maxLen = 0;
-  for (const word of words) {
-    const text = word[script];
-    if (!text) continue;
-    if (!byText.has(text)) byText.set(text, word);
-    if (text.length > maxLen) maxLen = text.length;
-  }
-  return { byText, maxLen };
-}
-
-// Forward maximum matching: walk the text and, at each position, take the
-// longest word that matches before advancing, so nested words are skipped.
-function matchWordIds(text, index) {
-  const ids = [];
-  if (!text) return ids;
-  let i = 0;
-  while (i < text.length) {
-    let matched = false;
-    for (let len = Math.min(index.maxLen, text.length - i); len >= 1; len--) {
-      const word = index.byText.get(text.slice(i, i + len));
-      if (word) {
-        ids.push(word.id);
-        i += len;
-        matched = true;
-        break;
-      }
-    }
-    if (!matched) i += 1;
-  }
-  return ids;
-}
-
-function findConnectedWordIds(words, traditional, simplified) {
-  const ids = new Set();
-  for (const id of matchWordIds(traditional, buildWordIndex(words, 'traditional'))) ids.add(id);
-  for (const id of matchWordIds(simplified, buildWordIndex(words, 'simplified'))) ids.add(id);
-  return [...ids];
 }
 
 function ConnectedWordsField({

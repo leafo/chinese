@@ -1,6 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import styles from "./index.module.css";
 import { setRoute } from "./router";
+import { setLocalSentenceImportData } from "./ImportSentences";
 import { useSentences, insertSentence, updateSentence, deleteSentence } from "./sentences";
 import { useCollections } from "./collections";
 import { useAllWords } from "./words";
@@ -16,7 +17,25 @@ export function SentenceList() {
   const [displayScript] = useConfig("display_script");
   const [editing, setEditing] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const fileInputRef = useRef(null);
   const preferredScript = displayScript || DEFAULT_DISPLAY_SCRIPT;
+
+  const handleFileImport = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      try {
+        const parsed = JSON.parse(evt.target.result);
+        setLocalSentenceImportData(parsed);
+        setRoute({ view: 'import-sentences', source: 'local' });
+      } catch {
+        alert('Failed to parse JSON file');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
 
   const collectionNamesById = useMemo(
     () => Object.fromEntries((collections || []).map(c => [c.id, c.name])),
@@ -50,6 +69,16 @@ export function SentenceList() {
       <div className={styles.sectionHeader}>
         <h2>Saved Sentences</h2>
         <div className={styles.importToolbarActions}>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".json"
+            className={styles.hiddenFileInput}
+            onChange={handleFileImport}
+          />
+          <button className={styles.secondaryButton} onClick={() => fileInputRef.current?.click()}>
+            Import
+          </button>
           <button className={styles.secondaryButton} onClick={() => setRoute({ view: 'generate-sentences' })}>
             Generate
           </button>

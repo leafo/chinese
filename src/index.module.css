@@ -85,6 +85,10 @@
   border: 0;
 }
 
+.hiddenFileInput {
+  display: none;
+}
+
 .headerLogo {
   width: 36px;
   height: 36px;
