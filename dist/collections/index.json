@@ -46,5 +46,11 @@
     "name": "Chapter 8",
     "notes": "Happy birthday to you",
     "wordCount": 37
+  },
+  {
+    "file": "collection-chapter-9.json",
+    "name": "Chapter 9",
+    "notes": "Are you free on Friday?",
+    "wordCount": 29
   }
 ]
