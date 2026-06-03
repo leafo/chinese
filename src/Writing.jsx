@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import HanziWriter from "hanzi-writer";
 import styles from "./index.module.css";
 import { useRoute, updateRoute } from "./router";
+import { gradeCharacterDrawing } from "./hanziFinalGrader";
 
 // Built-in character sets the user can pick from. Each one renders as its own
 // row with its characters visible and a Start button. The custom textarea is
@@ -26,17 +27,16 @@ const PRESETS = [
 const INITIAL_BATCH_SIZE = 2;
 
 // Scaffolding tiers, from most help to least. A character graduates once it is
-// completed cleanly at the final (blind) tier. The Guided tier doubles as the
-// introduction: showHintAfterMisses=0 means the stroke-hint animation plays
-// for every stroke before you draw it, so seeing the order and tracing it
-// happen on the same screen.
+// completed cleanly at the final (blind) tier. The Guided tier shows the
+// outline to trace and lets you flash the next stroke; the Memory tier hides
+// the outline and writes from the printed reference, with an optional peek that
+// blocks advancement.
 const TIERS = [
   {
     id: "guided",
     label: "Guided",
     hint: null,
     showOutline: true,
-    showHintAfterMisses: 0,
     showReference: false,
     canShowNextStroke: true,
     canPeek: false,
@@ -44,9 +44,8 @@ const TIERS = [
   {
     id: "memory",
     label: "Memory",
-    hint: "No outline — write it from the printed reference. Peek if you really need to; using it blocks the Confident rating.",
+    hint: "No outline — write it from the printed reference. Peek if you really need to; using it sends the character back a tier.",
     showOutline: false,
-    showHintAfterMisses: false,
     showReference: true,
     canShowNextStroke: false,
     canPeek: true,
@@ -61,6 +60,21 @@ const WRITER_BASE_OPTIONS = {
   outlineColor: "#cbd5e1",
   radicalColor: "#7c3aed",
 };
+
+// Every failure reason gradeCharacterDrawing can surface on a drawn stroke gets
+// an entry here so the legend explains every color the canvas can show. The
+// reason string also derives the CSS class (writingUserStrokeError<Reason> /
+// writingLegendSwatch<Reason>), so each reason needs matching classes in the
+// stylesheet. ("missing" is reported via the stroke-count message, not a color.)
+const ERROR_LEGEND = [
+  { reason: "order", label: "Wrong order" },
+  { reason: "backwards", label: "Backwards" },
+  { reason: "direction", label: "Wrong direction" },
+  { reason: "location", label: "Wrong location" },
+  { reason: "shape", label: "Wrong shape" },
+  { reason: "length", label: "Too short" },
+  { reason: "extra", label: "Extra stroke" },
+];
 
 // Splits free-form text into a deduped list of individual CJK characters.
 function parseCharacters(text) {
@@ -79,53 +93,52 @@ function newCard(char) {
   return { char, tier: 0, graduated: false, practiceCount: 0 };
 }
 
-// A single quiz attempt at a given tier. Reports mistake count and whether the
-// learner peeked at the outline so the session can gate the "Confident" rating.
-function QuizCard({ character, tier, isNew, round, onComplete, onSkip }) {
-  const targetRef = useRef(null);
-  const writerRef = useRef(null);
+// A full-character attempt. The learner draws every stroke without interruption,
+// then the saved strokes are graded together after Submit.
+function DrawingQuizCard({ character, tier, isNew, round, onComplete, onSkip }) {
+  const outlineRef = useRef(null);
+  const outlineWriterRef = useRef(null);
+  const activePointerRef = useRef(null);
+  const activeStrokeRef = useRef(null);
   const peekedRef = useRef(false);
-  const currentStrokeRef = useRef(0);
   const [status, setStatus] = useState("loading");
   const [peeked, setPeeked] = useState(false);
+  const [showOutline, setShowOutline] = useState(tier.showOutline);
+  const [strokes, setStrokes] = useState([]);
+  const [activeStroke, setActiveStroke] = useState(null);
+  const [feedback, setFeedback] = useState("");
+  const [strokeErrors, setStrokeErrors] = useState(() => ({}));
+  const [submitting, setSubmitting] = useState(false);
 
   const onCompleteRef = useRef(onComplete);
   onCompleteRef.current = onComplete;
 
   useEffect(() => {
-    const target = targetRef.current;
+    const target = outlineRef.current;
     if (!target) return;
     target.innerHTML = "";
     setStatus("loading");
     setPeeked(false);
+    setShowOutline(tier.showOutline);
+    setStrokes([]);
+    setActiveStroke(null);
+    setFeedback("");
+    setStrokeErrors({});
     peekedRef.current = false;
-    currentStrokeRef.current = 0;
 
     const writer = HanziWriter.create(target, character, {
       ...WRITER_BASE_OPTIONS,
-      drawingWidth: 28,
       showCharacter: false,
-      showOutline: tier.showOutline,
-      highlightOnComplete: true,
+      // Always render the outline; the showOutline state drives its visibility
+      // via the writingTargetHidden opacity class (single source of truth).
+      showOutline: true,
       onLoadCharDataSuccess: () => setStatus("ready"),
       onLoadCharDataError: () => setStatus("error"),
     });
-    writerRef.current = writer;
-
-    writer.quiz({
-      showHintAfterMisses: tier.showHintAfterMisses,
-      onCorrectStroke: ({ strokeNum }) => {
-        currentStrokeRef.current = strokeNum + 1;
-      },
-      onComplete: (summary) =>
-        onCompleteRef.current?.({
-          mistakes: summary.totalMistakes,
-          peeked: peekedRef.current,
-        }),
-    });
+    outlineWriterRef.current = writer;
 
     return () => {
-      writerRef.current = null;
+      outlineWriterRef.current = null;
       target.innerHTML = "";
     };
   }, [character, tier, round]);
@@ -133,18 +146,138 @@ function QuizCard({ character, tier, isNew, round, onComplete, onSkip }) {
   const handlePeek = () => {
     peekedRef.current = true;
     setPeeked(true);
-    writerRef.current?.showOutline();
+    setShowOutline((visible) => !visible);
   };
 
   const handleShowNextStroke = () => {
-    // highlightStroke flashes the stroke briefly (same mechanism the quiz uses
-    // for its after-miss hint) — doesn't disrupt the quiz state the way
-    // animateStroke would.
-    writerRef.current?.highlightStroke(currentStrokeRef.current);
+    outlineWriterRef.current?.highlightStroke(strokes.length);
+  };
+
+  const getSvgPoint = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    return {
+      x: ((event.clientX - rect.left) / rect.width) * WRITER_BASE_OPTIONS.width,
+      y: ((event.clientY - rect.top) / rect.height) * WRITER_BASE_OPTIONS.height,
+    };
+  };
+
+  const handlePointerDown = (event) => {
+    if (status !== "ready" || submitting) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    const point = getSvgPoint(event);
+    activePointerRef.current = event.pointerId;
+    activeStrokeRef.current = [point];
+    setActiveStroke([point]);
+    setFeedback("");
+    setStrokeErrors({});
+  };
+
+  const handlePointerMove = (event) => {
+    if (activePointerRef.current !== event.pointerId || !activeStrokeRef.current) return;
+    const point = getSvgPoint(event);
+    const nextStroke = [...activeStrokeRef.current, point];
+    activeStrokeRef.current = nextStroke;
+    setActiveStroke(nextStroke);
+  };
+
+  const finishStroke = (event) => {
+    if (activePointerRef.current !== event.pointerId || !activeStrokeRef.current) return;
+    const finishedStroke = activeStrokeRef.current;
+    activePointerRef.current = null;
+    activeStrokeRef.current = null;
+    setActiveStroke(null);
+    if (finishedStroke.length >= 2) {
+      setStrokes((prev) => [...prev, finishedStroke]);
+    }
+  };
+
+  const handleUndo = () => {
+    setStrokes((prev) => prev.slice(0, -1));
+    setFeedback("");
+    setStrokeErrors({});
+  };
+
+  const handleClear = () => {
+    setStrokes([]);
+    setActiveStroke(null);
+    setFeedback("");
+    setStrokeErrors({});
+  };
+
+  const handleSubmit = async () => {
+    if (strokes.length === 0 || submitting) {
+      setFeedback("Draw the character before submitting.");
+      return;
+    }
+
+    setSubmitting(true);
+    setFeedback("Checking...");
+    try {
+      const grade = await gradeCharacterDrawing(character, strokes, {
+        ...WRITER_BASE_OPTIONS,
+        isOutlineVisible: showOutline,
+      });
+
+      if (!grade.passed) {
+        const nextStrokeErrors = {};
+        for (const result of grade.strokeResults) {
+          if (!result.passed) nextStrokeErrors[result.strokeNum] = result.reason;
+        }
+        for (let i = grade.expectedStrokeCount; i < grade.drawnStrokeCount; i++) {
+          nextStrokeErrors[i] = "extra";
+        }
+        setStrokeErrors(nextStrokeErrors);
+
+        const strokeText =
+          grade.failedStrokeCount === 1 ? "1 stroke needs work" : `${grade.failedStrokeCount} strokes need work`;
+        const countText =
+          grade.drawnStrokeCount === grade.expectedStrokeCount
+            ? strokeText
+            : `Expected ${grade.expectedStrokeCount} strokes, got ${grade.drawnStrokeCount}.`;
+        setFeedback(`${countText} Clear and try again.`);
+        return;
+      }
+
+      onCompleteRef.current?.({
+        mistakes: 0,
+        peeked: peekedRef.current,
+        passed: true,
+        grade,
+      });
+    } catch (error) {
+      console.error(error);
+      setFeedback("Could not check this drawing.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const showPeekButton = tier.canPeek;
   const showStrokeButton = tier.canShowNextStroke;
+
+  // Committed strokes only change when a stroke is added, undone, cleared, or
+  // graded, so memoize them; an in-progress stroke fires many pointermove
+  // renders and is drawn separately to keep those renders cheap.
+  const committedPolylines = useMemo(() => {
+    const classNameFor = (strokeIndex) => {
+      const reason = strokeErrors[strokeIndex];
+      if (!reason) return styles.writingUserStroke;
+      return [
+        styles.writingUserStroke,
+        styles.writingUserStrokeFailed,
+        styles[`writingUserStrokeError${reason[0].toUpperCase()}${reason.slice(1)}`],
+      ]
+        .filter(Boolean)
+        .join(" ");
+    };
+    return strokes.map((stroke, strokeIndex) => (
+      <polyline
+        key={strokeIndex}
+        points={stroke.map((point) => `${point.x},${point.y}`).join(" ")}
+        className={classNameFor(strokeIndex)}
+      />
+    ));
+  }, [strokes, strokeErrors]);
 
   return (
     <div className={styles.writingWriter}>
@@ -158,7 +291,44 @@ function QuizCard({ character, tier, isNew, round, onComplete, onSkip }) {
           {character}
         </div>
       )}
-      <div ref={targetRef} className={styles.writingTarget} />
+      <div className={styles.writingPad}>
+        <div
+          ref={outlineRef}
+          className={`${styles.writingTarget} ${showOutline ? "" : styles.writingTargetHidden}`}
+          aria-hidden={!showOutline}
+        />
+        <svg
+          className={styles.writingCanvas}
+          viewBox={`0 0 ${WRITER_BASE_OPTIONS.width} ${WRITER_BASE_OPTIONS.height}`}
+          role="img"
+          aria-label={`Drawing pad for ${character}`}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={finishStroke}
+          onPointerCancel={finishStroke}
+        >
+          <line x1="130" y1="0" x2="130" y2="260" className={styles.writingGuideLine} />
+          <line x1="0" y1="130" x2="260" y2="130" className={styles.writingGuideLine} />
+          {committedPolylines}
+          {activeStroke && (
+            <polyline
+              points={activeStroke.map((point) => `${point.x},${point.y}`).join(" ")}
+              className={styles.writingUserStroke}
+            />
+          )}
+        </svg>
+      </div>
+      <div className={styles.writingLegend} aria-label="Writing error legend">
+        {ERROR_LEGEND.map((item) => (
+          <span key={item.reason} className={styles.writingLegendItem}>
+            <span
+              className={`${styles.writingLegendSwatch} ${styles[`writingLegendSwatch${item.reason[0].toUpperCase()}${item.reason.slice(1)}`]}`}
+              aria-hidden
+            />
+            {item.label}
+          </span>
+        ))}
+      </div>
       {status === "loading" && (
         <p className={styles.writingStatus}>Loading stroke data…</p>
       )}
@@ -172,13 +342,14 @@ function QuizCard({ character, tier, isNew, round, onComplete, onSkip }) {
           </button>
         </>
       ) : (
-        (showStrokeButton || showPeekButton) && (
+        <>
+          {feedback && <p className={styles.writingStatus}>{feedback}</p>}
           <div className={styles.writingControls}>
             {showStrokeButton && (
               <button
                 type="button"
                 className={styles.smallButton}
-                disabled={status !== "ready"}
+                disabled={status !== "ready" || submitting}
                 onClick={handleShowNextStroke}
               >
                 Show next stroke
@@ -188,82 +359,40 @@ function QuizCard({ character, tier, isNew, round, onComplete, onSkip }) {
               <button
                 type="button"
                 className={styles.smallButton}
-                disabled={status !== "ready" || peeked}
+                disabled={status !== "ready" || submitting}
                 onClick={handlePeek}
               >
-                {peeked ? "Outline shown" : "Peek at outline"}
+                {showOutline ? "Hide outline" : peeked ? "Show outline" : "Peek at outline"}
               </button>
             )}
+            <button
+              type="button"
+              className={styles.smallButton}
+              disabled={strokes.length === 0 || submitting}
+              onClick={handleUndo}
+            >
+              Undo stroke
+            </button>
+            <button
+              type="button"
+              className={styles.smallButton}
+              disabled={(strokes.length === 0 && !activeStroke) || submitting}
+              onClick={handleClear}
+            >
+              Clear
+            </button>
+            <button
+              type="button"
+              className={styles.primaryButton}
+              disabled={status !== "ready" || submitting}
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
           </div>
-        )
+        </>
       )}
     </div>
-  );
-}
-
-// Self-rating after a quiz attempt. "Confident" advances a tier (or graduates)
-// but is blocked if the attempt was messy or the outline was peeked at.
-function RateCard({ character, tierIndex, result, onRate }) {
-  const isBlind = tierIndex === TIERS.length - 1;
-  const canConfident = !result.peeked && result.mistakes <= 2;
-
-  let feedback;
-  if (result.peeked) {
-    feedback = "You peeked at the outline — practice it again before moving on.";
-  } else if (result.mistakes === 0) {
-    feedback = "Clean attempt — no mistakes.";
-  } else {
-    feedback = `Completed with ${result.mistakes} mistake${result.mistakes === 1 ? "" : "s"}.`;
-  }
-
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.repeat) return;
-      if (e.key === "1") { e.preventDefault(); onRate("again"); }
-      if (e.key === "2") { e.preventDefault(); onRate("good"); }
-      if (e.key === "3" && canConfident) { e.preventDefault(); onRate("confident"); }
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [onRate, canConfident]);
-
-  const confidentLockReason = result.peeked
-    ? "You peeked"
-    : "Too many mistakes";
-
-  return (
-    <>
-      <div className={styles.writingWriter}>
-        <div className={styles.writingRateChar}>{character}</div>
-        <p className={styles.writingFeedback}>{feedback}</p>
-      </div>
-      <div className={styles.learnActions}>
-        <button
-          className={`${styles.ratingButton} ${styles.ratingAgain}`}
-          onClick={() => onRate("again")}
-        >
-          <span className={styles.ratingLabel}>Again</span>
-        </button>
-        <button
-          className={`${styles.ratingButton} ${styles.ratingGood}`}
-          onClick={() => onRate("good")}
-        >
-          <span className={styles.ratingLabel}>Good</span>
-        </button>
-        <button
-          className={`${styles.ratingButton} ${styles.ratingEasy}`}
-          onClick={() => onRate("confident")}
-          disabled={!canConfident}
-        >
-          <span className={styles.ratingLabel}>
-            {isBlind ? "Confident — done" : "Confident"}
-          </span>
-          <span className={styles.ratingInterval}>
-            {canConfident ? "Advances a tier" : confidentLockReason}
-          </span>
-        </button>
-      </div>
-    </>
   );
 }
 
@@ -271,7 +400,6 @@ function WritingSession({ characters, onExit }) {
   const [cards, setCards] = useState(() => [newCard(characters[0])]);
   const [queue, setQueue] = useState(() => characters.slice(1));
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [result, setResult] = useState(null);
   const [round, setRound] = useState(0);
   const [done, setDone] = useState(false);
   const lastCharRef = useRef(null);
@@ -326,26 +454,23 @@ function WritingSession({ characters, onExit }) {
     [queue, pickNext]
   );
 
-  const handleQuizComplete = useCallback((quizResult) => {
-    setResult(quizResult);
-  }, []);
-
-  const handleRate = useCallback(
-    (rating) => {
+  const handleQuizComplete = useCallback(
+    (quizResult) => {
       const updatedCards = cards.map((c, i) => {
         if (i !== currentIndex) return c;
         let { tier, graduated } = c;
-        if (rating === "again") {
-          tier = Math.max(0, tier - 1);
-        } else if (rating === "confident") {
+        if (tier === 0) {
+          tier = 1;
+        } else if (!quizResult.peeked) {
           if (tier >= TIERS.length - 1) graduated = true;
           else tier += 1;
+        } else {
+          tier = Math.max(0, tier - 1);
         }
         return { ...c, tier, graduated, practiceCount: c.practiceCount + 1 };
       });
 
       lastCharRef.current = currentCard.char;
-      setResult(null);
       advance(updatedCards);
     },
     [cards, currentIndex, currentCard, advance]
@@ -356,7 +481,6 @@ function WritingSession({ characters, onExit }) {
       i === currentIndex ? { ...c, graduated: true } : c
     );
     lastCharRef.current = currentCard.char;
-    setResult(null);
     advance(updatedCards);
   }, [cards, currentIndex, currentCard, advance]);
 
@@ -391,25 +515,15 @@ function WritingSession({ characters, onExit }) {
         </button>
       </div>
 
-      {result ? (
-        <RateCard
-          key={`rate-${currentCard.char}-${round}`}
-          character={currentCard.char}
-          tierIndex={currentCard.tier}
-          result={result}
-          onRate={handleRate}
-        />
-      ) : (
-        <QuizCard
-          key={`quiz-${currentCard.char}-${currentCard.tier}-${round}`}
-          character={currentCard.char}
-          tier={TIERS[currentCard.tier]}
-          isNew={currentCard.practiceCount === 0}
-          round={round}
-          onComplete={handleQuizComplete}
-          onSkip={handleSkip}
-        />
-      )}
+      <DrawingQuizCard
+        key={`quiz-${currentCard.char}-${currentCard.tier}-${round}`}
+        character={currentCard.char}
+        tier={TIERS[currentCard.tier]}
+        isNew={currentCard.practiceCount === 0}
+        round={round}
+        onComplete={handleQuizComplete}
+        onSkip={handleSkip}
+      />
     </div>
   );
 }
