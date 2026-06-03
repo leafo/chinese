@@ -5,6 +5,9 @@ import { useCollectionWordManager } from "./useCollectionWordManager";
 import { WordPreviewList } from "./WordPreviewList";
 import { deserializeAudioClip } from "./backup";
 import { store as audioStore } from "./audio";
+import { getAllWords } from "./words";
+import { insertSentence, getAllSentences } from "./sentences";
+import { findConnectedWordIds } from "./wordMatching";
 
 // Module-level store for passing local file data to the import view
 let _pendingLocalData = null;
@@ -18,6 +21,7 @@ export function ImportCollection() {
   const [extractedWords, setExtractedWords] = useState(null);
   const [importing, setImporting] = useState(false);
   const [error, setError] = useState(null);
+  const [includeSentences, setIncludeSentences] = useState(true);
 
   const {
     addExistingToCollection, duplicateMatches, isWordSelected,
@@ -62,9 +66,9 @@ export function ImportCollection() {
   const handleImport = async () => {
     setImporting(true);
     try {
-      const { collection, audio_clips } = collectionData;
+      const { collection, audio_clips, sentences } = collectionData;
 
-      await saveCollectionWithWords({
+      const collectionId = await saveCollectionWithWords({
         name: collection.name,
         notes: collection.notes || '',
         objectives: collection.objectives || '',
@@ -73,6 +77,24 @@ export function ImportCollection() {
       if (audio_clips?.length) {
         for (const clip of audio_clips) {
           await audioStore.put(deserializeAudioClip(clip));
+        }
+      }
+
+      if (includeSentences && sentences?.length) {
+        const allWords = await getAllWords();
+        const existing = await getAllSentences();
+        const existingSimplified = new Set(existing.map(s => s.simplified));
+        for (const sentence of sentences) {
+          if (existingSimplified.has(sentence.simplified)) continue;
+          await insertSentence({
+            simplified: sentence.simplified,
+            traditional: sentence.traditional,
+            pinyin: sentence.pinyin,
+            english: sentence.english,
+            notes: sentence.notes,
+            collection_ids: [collectionId],
+            word_ids: findConnectedWordIds(allWords, sentence.traditional || '', sentence.simplified || ''),
+          });
         }
       }
 
@@ -121,6 +143,16 @@ export function ImportCollection() {
               />
               Select All ({selectedCount}/{extractedWords.length})
             </label>
+            {collectionData.sentences?.length > 0 && (
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  checked={includeSentences}
+                  onChange={(e) => setIncludeSentences(e.target.checked)}
+                />
+                Also import {collectionData.sentences.length} sentence{collectionData.sentences.length !== 1 ? 's' : ''}
+              </label>
+            )}
             <div className={styles.importToolbarActions}>
               <button className={styles.secondaryButton} onClick={() => setRoute({ view: 'collections' })}>Cancel</button>
               <button

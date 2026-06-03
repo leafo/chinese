@@ -130,9 +130,20 @@ export async function exportCollection(collectionId) {
     (w.collection_ids || []).includes(collectionId)
   );
 
+  const allSentences = await sentencesStore.getAll();
+  const collectionSentences = allSentences.filter(s =>
+    (s.collection_ids || []).includes(collectionId)
+  );
+
+  // Sentences may link to words from earlier collections too, so look up across all words.
+  const simplifiedByWordId = new Map(
+    allWords.map(w => [w.id, w.simplified || w.traditional])
+  );
+
+  // Gather audio for both word and sentence pinyin so the export is self-contained.
   const textKeys = [...new Set(
-    collectionWords
-      .map(w => w.pinyin ? audioKey(w.pinyin) : null)
+    [...collectionWords, ...collectionSentences]
+      .map(item => item.pinyin ? audioKey(item.pinyin) : null)
       .filter(Boolean)
   )];
 
@@ -150,18 +161,26 @@ export async function exportCollection(collectionId) {
   }
 
   if (missingAudio.length > 0) {
-    console.warn('Words missing audio:', missingAudio);
+    console.warn('Missing audio:', missingAudio);
   }
 
   const cleanWords = collectionWords.map(({ id, collection_ids, ...rest }) => rest);
+  // Drop local ids/links; store linked words as portable simplified strings (words_used).
+  const cleanSentences = collectionSentences.map(({ id, collection_ids, word_ids, ...rest }) => ({
+    ...rest,
+    words_used: (word_ids || [])
+      .map(wid => simplifiedByWordId.get(wid))
+      .filter(Boolean),
+  }));
   const { id, ...collectionMeta } = collection;
 
   const data = {
     format: 'chinese-collection-export',
-    version: 1,
+    version: 2,
     exportedAt: new Date().toISOString(),
     collection: collectionMeta,
     words: cleanWords,
+    sentences: cleanSentences,
     audio_clips: audioClips,
   };
 
