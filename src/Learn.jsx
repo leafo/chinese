@@ -4,33 +4,14 @@ import { useAllWords } from "./words";
 import { useCollections } from "./collections";
 import { useRoute, setRoute } from "./router";
 import { ChineseDisplay } from "./ChineseDisplay";
-import { PinyinInput } from "./PinyinInput";
-import { matchPinyin, matchEnglish, comparePinyin } from "./matching";
-import { useShaker } from "./util";
+import { AnswerInput } from "./AnswerInput";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 
 const GRADUATE_THRESHOLD = 1;
 const INITIAL_BATCH_SIZE = 2;
 
-function PinyinFeedback({ comparison }) {
-  if (!comparison) return null;
-  return (
-    <div className={styles.typingOverlay} aria-hidden>
-      {comparison.map((entry, i) => (
-        <span key={i} className={entry.correct ? undefined : styles.typingWrongChar}>
-          {entry.char}
-        </span>
-      ))}
-    </div>
-  );
-}
-
 function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
-  const [typingValue, setTypingValue] = useState('');
-  const [shakeClass, shake] = useShaker();
-  const [comparison, setComparison] = useState(null);
-
   useEffect(() => {
     const handleKey = (e) => {
       const isTyping = document.activeElement?.tagName === 'INPUT';
@@ -49,18 +30,6 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
     return () => window.removeEventListener('keydown', handleKey);
   }, [onDone, onKnown]);
 
-  const handleTypingSubmit = (e) => {
-    e.preventDefault();
-    if (!typingValue.trim()) return;
-
-    if (matchPinyin(typingValue, word.pinyin)) {
-      onDone();
-    } else {
-      setComparison(comparePinyin(typingValue, word.pinyin));
-      shake();
-    }
-  };
-
   return (
     <div className={styles.flashcardContainer}>
       <div className={`${styles.flashcardCard} ${styles.learnIntroCard}`}>
@@ -71,20 +40,7 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
           {word.notes && <div className={styles.flashcardNotes}>{word.notes}</div>}
         </div>
       </div>
-      <form className={styles.typingForm} onSubmit={handleTypingSubmit}>
-        <div className={styles.typingInputWrap}>
-          <PinyinInput
-            withHelp
-            autoFocus
-            className={`${styles.typingInput} ${shakeClass} ${comparison ? styles.typingInputTransparent : ''}`}
-            value={typingValue}
-            onChange={(e) => { setTypingValue(e.target.value); setComparison(null); }}
-            onKeyDown={() => comparison && setComparison(null)}
-            placeholder="Type pinyin..."
-          />
-          <PinyinFeedback comparison={comparison} />
-        </div>
-      </form>
+      <AnswerInput word={word} direction="en2zh" onCorrect={onDone} />
       <div className={styles.learnActions}>
         <button className={`${styles.ratingButton} ${styles.ratingGood}`} onClick={onDone}>
           <span className={styles.ratingLabel}>Got it</span>
@@ -99,9 +55,6 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
 
 function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
   const [revealed, setRevealed] = useState(false);
-  const [typingValue, setTypingValue] = useState('');
-  const [shakeClass, shake] = useShaker();
-  const [comparison, setComparison] = useState(null);
   const word = card.word;
   const isZh2En = card.direction === 'zh2en';
 
@@ -125,26 +78,6 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [revealed, onGotIt, onForgot, onReset]);
-
-  const handleTypingSubmit = (e) => {
-    e.preventDefault();
-    if (!typingValue.trim()) return;
-
-    const correct = isZh2En
-      ? matchEnglish(typingValue, word.english)
-      : matchPinyin(typingValue, word.pinyin);
-
-    if (correct) {
-      onGotIt();
-    } else {
-      if (!isZh2En) setComparison(comparePinyin(typingValue, word.pinyin));
-      shake();
-    }
-  };
-
-  const inputClassName = `${styles.typingInput} ${shakeClass} ${comparison ? styles.typingInputTransparent : ''}`;
-  const handleTypingChange = (e) => { setTypingValue(e.target.value); setComparison(null); };
-  const handleTypingKeyDown = () => comparison && setComparison(null);
 
   return (
     <div className={styles.flashcardContainer}>
@@ -174,31 +107,7 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
       </div>
 
       {!revealed ? (
-        <form className={styles.typingForm} onSubmit={handleTypingSubmit}>
-          <div className={styles.typingInputWrap}>
-            {isZh2En ? (
-              <input
-                autoFocus
-                className={inputClassName}
-                value={typingValue}
-                onChange={handleTypingChange}
-                onKeyDown={handleTypingKeyDown}
-                placeholder="Type English..."
-              />
-            ) : (
-              <PinyinInput
-                withHelp
-                autoFocus
-                className={inputClassName}
-                value={typingValue}
-                onChange={handleTypingChange}
-                onKeyDown={handleTypingKeyDown}
-                placeholder="Type pinyin..."
-              />
-            )}
-            <PinyinFeedback comparison={comparison} />
-          </div>
-        </form>
+        <AnswerInput word={word} direction={card.direction} onCorrect={onGotIt} />
       ) : (
         <div className={styles.learnActions}>
           <button className={`${styles.ratingButton} ${styles.ratingGood}`} onClick={onGotIt}>

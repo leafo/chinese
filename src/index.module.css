@@ -2121,6 +2121,13 @@
   margin-left: auto;
 }
 
+.writingTierRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
 .writingTierLabel {
   font-size: 13px;
   font-weight: 600;

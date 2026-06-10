@@ -7,6 +7,7 @@ import { setRoute } from "./router";
 import { CollectionSelector } from "./CollectionSelector";
 import { EditWordDialog } from "./EditWordDialog";
 import { ChineseDisplay } from "./ChineseDisplay";
+import { AnswerInput } from "./AnswerInput";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 
@@ -89,7 +90,8 @@ function FlashcardCard({ card, revealed, busy, onReveal, onRate, onEdit, display
         return;
       }
 
-      if (e.code === 'Space' && !revealed) {
+      const isTyping = document.activeElement?.tagName === 'INPUT';
+      if (e.code === 'Space' && !revealed && !isTyping) {
         e.preventDefault();
         onReveal();
         return;
@@ -124,7 +126,7 @@ function FlashcardCard({ card, revealed, busy, onReveal, onRate, onEdit, display
             ) : (
               <div className={styles.flashcardPrompt}>{word.english}</div>
             )}
-            <div className={styles.flashcardTapHint}>Tap or press Space to reveal</div>
+            <div className={styles.flashcardTapHint}>Type your answer or tap to reveal</div>
           </div>
         ) : (
           <div className={styles.flashcardBack}>
@@ -135,6 +137,15 @@ function FlashcardCard({ card, revealed, busy, onReveal, onRate, onEdit, display
           </div>
         )}
       </div>
+
+      {!revealed && (
+        <AnswerInput
+          word={word}
+          direction={card.direction}
+          onCorrect={() => onRate('good')}
+          disabled={busy}
+        />
+      )}
 
       {revealed && (
         <div className={styles.ratingBar}>
@@ -317,6 +328,7 @@ export function Flashcards() {
         </button>
       </div>
       <FlashcardCard
+        key={card.key}
         card={card}
         revealed={revealed}
         busy={ratingPending || !!editingWord}

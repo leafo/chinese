@@ -49,7 +49,8 @@ function comparePinyinSingle(input, expected) {
 // Compare input pinyin against expected (which may contain "/" separated variants),
 // returning per-character results for the best matching variant
 export function comparePinyin(input, expected) {
-  const variants = splitPinyinVariants(expected);
+  const variants = splitPinyinVariants(expected || '');
+  if (variants.length === 0) variants.push('');
   let best = null;
 
   for (const variant of variants) {
@@ -100,11 +101,13 @@ function splitSentences(text) {
 }
 
 export function matchPinyin(input, expected) {
+  if (!expected) return false;
   const normalizedInput = normalizePinyin(input);
   return splitPinyinVariants(expected).some(v => normalizedInput === normalizePinyin(v));
 }
 
 export function matchEnglish(input, expected) {
+  if (!expected) return false;
   const normalizedInput = normalizeEnglish(input);
   if (!normalizedInput) return false;
 

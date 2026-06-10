@@ -53,6 +53,10 @@ function isVowelChar(char) {
   return VOWELS.includes(normalizeChar(char)) || normalizeChar(char) === 'v';
 }
 
+function isTonedVowel(char) {
+  return !!TONELESS_MAP[char];
+}
+
 function findToneVowelIndex(syllable) {
   // Rule 1: a or e gets the mark
   for (let i = 0; i < syllable.length; i++) {
@@ -89,6 +93,13 @@ function findSyllableStart(text, cursorPos) {
 
   let sawVowel = false;
   while (i >= 0 && isVowelChar(text[i])) {
+    // A vowel that already carries a tone mark belongs to a previously-completed
+    // syllable, so it bounds the current one (e.g. "nǚer2" tones only "er", not
+    // "nǚer"). But only once we've already collected a vowel for the current
+    // syllable — if the toned vowel is the first one we hit, it IS the current
+    // syllable's vowel being re-toned (typing "ma3" then "2" to get "má"), so we
+    // consume it and let applyTone strip the old mark.
+    if (isTonedVowel(text[i]) && sawVowel) break;
     sawVowel = true;
     i -= 1;
   }

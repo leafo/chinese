@@ -3,6 +3,9 @@ import HanziWriter from "hanzi-writer";
 import styles from "./index.module.css";
 import { useRoute, updateRoute } from "./router";
 import { gradeCharacterDrawing } from "./hanziFinalGrader";
+import { useAllWords } from "./words";
+import { audioKey, isInManifest } from "./audio";
+import { CharacterAudioButton } from "./CharacterAudioButton";
 
 // Built-in character sets the user can pick from. Each one renders as its own
 // row with its characters visible and a Start button. The custom textarea is
@@ -95,7 +98,7 @@ function newCard(char) {
 
 // A full-character attempt. The learner draws every stroke without interruption,
 // then the saved strokes are graded together after Submit.
-function DrawingQuizCard({ character, tier, isNew, round, onComplete, onSkip }) {
+function DrawingQuizCard({ character, word, tier, isNew, round, onComplete, onSkip }) {
   const outlineRef = useRef(null);
   const outlineWriterRef = useRef(null);
   const activePointerRef = useRef(null);
@@ -281,9 +284,12 @@ function DrawingQuizCard({ character, tier, isNew, round, onComplete, onSkip }) 
 
   return (
     <div className={styles.writingWriter}>
-      <div className={styles.writingTierLabel}>
-        {isNew ? "New character · " : ""}
-        {tier.label} tier
+      <div className={styles.writingTierRow}>
+        <div className={styles.writingTierLabel}>
+          {isNew ? "New character · " : ""}
+          {tier.label} tier
+        </div>
+        <CharacterAudioButton word={word} autoPlay />
       </div>
       {tier.hint && <p className={styles.writingTierHint}>{tier.hint}</p>}
       {tier.showReference && (
@@ -407,6 +413,27 @@ function WritingSession({ characters, onExit }) {
   const currentCard = currentIndex != null ? cards[currentIndex] : null;
   const graduatedCount = cards.filter((c) => c.graduated).length;
 
+  // Resolve each character to a vocabulary entry so we can offer pronunciation
+  // audio (which is keyed by pinyin). Built once from the loaded word list; for
+  // a character with multiple readings, prefer the one whose clip is precomputed.
+  const [words] = useAllWords();
+  const wordByChar = useMemo(() => {
+    const map = new Map();
+    const charHasAudio = new Set();
+    for (const word of words || []) {
+      const hasAudio = Boolean(word.pinyin && isInManifest(audioKey(word.pinyin)));
+      for (const text of [word.simplified, word.traditional]) {
+        if (!text) continue;
+        if (!map.has(text) || (hasAudio && !charHasAudio.has(text))) {
+          map.set(text, word);
+          if (hasAudio) charHasAudio.add(text);
+        }
+      }
+    }
+    return map;
+  }, [words]);
+  const currentWord = currentCard ? wordByChar.get(currentCard.char) : null;
+
   // Least-practiced non-graduated card, avoiding an immediate repeat.
   const pickNext = useCallback((cardList) => {
     const candidates = cardList
@@ -518,6 +545,7 @@ function WritingSession({ characters, onExit }) {
       <DrawingQuizCard
         key={`quiz-${currentCard.char}-${currentCard.tier}-${round}`}
         character={currentCard.char}
+        word={currentWord}
         tier={TIERS[currentCard.tier]}
         isNew={currentCard.practiceCount === 0}
         round={round}

@@ -22,6 +22,13 @@ function toNumberedPinyin(text) {
   return text.replace(/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü]/g, ch => TONE_MAP[ch] || ch);
 }
 
+// Whether a precomputed clip exists for this audio key. Manifest clips aren't in
+// the audio_clips cache until first played, so checking the manifest is the only
+// way to know audio is available without generating it.
+export function isInManifest(text) {
+  return Boolean(text && audioManifest[toNumberedPinyin(text)]);
+}
+
 const STORE_NAME = 'audio_clips';
 const BULK_AUDIO_CONCURRENCY = 10;
 export const store = new IndexedDBStore(STORE_NAME);
