@@ -29,6 +29,12 @@ const PRESETS = [
 // small set.
 const INITIAL_BATCH_SIZE = 2;
 
+// How many clean, unaided completions at the final (Memory) tier a character
+// must accumulate before it graduates. Reaching the last tier isn't enough on
+// its own — you have to reproduce it from memory this many times so it sticks.
+// Peeking resets the streak.
+const REQUIRED_MASTERY_REPS = 4;
+
 // Scaffolding tiers, from most help to least. A character graduates once it is
 // completed cleanly at the final (blind) tier. The Guided tier shows the
 // outline to trace and lets you flash the next stroke; the Memory tier hides
@@ -93,7 +99,7 @@ function parseCharacters(text) {
 }
 
 function newCard(char) {
-  return { char, tier: 0, graduated: false, practiceCount: 0 };
+  return { char, tier: 0, graduated: false, practiceCount: 0, masteryReps: 0 };
 }
 
 // A full-character attempt. The learner draws every stroke without interruption,
@@ -129,20 +135,40 @@ function DrawingQuizCard({ character, word, tier, isNew, round, onComplete, onSk
     setStrokeErrors({});
     peekedRef.current = false;
 
-    const writer = HanziWriter.create(target, character, {
+    // HanziWriter mutates its mount node directly and keeps doing so
+    // asynchronously while animations run. Give it a dedicated child node that
+    // React never reconciles, so an in-flight animation can't desync React's
+    // view of the DOM and crash on unmount with "removeChild ... not a child".
+    let cancelled = false;
+    const mount = document.createElement("div");
+    target.appendChild(mount);
+
+    const writer = HanziWriter.create(mount, character, {
       ...WRITER_BASE_OPTIONS,
       showCharacter: false,
       // Always render the outline; the showOutline state drives its visibility
       // via the writingTargetHidden opacity class (single source of truth).
       showOutline: true,
-      onLoadCharDataSuccess: () => setStatus("ready"),
-      onLoadCharDataError: () => setStatus("error"),
+      onLoadCharDataSuccess: () => {
+        if (!cancelled) setStatus("ready");
+      },
+      onLoadCharDataError: () => {
+        if (!cancelled) setStatus("error");
+      },
     });
     outlineWriterRef.current = writer;
 
     return () => {
+      // Stop any running stroke animation before tearing the node down so its
+      // requestAnimationFrame loop can't fire against a detached DOM subtree.
+      cancelled = true;
       outlineWriterRef.current = null;
-      target.innerHTML = "";
+      try {
+        writer.pauseAnimation();
+      } catch {
+        // pauseAnimation throws if no animation is in flight; nothing to stop.
+      }
+      if (mount.parentNode === target) target.removeChild(mount);
     };
   }, [character, tier, round]);
 
@@ -154,6 +180,20 @@ function DrawingQuizCard({ character, word, tier, isNew, round, onComplete, onSk
 
   const handleShowNextStroke = () => {
     outlineWriterRef.current?.highlightStroke(strokes.length);
+  };
+
+  // Demonstrate the full stroke order for initial learning, then fade the ink
+  // back out so the pad returns to its outline-only trace state.
+  const handleAnimateStrokes = () => {
+    const writer = outlineWriterRef.current;
+    if (!writer) return;
+    writer.animateCharacter({
+      // Only fade the ink back out if this writer is still the active one; the
+      // card may have advanced (and torn this writer down) mid-animation.
+      onComplete: () => {
+        if (outlineWriterRef.current === writer) writer.hideCharacter();
+      },
+    });
   };
 
   const getSvgPoint = (event) => {
@@ -356,6 +396,16 @@ function DrawingQuizCard({ character, word, tier, isNew, round, onComplete, onSk
                 type="button"
                 className={styles.smallButton}
                 disabled={status !== "ready" || submitting}
+                onClick={handleAnimateStrokes}
+              >
+                Play all strokes
+              </button>
+            )}
+            {showStrokeButton && (
+              <button
+                type="button"
+                className={styles.smallButton}
+                disabled={status !== "ready" || submitting}
                 onClick={handleShowNextStroke}
               >
                 Show next stroke
@@ -485,16 +535,29 @@ function WritingSession({ characters, onExit }) {
     (quizResult) => {
       const updatedCards = cards.map((c, i) => {
         if (i !== currentIndex) return c;
-        let { tier, graduated } = c;
+        let { tier, graduated, masteryReps } = c;
         if (tier === 0) {
           tier = 1;
         } else if (!quizResult.peeked) {
-          if (tier >= TIERS.length - 1) graduated = true;
-          else tier += 1;
+          if (tier >= TIERS.length - 1) {
+            // At the final tier: bank a clean rep and only graduate once enough
+            // have accumulated, so the character is drilled before completing.
+            masteryReps += 1;
+            if (masteryReps >= REQUIRED_MASTERY_REPS) graduated = true;
+          } else {
+            tier += 1;
+          }
         } else {
           tier = Math.max(0, tier - 1);
+          masteryReps = 0;
         }
-        return { ...c, tier, graduated, practiceCount: c.practiceCount + 1 };
+        return {
+          ...c,
+          tier,
+          graduated,
+          masteryReps,
+          practiceCount: c.practiceCount + 1,
+        };
       });
 
       lastCharRef.current = currentCard.char;
@@ -533,7 +596,11 @@ function WritingSession({ characters, onExit }) {
   return (
     <div className={styles.flashcardContainer}>
       <div className={styles.flashcardProgress}>
-        Writing — {graduatedCount}/{characters.length} mastered · {currentCard.char} ({TIERS[currentCard.tier].label})
+        Writing — {graduatedCount}/{characters.length} mastered · {currentCard.char} ({TIERS[currentCard.tier].label}
+        {currentCard.tier >= TIERS.length - 1
+          ? ` ${currentCard.masteryReps}/${REQUIRED_MASTERY_REPS}`
+          : ""}
+        )
         <button
           className={`${styles.smallButton} ${styles.writingExitButton}`}
           onClick={() => setDone(true)}

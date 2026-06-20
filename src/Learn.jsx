@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useCallback, useMemo, useRef } from "react";
 import styles from "./index.module.css";
 import { useAllWords } from "./words";
 import { useCollections } from "./collections";
@@ -165,7 +165,7 @@ function pickNextCard(cards, lastWordId) {
 }
 
 function getWordScores(cards, wordId) {
-  const scores = { zh2en: 0, en2zh: 0 };
+  const scores = {};
   for (const card of cards) {
     if (card.word.id === wordId) {
       scores[card.direction] = card.score;
@@ -175,7 +175,8 @@ function getWordScores(cards, wordId) {
 }
 
 function isGraduated(scores) {
-  return scores.zh2en >= GRADUATE_THRESHOLD && scores.en2zh >= GRADUATE_THRESHOLD;
+  const values = Object.values(scores);
+  return values.length > 0 && values.every(s => s >= GRADUATE_THRESHOLD);
 }
 
 function didWordJustGraduate(prevCards, updatedCards, wordId) {
@@ -189,7 +190,7 @@ function allCardsGraduated(cards) {
   const scoreByWord = {};
   for (const card of cards) {
     if (!scoreByWord[card.word.id]) {
-      scoreByWord[card.word.id] = { zh2en: 0, en2zh: 0 };
+      scoreByWord[card.word.id] = {};
     }
     scoreByWord[card.word.id][card.direction] = card.score;
   }
@@ -211,7 +212,7 @@ function shuffle(array) {
   return result;
 }
 
-function CollectionPicker({ collections, loading, onSelect, shuffleWords, onToggleShuffle }) {
+function CollectionPicker({ collections, loading, onSelect, shuffleWords, onToggleShuffle, direction, onDirectionChange, skipIntro, onToggleSkipIntro }) {
   if (loading) return <p>Loading collections...</p>;
   if (!collections || collections.length === 0) {
     return (
@@ -238,6 +239,18 @@ function CollectionPicker({ collections, loading, onSelect, shuffleWords, onTogg
           <input type="checkbox" checked={shuffleWords} onChange={onToggleShuffle} />
           <span>Shuffle words</span>
         </label>
+        <label className={styles.checkboxRow}>
+          <input type="checkbox" checked={skipIntro} onChange={onToggleSkipIntro} />
+          <span>Skip word introductions</span>
+        </label>
+        <div className={styles.formField}>
+          <label>Card direction</label>
+          <select value={direction} onChange={(e) => onDirectionChange(e.target.value)}>
+            <option value="both">Both directions</option>
+            <option value="zh2en">Chinese → English</option>
+            <option value="en2zh">English → Chinese</option>
+          </select>
+        </div>
       </div>
       <ul className={styles.collectionList}>
         {collections.map(col => (
@@ -253,7 +266,7 @@ function CollectionPicker({ collections, loading, onSelect, shuffleWords, onTogg
   );
 }
 
-function LearnSession({ words, collectionName, displayScript }) {
+function LearnSession({ words, collectionName, displayScript, direction, skipIntro }) {
   const [notIntroduced, setNotIntroduced] = useState(() => {
     const [, ...rest] = words;
     return rest;
@@ -279,16 +292,14 @@ function LearnSession({ words, collectionName, displayScript }) {
     setIntroducedCount(prev => prev + 1);
     lastWordIdRef.current = word.id;
 
+    const directions = direction === 'both' ? ['zh2en', 'en2zh'] : [direction];
     const initialScore = alreadyKnown ? GRADUATE_THRESHOLD - 1 : 0;
-    const newCards = [
-      { word, direction: 'zh2en', score: initialScore },
-      { word, direction: 'en2zh', score: initialScore },
-    ];
+    const newCards = directions.map(d => ({ word, direction: d, score: initialScore }));
 
     setCards(prev => {
       const updated = [...prev, ...newCards];
 
-      if (!alreadyKnown && updated.length / 2 < INITIAL_BATCH_SIZE) {
+      if (!alreadyKnown && updated.length / directions.length < INITIAL_BATCH_SIZE) {
         setNotIntroduced(prevNI => {
           if (prevNI && prevNI.length > 0) {
             const [next, ...rest] = prevNI;
@@ -319,7 +330,13 @@ function LearnSession({ words, collectionName, displayScript }) {
 
       return updated;
     });
-  }, [introWord, scheduleNextCard]);
+  }, [introWord, direction, scheduleNextCard]);
+
+  useLayoutEffect(() => {
+    if (skipIntro && introWord) {
+      handleIntroComplete(false);
+    }
+  }, [skipIntro, introWord, handleIntroComplete]);
 
   const handleGotIt = useCallback(() => {
     if (!currentCard) return;
@@ -408,7 +425,7 @@ function LearnSession({ words, collectionName, displayScript }) {
     );
   }
 
-  if (introWord) {
+  if (introWord && !skipIntro) {
     return (
       <div>
         <LearnProgress collectionName={collectionName} introducedCount={introducedCount} totalCount={totalCount} onEnd={handleEndSession} />
@@ -449,6 +466,8 @@ export function Learn() {
   const [collections, , collectionsLoading] = useCollections();
   const [allWords] = useAllWords();
   const [shuffleWords, setShuffleWords] = useState(false);
+  const [direction, setDirection] = useState('both');
+  const [skipIntro, setSkipIntro] = useState(false);
   const collectionId = routeCollection ? parseInt(routeCollection, 10) : null;
 
   const collectionWords = useMemo(() => {
@@ -474,6 +493,10 @@ export function Learn() {
         loading={collectionsLoading}
         shuffleWords={shuffleWords}
         onToggleShuffle={() => setShuffleWords(prev => !prev)}
+        direction={direction}
+        onDirectionChange={setDirection}
+        skipIntro={skipIntro}
+        onToggleSkipIntro={() => setSkipIntro(prev => !prev)}
         onSelect={(id) => setRoute({ view: 'learn', collection: id })}
       />
     );
@@ -500,6 +523,8 @@ export function Learn() {
       words={shuffleWords ? shuffle(collectionWords) : collectionWords}
       collectionName={collectionName}
       displayScript={preferredScript}
+      direction={direction}
+      skipIntro={skipIntro}
     />
   );
 }
