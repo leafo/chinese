@@ -10,8 +10,11 @@ import { useToasts, ToastStack } from "./Toasts";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
-const GRADUATE_THRESHOLD = 1;
-const INITIAL_BATCH_SIZE = 2;
+const GRADUATE_THRESHOLD = 2;
+const INITIAL_BATCH_SIZE = 3;
+// How many quiz answers must pass after a card graduates before it comes back
+// for a delayed confirmation. Passing that confirmation retires the card.
+const RESURFACE_GAP = 6;
 
 function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
   useEffect(() => {
@@ -175,20 +178,39 @@ function LearnProgress({ collectionName, introducedCount, totalCount, onEnd }) {
   );
 }
 
-function pickNextCard(cards, lastWordId) {
-  if (cards.length === 0) return null;
+function pickNextCard(cards, lastWordId, quizCount) {
+  const active = cards.filter(c => !c.retired);
+  if (active.length === 0) return null;
 
-  const candidates = cards.length > 2
-    ? cards.filter(c => c.word.id !== lastWordId)
-    : cards;
+  const graduated = active.filter(c => c.score >= GRADUATE_THRESHOLD);
+  const learning = active.filter(c => c.score < GRADUATE_THRESHOLD);
 
-  let minScore = Infinity;
-  for (const c of candidates) {
-    if (c.score < minScore) minScore = c.score;
+  // Overdue confirmations take priority over new learning, but never force a
+  // back-to-back repeat of the same word — waiting costs them nothing.
+  const due = graduated
+    .filter(c => quizCount >= c.resurfaceAt && c.word.id !== lastWordId)
+    .sort((a, b) => a.resurfaceAt - b.resurfaceAt);
+  if (due.length > 0) {
+    return due[0];
   }
 
-  const lowest = candidates.filter(c => c.score === minScore);
-  return lowest[Math.floor(Math.random() * lowest.length)];
+  if (learning.length > 0) {
+    const filtered = learning.filter(c => c.word.id !== lastWordId);
+    const candidates = filtered.length > 0 ? filtered : learning;
+
+    let minScore = Infinity;
+    for (const c of candidates) {
+      if (c.score < minScore) minScore = c.score;
+    }
+
+    const lowest = candidates.filter(c => c.score === minScore);
+    return lowest[Math.floor(Math.random() * lowest.length)];
+  }
+
+  // Nothing left to learn — pull pending confirmations forward, stalest first.
+  const filtered = graduated.filter(c => c.word.id !== lastWordId);
+  const candidates = filtered.length > 0 ? filtered : graduated;
+  return candidates.sort((a, b) => a.resurfaceAt - b.resurfaceAt)[0];
 }
 
 function getWordScores(cards, wordId) {
@@ -211,23 +233,6 @@ function didWordJustGraduate(prevCards, updatedCards, wordId) {
     !isGraduated(getWordScores(prevCards, wordId)) &&
     isGraduated(getWordScores(updatedCards, wordId))
   );
-}
-
-function allCardsGraduated(cards) {
-  const scoreByWord = {};
-  for (const card of cards) {
-    if (!scoreByWord[card.word.id]) {
-      scoreByWord[card.word.id] = {};
-    }
-    scoreByWord[card.word.id][card.direction] = card.score;
-  }
-
-  for (const wordId in scoreByWord) {
-    if (!isGraduated(scoreByWord[wordId])) {
-      return false;
-    }
-  }
-  return true;
 }
 
 function shuffle(array) {
@@ -305,12 +310,16 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
   const [introducedCount, setIntroducedCount] = useState(0);
   const totalCount = words.length;
   const lastWordIdRef = useRef(null);
+  const quizCountRef = useRef(0);
   const [toasts, pushToast] = useToasts();
 
   const scheduleNextCard = useCallback((updatedCards) => {
-    const next = pickNextCard(updatedCards, lastWordIdRef.current);
+    const next = pickNextCard(updatedCards, lastWordIdRef.current, quizCountRef.current);
     if (next) {
       setCurrentCard(next);
+    } else {
+      setSessionDone(true);
+      setCurrentCard(null);
     }
   }, []);
 
@@ -344,12 +353,7 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
             setIntroWord(next);
             return rest;
           }
-          const allGraduated = allCardsGraduated(updated);
-          if (allGraduated) {
-            setSessionDone(true);
-          } else {
-            scheduleNextCard(updated);
-          }
+          scheduleNextCard(updated);
           return prevNI;
         });
       } else {
@@ -369,13 +373,22 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
   const handleGotIt = useCallback(() => {
     if (!currentCard) return;
     lastWordIdRef.current = currentCard.word.id;
+    quizCountRef.current += 1;
 
     setCards(prev => {
-      const updated = prev.map(c =>
-        c.word.id === currentCard.word.id && c.direction === currentCard.direction
-          ? { ...c, score: c.score + 1 }
-          : c
-      );
+      const updated = prev.map(c => {
+        if (c.word.id !== currentCard.word.id || c.direction !== currentCard.direction) {
+          return c;
+        }
+        if (c.score >= GRADUATE_THRESHOLD) {
+          // Passed the delayed confirmation — done for the session.
+          return { ...c, retired: true };
+        }
+        const score = c.score + 1;
+        return score >= GRADUATE_THRESHOLD
+          ? { ...c, score, resurfaceAt: quizCountRef.current + RESURFACE_GAP }
+          : { ...c, score };
+      });
 
       if (didWordJustGraduate(prev, updated, currentCard.word.id)) {
         setNotIntroduced(prevNI => {
@@ -385,12 +398,7 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
             setCurrentCard(null);
             return rest;
           }
-          if (allCardsGraduated(updated)) {
-            setSessionDone(true);
-            setCurrentCard(null);
-          } else {
-            scheduleNextCard(updated);
-          }
+          scheduleNextCard(updated);
           return prevNI;
         });
       } else {
@@ -404,6 +412,7 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
   const handleForgot = useCallback(() => {
     if (!currentCard) return;
     lastWordIdRef.current = currentCard.word.id;
+    quizCountRef.current += 1;
 
     setCards(prev => {
       const updated = prev.map(c =>
