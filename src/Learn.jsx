@@ -5,8 +5,9 @@ import { useCollections } from "./collections";
 import { useRoute, setRoute } from "./router";
 import { ChineseDisplay } from "./ChineseDisplay";
 import { AnswerInput } from "./AnswerInput";
+import { useToasts, ToastStack } from "./Toasts";
 import { useConfig } from "./config";
-import { DEFAULT_DISPLAY_SCRIPT } from "./display";
+import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
 const GRADUATE_THRESHOLD = 1;
 const INITIAL_BATCH_SIZE = 2;
@@ -53,8 +54,9 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
   );
 }
 
-function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
+function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset, onToast }) {
   const [revealed, setRevealed] = useState(false);
+  const [gaveUp, setGaveUp] = useState(false);
   const word = card.word;
   const isZh2En = card.direction === 'zh2en';
 
@@ -95,7 +97,15 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
             ) : (
               <div className={styles.flashcardPrompt}>{word.english}</div>
             )}
-            <div className={styles.flashcardTapHint}>Type your answer or tap to reveal</div>
+            {gaveUp ? (
+              <div className={styles.giveUpAnswer}>
+                {isZh2En
+                  ? word.english
+                  : `${getPreferredChineseText(word, displayScript)} ${word.pinyin}`}
+              </div>
+            ) : (
+              <div className={styles.flashcardTapHint}>Type your answer or tap to reveal</div>
+            )}
           </div>
         ) : (
           <div className={styles.flashcardBack}>
@@ -107,7 +117,21 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset }) {
       </div>
 
       {!revealed ? (
-        <AnswerInput word={word} direction={card.direction} onCorrect={onGotIt} />
+        <AnswerInput
+          word={word}
+          direction={card.direction}
+          onCorrect={(clean) => {
+            if (clean) {
+              onToast('Got it', styles.ratingGood);
+              onGotIt();
+            } else {
+              onToast('Forgot', styles.ratingHard);
+              onForgot();
+            }
+          }}
+          gaveUp={gaveUp}
+          onGiveUp={() => setGaveUp(true)}
+        />
       ) : (
         <div className={styles.learnActions}>
           <button className={`${styles.ratingButton} ${styles.ratingGood}`} onClick={onGotIt}>
@@ -278,6 +302,7 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
   const [introducedCount, setIntroducedCount] = useState(0);
   const totalCount = words.length;
   const lastWordIdRef = useRef(null);
+  const [toasts, pushToast] = useToasts();
 
   const scheduleNextCard = useCallback((updatedCards) => {
     const next = pickNextCard(updatedCards, lastWordIdRef.current);
@@ -428,6 +453,7 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
   if (introWord && !skipIntro) {
     return (
       <div>
+        <ToastStack toasts={toasts} />
         <LearnProgress collectionName={collectionName} introducedCount={introducedCount} totalCount={totalCount} onEnd={handleEndSession} />
         <LearnIntroCard
           key={introWord.id}
@@ -443,6 +469,7 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
   if (currentCard) {
     return (
       <div>
+        <ToastStack toasts={toasts} />
         <LearnProgress collectionName={collectionName} introducedCount={introducedCount} totalCount={totalCount} onEnd={handleEndSession} />
         <LearnQuizCard
           key={`${currentCard.word.id}-${currentCard.direction}-${currentCard.score}`}
@@ -451,6 +478,7 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
           onGotIt={handleGotIt}
           onForgot={handleForgot}
           onReset={handleReset}
+          onToast={pushToast}
         />
       </div>
     );

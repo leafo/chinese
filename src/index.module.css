@@ -1510,6 +1510,42 @@
   display: flex;
 }
 
+.toastStack {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.toast {
+  padding: 8px 16px;
+  border: 2px solid;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  animation: toastLife 2s ease forwards;
+}
+
+@keyframes toastLife {
+  0% { opacity: 0; transform: translateX(12px); }
+  8% { opacity: 1; transform: translateX(0); }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.giveUpAnswer {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-danger);
+  margin-top: 16px;
+}
+
 .typingInput {
   flex: 1;
   padding: 12px 16px;

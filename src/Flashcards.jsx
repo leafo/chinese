@@ -8,8 +8,9 @@ import { CollectionSelector } from "./CollectionSelector";
 import { EditWordDialog } from "./EditWordDialog";
 import { ChineseDisplay } from "./ChineseDisplay";
 import { AnswerInput } from "./AnswerInput";
+import { useToasts, ToastStack } from "./Toasts";
 import { useConfig } from "./config";
-import { DEFAULT_DISPLAY_SCRIPT } from "./display";
+import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
 const RATINGS = [
   { key: 'again', label: 'Again', className: 'ratingAgain' },
@@ -81,6 +82,7 @@ function FlashcardDashboard({ stats, loading, error, onStart, collections, colle
 }
 
 function FlashcardCard({ card, revealed, busy, onReveal, onRate, onEdit, displayScript }) {
+  const [gaveUp, setGaveUp] = useState(false);
   const word = card.word;
   const isZh2En = card.direction === 'zh2en';
 
@@ -126,7 +128,15 @@ function FlashcardCard({ card, revealed, busy, onReveal, onRate, onEdit, display
             ) : (
               <div className={styles.flashcardPrompt}>{word.english}</div>
             )}
-            <div className={styles.flashcardTapHint}>Type your answer or tap to reveal</div>
+            {gaveUp ? (
+              <div className={styles.giveUpAnswer}>
+                {isZh2En
+                  ? word.english
+                  : `${getPreferredChineseText(word, displayScript)} ${word.pinyin}`}
+              </div>
+            ) : (
+              <div className={styles.flashcardTapHint}>Type your answer or tap to reveal</div>
+            )}
           </div>
         ) : (
           <div className={styles.flashcardBack}>
@@ -142,8 +152,10 @@ function FlashcardCard({ card, revealed, busy, onReveal, onRate, onEdit, display
         <AnswerInput
           word={word}
           direction={card.direction}
-          onCorrect={() => onRate('good')}
+          onCorrect={(clean) => onRate(clean ? 'good' : 'again', true)}
           disabled={busy}
+          gaveUp={gaveUp}
+          onGiveUp={() => setGaveUp(true)}
         />
       )}
 
@@ -221,6 +233,7 @@ export function Flashcards() {
   const [editingWord, setEditingWord] = useState(null);
   const ratingPendingRef = useRef(false);
   const activeFilterRef = useRef(selectedCollectionIds);
+  const [toasts, pushToast] = useToasts();
 
   const toggleCollection = useCallback((id) => {
     setSelectedCollectionIds(prev =>
@@ -251,9 +264,14 @@ export function Flashcards() {
     setRevealed(true);
   }, []);
 
-  const handleRate = useCallback(async (rating) => {
+  const handleRate = useCallback(async (rating, fromTyping) => {
     if (!card || ratingPendingRef.current) {
       return;
+    }
+
+    if (fromTyping) {
+      const { label, className } = RATINGS.find(r => r.key === rating);
+      pushToast(label, styles[className]);
     }
 
     ratingPendingRef.current = true;
@@ -268,7 +286,7 @@ export function Flashcards() {
       ratingPendingRef.current = false;
       setRatingPending(false);
     }
-  }, [card, fetchNextCard]);
+  }, [card, fetchNextCard, pushToast]);
 
   const endSession = useCallback(() => {
     ratingPendingRef.current = false;
@@ -306,12 +324,15 @@ export function Flashcards() {
 
   if (!card && !loadingCard) {
     return (
-      <FlashcardSummary
-        results={results}
-        onContinue={startReview}
-        onDone={() => { setActive(false); setResults([]); }}
-        allDone
-      />
+      <div>
+        <ToastStack toasts={toasts} />
+        <FlashcardSummary
+          results={results}
+          onContinue={startReview}
+          onDone={() => { setActive(false); setResults([]); }}
+          allDone
+        />
+      </div>
     );
   }
 
@@ -321,6 +342,7 @@ export function Flashcards() {
 
   return (
     <div>
+      <ToastStack toasts={toasts} />
       <div className={styles.flashcardProgress}>
         Reviewed: {results.length}
         <button className={styles.smallButton} onClick={endSession} style={{ marginLeft: 'auto' }} disabled={ratingPending}>
