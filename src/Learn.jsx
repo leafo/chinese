@@ -167,11 +167,19 @@ function LearnSummary({ introducedCount, totalCount, onDone }) {
   );
 }
 
-function LearnProgress({ collectionName, introducedCount, totalCount, onEnd }) {
+function LearnProgress({ collectionName, introducedCount, totalCount, onEnd, onShuffle }) {
   return (
     <div className={styles.flashcardProgress}>
       Learning: {collectionName} — {introducedCount}/{totalCount} words introduced
-      <button className={styles.smallButton} onClick={onEnd} style={{ marginLeft: 'auto' }}>
+      <button
+        className={`${styles.smallButton} ${styles.pushRight}`}
+        onClick={() => {
+          if (confirm('Reshuffle words and restart this session?')) onShuffle();
+        }}
+      >
+        Shuffle
+      </button>
+      <button className={styles.smallButton} onClick={onEnd}>
         End Session
       </button>
     </div>
@@ -298,7 +306,7 @@ function CollectionPicker({ collections, loading, onSelect, shuffleWords, onTogg
   );
 }
 
-function LearnSession({ words, collectionName, displayScript, direction, skipIntro }) {
+function LearnSession({ words, collectionName, displayScript, direction, skipIntro, onShuffle }) {
   const [notIntroduced, setNotIntroduced] = useState(() => {
     const [, ...rest] = words;
     return rest;
@@ -311,11 +319,13 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
   const totalCount = words.length;
   const lastWordIdRef = useRef(null);
   const quizCountRef = useRef(0);
+  const pickSeqRef = useRef(0);
   const [toasts, pushToast] = useToasts();
 
   const scheduleNextCard = useCallback((updatedCards) => {
     const next = pickNextCard(updatedCards, lastWordIdRef.current, quizCountRef.current);
     if (next) {
+      pickSeqRef.current += 1;
       setCurrentCard(next);
     } else {
       setSessionDone(true);
@@ -466,7 +476,7 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
     return (
       <div>
         <ToastStack toasts={toasts} />
-        <LearnProgress collectionName={collectionName} introducedCount={introducedCount} totalCount={totalCount} onEnd={handleEndSession} />
+        <LearnProgress collectionName={collectionName} introducedCount={introducedCount} totalCount={totalCount} onEnd={handleEndSession} onShuffle={onShuffle} />
         <LearnIntroCard
           key={introWord.id}
           word={introWord}
@@ -482,9 +492,9 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
     return (
       <div>
         <ToastStack toasts={toasts} />
-        <LearnProgress collectionName={collectionName} introducedCount={introducedCount} totalCount={totalCount} onEnd={handleEndSession} />
+        <LearnProgress collectionName={collectionName} introducedCount={introducedCount} totalCount={totalCount} onEnd={handleEndSession} onShuffle={onShuffle} />
         <LearnQuizCard
-          key={`${currentCard.word.id}-${currentCard.direction}-${currentCard.score}`}
+          key={pickSeqRef.current}
           card={currentCard}
           displayScript={displayScript}
           onGotIt={handleGotIt}
@@ -508,6 +518,7 @@ export function Learn() {
   const [shuffleWords, setShuffleWords] = useState(false);
   const [direction, setDirection] = useState('both');
   const [skipIntro, setSkipIntro] = useState(false);
+  const [reshuffle, setReshuffle] = useState(null);
   const collectionId = routeCollection ? parseInt(routeCollection, 10) : null;
 
   const collectionWords = useMemo(() => {
@@ -557,14 +568,23 @@ export function Learn() {
 
   const collectionName = collections?.find(c => c.id === collectionId)?.name || 'Collection';
 
+  // A reshuffle only applies to the session it restarted; it holds a one-shot
+  // shuffled copy of the words and is ignored once the collection changes.
+  const activeReshuffle = reshuffle && reshuffle.collectionId === collectionId ? reshuffle : null;
+
   return (
     <LearnSession
-      key={collectionId}
-      words={shuffleWords ? shuffle(collectionWords) : collectionWords}
+      key={`${collectionId}-${activeReshuffle ? activeReshuffle.nonce : 0}`}
+      words={activeReshuffle ? activeReshuffle.words : (shuffleWords ? shuffle(collectionWords) : collectionWords)}
       collectionName={collectionName}
       displayScript={preferredScript}
       direction={direction}
       skipIntro={skipIntro}
+      onShuffle={() => setReshuffle(prev => ({
+        collectionId,
+        words: shuffle(collectionWords),
+        nonce: (prev?.nonce || 0) + 1,
+      }))}
     />
   );
 }

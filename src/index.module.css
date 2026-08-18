@@ -1539,6 +1539,10 @@
   100% { opacity: 0; }
 }
 
+.pushRight {
+  margin-left: auto;
+}
+
 .flashcardEditButton {
   position: absolute;
   top: 12px;
