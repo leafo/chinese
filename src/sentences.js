@@ -84,6 +84,15 @@ export function useSentences(limit = 100, offset = 0) {
   return useAsync(() => getSentencesOrderedByIdDesc(limit, offset), [limit, offset, dbVersion]);
 }
 
+export function useSentencesForWord(wordId) {
+  const dbVersion = useDependency();
+  return useAsync(async () => {
+    const parsedId = parseId(wordId);
+    const sentences = await getAllSentences();
+    return sentences.filter(s => (s.word_ids || []).includes(parsedId));
+  }, [wordId, dbVersion]);
+}
+
 export function useAllSentences() {
   const dbVersion = useDependency();
   return useAsync(() => getAllSentences(), [dbVersion]);

@@ -5,6 +5,7 @@ import { useCollections } from "./collections";
 import { useRoute, setRoute } from "./router";
 import { ChineseDisplay } from "./ChineseDisplay";
 import { AnswerInput } from "./AnswerInput";
+import { WordSentences } from "./WordSentences";
 import { useToasts, ToastStack } from "./Toasts";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
@@ -39,6 +40,7 @@ function LearnIntroCard({ word, displayScript, onDone, onKnown }) {
           <ChineseDisplay word={word} displayScript={displayScript} autoPlay />
           <div className={styles.flashcardEnglish}>{word.english}</div>
           {word.notes && <div className={styles.flashcardNotes}>{word.notes}</div>}
+          <WordSentences word={word} displayScript={displayScript} />
         </div>
       </div>
       <AnswerInput word={word} direction="en2zh" onCorrect={onDone} />
@@ -112,6 +114,7 @@ function LearnQuizCard({ card, displayScript, onGotIt, onForgot, onReset, onToas
             <ChineseDisplay word={word} displayScript={displayScript} autoPlay={!isZh2En} />
             <div className={styles.flashcardEnglish}>{word.english}</div>
             {word.notes && <div className={styles.flashcardNotes}>{word.notes}</div>}
+            <WordSentences word={word} displayScript={displayScript} />
           </div>
         )}
       </div>

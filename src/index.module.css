@@ -1320,6 +1320,7 @@
 }
 
 .flashcardCard {
+  position: relative;
   min-height: 280px;
   display: flex;
   align-items: center;
@@ -1363,7 +1364,6 @@
 
 .flashcardChinese {
   font-size: 36px;
-  font-weight: 600;
   color: var(--color-text-primary);
 }
 
@@ -1539,9 +1539,55 @@
   100% { opacity: 0; }
 }
 
+.flashcardEditButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.cardSentences {
+  width: 100%;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.cardSentence {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.cardSentenceTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cardSentenceChinese {
+  font-size: 16px;
+}
+
+.cardSentencePinyin {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.cardSentenceEnglish {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.cardSentenceHighlight {
+  color: var(--color-primary);
+}
+
 .giveUpAnswer {
   font-size: 16px;
-  font-weight: 600;
   color: var(--color-danger);
   margin-top: 16px;
 }

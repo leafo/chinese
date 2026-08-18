@@ -8,6 +8,7 @@ import { CollectionSelector } from "./CollectionSelector";
 import { EditWordDialog } from "./EditWordDialog";
 import { ChineseDisplay } from "./ChineseDisplay";
 import { AnswerInput } from "./AnswerInput";
+import { WordSentences } from "./WordSentences";
 import { useToasts, ToastStack } from "./Toasts";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
@@ -143,7 +144,8 @@ function FlashcardCard({ card, revealed, busy, onReveal, onRate, onEdit, display
             <ChineseDisplay word={word} displayScript={displayScript} autoPlay={!isZh2En} />
             <div className={styles.flashcardEnglish}>{word.english}</div>
             {word.notes && <div className={styles.flashcardNotes}>{word.notes}</div>}
-            <button type="button" className={styles.smallButton} onClick={onEdit} disabled={busy}>Edit</button>
+            <WordSentences word={word} displayScript={displayScript} />
+            <button type="button" className={`${styles.smallButton} ${styles.flashcardEditButton}`} onClick={onEdit} disabled={busy}>Edit</button>
           </div>
         )}
       </div>
