@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import styles from "./index.module.css";
 import { useModalDialog } from "./util";
 
-const TONE_MAP = {
+export const TONE_MAP = {
   a: ['ā', 'á', 'ǎ', 'à'],
   e: ['ē', 'é', 'ě', 'è'],
   i: ['ī', 'í', 'ǐ', 'ì'],
@@ -57,7 +57,7 @@ function isTonedVowel(char) {
   return !!TONELESS_MAP[char];
 }
 
-function findToneVowelIndex(syllable) {
+export function findToneVowelIndex(syllable) {
   // Rule 1: a or e gets the mark
   for (let i = 0; i < syllable.length; i++) {
     if (syllable[i] === 'a' || syllable[i] === 'e') return i;

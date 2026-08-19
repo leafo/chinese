@@ -1,8 +1,11 @@
 import { useState, useCallback, useRef } from "react";
 import styles from "./index.module.css";
 import { PinyinInput } from "./PinyinInput";
+import { SyllablePicker } from "./SyllablePicker";
 import { matchPinyin, matchEnglish, comparePinyin } from "./matching";
 import { useShaker } from "./util";
+
+const PICKER_MODE_KEY = 'pinyinSyllablePicker';
 
 export function PinyinFeedback({ comparison }) {
   if (!comparison) return null;
@@ -28,7 +31,15 @@ export function AnswerInput({ word, direction, onCorrect, disabled, gaveUp, onGi
   const [shakeClass, shake] = useShaker();
   const [comparison, setComparison] = useState(null);
   const [hadMistake, setHadMistake] = useState(false);
+  const [pickerMode, setPickerMode] = useState(() => localStorage.getItem(PICKER_MODE_KEY) === '1');
   const isZh2En = direction === 'zh2en';
+
+  const togglePickerMode = () => {
+    setPickerMode((mode) => {
+      localStorage.setItem(PICKER_MODE_KEY, mode ? '' : '1');
+      return !mode;
+    });
+  };
 
   const typingValueRef = useRef('');
   typingValueRef.current = typingValue;
@@ -64,10 +75,10 @@ export function AnswerInput({ word, direction, onCorrect, disabled, gaveUp, onGi
     }
   }, []);
 
-  return (
-    <form className={styles.typingForm} onSubmit={handleSubmit}>
-      <div className={styles.typingInputWrap}>
-        {isZh2En ? (
+  if (isZh2En) {
+    return (
+      <form className={styles.typingForm} onSubmit={handleSubmit}>
+        <div className={styles.typingInputWrap}>
           <input
             autoFocus
             className={inputClassName}
@@ -76,19 +87,44 @@ export function AnswerInput({ word, direction, onCorrect, disabled, gaveUp, onGi
             onKeyDown={handleKeyDown}
             placeholder={gaveUp ? "Type the answer shown above..." : "Type English..."}
           />
-        ) : (
-          <PinyinInput
-            withHelp
-            autoFocus
-            className={inputClassName}
-            value={typingValue}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            placeholder={gaveUp ? "Type the answer shown above..." : "Type pinyin..."}
-          />
-        )}
-        <PinyinFeedback comparison={comparison} />
-      </div>
-    </form>
+          <PinyinFeedback comparison={comparison} />
+        </div>
+      </form>
+    );
+  }
+
+  return (
+    <div className={styles.answerInputColumn}>
+      {pickerMode ? (
+        <SyllablePicker
+          word={word}
+          onCorrect={onCorrect}
+          disabled={disabled}
+          gaveUp={gaveUp}
+        />
+      ) : (
+        <form className={styles.typingForm} onSubmit={handleSubmit}>
+          <div className={styles.typingInputWrap}>
+            <PinyinInput
+              withHelp
+              autoFocus
+              className={inputClassName}
+              value={typingValue}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              placeholder={gaveUp ? "Type the answer shown above..." : "Type pinyin..."}
+            />
+            <PinyinFeedback comparison={comparison} />
+          </div>
+        </form>
+      )}
+      <button
+        type="button"
+        className={styles.syllableModeToggle}
+        onClick={togglePickerMode}
+      >
+        {pickerMode ? 'Use keyboard' : 'Use syllable buttons'}
+      </button>
+    </div>
   );
 }
