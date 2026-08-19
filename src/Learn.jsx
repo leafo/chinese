@@ -11,6 +11,10 @@ import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 
 const GRADUATE_THRESHOLD = 2;
+// A word unlocks the next introduction as soon as every direction has this
+// many successful recalls — well before it fully graduates — so new words
+// keep flowing while earlier ones are still being consolidated.
+const INTRODUCE_THRESHOLD = 1;
 const INITIAL_BATCH_SIZE = 3;
 // How many quiz answers must pass after a card graduates before it comes back
 // for a delayed confirmation. Passing that confirmation retires the card.
@@ -231,15 +235,15 @@ function getWordScores(cards, wordId) {
   return scores;
 }
 
-function isGraduated(scores) {
+function meetsThreshold(scores, threshold) {
   const values = Object.values(scores);
-  return values.length > 0 && values.every(s => s >= GRADUATE_THRESHOLD);
+  return values.length > 0 && values.every(s => s >= threshold);
 }
 
-function didWordJustGraduate(prevCards, updatedCards, wordId) {
+function didWordJustReach(prevCards, updatedCards, wordId, threshold) {
   return (
-    !isGraduated(getWordScores(prevCards, wordId)) &&
-    isGraduated(getWordScores(updatedCards, wordId))
+    !meetsThreshold(getWordScores(prevCards, wordId), threshold) &&
+    meetsThreshold(getWordScores(updatedCards, wordId), threshold)
   );
 }
 
@@ -400,7 +404,7 @@ function LearnSession({ words, collectionName, displayScript, direction, skipInt
           : { ...c, score };
       });
 
-      if (didWordJustGraduate(prev, updated, currentCard.word.id)) {
+      if (didWordJustReach(prev, updated, currentCard.word.id, INTRODUCE_THRESHOLD)) {
         setNotIntroduced(prevNI => {
           if (prevNI && prevNI.length > 0) {
             const [next, ...rest] = prevNI;
