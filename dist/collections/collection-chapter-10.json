@@ -1,0 +1,390 @@
+{
+  "format": "chinese-collection-export",
+  "version": 2,
+  "exportedAt": "2026-08-29T02:24:00.422Z",
+  "collection": {
+    "name": "Chapter 10",
+    "notes": "Is it hard to learn Mandarin",
+    "objectives": ""
+  },
+  "words": [
+    {
+      "traditional": "學",
+      "simplified": "学",
+      "pinyin": "xué",
+      "english": "to learn",
+      "notes": "Handwritten note at top of page"
+    },
+    {
+      "traditional": "中文",
+      "simplified": "中文",
+      "pinyin": "Zhōngwén",
+      "english": "Mandarin (Chinese)",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "難",
+      "simplified": "难",
+      "pinyin": "nán",
+      "english": "hard, difficult",
+      "notes": "Part of speech: Vs (Stative Verb)"
+    },
+    {
+      "traditional": "休息",
+      "simplified": "休息",
+      "pinyin": "xiūxí",
+      "english": "to take a break",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "一下",
+      "simplified": "一下",
+      "pinyin": "yíxià",
+      "english": "used after a verb to indicate a quick action, for a short period of time",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "喝",
+      "simplified": "喝",
+      "pinyin": "hē",
+      "english": "to drink",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "杯",
+      "simplified": "杯",
+      "pinyin": "bēi",
+      "english": "measure word for drinks (cup / glass)",
+      "notes": "Part of speech: M (Measure Word)"
+    },
+    {
+      "traditional": "咖啡",
+      "simplified": "咖啡",
+      "pinyin": "kāfēi",
+      "english": "coffee",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "吧",
+      "simplified": "吧",
+      "pinyin": "ba",
+      "english": "sentence-final particle for suggestion",
+      "notes": "Part of speech: Ptc (Particle)"
+    },
+    {
+      "traditional": "得",
+      "simplified": "得",
+      "pinyin": "de",
+      "english": "complement marker",
+      "notes": "Part of speech: Ptc (Particle)"
+    },
+    {
+      "traditional": "覺得",
+      "simplified": "觉得",
+      "pinyin": "juéde",
+      "english": "to think, to feel",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "自己",
+      "simplified": "自己",
+      "pinyin": "zìjǐ",
+      "english": "self",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "不錯",
+      "simplified": "不错",
+      "pinyin": "búcuò",
+      "english": "not bad, pretty good",
+      "notes": "Part of speech: Vs (Stative Verb)"
+    },
+    {
+      "traditional": "會",
+      "simplified": "会",
+      "pinyin": "huì",
+      "english": "can, know how to",
+      "notes": "Part of speech: Vaux (Auxiliary Verb)"
+    },
+    {
+      "traditional": "多少",
+      "simplified": "多少",
+      "pinyin": "duōshǎo",
+      "english": "how much, how many",
+      "notes": "Part of speech: QPr (Question Pronoun)"
+    },
+    {
+      "traditional": "差不多",
+      "simplified": "差不多",
+      "pinyin": "chàbùduō",
+      "english": "approximately",
+      "notes": "Part of speech: Adv (Adverb)"
+    },
+    {
+      "traditional": "字",
+      "simplified": "字",
+      "pinyin": "zì",
+      "english": "traditional character / character",
+      "notes": "Part of speech: N (Noun)"
+    },
+    {
+      "traditional": "練習",
+      "simplified": "练习",
+      "pinyin": "liànxí",
+      "english": "to practice",
+      "notes": "Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "說話",
+      "simplified": "说话",
+      "pinyin": "shuō huà",
+      "english": "to talk",
+      "notes": "Phrase (短語)"
+    },
+    {
+      "traditional": "寫字",
+      "simplified": "写字",
+      "pinyin": "xiě zì",
+      "english": "to write characters",
+      "notes": "Phrase (短語)"
+    },
+    {
+      "traditional": "有一點",
+      "simplified": "有一点",
+      "pinyin": "yǒu yìdiǎn",
+      "english": "a little, somewhat",
+      "notes": "Phrase (短語)"
+    },
+    {
+      "traditional": "聊天",
+      "simplified": "聊天",
+      "pinyin": "liáo tiān",
+      "english": "to chat",
+      "notes": "Phrase (短語)"
+    },
+    {
+      "traditional": "做飯",
+      "simplified": "做饭",
+      "pinyin": "zuò fàn",
+      "english": "to cook",
+      "notes": "Supplementary Vocabulary (補充生詞); Part of speech: V (Verb)"
+    },
+    {
+      "traditional": "快",
+      "simplified": "快",
+      "pinyin": "kuài",
+      "english": "fast, quick",
+      "notes": "Supplementary Vocabulary (補充生詞); Part of speech: Vs (Stative Verb)"
+    },
+    {
+      "traditional": "貴",
+      "simplified": "贵",
+      "pinyin": "guì",
+      "english": "expensive",
+      "notes": "Supplementary Vocabulary (補充生詞); Part of speech: Vs (Stative Verb)"
+    }
+  ],
+  "sentences": [],
+  "audio_clips": [
+    {
+      "mimeType": "audio/mpeg",
+      "durationMs": 1411,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "text": "xué",
+      "url": "collections/audio/xue2.mp3"
+    },
+    {
+      "text": "zhōngwén",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1440,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zho1ngwe2n.mp3"
+    },
+    {
+      "text": "nán",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1480,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/na2n.mp3"
+    },
+    {
+      "text": "xiūxí",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1640,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xiu1xi2.mp3"
+    },
+    {
+      "text": "yíxià",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1480,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/yi2xia4.mp3"
+    },
+    {
+      "text": "hē",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1480,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/he1.mp3"
+    },
+    {
+      "text": "bēi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1440,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/be1i.mp3"
+    },
+    {
+      "text": "kāfēi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1680,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ka1fe1i.mp3"
+    },
+    {
+      "text": "ba",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1120,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ba.mp3"
+    },
+    {
+      "text": "de",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/de.mp3"
+    },
+    {
+      "text": "juéde",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1680,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/jue2de.mp3"
+    },
+    {
+      "text": "zìjǐ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1960,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zi4ji3.mp3"
+    },
+    {
+      "text": "búcuò",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/bu2cuo4.mp3"
+    },
+    {
+      "text": "huì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1080,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/hui4.mp3"
+    },
+    {
+      "text": "duōshǎo",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1640,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/duo1sha3o.mp3"
+    },
+    {
+      "text": "chàbùduō",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1920,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/cha4bu4duo1.mp3"
+    },
+    {
+      "text": "zì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1120,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zi4.mp3"
+    },
+    {
+      "text": "liànxí",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/lia4nxi2.mp3"
+    },
+    {
+      "text": "shuōhuà",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/shuo1hua4.mp3"
+    },
+    {
+      "text": "xiězì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xie3zi4.mp3"
+    },
+    {
+      "text": "yǒuyìdiǎn",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/yo3uyi4dia3n.mp3"
+    },
+    {
+      "text": "liáotiān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/lia2otia1n.mp3"
+    },
+    {
+      "text": "zuòfàn",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zuo4fa4n.mp3"
+    },
+    {
+      "text": "kuài",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1200,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/kua4i.mp3"
+    },
+    {
+      "text": "guì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1200,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/gui4.mp3"
+    }
+  ]
+}

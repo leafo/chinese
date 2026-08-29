@@ -89,9 +89,11 @@ function updateIndex(collections) {
   }
 }
 
+const collator = new Intl.Collator('en', { numeric: true });
+
 const files = fs.readdirSync(COLLECTIONS_DIR)
   .filter(f => f.startsWith('collection-') && f.endsWith('.json'))
-  .sort();
+  .sort(collator.compare);
 
 if (files.length === 0) {
   console.log('No collection files found in dist/collections/');

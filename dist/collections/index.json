@@ -52,5 +52,11 @@
     "name": "Chapter 9",
     "notes": "Are you free on Friday?",
     "wordCount": 29
+  },
+  {
+    "file": "collection-chapter-10.json",
+    "name": "Chapter 10",
+    "notes": "Is it hard to learn Mandarin",
+    "wordCount": 25
   }
 ]
