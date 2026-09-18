@@ -8,6 +8,7 @@ import { Settings } from "./Settings";
 import { AudioManager } from "./AudioManager";
 import { Flashcards } from "./Flashcards";
 import { Learn } from "./Learn";
+import { Exercise } from "./Exercise";
 import { Writing } from "./Writing";
 import { SentenceList } from "./SentenceList";
 import { GenerateSentences } from "./GenerateSentences";
@@ -58,6 +59,12 @@ function App() {
             Review
           </button>
           <button
+            className={view === 'exercise' ? styles.navButtonActive : styles.navButton}
+            onClick={() => setRoute({ view: 'exercise' })}
+          >
+            Exercise
+          </button>
+          <button
             className={view === 'audio' ? styles.navButtonActive : styles.navButton}
             onClick={() => setRoute({ view: 'audio' })}
           >
@@ -80,6 +87,7 @@ function App() {
       {view === 'generate-sentences' && <GenerateSentences />}
       {view === 'generate-collection' && <GenerateCollection />}
       {view === 'learn' && <Learn />}
+      {view === 'exercise' && <Exercise />}
       {view === 'writing' && <Writing />}
       {view === 'flashcards' && <Flashcards />}
       {view === 'import-collection' && <ImportCollection />}
