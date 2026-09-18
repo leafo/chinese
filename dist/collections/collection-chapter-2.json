@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
-  "version": 1,
-  "exportedAt": "2026-04-07T20:01:00.011Z",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.656Z",
   "collection": {
     "name": "Chapter 2",
     "notes": "I have two younger brothers",
@@ -12,7 +12,7 @@
       "traditional": "有",
       "simplified": "有",
       "pinyin": "yǒu",
-      "english": "to have, there is, there are",
+      "english": "to have, there is / are",
       "notes": "V"
     },
     {
@@ -105,6 +105,164 @@
       "pinyin": "mèimei",
       "english": "younger sister",
       "notes": "N; Supplementary Vocabulary"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "你有兄弟姐妹嗎？",
+      "simplified": "你有兄弟姐妹吗？",
+      "pinyin": "Nǐ yǒu xiōngdì jiěmèi ma?",
+      "english": "Do you have any siblings?",
+      "notes": "",
+      "words_used": [
+        "有",
+        "兄弟姐妹",
+        "吗"
+      ]
+    },
+    {
+      "traditional": "我沒有姐姐，只有一個哥哥。",
+      "simplified": "我没有姐姐，只有一个哥哥。",
+      "pinyin": "Wǒ méiyǒu jiějie, zhǐyǒu yī gè gēge.",
+      "english": "I don't have an older sister, I only have an older brother.",
+      "notes": "",
+      "words_used": [
+        "没",
+        "有",
+        "姐姐",
+        "只",
+        "一",
+        "个",
+        "哥哥"
+      ]
+    },
+    {
+      "traditional": "我有一個哥哥，還有兩個姐姐。",
+      "simplified": "我有一个哥哥，还有两个姐姐。",
+      "pinyin": "wǒ yǒu yí gè gēge, hái yǒu liǎng gè jiějie",
+      "english": "I have an older brother and two older sisters.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "有",
+        "一",
+        "个",
+        "哥哥",
+        "还",
+        "两",
+        "姐姐"
+      ]
+    },
+    {
+      "traditional": "我有兩個弟弟。",
+      "simplified": "我有两个弟弟。",
+      "pinyin": "Wǒ yǒu liǎng ge dìdi.",
+      "english": "I have two younger brothers.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "有",
+        "两",
+        "个",
+        "弟弟"
+      ]
+    },
+    {
+      "traditional": "你有姐姐嗎？",
+      "simplified": "你有姐姐吗？",
+      "pinyin": "Nǐ yǒu jiějie ma?",
+      "english": "Do you have an older sister?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "有",
+        "姐姐",
+        "吗"
+      ]
+    },
+    {
+      "traditional": "他沒有哥哥，也沒有妹妹。",
+      "simplified": "他没有哥哥，也没有妹妹。",
+      "pinyin": "Tā méi yǒu gēge, yě méi yǒu mèimei.",
+      "english": "He has no older brother, and also no younger sister.",
+      "notes": "",
+      "words_used": [
+        "没",
+        "有",
+        "哥哥",
+        "也",
+        "妹妹"
+      ]
+    },
+    {
+      "traditional": "她只有一個哥哥。",
+      "simplified": "她只有一个哥哥。",
+      "pinyin": "Tā zhǐ yǒu yí ge gēge.",
+      "english": "She has only one older brother.",
+      "notes": "",
+      "words_used": [
+        "只",
+        "有",
+        "一",
+        "个",
+        "哥哥"
+      ]
+    },
+    {
+      "traditional": "這是誰的妹妹？",
+      "simplified": "这是谁的妹妹？",
+      "pinyin": "Zhè shì shéi de mèimei?",
+      "english": "Whose younger sister is this?",
+      "notes": "",
+      "words_used": [
+        "这",
+        "是",
+        "谁",
+        "妹妹"
+      ]
+    },
+    {
+      "traditional": "我有一個姐姐，你呢？",
+      "simplified": "我有一个姐姐，你呢？",
+      "pinyin": "Wǒ yǒu yí ge jiějie, nǐ ne?",
+      "english": "I have one older sister, and you?",
+      "notes": "",
+      "words_used": [
+        "我",
+        "有",
+        "一",
+        "个",
+        "姐姐",
+        "你"
+      ]
+    },
+    {
+      "traditional": "那兩個人是我的兄弟姐妹。",
+      "simplified": "那两个人是我的兄弟姐妹。",
+      "pinyin": "Nà liǎng ge rén shì wǒ de xiōngdì jiěmèi.",
+      "english": "Those two people are my siblings.",
+      "notes": "",
+      "words_used": [
+        "那",
+        "两",
+        "个",
+        "人",
+        "是",
+        "我",
+        "兄弟姐妹"
+      ]
+    },
+    {
+      "traditional": "他們有弟弟嗎？",
+      "simplified": "他们有弟弟吗？",
+      "pinyin": "Tāmen yǒu dìdi ma?",
+      "english": "Do they have younger brothers?",
+      "notes": "",
+      "words_used": [
+        "有",
+        "弟弟",
+        "吗"
+      ]
     }
   ],
   "audio_clips": [
@@ -219,6 +377,94 @@
       "voice": "Zephyr",
       "text": "mèimei",
       "url": "collections/audio/me4imei.mp3"
+    },
+    {
+      "text": "nǐyǒuxiōngdìjiěmèima",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3yo3uxio1ngdi4jie3me4ima.mp3"
+    },
+    {
+      "text": "wǒméiyǒujiějiezhǐyǒuyīgègēge",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3me2iyo3ujie3jiezhi3yo3uyi1ge4ge1ge.mp3"
+    },
+    {
+      "text": "wǒyǒuyígègēgeháiyǒuliǎnggèjiějie",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6920,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3yo3uyi2ge4ge1geha2iyo3ulia3ngge4jie3jie.mp3"
+    },
+    {
+      "text": "wǒyǒuliǎnggedìdi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3960,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3yo3ulia3nggedi4di.mp3"
+    },
+    {
+      "text": "nǐyǒujiějiema",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2600,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3yo3ujie3jiema.mp3"
+    },
+    {
+      "text": "tāméiyǒugēgeyěméiyǒumèimei",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5880,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1me2iyo3uge1geye3me2iyo3ume4imei.mp3"
+    },
+    {
+      "text": "tāzhǐyǒuyígegēge",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4000,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1zhi3yo3uyi2gege1ge.mp3"
+    },
+    {
+      "text": "zhèshìshéidemèimei",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3240,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4shi4she2ideme4imei.mp3"
+    },
+    {
+      "text": "wǒyǒuyígejiějienǐne",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5120,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3yo3uyi2gejie3jieni3ne.mp3"
+    },
+    {
+      "text": "nàliǎnggerénshìwǒdexiōngdìjiěmèi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/na4lia3nggere2nshi4wo3dexio1ngdi4jie3me4i.mp3"
+    },
+    {
+      "text": "tāmenyǒudìdima",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3680,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1menyo3udi4dima.mp3"
     }
   ]
 }

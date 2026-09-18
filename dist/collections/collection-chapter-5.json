@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
-  "version": 1,
-  "exportedAt": "2026-04-07T20:01:36.959Z",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.682Z",
   "collection": {
     "name": "Chapter 5",
     "notes": "Welcome",
@@ -47,7 +47,7 @@
       "traditional": "住在",
       "simplified": "住在",
       "pinyin": "zhù zài",
-      "english": "to live in / to live at",
+      "english": "to live in / at",
       "notes": "V"
     },
     {
@@ -144,9 +144,114 @@
     {
       "traditional": "舊金山",
       "simplified": "旧金山",
-      "pinyin": "Jiùjīnshān",
+      "pinyin": "jiù jīn shān",
       "english": "San Francisco",
       "notes": "Handwritten supplementary vocabulary"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "這是我的朋友。",
+      "simplified": "这是我的朋友。",
+      "pinyin": "Zhè shì wǒ de péngyǒu.",
+      "english": "This is my friend.",
+      "notes": "",
+      "words_used": [
+        "这",
+        "是",
+        "我",
+        "朋友"
+      ]
+    },
+    {
+      "traditional": "認識你我很高興。",
+      "simplified": "认识你我很高兴。",
+      "pinyin": "Rènshì nǐ wǒ hěn gāoxìng.",
+      "english": "I am very happy to meet you.",
+      "notes": "",
+      "words_used": [
+        "认识",
+        "你",
+        "我",
+        "很",
+        "高兴"
+      ]
+    },
+    {
+      "traditional": "他平常住在加州。",
+      "simplified": "他平常住在加州。",
+      "pinyin": "Tā píngcháng zhù zài Jiāzhōu.",
+      "english": "He usually lives in California.",
+      "notes": "",
+      "words_used": [
+        "平常",
+        "住在",
+        "加州"
+      ]
+    },
+    {
+      "traditional": "你的父母現在在哪裡？",
+      "simplified": "你的父母现在在哪里？",
+      "pinyin": "Nǐ de fùmǔ xiànzài zài nǎlǐ?",
+      "english": "Where are your parents now?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "父母",
+        "现在",
+        "在",
+        "哪"
+      ]
+    },
+    {
+      "traditional": "她們想去公園玩。",
+      "simplified": "她们想去公园玩。",
+      "pinyin": "Tāmen xiǎng qù gōngyuán wán.",
+      "english": "They would like to go to the park to have fun.",
+      "notes": "",
+      "words_used": [
+        "想",
+        "去",
+        "公园",
+        "玩"
+      ]
+    },
+    {
+      "traditional": "誰來學校？",
+      "simplified": "谁来学校？",
+      "pinyin": "Shéi lái xuéxiào?",
+      "english": "Who is coming to the school?",
+      "notes": "",
+      "words_used": [
+        "谁",
+        "来",
+        "学校"
+      ]
+    },
+    {
+      "traditional": "歡迎來舊金山，好久不見！",
+      "simplified": "欢迎来旧金山，好久不见！",
+      "pinyin": "Huānyíng lái Jiùjīnshān, hǎojiǔ bújiàn!",
+      "english": "Welcome to San Francisco, long time no see!",
+      "notes": "",
+      "words_used": [
+        "欢迎",
+        "来",
+        "旧金山",
+        "好久不见"
+      ]
+    },
+    {
+      "traditional": "學校放假了，你呢？",
+      "simplified": "学校放假了，你呢？",
+      "pinyin": "Xuéxiào fàngjià le, nǐ ne?",
+      "english": "School is on break, and you?",
+      "notes": "",
+      "words_used": [
+        "学校",
+        "放假",
+        "你"
+      ]
     }
   ],
   "audio_clips": [
@@ -309,6 +414,70 @@
       "voice": "Zephyr",
       "text": "jiùjīnshān",
       "url": "collections/audio/jiu4ji1nsha1n.mp3"
+    },
+    {
+      "text": "zhèshìwǒdepéngyǒu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3680,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4shi4wo3depe2ngyo3u.mp3"
+    },
+    {
+      "text": "rènshìnǐwǒhěngāoxìng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/re4nshi4ni3wo3he3nga1oxi4ng.mp3"
+    },
+    {
+      "text": "tāpíngchángzhùzàijiāzhōu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4000,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1pi2ngcha2ngzhu4za4ijia1zho1u.mp3"
+    },
+    {
+      "text": "nǐdefùmǔxiànzàizàinǎlǐ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3defu4mu3xia4nza4iza4ina3li3.mp3"
+    },
+    {
+      "text": "tāmenxiǎngqùgōngyuánwán",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1menxia3ngqu4go1ngyua2nwa2n.mp3"
+    },
+    {
+      "text": "shéiláixuéxiào",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/she2ila2ixue2xia4o.mp3"
+    },
+    {
+      "text": "huānyíngláijiùjīnshānhǎojiǔbújiàn",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4800,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/hua1nyi2ngla2ijiu4ji1nsha1nha3ojiu3bu2jia4n.mp3"
+    },
+    {
+      "text": "xuéxiàofàngjiàlenǐne",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xue2xia4ofa4ngjia4leni3ne.mp3"
     }
   ]
 }

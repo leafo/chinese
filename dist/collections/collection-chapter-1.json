@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
-  "version": 1,
-  "exportedAt": "2026-04-07T20:00:50.275Z",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.633Z",
   "collection": {
     "name": "Chapter 1",
     "notes": "Hello!",
@@ -82,14 +82,14 @@
       "traditional": "貴姓",
       "simplified": "贵姓",
       "pinyin": "guì xìng",
-      "english": "Polite way to ask someone's surname",
+      "english": "Polite way to ask someone's surname; your surname?",
       "notes": "Handwritten note on 貴: \"precious\""
     },
     {
       "traditional": "哪國人",
       "simplified": "哪国人",
       "pinyin": "nǎ guó rén",
-      "english": "an interrogative phrase used to ask what someone's nationality",
+      "english": "Which country are you from?",
       "notes": ""
     },
     {
@@ -98,6 +98,118 @@
       "pinyin": "Měiguó rén",
       "english": "American",
       "notes": ""
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "你叫什麼名字？",
+      "simplified": "你叫什么名字？",
+      "pinyin": "nǐ jiào shénme míngzi?",
+      "english": "What is your name?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "叫",
+        "什么",
+        "名字"
+      ]
+    },
+    {
+      "traditional": "你好！請問你叫什麼名字？",
+      "simplified": "你好！请问你叫什么名字？",
+      "pinyin": "Nǐ hǎo! Qǐng wèn nǐ jiào shénme míngzi?",
+      "english": "Hello! May I ask, what is your name?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "好",
+        "请问",
+        "叫",
+        "什么",
+        "名字"
+      ]
+    },
+    {
+      "traditional": "我姓王，我叫王明。",
+      "simplified": "我姓王，我叫王明。",
+      "pinyin": "Wǒ xìng Wáng, wǒ jiào Wáng Míng.",
+      "english": "My surname is Wang; I am called Wang Ming.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "姓",
+        "叫"
+      ]
+    },
+    {
+      "traditional": "他是美國人，她呢？",
+      "simplified": "他是美国人，她呢？",
+      "pinyin": "Tā shì Měiguó rén, tā ne?",
+      "english": "He is American; and her?",
+      "notes": "",
+      "words_used": [
+        "是",
+        "美国人"
+      ]
+    },
+    {
+      "traditional": "請問您貴姓？",
+      "simplified": "请问您贵姓？",
+      "pinyin": "Qǐng wèn nín guì xìng?",
+      "english": "May I ask your honorable surname?",
+      "notes": "",
+      "words_used": [
+        "请问",
+        "贵姓"
+      ]
+    },
+    {
+      "traditional": "李美是誰？",
+      "simplified": "李美是谁？",
+      "pinyin": "Lǐ Měi shì shéi?",
+      "english": "Who is Li Mei?",
+      "notes": "",
+      "words_used": [
+        "是",
+        "谁"
+      ]
+    },
+    {
+      "traditional": "那是李美的名字。",
+      "simplified": "那是李美的名字。",
+      "pinyin": "Nà shì Lǐ Měi de míngzi.",
+      "english": "That is Li Mei's name.",
+      "notes": "",
+      "words_used": [
+        "那",
+        "是",
+        "名字"
+      ]
+    },
+    {
+      "traditional": "你是哪國人？",
+      "simplified": "你是哪国人？",
+      "pinyin": "Nǐ shì nǎ guó rén?",
+      "english": "What is your nationality?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "是",
+        "哪国人"
+      ]
+    },
+    {
+      "traditional": "王明很好，他是美國人。",
+      "simplified": "王明很好，他是美国人。",
+      "pinyin": "Wáng Míng hěn hǎo, tā shì Měiguó rén.",
+      "english": "Wang Ming is very well; he is American.",
+      "notes": "",
+      "words_used": [
+        "很",
+        "好",
+        "是",
+        "美国人"
+      ]
     }
   ],
   "audio_clips": [
@@ -204,6 +316,78 @@
       "voice": "Zephyr",
       "text": "měiguórén",
       "url": "collections/audio/me3iguo2re2n.mp3"
+    },
+    {
+      "text": "nǐjiàoshénmemíngzi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3jia4oshe2nmemi2ngzi.mp3"
+    },
+    {
+      "text": "nǐhǎoqǐngwènnǐjiàoshénmemíngzi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4640,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3ha3oqi3ngwe4nni3jia4oshe2nmemi2ngzi.mp3"
+    },
+    {
+      "text": "wǒxìngwángwǒjiàowángmíng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3xi4ngwa2ngwo3jia4owa2ngmi2ng.mp3"
+    },
+    {
+      "text": "tāshìměiguóréntāne",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1shi4me3iguo2re2nta1ne.mp3"
+    },
+    {
+      "text": "qǐngwènnínguìxìng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3040,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/qi3ngwe4nni2ngui4xi4ng.mp3"
+    },
+    {
+      "text": "lǐměishìshéi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/li3me3ishi4she2i.mp3"
+    },
+    {
+      "text": "nàshìlǐměidemíngzi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3800,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/na4shi4li3me3idemi2ngzi.mp3"
+    },
+    {
+      "text": "nǐshìnǎguórén",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2640,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3shi4na3guo2re2n.mp3"
+    },
+    {
+      "text": "wángmínghěnhǎotāshìměiguórén",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5040,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wa2ngmi2nghe3nha3ota1shi4me3iguo2re2n.mp3"
     }
   ]
 }

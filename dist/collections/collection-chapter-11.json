@@ -1,0 +1,667 @@
+{
+  "format": "chinese-collection-export",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.870Z",
+  "collection": {
+    "name": "Chapter 11",
+    "notes": "The weather is nice today",
+    "objectives": "Talk about the weather"
+  },
+  "words": [
+    {
+      "traditional": "給",
+      "simplified": "给",
+      "pinyin": "gěi",
+      "english": "to, to give",
+      "notes": "Part of speech: Prep (Preposition)"
+    },
+    {
+      "traditional": "會",
+      "simplified": "会",
+      "pinyin": "huì",
+      "english": "can, know how to, will",
+      "notes": "Part of speech: Vaux (Auxiliary Verb)"
+    },
+    {
+      "traditional": "天氣",
+      "simplified": "天气",
+      "pinyin": "tiānqì",
+      "english": "weather",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "這裡",
+      "simplified": "这里",
+      "pinyin": "zhèlǐ",
+      "english": "here",
+      "notes": "Part of speech: Pron"
+    },
+    {
+      "traditional": "真",
+      "simplified": "真",
+      "pinyin": "zhēn",
+      "english": "really",
+      "notes": "Part of speech: Adv"
+    },
+    {
+      "traditional": "舒服",
+      "simplified": "舒服",
+      "pinyin": "shūfú",
+      "english": "comfortable",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "夏天",
+      "simplified": "夏天",
+      "pinyin": "xiàtiān",
+      "english": "summer",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "比",
+      "simplified": "比",
+      "pinyin": "bǐ",
+      "english": "comparison marker, (more) than",
+      "notes": "Part of speech: Prep"
+    },
+    {
+      "traditional": "春天",
+      "simplified": "春天",
+      "pinyin": "chūntiān",
+      "english": "spring",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "秋天",
+      "simplified": "秋天",
+      "pinyin": "qiūtiān",
+      "english": "fall, autumn",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "冷",
+      "simplified": "冷",
+      "pinyin": "lěng",
+      "english": "cold",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "熱",
+      "simplified": "热",
+      "pinyin": "rè",
+      "english": "hot",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "冬天",
+      "simplified": "冬天",
+      "pinyin": "dōngtiān",
+      "english": "winter",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "太",
+      "simplified": "太",
+      "pinyin": "tài",
+      "english": "too",
+      "notes": "Part of speech: Adv"
+    },
+    {
+      "traditional": "時候",
+      "simplified": "时候",
+      "pinyin": "shíhòu",
+      "english": "(a point of) time, (a duration of) time",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "對",
+      "simplified": "对",
+      "pinyin": "duì",
+      "english": "right, correct",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "能",
+      "simplified": "能",
+      "pinyin": "néng",
+      "english": "can",
+      "notes": "Part of speech: Vaux"
+    },
+    {
+      "traditional": "出來",
+      "simplified": "出来",
+      "pinyin": "chūlái",
+      "english": "go out, come out",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "可能",
+      "simplified": "可能",
+      "pinyin": "kěnéng",
+      "english": "probably",
+      "notes": "Part of speech: Adv"
+    },
+    {
+      "traditional": "希望",
+      "simplified": "希望",
+      "pinyin": "xīwàng",
+      "english": "to hope",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "晴天",
+      "simplified": "晴天",
+      "pinyin": "qíngtiān",
+      "english": "sunny day",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "太……了",
+      "simplified": "太……了",
+      "pinyin": "tài...le",
+      "english": "too, so",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "下雪",
+      "simplified": "下雪",
+      "pinyin": "xià xuě",
+      "english": "to snow",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "下雨",
+      "simplified": "下雨",
+      "pinyin": "xià yǔ",
+      "english": "to rain",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "天氣預報",
+      "simplified": "天气预报",
+      "pinyin": "tiānqì yùbào",
+      "english": "weather forecast",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "……的時候",
+      "simplified": "……的时候",
+      "pinyin": "...de shíhòu",
+      "english": "when..., during...",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "昨天",
+      "simplified": "昨天",
+      "pinyin": "zuótiān",
+      "english": "yesterday",
+      "notes": "Supplementary Vocabulary; Part of speech: N"
+    },
+    {
+      "traditional": "大",
+      "simplified": "大",
+      "pinyin": "dà",
+      "english": "old, big, large",
+      "notes": "Supplementary Vocabulary; Part of speech: Vs"
+    },
+    {
+      "traditional": "一定",
+      "simplified": "一定",
+      "pinyin": "yídìng",
+      "english": "definitely",
+      "notes": "Supplementary Vocabulary; Part of speech: Adv"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "今天天氣很好，在這裡跑步真舒服。",
+      "simplified": "今天天气很好，在这里跑步真舒服。",
+      "pinyin": "Jīntiān tiānqì hěn hǎo, zài zhèlǐ pǎobù zhēn shūfu.",
+      "english": "The weather is very good today; running here is really comfortable.",
+      "notes": "",
+      "words_used": [
+        "天气",
+        "这里",
+        "真",
+        "舒服"
+      ]
+    },
+    {
+      "traditional": "這裡的夏天比台灣的夏天舒服多了。",
+      "simplified": "这里的夏天比台湾的夏天舒服多了。",
+      "pinyin": "Zhèlǐ de xiàtiān bǐ Táiwān de xiàtiān shūfu duō le.",
+      "english": "Summer here is much more comfortable than summer in Taiwan.",
+      "notes": "",
+      "words_used": [
+        "这里",
+        "夏天",
+        "比",
+        "舒服"
+      ]
+    },
+    {
+      "traditional": "台灣的春天和秋天很舒服，不冷也不熱。",
+      "simplified": "台湾的春天和秋天很舒服，不冷也不热。",
+      "pinyin": "Táiwān de chūntiān hé qiūtiān hěn shūfu, bù lěng yě bù rè.",
+      "english": "Spring and autumn in Taiwan are very comfortable, neither cold nor hot.",
+      "notes": "",
+      "words_used": [
+        "春天",
+        "秋天",
+        "舒服",
+        "冷",
+        "热"
+      ]
+    },
+    {
+      "traditional": "這裡的冬天不太冷，可是夏天太熱了。",
+      "simplified": "这里的冬天不太冷，可是夏天太热了。",
+      "pinyin": "Zhèlǐ de dōngtiān bú tài lěng, kěshì xiàtiān tài rè le.",
+      "english": "Winter here is not too cold, but summer is too hot.",
+      "notes": "",
+      "words_used": [
+        "这里",
+        "冬天",
+        "太",
+        "冷",
+        "夏天",
+        "太……了",
+        "热"
+      ]
+    },
+    {
+      "traditional": "下雨的時候，我們都不能出來跑步。",
+      "simplified": "下雨的时候，我们都不能出来跑步。",
+      "pinyin": "Xià yǔ de shíhòu, wǒmen dōu bù néng chūlái pǎobù.",
+      "english": "When it rains, none of us can come out to run.",
+      "notes": "",
+      "words_used": [
+        "下雨",
+        "……的时候",
+        "能",
+        "出来"
+      ]
+    },
+    {
+      "traditional": "天氣預報說，明天可能會下雨。",
+      "simplified": "天气预报说，明天可能会下雨。",
+      "pinyin": "Tiānqì yùbào shuō, míngtiān kěnéng huì xià yǔ.",
+      "english": "The weather forecast says it probably will rain tomorrow.",
+      "notes": "",
+      "words_used": [
+        "天气预报",
+        "可能",
+        "会",
+        "下雨"
+      ]
+    },
+    {
+      "traditional": "我希望明天是晴天，大家能一起出來玩。",
+      "simplified": "我希望明天是晴天，大家能一起出来玩。",
+      "pinyin": "Wǒ xīwàng míngtiān shì qíngtiān, dàjiā néng yìqǐ chūlái wán.",
+      "english": "I hope tomorrow is sunny so that everyone can come out and hang out.",
+      "notes": "",
+      "words_used": [
+        "希望",
+        "晴天",
+        "能",
+        "出来"
+      ]
+    },
+    {
+      "traditional": "昨天雨下得很大，今天天氣一定很舒服。",
+      "simplified": "昨天雨下得很大，今天天气一定很舒服。",
+      "pinyin": "Zuótiān yǔ xià de hěn dà, jīntiān tiānqì yídìng hěn shūfu.",
+      "english": "It rained heavily yesterday, so the weather today will definitely be comfortable.",
+      "notes": "",
+      "words_used": [
+        "昨天",
+        "大",
+        "天气",
+        "一定",
+        "舒服"
+      ]
+    },
+    {
+      "traditional": "對，冬天的時候這裡比北方舒服。",
+      "simplified": "对，冬天的时候这里比北方舒服。",
+      "pinyin": "Duì, dōngtiān de shíhòu zhèlǐ bǐ běifāng shūfu.",
+      "english": "Right, in the winter it is more comfortable here than in the north.",
+      "notes": "",
+      "words_used": [
+        "对",
+        "冬天",
+        "……的时候",
+        "这里",
+        "比",
+        "舒服"
+      ]
+    },
+    {
+      "traditional": "他給朋友打電話，問今天會不會下雪。",
+      "simplified": "他给朋友打电话，问今天会不会下雪。",
+      "pinyin": "Tā gěi péngyǒu dǎ diànhuà, wèn jīntiān huì bu huì xià xuě.",
+      "english": "He called his friend to ask whether it would snow today.",
+      "notes": "",
+      "words_used": [
+        "给",
+        "会",
+        "下雪"
+      ]
+    }
+  ],
+  "audio_clips": [
+    {
+      "text": "gěi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1331,
+      "model": "gemini-2.5-pro-preview-tts",
+      "voice": "Zephyr",
+      "url": "collections/audio/ge3i.mp3"
+    },
+    {
+      "text": "huì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1080,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/hui4.mp3"
+    },
+    {
+      "text": "tiānqì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1640,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/tia1nqi4.mp3"
+    },
+    {
+      "text": "zhèlǐ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1600,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4li3.mp3"
+    },
+    {
+      "text": "zhēn",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1200,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe1n.mp3"
+    },
+    {
+      "text": "shūfú",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/shu1fu2.mp3"
+    },
+    {
+      "text": "xiàtiān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xia4tia1n.mp3"
+    },
+    {
+      "text": "bǐ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/bi3.mp3"
+    },
+    {
+      "text": "chūntiān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/chu1ntia1n.mp3"
+    },
+    {
+      "text": "qiūtiān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/qiu1tia1n.mp3"
+    },
+    {
+      "text": "lěng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/le3ng.mp3"
+    },
+    {
+      "text": "rè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1240,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/re4.mp3"
+    },
+    {
+      "text": "dōngtiān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/do1ngtia1n.mp3"
+    },
+    {
+      "text": "tài",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta4i.mp3"
+    },
+    {
+      "text": "shíhòu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1920,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/shi2ho4u.mp3"
+    },
+    {
+      "text": "duì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1120,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/dui4.mp3"
+    },
+    {
+      "text": "néng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1080,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ne2ng.mp3"
+    },
+    {
+      "text": "chūlái",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1480,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/chu1la2i.mp3"
+    },
+    {
+      "text": "kěnéng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ke3ne2ng.mp3"
+    },
+    {
+      "text": "xīwàng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xi1wa4ng.mp3"
+    },
+    {
+      "text": "qíngtiān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/qi2ngtia1n.mp3"
+    },
+    {
+      "text": "tàile",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2600,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta4ile.mp3"
+    },
+    {
+      "text": "xiàxuě",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2200,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xia4xue3.mp3"
+    },
+    {
+      "text": "xiàyǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2120,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xia4yu3.mp3"
+    },
+    {
+      "text": "tiānqìyùbào",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2640,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/tia1nqi4yu4ba4o.mp3"
+    },
+    {
+      "text": "deshíhòu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2160,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/deshi2ho4u.mp3"
+    },
+    {
+      "text": "zuótiān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1440,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zuo2tia1n.mp3"
+    },
+    {
+      "text": "dà",
+      "mimeType": "audio/mpeg",
+      "durationMs": 960,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/da4.mp3"
+    },
+    {
+      "text": "yídìng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/yi2di4ng.mp3"
+    },
+    {
+      "text": "jīntiāntiānqìhěnhǎozàizhèlǐpǎobùzhēnshūfu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6120,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji1ntia1ntia1nqi4he3nha3oza4izhe4li3pa3obu4zhe1nshu1fu.mp3"
+    },
+    {
+      "text": "zhèlǐdexiàtiānbǐtáiwāndexiàtiānshūfuduōle",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5920,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4li3dexia4tia1nbi3ta2iwa1ndexia4tia1nshu1fuduo1le.mp3"
+    },
+    {
+      "text": "táiwāndechūntiānhéqiūtiānhěnshūfubùlěngyěbùrè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 9560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta2iwa1ndechu1ntia1nhe2qiu1tia1nhe3nshu1fubu4le3ngye3bu4re4.mp3"
+    },
+    {
+      "text": "zhèlǐdedōngtiānbútàilěngkěshìxiàtiāntàirèle",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4li3dedo1ngtia1nbu2ta4ile3ngke3shi4xia4tia1nta4ire4le.mp3"
+    },
+    {
+      "text": "xiàyǔdeshíhòuwǒmendōubùnéngchūláipǎobù",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4880,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xia4yu3deshi2ho4uwo3mendo1ubu4ne2ngchu1la2ipa3obu4.mp3"
+    },
+    {
+      "text": "tiānqìyùbàoshuōmíngtiānkěnénghuìxiàyǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/tia1nqi4yu4ba4oshuo1mi2ngtia1nke3ne2nghui4xia4yu3.mp3"
+    },
+    {
+      "text": "wǒxīwàngmíngtiānshìqíngtiāndàjiānéngyìqǐchūláiwán",
+      "mimeType": "audio/mpeg",
+      "durationMs": 9160,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3xi1wa4ngmi2ngtia1nshi4qi2ngtia1nda4jia1ne2ngyi4qi3chu1la2iwa2n.mp3"
+    },
+    {
+      "text": "zuótiānyǔxiàdehěndàjīntiāntiānqìyídìnghěnshūfu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7040,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zuo2tia1nyu3xia4dehe3nda4ji1ntia1ntia1nqi4yi2di4nghe3nshu1fu.mp3"
+    },
+    {
+      "text": "duìdōngtiāndeshíhòuzhèlǐbǐběifāngshūfu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5480,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/dui4do1ngtia1ndeshi2ho4uzhe4li3bi3be3ifa1ngshu1fu.mp3"
+    },
+    {
+      "text": "tāgěipéngyǒudǎdiànhuàwènjīntiānhuìbuhuìxiàxuě",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6640,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1ge3ipe2ngyo3uda3dia4nhua4we4nji1ntia1nhui4buhui4xia4xue3.mp3"
+    }
+  ]
+}

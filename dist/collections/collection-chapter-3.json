@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
-  "version": 1,
-  "exportedAt": "2026-04-07T20:01:10.826Z",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.713Z",
   "collection": {
     "name": "Chapter 3",
     "notes": "She is not a student",
@@ -177,6 +177,137 @@
       "notes": "N; handwritten note: guó (国) means country"
     }
   ],
+  "sentences": [
+    {
+      "traditional": "你先生在電腦公司工作嗎？",
+      "simplified": "你先生在电脑公司工作吗？",
+      "pinyin": "Nǐ xiānsheng zài diànnǎo gōngsī gōngzuò ma?",
+      "english": "Does your husband work at a computer company?",
+      "notes": "",
+      "words_used": [
+        "先生",
+        "在",
+        "电脑",
+        "公司",
+        "工作"
+      ]
+    },
+    {
+      "traditional": "我不是學生，我在銀行工作。",
+      "simplified": "我不是学生，我在银行工作。",
+      "pinyin": "Wǒ bú shì xuésheng, wǒ zài yínháng gōngzuò.",
+      "english": "I am not a student; I work at a bank.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "不",
+        "是",
+        "学生",
+        "在",
+        "银行",
+        "工作"
+      ]
+    },
+    {
+      "traditional": "他在大學念書，你呢？",
+      "simplified": "他在大学念书，你呢？",
+      "pinyin": "Tā zài dàxué niàn shū, nǐ ne?",
+      "english": "He studies at the university; and you?",
+      "notes": "",
+      "words_used": [
+        "在",
+        "大学",
+        "你",
+        "念书"
+      ]
+    },
+    {
+      "traditional": "那個孩子是法國人的兒子。",
+      "simplified": "那个孩子是法国人的儿子。",
+      "pinyin": "Nà ge háizi shì Fǎguó rén de érzi.",
+      "english": "That child is the French person's son.",
+      "notes": "",
+      "words_used": [
+        "那",
+        "个",
+        "孩子",
+        "是",
+        "法国",
+        "人",
+        "儿子"
+      ]
+    },
+    {
+      "traditional": "你的女兒在小學學電腦嗎？",
+      "simplified": "你的女儿在小学学电脑吗？",
+      "pinyin": "Nǐ de nǚ'ér zài xiǎoxué xué diànnǎo ma?",
+      "english": "Does your daughter study computers at elementary school?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "女儿",
+        "在",
+        "小学",
+        "学",
+        "电脑",
+        "吗"
+      ]
+    },
+    {
+      "traditional": "誰在那個公司工作？",
+      "simplified": "谁在那个公司工作？",
+      "pinyin": "Shéi zài nà ge gōngsī gōngzuò?",
+      "english": "Who works at that company?",
+      "notes": "",
+      "words_used": [
+        "谁",
+        "在",
+        "那",
+        "个",
+        "公司",
+        "工作"
+      ]
+    },
+    {
+      "traditional": "她畢業了，也結婚了。",
+      "simplified": "她毕业了，也结婚了。",
+      "pinyin": "Tā bìyè le, yě jiéhūn le.",
+      "english": "She has graduated, and she has also gotten married.",
+      "notes": "",
+      "words_used": [
+        "毕业了",
+        "也",
+        "结婚了"
+      ]
+    },
+    {
+      "traditional": "他們的孩子都是學生嗎？",
+      "simplified": "他们的孩子都是学生吗？",
+      "pinyin": "Tāmen de háizi dōu shì xuésheng ma?",
+      "english": "Are their children all students?",
+      "notes": "",
+      "words_used": [
+        "孩子",
+        "都",
+        "是",
+        "学生",
+        "吗"
+      ]
+    },
+    {
+      "traditional": "王先生的電腦很好。",
+      "simplified": "王先生的电脑很好。",
+      "pinyin": "Wáng xiānsheng de diànnǎo hěn hǎo.",
+      "english": "Mr. Wang's computer is very good.",
+      "notes": "",
+      "words_used": [
+        "先生",
+        "电脑",
+        "很",
+        "好"
+      ]
+    }
+  ],
   "audio_clips": [
     {
       "mimeType": "audio/mpeg",
@@ -219,12 +350,12 @@
       "url": "collections/audio/za4i.mp3"
     },
     {
+      "text": "nǎlǐnǎr",
       "mimeType": "audio/mpeg",
-      "durationMs": 4051,
+      "durationMs": 3851,
       "model": "gemini-2.5-pro-preview-tts",
       "voice": "Zephyr",
-      "text": "nǎlǐ(nǎr)",
-      "url": "collections/audio/na3li3(na3r).mp3"
+      "url": "collections/audio/na3li3na3r.mp3"
     },
     {
       "mimeType": "audio/mpeg",
@@ -283,12 +414,12 @@
       "url": "collections/audio/e2rzi.mp3"
     },
     {
+      "text": "nǚér",
       "mimeType": "audio/mpeg",
       "durationMs": 1611,
       "model": "gemini-2.5-pro-preview-tts",
       "voice": "Zephyr",
-      "text": "nǚ'ér",
-      "url": "collections/audio/nv3'e2r.mp3"
+      "url": "collections/audio/nv3e2r.mp3"
     },
     {
       "mimeType": "audio/mpeg",
@@ -369,6 +500,78 @@
       "voice": "Zephyr",
       "text": "fǎguó",
       "url": "collections/audio/fa3guo2.mp3"
+    },
+    {
+      "text": "nǐxiānshengzàidiànnǎogōngsīgōngzuòma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3960,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3xia1nshengza4idia4nna3ogo1ngsi1go1ngzuo4ma.mp3"
+    },
+    {
+      "text": "wǒbúshìxuéshengwǒzàiyínhánggōngzuò",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6360,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3bu2shi4xue2shengwo3za4iyi2nha2nggo1ngzuo4.mp3"
+    },
+    {
+      "text": "tāzàidàxuéniànshūnǐne",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1za4ida4xue2nia4nshu1ni3ne.mp3"
+    },
+    {
+      "text": "nàgeháizishìfǎguóréndeérzi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4920,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/na4geha2izishi4fa3guo2re2ndee2rzi.mp3"
+    },
+    {
+      "text": "nǐdenǚérzàixiǎoxuéxuédiànnǎoma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3denv3e2rza4ixia3oxue2xue2dia4nna3oma.mp3"
+    },
+    {
+      "text": "shéizàinàgegōngsīgōngzuò",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4080,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/she2iza4ina4gego1ngsi1go1ngzuo4.mp3"
+    },
+    {
+      "text": "tābìyèleyějiéhūnle",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3960,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1bi4ye4leye3jie2hu1nle.mp3"
+    },
+    {
+      "text": "tāmendeháizidōushìxuéshengma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1mendeha2izido1ushi4xue2shengma.mp3"
+    },
+    {
+      "text": "wángxiānshengdediànnǎohěnhǎo",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wa2ngxia1nshengdedia4nna3ohe3nha3o.mp3"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
-  "version": 1,
-  "exportedAt": "2026-05-11T23:05:49.943Z",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.746Z",
   "collection": {
     "name": "Chapter 7",
     "notes": "May I ask who this is",
@@ -60,7 +60,7 @@
     {
       "traditional": "麻煩",
       "simplified": "麻烦",
-      "pinyin": "máfan",
+      "pinyin": "máfán",
       "english": "please, \"If it's not too much trouble\", \"can I trouble you to\"",
       "notes": "Part of speech: V (Verb)"
     },
@@ -75,7 +75,7 @@
       "traditional": "給",
       "simplified": "给",
       "pinyin": "gěi",
-      "english": "to",
+      "english": "to, to give",
       "notes": "Part of speech: Prep (Preposition)"
     },
     {
@@ -238,6 +238,119 @@
       "pinyin": "yǐqián",
       "english": "before, previously, ago",
       "notes": "bonus"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "喂，請問你是哪位？",
+      "simplified": "喂，请问你是哪位？",
+      "pinyin": "Wéi, qǐng wèn nǐ shì nǎ wèi?",
+      "english": "Hello, may I ask who you are?",
+      "notes": "",
+      "words_used": [
+        "喂",
+        "请问",
+        "你",
+        "是",
+        "哪",
+        "位"
+      ]
+    },
+    {
+      "traditional": "王小姐下午回來。",
+      "simplified": "王小姐下午回来。",
+      "pinyin": "Wáng xiǎojiě xiàwǔ huílái.",
+      "english": "Miss Wang will come back in the afternoon.",
+      "notes": "",
+      "words_used": [
+        "小姐",
+        "下午",
+        "回来"
+      ]
+    },
+    {
+      "traditional": "他的手機號碼是三八零九。",
+      "simplified": "他的手机号码是三八零九。",
+      "pinyin": "Tā de shǒujī hàomǎ shì sān bā líng jiǔ.",
+      "english": "His cell phone number is three-eight-zero-nine.",
+      "notes": "",
+      "words_used": [
+        "手机",
+        "号码",
+        "是",
+        "三",
+        "八",
+        "零",
+        "九"
+      ]
+    },
+    {
+      "traditional": "你什麼時候給我打電話？",
+      "simplified": "你什么时候给我打电话？",
+      "pinyin": "Nǐ shénme shíhòu gěi wǒ dǎ diànhuà?",
+      "english": "When will you call me?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "什么时候",
+        "给",
+        "我",
+        "打电话"
+      ]
+    },
+    {
+      "traditional": "麻煩你，辦公室的電話是幾號？",
+      "simplified": "麻烦你，办公室的电话是几号？",
+      "pinyin": "Máfan nǐ, bàngōngshì de diànhuà shì jǐ hào?",
+      "english": "Could you please tell me, what is the office's phone number?",
+      "notes": "",
+      "words_used": [
+        "麻烦",
+        "你",
+        "办公室",
+        "电话",
+        "是",
+        "几号"
+      ]
+    },
+    {
+      "traditional": "這是誰的手機？",
+      "simplified": "这是谁的手机？",
+      "pinyin": "Zhè shì shéi de shǒujī?",
+      "english": "Whose cell phone is this?",
+      "notes": "",
+      "words_used": [
+        "这",
+        "是",
+        "谁",
+        "手机"
+      ]
+    },
+    {
+      "traditional": "我以前給她打電話，你呢？",
+      "simplified": "我以前给她打电话，你呢？",
+      "pinyin": "Wǒ yǐqián gěi tā dǎ diànhuà, nǐ ne?",
+      "english": "I called her before; what about you?",
+      "notes": "",
+      "words_used": [
+        "我",
+        "以前",
+        "给",
+        "打电话",
+        "你"
+      ]
+    },
+    {
+      "traditional": "好的，謝謝，再見！",
+      "simplified": "好的，谢谢，再见！",
+      "pinyin": "Hǎode, xièxiè, zàijiàn!",
+      "english": "Okay, thank you, goodbye!",
+      "notes": "",
+      "words_used": [
+        "好的",
+        "谢谢",
+        "再见"
+      ]
     }
   ],
   "audio_clips": [
@@ -490,11 +603,11 @@
       "url": "collections/audio/ba3i.mp3"
     },
     {
-      "mimeType": "audio/mpeg",
-      "durationMs": 1771,
-      "model": "gemini-2.5-pro-preview-tts",
-      "voice": "Zephyr",
       "text": "tàitai",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
       "url": "collections/audio/ta4itai.mp3"
     },
     {
@@ -504,6 +617,70 @@
       "model": "gemini-2.5-pro-preview-tts",
       "voice": "Zephyr",
       "url": "collections/audio/yi3qia2n.mp3"
+    },
+    {
+      "text": "wéiqǐngwènnǐshìnǎwèi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3880,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/we2iqi3ngwe4nni3shi4na3we4i.mp3"
+    },
+    {
+      "text": "wángxiǎojiěxiàwǔhuílái",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4200,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wa2ngxia3ojie3xia4wu3hui2la2i.mp3"
+    },
+    {
+      "text": "tādeshǒujīhàomǎshìsānbālíngjiǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6400,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1desho3uji1ha4oma3shi4sa1nba1li2ngjiu3.mp3"
+    },
+    {
+      "text": "nǐshénmeshíhòugěiwǒdǎdiànhuà",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3she2nmeshi2ho4uge3iwo3da3dia4nhua4.mp3"
+    },
+    {
+      "text": "máfannǐbàngōngshìdediànhuàshìjǐhào",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5040,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ma2fanni3ba4ngo1ngshi4dedia4nhua4shi4ji3ha4o.mp3"
+    },
+    {
+      "text": "zhèshìshéideshǒujī",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3360,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4shi4she2idesho3uji1.mp3"
+    },
+    {
+      "text": "wǒyǐqiángěitādǎdiànhuànǐne",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3yi3qia2nge3ita1da3dia4nhua4ni3ne.mp3"
+    },
+    {
+      "text": "hǎodexièxièzàijiàn",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4080,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ha3odexie4xie4za4ijia4n.mp3"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
-  "version": 1,
-  "exportedAt": "2026-04-07T20:01:27.613Z",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.730Z",
   "collection": {
     "name": "Chapter 4",
     "notes": "My father works at a computer company",
@@ -186,9 +186,123 @@
     {
       "traditional": "會計師",
       "simplified": "会计师",
-      "pinyin": "kuàijìshī",
+      "pinyin": "kuài jì shī",
       "english": "accountant",
       "notes": "Handwritten addition at the bottom"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "我爸爸在電腦公司工作。",
+      "simplified": "我爸爸在电脑公司工作。",
+      "pinyin": "Wǒ bàba zài diànnǎo gōngsī gōngzuò.",
+      "english": "My dad works at a computer company.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "爸爸",
+        "在",
+        "电脑",
+        "公司",
+        "工作"
+      ]
+    },
+    {
+      "traditional": "她媽媽是老師，每天都很忙。",
+      "simplified": "她妈妈是老师，每天都很忙。",
+      "pinyin": "Tā māma shì lǎoshī, měitiān dōu hěn máng.",
+      "english": "Her mom is a teacher, and she is very busy every day.",
+      "notes": "",
+      "words_used": [
+        "妈妈",
+        "是",
+        "老师",
+        "每天",
+        "都",
+        "很",
+        "忙"
+      ]
+    },
+    {
+      "traditional": "那個醫生是誰？",
+      "simplified": "那个医生是谁？",
+      "pinyin": "Nà ge yīshēng shì shéi?",
+      "english": "Who is that doctor?",
+      "notes": "",
+      "words_used": [
+        "那",
+        "个",
+        "医生",
+        "是",
+        "谁"
+      ]
+    },
+    {
+      "traditional": "你喜歡教書嗎？",
+      "simplified": "你喜欢教书吗？",
+      "pinyin": "Nǐ xǐhuān jiāo shū ma?",
+      "english": "Do you like teaching?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "喜欢",
+        "教书",
+        "吗"
+      ]
+    },
+    {
+      "traditional": "他們今天非常累。",
+      "simplified": "他们今天非常累。",
+      "pinyin": "Tāmen jīntiān fēicháng lèi.",
+      "english": "They are extremely tired today.",
+      "notes": "",
+      "words_used": [
+        "今天",
+        "非常",
+        "累"
+      ]
+    },
+    {
+      "traditional": "我哥哥是工程師，你哥哥呢？",
+      "simplified": "我哥哥是工程师，你哥哥呢？",
+      "pinyin": "Wǒ gēge shì gōngchéngshī, nǐ gēge ne?",
+      "english": "My older brother is an engineer; what about your older brother?",
+      "notes": "",
+      "words_used": [
+        "我",
+        "哥哥",
+        "是",
+        "工程师",
+        "你"
+      ]
+    },
+    {
+      "traditional": "這是老師的女兒。",
+      "simplified": "这是老师的女儿。",
+      "pinyin": "Zhè shì lǎoshī de nǚ'ér.",
+      "english": "This is the teacher's daughter.",
+      "notes": "",
+      "words_used": [
+        "这",
+        "是",
+        "老师",
+        "女儿"
+      ]
+    },
+    {
+      "traditional": "王先生教法文，他說法文很好。",
+      "simplified": "王先生教法文，他说法文很好。",
+      "pinyin": "Wáng xiānsheng jiāo Fǎwén, tā shuō Fǎwén hěn hǎo.",
+      "english": "Mr. Wang teaches French; he speaks French very well.",
+      "notes": "",
+      "words_used": [
+        "先生",
+        "教",
+        "法文",
+        "说",
+        "很",
+        "好"
+      ]
     }
   ],
   "audio_clips": [
@@ -223,6 +337,14 @@
       "voice": "Zephyr",
       "text": "lǎoshī",
       "url": "collections/audio/la3oshi1.mp3"
+    },
+    {
+      "text": "máng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ma2ng.mp3"
     },
     {
       "mimeType": "audio/mpeg",
@@ -391,6 +513,70 @@
       "voice": "Zephyr",
       "text": "kuàijìshī",
       "url": "collections/audio/kua4iji4shi1.mp3"
+    },
+    {
+      "text": "wǒbàbazàidiànnǎogōngsīgōngzuò",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5040,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3ba4baza4idia4nna3ogo1ngsi1go1ngzuo4.mp3"
+    },
+    {
+      "text": "tāmāmashìlǎoshīměitiāndōuhěnmáng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6080,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1ma1mashi4la3oshi1me3itia1ndo1uhe3nma2ng.mp3"
+    },
+    {
+      "text": "nàgeyīshēngshìshéi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2960,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/na4geyi1she1ngshi4she2i.mp3"
+    },
+    {
+      "text": "nǐxǐhuānjiāoshūma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2920,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3xi3hua1njia1oshu1ma.mp3"
+    },
+    {
+      "text": "tāmenjīntiānfēichánglèi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1menji1ntia1nfe1icha2ngle4i.mp3"
+    },
+    {
+      "text": "wǒgēgeshìgōngchéngshīnǐgēgene",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5600,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3ge1geshi4go1ngche2ngshi1ni3ge1gene.mp3"
+    },
+    {
+      "text": "zhèshìlǎoshīdenǚér",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4shi4la3oshi1denv3e2r.mp3"
+    },
+    {
+      "text": "wángxiānshengjiāofǎwéntāshuōfǎwénhěnhǎo",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wa2ngxia1nshengjia1ofa3we2nta1shuo1fa3we2nhe3nha3o.mp3"
     }
   ]
 }

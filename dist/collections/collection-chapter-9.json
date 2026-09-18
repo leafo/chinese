@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
-  "version": 1,
-  "exportedAt": "2026-06-02T21:16:02.385Z",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.850Z",
   "collection": {
     "name": "Chapter 9",
     "notes": "Are you free on Friday?",
@@ -25,7 +25,7 @@
     {
       "traditional": "星期五",
       "simplified": "星期五",
-      "pinyin": "xīngqīwǔ / xīngqíwǔ",
+      "pinyin": "xīngqīwǔ",
       "english": "Friday",
       "notes": "Noun (N)"
     },
@@ -67,7 +67,7 @@
     {
       "traditional": "星期六",
       "simplified": "星期六",
-      "pinyin": "xīngqīliù / xīngqíliù",
+      "pinyin": "xīngqīliù",
       "english": "Saturday",
       "notes": "Noun (N)"
     },
@@ -179,37 +179,160 @@
     {
       "traditional": "星期一",
       "simplified": "星期一",
-      "pinyin": "xīngqīyī / xīngqíyī",
+      "pinyin": "xīngqīyī",
       "english": "Monday",
       "notes": "Grammar page vocabulary"
     },
     {
       "traditional": "星期二",
       "simplified": "星期二",
-      "pinyin": "xīngqī'èr / xīngqí'èr",
+      "pinyin": "xīngqī'èr",
       "english": "Tuesday",
       "notes": "Grammar page vocabulary"
     },
     {
       "traditional": "星期三",
       "simplified": "星期三",
-      "pinyin": "xīngqīsān / xīngqísān",
+      "pinyin": "xīngqīsān",
       "english": "Wednesday",
       "notes": "Grammar page vocabulary"
     },
     {
       "traditional": "星期四",
       "simplified": "星期四",
-      "pinyin": "xīngqīsì / xīngqísì",
+      "pinyin": "xīngqīsì",
       "english": "Thursday",
       "notes": "Grammar page vocabulary"
     },
     {
       "traditional": "星期天",
       "simplified": "星期天",
-      "pinyin": "xīngqītiān / xīngqítiān",
+      "pinyin": "xīngqītiān",
       "english": "Sunday",
       "notes": "Grammar page vocabulary"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "李先生星期五有時間。",
+      "simplified": "李先生星期五有时间。",
+      "pinyin": "Lǐ xiānsheng xīngqīwǔ yǒu shíjiān.",
+      "english": "Mr. Li has time on Friday.",
+      "notes": "",
+      "words_used": [
+        "先生",
+        "星期五",
+        "有",
+        "时间"
+      ]
+    },
+    {
+      "traditional": "你想跟我一起吃飯，好不好？",
+      "simplified": "你想跟我一起吃饭，好不好？",
+      "pinyin": "Nǐ xiǎng gēn wǒ yìqǐ chī fàn, hǎo bù hǎo?",
+      "english": "Do you want to eat together with me, okay?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "想",
+        "跟",
+        "我",
+        "一起",
+        "吃饭",
+        "好不好"
+      ]
+    },
+    {
+      "traditional": "他的同事在那個餐廳工作。",
+      "simplified": "他的同事在那个餐厅工作。",
+      "pinyin": "Tā de tóngshì zài nà ge cāntīng gōngzuò.",
+      "english": "His coworker works at that restaurant.",
+      "notes": "",
+      "words_used": [
+        "同事",
+        "在",
+        "那",
+        "个",
+        "餐厅",
+        "工作"
+      ]
+    },
+    {
+      "traditional": "這家餐廳的牛肉麵最好吃。",
+      "simplified": "这家餐厅的牛肉面最好吃。",
+      "pinyin": "Zhè jiā cāntīng de niúròumiàn zuì hǎochī.",
+      "english": "This restaurant's beef noodle soup is the most delicious.",
+      "notes": "",
+      "words_used": [
+        "这",
+        "家",
+        "餐厅",
+        "牛肉面",
+        "最",
+        "好吃"
+      ]
+    },
+    {
+      "traditional": "誰要跟我們一起去吃晚飯？",
+      "simplified": "谁要跟我们一起去吃晚饭？",
+      "pinyin": "Shéi yào gēn wǒmen yìqǐ qù chī wǎn fàn?",
+      "english": "Who wants to go eat dinner together with us?",
+      "notes": "",
+      "words_used": [
+        "谁",
+        "要",
+        "跟",
+        "我",
+        "一起",
+        "去",
+        "吃",
+        "晚饭"
+      ]
+    },
+    {
+      "traditional": "我下課以後五點半回來。",
+      "simplified": "我下课以后五点半回来。",
+      "pinyin": "Wǒ xiàkè yǐhòu wǔ diǎn bàn huílái.",
+      "english": "I'll come back at five thirty after class.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "下课",
+        "以后",
+        "五",
+        "点",
+        "半",
+        "回来"
+      ]
+    },
+    {
+      "traditional": "我們星期六見，你的哥哥呢？",
+      "simplified": "我们星期六见，你的哥哥呢？",
+      "pinyin": "Wǒmen xīngqīliù jiàn, nǐ de gēge ne?",
+      "english": "We'll meet on Saturday; and your older brother?",
+      "notes": "",
+      "words_used": [
+        "我",
+        "星期六",
+        "见",
+        "你",
+        "哥哥"
+      ]
+    },
+    {
+      "traditional": "那個餐廳怎麼樣？行不行？",
+      "simplified": "那个餐厅怎么样？行不行？",
+      "pinyin": "Nà ge cāntīng zěnmeyàng? Xíng bù xíng?",
+      "english": "How about that restaurant? Is it okay or not?",
+      "notes": "",
+      "words_used": [
+        "那",
+        "个",
+        "餐厅",
+        "怎么样",
+        "行",
+        "不行"
+      ]
     }
   ],
   "audio_clips": [
@@ -444,6 +567,70 @@
       "model": "gemini-3.1-flash-tts-preview",
       "voice": "Zephyr",
       "url": "collections/audio/xi1ngqi1tia1n.mp3"
+    },
+    {
+      "text": "lǐxiānshengxīngqīwǔyǒushíjiān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4800,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/li3xia1nshengxi1ngqi1wu3yo3ushi2jia1n.mp3"
+    },
+    {
+      "text": "nǐxiǎnggēnwǒyìqǐchīfànhǎobùhǎo",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4960,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3xia3ngge1nwo3yi4qi3chi1fa4nha3obu4ha3o.mp3"
+    },
+    {
+      "text": "tādetóngshìzàinàgecāntīnggōngzuò",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1deto2ngshi4za4ina4geca1nti1nggo1ngzuo4.mp3"
+    },
+    {
+      "text": "zhèjiācāntīngdeniúròumiànzuìhǎochī",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4680,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4jia1ca1nti1ngdeniu2ro4umia4nzui4ha3ochi1.mp3"
+    },
+    {
+      "text": "shéiyàogēnwǒmenyìqǐqùchīwǎnfàn",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4680,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/she2iya4oge1nwo3menyi4qi3qu4chi1wa3nfa4n.mp3"
+    },
+    {
+      "text": "wǒxiàkèyǐhòuwǔdiǎnbànhuílái",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5040,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3xia4ke4yi3ho4uwu3dia3nba4nhui2la2i.mp3"
+    },
+    {
+      "text": "wǒmenxīngqīliùjiànnǐdegēgene",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5000,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3menxi1ngqi1liu4jia4nni3dege1gene.mp3"
+    },
+    {
+      "text": "nàgecāntīngzěnmeyàngxíngbùxíng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4480,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/na4geca1nti1ngze3nmeya4ngxi2ngbu4xi2ng.mp3"
     }
   ]
 }

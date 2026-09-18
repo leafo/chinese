@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
-  "version": 1,
-  "exportedAt": "2026-05-11T23:24:06.199Z",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.762Z",
   "collection": {
     "name": "Chapter 8",
     "notes": "Happy birthday to you",
@@ -102,7 +102,7 @@
     {
       "traditional": "運動鞋",
       "simplified": "运动鞋",
-      "pinyin": "yùndòngxié",
+      "pinyin": "yùndòng xié",
       "english": "sports shoes, sneakers",
       "notes": "Noun (N)"
     },
@@ -266,6 +266,259 @@
       "pinyin": "shí'èryuè",
       "english": "December",
       "notes": "Month of the year"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "今天是我大哥的生日，我想祝他生日快樂。",
+      "simplified": "今天是我大哥的生日，我想祝他生日快乐。",
+      "pinyin": "jīntiān shì wǒ dàgē de shēngrì, wǒ xiǎng zhù tā shēngrì kuàilè.",
+      "english": "Today is my oldest brother's birthday, I want to wish him a happy birthday.",
+      "notes": "",
+      "words_used": [
+        "今天",
+        "大哥",
+        "生日",
+        "祝",
+        "快乐"
+      ]
+    },
+    {
+      "traditional": "明天是十月五號，我要給朋友買個禮物。",
+      "simplified": "明天是十月五号，我要给朋友买个礼物。",
+      "pinyin": "míngtiān shì shíyuè wǔ hào, wǒ yào gěi péngyou mǎi gè lǐwù.",
+      "english": "Tomorrow is October 5th, I want to buy a gift for my friend.",
+      "notes": "",
+      "words_used": [
+        "明天",
+        "十月",
+        "号",
+        "要",
+        "买",
+        "礼物"
+      ]
+    },
+    {
+      "traditional": "今年我給自己買了一雙運動鞋，可以嗎？",
+      "simplified": "今年我给自己买了一双运动鞋，可以吗？",
+      "pinyin": "jīnnián wǒ gěi zìjǐ mǎi le yì shuāng yùndòng xié, kěyǐ ma?",
+      "english": "This year I bought myself a pair of sneakers, is that okay?",
+      "notes": "",
+      "words_used": [
+        "今年",
+        "买",
+        "双",
+        "运动鞋",
+        "可以吗"
+      ]
+    },
+    {
+      "traditional": "沒問題，明天我請你吃大餐！",
+      "simplified": "没问题，明天我请你吃大餐！",
+      "pinyin": "méi wèntí, míngtiān wǒ qǐng nǐ chī dàcān!",
+      "english": "No problem, I will treat you to a big feast tomorrow!",
+      "notes": "",
+      "words_used": [
+        "没问题",
+        "明天",
+        "请",
+        "吃",
+        "大餐"
+      ]
+    },
+    {
+      "traditional": "噢，他的生日是九月十二號嗎？",
+      "simplified": "噢，他的生日是九月十二号吗？",
+      "pinyin": "òu, tā de shēngrì shì jiǔyuè shí'èr hào ma?",
+      "english": "Oh, is his birthday on September 12th?",
+      "notes": "",
+      "words_used": [
+        "噢",
+        "生日",
+        "九月",
+        "号"
+      ]
+    },
+    {
+      "traditional": "是啊，他今年二十歲了。",
+      "simplified": "是啊，他今年二十岁了。",
+      "pinyin": "shì a, tā jīnnián èrshí suì le.",
+      "english": "That's right, he is twenty years old this year.",
+      "notes": "",
+      "words_used": [
+        "是啊",
+        "今年",
+        "岁"
+      ]
+    },
+    {
+      "traditional": "十二月二十五日是一個節日嗎？",
+      "simplified": "十二月二十五日是一个节日吗？",
+      "pinyin": "shí'èryuè èrshíwǔ rì shì yí gè jiérì ma?",
+      "english": "Is December 25th a holiday?",
+      "notes": "",
+      "words_used": [
+        "十二月",
+        "日"
+      ]
+    },
+    {
+      "traditional": "我要送我大哥一個生日禮物。",
+      "simplified": "我要送我大哥一个生日礼物。",
+      "pinyin": "wǒ yào sòng wǒ dàgē yí gè shēngrì lǐwù.",
+      "english": "I want to give my oldest brother a birthday gift.",
+      "notes": "",
+      "words_used": [
+        "要",
+        "送",
+        "大哥",
+        "生日",
+        "礼物"
+      ]
+    },
+    {
+      "traditional": "今天我們計劃吃一頓大餐來慶祝他的生日。",
+      "simplified": "今天我们计划吃一顿大餐来庆祝他的生日。",
+      "pinyin": "jīntiān wǒmen jìhuà chī yí dùn dàcān lái qìngzhù tā de shēngrì.",
+      "english": "Today we plan to eat a big feast to celebrate his birthday.",
+      "notes": "",
+      "words_used": [
+        "今天",
+        "吃",
+        "大餐",
+        "生日"
+      ]
+    },
+    {
+      "traditional": "我們送他一雙運動鞋，好不好？",
+      "simplified": "我们送他一双运动鞋，好不好？",
+      "pinyin": "wǒmen sòng tā yì shuāng yùndòng xié, hǎo bù hǎo?",
+      "english": "Let's gift him a pair of sports shoes, how does that sound?",
+      "notes": "",
+      "words_used": [
+        "送",
+        "双",
+        "运动鞋",
+        "好不好"
+      ]
+    },
+    {
+      "traditional": "今天是我哥哥的生日。",
+      "simplified": "今天是我哥哥的生日。",
+      "pinyin": "Jīntiān shì wǒ gēge de shēngrì.",
+      "english": "Today is my older brother's birthday.",
+      "notes": "",
+      "words_used": [
+        "今天",
+        "是",
+        "我",
+        "哥哥",
+        "生日"
+      ]
+    },
+    {
+      "traditional": "祝你生日快樂！",
+      "simplified": "祝你生日快乐！",
+      "pinyin": "Zhù nǐ shēngrì kuàilè!",
+      "english": "Happy birthday to you!",
+      "notes": "",
+      "words_used": [
+        "祝",
+        "你",
+        "生日",
+        "快乐"
+      ]
+    },
+    {
+      "traditional": "他今年要買一雙運動鞋。",
+      "simplified": "他今年要买一双运动鞋。",
+      "pinyin": "Tā jīnnián yào mǎi yì shuāng yùndòngxié.",
+      "english": "He wants to buy a pair of sneakers this year.",
+      "notes": "",
+      "words_used": [
+        "今年",
+        "要",
+        "买",
+        "一",
+        "双",
+        "运动鞋"
+      ]
+    },
+    {
+      "traditional": "你想送什麼禮物給她呢？",
+      "simplified": "你想送什么礼物给她呢？",
+      "pinyin": "Nǐ xiǎng sòng shénme lǐwù gěi tā ne?",
+      "english": "What gift do you want to give her?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "想",
+        "送",
+        "什么",
+        "礼物",
+        "给"
+      ]
+    },
+    {
+      "traditional": "誰的生日是十二月八號？",
+      "simplified": "谁的生日是十二月八号？",
+      "pinyin": "Shéi de shēngrì shì shí'èryuè bā hào?",
+      "english": "Whose birthday is on December eighth?",
+      "notes": "",
+      "words_used": [
+        "谁",
+        "生日",
+        "是",
+        "十二月",
+        "八",
+        "号"
+      ]
+    },
+    {
+      "traditional": "我請你吃大餐，好不好？",
+      "simplified": "我请你吃大餐，好不好？",
+      "pinyin": "Wǒ qǐng nǐ chī dàcān, hǎo bù hǎo?",
+      "english": "I'll treat you to a fancy meal, how does that sound?",
+      "notes": "",
+      "words_used": [
+        "我",
+        "请",
+        "你",
+        "吃",
+        "大餐",
+        "好不好"
+      ]
+    },
+    {
+      "traditional": "那個孩子今年六歲。",
+      "simplified": "那个孩子今年六岁。",
+      "pinyin": "Nà ge háizi jīnnián liù suì.",
+      "english": "That child is six years old this year.",
+      "notes": "",
+      "words_used": [
+        "那",
+        "个",
+        "孩子",
+        "今年",
+        "六",
+        "岁"
+      ]
+    },
+    {
+      "traditional": "明天我大哥來我家吃大餐。",
+      "simplified": "明天我大哥来我家吃大餐。",
+      "pinyin": "Míngtiān wǒ dàgē lái wǒ jiā chī dàcān.",
+      "english": "Tomorrow my oldest brother is coming to my home to eat a fancy meal.",
+      "notes": "",
+      "words_used": [
+        "明天",
+        "我",
+        "大哥",
+        "来",
+        "家",
+        "吃",
+        "大餐"
+      ]
     }
   ],
   "audio_clips": [
@@ -564,6 +817,150 @@
       "model": "gemini-3.1-flash-tts-preview",
       "voice": "Zephyr",
       "url": "collections/audio/shi2e4ryue4.mp3"
+    },
+    {
+      "text": "jīntiānshìwǒdàgēdeshēngrìwǒxiǎngzhùtāshēngrìkuàilè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji1ntia1nshi4wo3da4ge1deshe1ngri4wo3xia3ngzhu4ta1she1ngri4kua4ile4.mp3"
+    },
+    {
+      "text": "míngtiānshìshíyuèwǔhàowǒyàogěipéngyoumǎigèlǐwù",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7800,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/mi2ngtia1nshi4shi2yue4wu3ha4owo3ya4oge3ipe2ngyouma3ige4li3wu4.mp3"
+    },
+    {
+      "text": "jīnniánwǒgěizìjǐmǎileyìshuāngyùndòngxiékěyǐma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5920,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji1nnia2nwo3ge3izi4ji3ma3ileyi4shua1ngyu4ndo4ngxie2ke3yi3ma.mp3"
+    },
+    {
+      "text": "méiwèntímíngtiānwǒqǐngnǐchīdàcān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/me2iwe4nti2mi2ngtia1nwo3qi3ngni3chi1da4ca1n.mp3"
+    },
+    {
+      "text": "òutādeshēngrìshìjiǔyuèshíèrhàoma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/o4uta1deshe1ngri4shi4jiu3yue4shi2e4rha4oma.mp3"
+    },
+    {
+      "text": "shìatājīnniánèrshísuìle",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4120,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/shi4ata1ji1nnia2ne4rshi2sui4le.mp3"
+    },
+    {
+      "text": "shíèryuèèrshíwǔrìshìyígèjiérìma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/shi2e4ryue4e4rshi2wu3ri4shi4yi2ge4jie2ri4ma.mp3"
+    },
+    {
+      "text": "wǒyàosòngwǒdàgēyígèshēngrìlǐwù",
+      "mimeType": "audio/mpeg",
+      "durationMs": 10320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3ya4oso4ngwo3da4ge1yi2ge4she1ngri4li3wu4.mp3"
+    },
+    {
+      "text": "jīntiānwǒmenjìhuàchīyídùndàcānláiqìngzhùtādeshēngrì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6600,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji1ntia1nwo3menji4hua4chi1yi2du4nda4ca1nla2iqi4ngzhu4ta1deshe1ngri4.mp3"
+    },
+    {
+      "text": "wǒmensòngtāyìshuāngyùndòngxiéhǎobùhǎo",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4960,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3menso4ngta1yi4shua1ngyu4ndo4ngxie2ha3obu4ha3o.mp3"
+    },
+    {
+      "text": "jīntiānshìwǒgēgedeshēngrì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4800,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji1ntia1nshi4wo3ge1gedeshe1ngri4.mp3"
+    },
+    {
+      "text": "zhùnǐshēngrìkuàilè",
+      "mimeType": "audio/mpeg",
+      "durationMs": 3720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhu4ni3she1ngri4kua4ile4.mp3"
+    },
+    {
+      "text": "tājīnniányàomǎiyìshuāngyùndòngxié",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6120,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1ji1nnia2nya4oma3iyi4shua1ngyu4ndo4ngxie2.mp3"
+    },
+    {
+      "text": "nǐxiǎngsòngshénmelǐwùgěitāne",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4240,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3xia3ngso4ngshe2nmeli3wu4ge3ita1ne.mp3"
+    },
+    {
+      "text": "shéideshēngrìshìshíèryuèbāhào",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4800,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/she2ideshe1ngri4shi4shi2e4ryue4ba1ha4o.mp3"
+    },
+    {
+      "text": "wǒqǐngnǐchīdàcānhǎobùhǎo",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5080,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3qi3ngni3chi1da4ca1nha3obu4ha3o.mp3"
+    },
+    {
+      "text": "nàgeháizijīnniánliùsuì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/na4geha2iziji1nnia2nliu4sui4.mp3"
+    },
+    {
+      "text": "míngtiānwǒdàgēláiwǒjiāchīdàcān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5880,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/mi2ngtia1nwo3da4ge1la2iwo3jia1chi1da4ca1n.mp3"
     }
   ]
 }

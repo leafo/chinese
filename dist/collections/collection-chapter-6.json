@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
-  "version": 1,
-  "exportedAt": "2026-04-07T20:01:42.667Z",
+  "version": 2,
+  "exportedAt": "2026-09-18T01:47:57.695Z",
   "collection": {
     "name": "Chapter 6",
     "notes": "What do you usually like to do?",
@@ -184,6 +184,124 @@
       "notes": ""
     }
   ],
+  "sentences": [
+    {
+      "traditional": "我週末喜歡打網球。",
+      "simplified": "我周末喜欢打网球。",
+      "pinyin": "Wǒ zhōumò xǐhuān dǎ wǎngqiú.",
+      "english": "On weekends I like to play tennis.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "周末",
+        "喜欢",
+        "打",
+        "网球"
+      ]
+    },
+    {
+      "traditional": "你平常喜歡做什麼運動？",
+      "simplified": "你平常喜欢做什么运动？",
+      "pinyin": "Nǐ píngcháng xǐhuān zuò shénme yùndòng?",
+      "english": "What sport do you usually like to do?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "平常",
+        "喜欢",
+        "做",
+        "什么",
+        "运动"
+      ]
+    },
+    {
+      "traditional": "她晚上常常在家看電視。",
+      "simplified": "她晚上常常在家看电视。",
+      "pinyin": "Tā wǎnshàng chángcháng zài jiā kàn diànshì.",
+      "english": "She often watches television at home at night.",
+      "notes": "",
+      "words_used": [
+        "晚上",
+        "常常",
+        "在",
+        "家",
+        "看",
+        "电视"
+      ]
+    },
+    {
+      "traditional": "誰喜歡唱歌和跳舞？",
+      "simplified": "谁喜欢唱歌和跳舞？",
+      "pinyin": "Shéi xǐhuān chàng gē hé tiào wǔ?",
+      "english": "Who likes to sing and dance?",
+      "notes": "",
+      "words_used": [
+        "谁",
+        "喜欢",
+        "唱歌",
+        "和",
+        "跳舞"
+      ]
+    },
+    {
+      "traditional": "我哥哥喜歡踢足球，你呢？",
+      "simplified": "我哥哥喜欢踢足球，你呢？",
+      "pinyin": "Wǒ gēge xǐhuān tī zúqiú, nǐ ne?",
+      "english": "My older brother likes to play soccer; how about you?",
+      "notes": "",
+      "words_used": [
+        "我",
+        "哥哥",
+        "喜欢",
+        "踢足球",
+        "你"
+      ]
+    },
+    {
+      "traditional": "那是我爸爸的電視。",
+      "simplified": "那是我爸爸的电视。",
+      "pinyin": "Nà shì wǒ bàba de diànshì.",
+      "english": "That is my father's TV.",
+      "notes": "",
+      "words_used": [
+        "那",
+        "是",
+        "我",
+        "爸爸",
+        "电视"
+      ]
+    },
+    {
+      "traditional": "他們上午想去公園跑步。",
+      "simplified": "他们上午想去公园跑步。",
+      "pinyin": "Tāmen shàngwǔ xiǎng qù gōngyuán pǎobù.",
+      "english": "They want to go jogging in the park in the morning.",
+      "notes": "",
+      "words_used": [
+        "上午",
+        "想",
+        "去",
+        "公园",
+        "跑步"
+      ]
+    },
+    {
+      "traditional": "王太太喜歡聽音樂，可是她先生喜歡看電影。",
+      "simplified": "王太太喜欢听音乐，可是她先生喜欢看电影。",
+      "pinyin": "Wáng tàitai xǐhuān tīng yīnyuè, kěshì tā xiānsheng xǐhuān kàn diànyǐng.",
+      "english": "Mrs. Wang likes to listen to music, but her husband likes to watch movies.",
+      "notes": "",
+      "words_used": [
+        "太太",
+        "喜欢",
+        "听",
+        "音乐",
+        "可是",
+        "先生",
+        "看电影"
+      ]
+    }
+  ],
   "audio_clips": [
     {
       "mimeType": "audio/mpeg",
@@ -194,11 +312,11 @@
       "url": "collections/audio/yu4ndo4ng.mp3"
     },
     {
-      "mimeType": "audio/mpeg",
-      "durationMs": 1291,
-      "model": "gemini-2.5-pro-preview-tts",
-      "voice": "Zephyr",
       "text": "zuò",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
       "url": "collections/audio/zuo4.mp3"
     },
     {
@@ -258,11 +376,11 @@
       "url": "collections/audio/ke3shi4.mp3"
     },
     {
-      "mimeType": "audio/mpeg",
-      "durationMs": 1491,
-      "model": "gemini-2.5-pro-preview-tts",
-      "voice": "Zephyr",
       "text": "hái",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1360,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
       "url": "collections/audio/ha2i.mp3"
     },
     {
@@ -338,11 +456,11 @@
       "url": "collections/audio/sha4ngwu3.mp3"
     },
     {
-      "mimeType": "audio/mpeg",
-      "durationMs": 1771,
-      "model": "gemini-2.5-pro-preview-tts",
-      "voice": "Zephyr",
       "text": "tàitai",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
       "url": "collections/audio/ta4itai.mp3"
     },
     {
@@ -376,6 +494,70 @@
       "voice": "Zephyr",
       "text": "tīzúqiú",
       "url": "collections/audio/ti1zu2qiu2.mp3"
+    },
+    {
+      "text": "wǒzhōumòxǐhuāndǎwǎngqiú",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3zho1umo4xi3hua1nda3wa3ngqiu2.mp3"
+    },
+    {
+      "text": "nǐpíngchángxǐhuānzuòshénmeyùndòng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4200,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3pi2ngcha2ngxi3hua1nzuo4she2nmeyu4ndo4ng.mp3"
+    },
+    {
+      "text": "tāwǎnshàngchángchángzàijiākàndiànshì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4880,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1wa3nsha4ngcha2ngcha2ngza4ijia1ka4ndia4nshi4.mp3"
+    },
+    {
+      "text": "shéixǐhuānchànggēhétiàowǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/she2ixi3hua1ncha4ngge1he2tia4owu3.mp3"
+    },
+    {
+      "text": "wǒgēgexǐhuāntīzúqiúnǐne",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6000,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3ge1gexi3hua1nti1zu2qiu2ni3ne.mp3"
+    },
+    {
+      "text": "nàshìwǒbàbadediànshì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4440,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/na4shi4wo3ba4badedia4nshi4.mp3"
+    },
+    {
+      "text": "tāmenshàngwǔxiǎngqùgōngyuánpǎobù",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1mensha4ngwu3xia3ngqu4go1ngyua2npa3obu4.mp3"
+    },
+    {
+      "text": "wángtàitaixǐhuāntīngyīnyuèkěshìtāxiānshengxǐhuānkàndiànyǐng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 8000,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wa2ngta4itaixi3hua1nti1ngyi1nyue4ke3shi4ta1xia1nshengxi3hua1nka4ndia4nyi3ng.mp3"
     }
   ]
 }

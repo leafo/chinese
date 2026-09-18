@@ -58,5 +58,11 @@
     "name": "Chapter 10",
     "notes": "Is it hard to learn Mandarin",
     "wordCount": 25
+  },
+  {
+    "file": "collection-chapter-11.json",
+    "name": "Chapter 11",
+    "notes": "The weather is nice today",
+    "wordCount": 29
   }
 ]
