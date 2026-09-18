@@ -1,7 +1,7 @@
 {
   "format": "chinese-collection-export",
   "version": 2,
-  "exportedAt": "2026-09-18T01:47:57.868Z",
+  "exportedAt": "2026-09-18T21:53:17.792Z",
   "collection": {
     "name": "Chapter 10",
     "notes": "Is it hard to learn Mandarin",
@@ -184,7 +184,194 @@
       "notes": "Supplementary Vocabulary (補充生詞); Part of speech: Vs (Stative Verb)"
     }
   ],
-  "sentences": [],
+  "sentences": [
+    {
+      "traditional": "Gloria覺得學中文很有意思，但是寫字很難。",
+      "simplified": "Gloria觉得学中文很有意思，但是写字很难。",
+      "pinyin": "Gloria juéde xué Zhōngwén hěn yǒuyìsi, dànshì xiě zì hěn nán.",
+      "english": "Gloria feels that learning Chinese is very interesting, but writing characters is very difficult.",
+      "notes": "",
+      "words_used": [
+        "觉得",
+        "学",
+        "中文",
+        "难"
+      ]
+    },
+    {
+      "traditional": "李老師寫字寫得很快，我覺得自己寫得很慢。",
+      "simplified": "李老师写字写得很快，我觉得自己写得很慢。",
+      "pinyin": "Lǐ lǎoshī xiě zì xiě de hěn kuài, wǒ juéde zìjǐ xiě de hěn màn.",
+      "english": "Teacher Li writes characters very fast, while I feel that I write very slowly.",
+      "notes": "",
+      "words_used": [
+        "写字",
+        "得",
+        "快",
+        "自己"
+      ]
+    },
+    {
+      "traditional": "你平常喜歡跟誰一起聊天練習說話？",
+      "simplified": "你平常喜欢跟谁一起聊天练习说话？",
+      "pinyin": "Nǐ píngcháng xǐhuan gēn shéi yìqǐ liáo tiān liànxí shuō huà?",
+      "english": "Who do you usually like to chat and practice speaking with?",
+      "notes": "",
+      "words_used": [
+        "聊天",
+        "练习",
+        "说话"
+      ]
+    },
+    {
+      "traditional": "這家咖啡館的咖啡很貴，但是味道很不錯。",
+      "simplified": "这家咖啡馆的咖啡很贵，但是味道很不错。",
+      "pinyin": "Zhè jiā kāfēiguǎn de kāfēi hěn guì, dànshì wèidao hěn búcuò.",
+      "english": "The coffee in this cafe is quite expensive, but the taste is pretty good.",
+      "notes": "",
+      "words_used": [
+        "咖啡",
+        "贵",
+        "不错"
+      ]
+    },
+    {
+      "traditional": "他差不多會寫一百個字，學得很不錯。",
+      "simplified": "他差不多会写一百个字，学得很不错。",
+      "pinyin": "Tā chàbùduō huì xiě yì bǎi ge zì, xué de hěn búcuò.",
+      "english": "He can write approximately one hundred characters; he is learning quite well.",
+      "notes": "",
+      "words_used": [
+        "差不多",
+        "会",
+        "字",
+        "不错"
+      ]
+    },
+    {
+      "traditional": "今天工作很忙，我們去喝杯紅茶吧。",
+      "simplified": "今天工作很忙，我们去喝杯红茶吧。",
+      "pinyin": "Jīntiān gōngzuò hěn máng, wǒmen qù hē bēi hóngchá ba.",
+      "english": "We've been very busy at work today; let's go drink a cup of black tea!",
+      "notes": "",
+      "words_used": [
+        "喝",
+        "杯",
+        "吧"
+      ]
+    },
+    {
+      "traditional": "我媽媽做飯做得很快，大家都很喜歡。",
+      "simplified": "我妈妈做饭做得很快，大家都很喜欢。",
+      "pinyin": "Wǒ māma zuò fàn zuò de hěn kuài, dàjiā dōu hěn xǐhuan.",
+      "english": "My mother cooks very quickly, and everyone likes her food.",
+      "notes": "",
+      "words_used": [
+        "做饭",
+        "得",
+        "快"
+      ]
+    },
+    {
+      "traditional": "你知道那個學校有多少個學中文的學生嗎？",
+      "simplified": "你知道那个学校有多少个学中文的学生吗？",
+      "pinyin": "Nǐ zhīdào nà ge xuéxiào yǒu duōshǎo ge xué Zhōngwén de xuésheng ma?",
+      "english": "Do you know how many students are learning Chinese at that school?",
+      "notes": "",
+      "words_used": [
+        "多少",
+        "学",
+        "中文"
+      ]
+    },
+    {
+      "traditional": "走了這麼長時間的路，我們去長椅上休息一下吧。",
+      "simplified": "走了这么长时间的路，我们去长椅上休息一下吧。",
+      "pinyin": "Zǒu le zhème cháng shíjiān de lù, wǒmen qù chángyǐ shang xiūxí yíxià ba.",
+      "english": "Having walked for such a long time, let's take a break on the bench.",
+      "notes": "",
+      "words_used": [
+        "休息",
+        "一下",
+        "吧"
+      ]
+    },
+    {
+      "traditional": "我覺得學習做飯有一點難，不過很有趣。",
+      "simplified": "我觉得学习做饭有一点难，不过很有趣。",
+      "pinyin": "Wǒ juéde xuéxí zuò fàn yǒu yìdiǎn nán, búguò hěn yǒuqù.",
+      "english": "I feel that learning to cook is a little hard, but it's very interesting.",
+      "notes": "",
+      "words_used": [
+        "觉得",
+        "做饭",
+        "有一点",
+        "难"
+      ]
+    },
+    {
+      "traditional": "明文經常跟朋友聊天，藉此練習他的中文。",
+      "simplified": "明文经常跟朋友聊天，借此练习他的中文。",
+      "pinyin": "Míngwén jīngcháng gēn péngyou liáo tiān, jiè cǐ liànxí tā de Zhōngwén.",
+      "english": "Mingwen often chats with friends, thereby practicing his Chinese.",
+      "notes": "",
+      "words_used": [
+        "聊天",
+        "练习",
+        "中文"
+      ]
+    },
+    {
+      "traditional": "買這台電腦太貴了，你覺得怎麼樣？",
+      "simplified": "买这台电脑太贵了，你觉得怎么样？",
+      "pinyin": "Mǎi zhè tái diànnǎo tài guì le, nǐ juéde zěnmeyàng?",
+      "english": "Buying this computer is too expensive, what do you think?",
+      "notes": "",
+      "words_used": [
+        "贵",
+        "觉得"
+      ]
+    },
+    {
+      "traditional": "他每天自己練習說話，所以表達得越來越清楚。",
+      "simplified": "他每天自己练习说话，所以表达得越来越清楚。",
+      "pinyin": "Tā měitiān zìjǐ liànxí shuō huà, suǒyǐ biǎodá de yuèláiyuè qīngchu.",
+      "english": "He practices speaking on his own every day, so he expresses himself more and more clearly.",
+      "notes": "",
+      "words_used": [
+        "自己",
+        "练习",
+        "说话",
+        "得"
+      ]
+    },
+    {
+      "traditional": "你會寫多少個漢字？差不多有一百個吧。",
+      "simplified": "你会写多少个汉字？差不多有一百个吧。",
+      "pinyin": "Nǐ huì xiě duōshǎo ge hànzì? Chàbùduō yǒu yì bǎi ge ba.",
+      "english": "How many Chinese characters can you write? Probably around a hundred.",
+      "notes": "",
+      "words_used": [
+        "会",
+        "多少",
+        "差不多",
+        "字"
+      ]
+    },
+    {
+      "traditional": "下課以後，我們去喝杯咖啡聊天吧。",
+      "simplified": "下课以后，我们去喝杯咖啡聊天吧。",
+      "pinyin": "Xiàkè yǐhòu, wǒmen qù hē bēi kāfēi liáo tiān ba.",
+      "english": "After class, let's go have a cup of coffee and chat.",
+      "notes": "",
+      "words_used": [
+        "喝",
+        "杯",
+        "咖啡",
+        "聊天"
+      ]
+    }
+  ],
   "audio_clips": [
     {
       "mimeType": "audio/mpeg",
@@ -385,6 +572,126 @@
       "model": "gemini-3.1-flash-tts-preview",
       "voice": "Zephyr",
       "url": "collections/audio/gui4.mp3"
+    },
+    {
+      "text": "gloriajuédexuézhōngwénhěnyǒuyìsidànshìxiězìhěnnán",
+      "mimeType": "audio/mpeg",
+      "durationMs": 8160,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/gloriajue2dexue2zho1ngwe2nhe3nyo3uyi4sida4nshi4xie3zi4he3nna2n.mp3"
+    },
+    {
+      "text": "lǐlǎoshīxiězìxiědehěnkuàiwǒjuédezìjǐxiědehěnmàn",
+      "mimeType": "audio/mpeg",
+      "durationMs": 10200,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/li3la3oshi1xie3zi4xie3dehe3nkua4iwo3jue2dezi4ji3xie3dehe3nma4n.mp3"
+    },
+    {
+      "text": "nǐpíngchángxǐhuangēnshéiyìqǐliáotiānliànxíshuōhuà",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6400,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3pi2ngcha2ngxi3huange1nshe2iyi4qi3lia2otia1nlia4nxi2shuo1hua4.mp3"
+    },
+    {
+      "text": "zhèjiākāfēiguǎndekāfēihěnguìdànshìwèidaohěnbúcuò",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6800,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4jia1ka1fe1igua3ndeka1fe1ihe3ngui4da4nshi4we4idaohe3nbu2cuo4.mp3"
+    },
+    {
+      "text": "tāchàbùduōhuìxiěyìbǎigezìxuédehěnbúcuò",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6240,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1cha4bu4duo1hui4xie3yi4ba3igezi4xue2dehe3nbu2cuo4.mp3"
+    },
+    {
+      "text": "jīntiāngōngzuòhěnmángwǒmenqùhēbēihóngchába",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5600,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji1ntia1ngo1ngzuo4he3nma2ngwo3menqu4he1be1iho2ngcha2ba.mp3"
+    },
+    {
+      "text": "wǒmāmazuòfànzuòdehěnkuàidàjiādōuhěnxǐhuan",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7120,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3ma1mazuo4fa4nzuo4dehe3nkua4ida4jia1do1uhe3nxi3huan.mp3"
+    },
+    {
+      "text": "nǐzhīdàonàgexuéxiàoyǒuduōshǎogexuézhōngwéndexuéshengma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6240,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3zhi1da4ona4gexue2xia4oyo3uduo1sha3ogexue2zho1ngwe2ndexue2shengma.mp3"
+    },
+    {
+      "text": "zǒulezhèmechángshíjiāndelùwǒmenqùchángyǐshangxiūxíyíxiàba",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zo3ulezhe4mecha2ngshi2jia1ndelu4wo3menqu4cha2ngyi3shangxiu1xi2yi2xia4ba.mp3"
+    },
+    {
+      "text": "wǒjuédexuéxízuòfànyǒuyìdiǎnnánbúguòhěnyǒuqù",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7600,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3jue2dexue2xi2zuo4fa4nyo3uyi4dia3nna2nbu2guo4he3nyo3uqu4.mp3"
+    },
+    {
+      "text": "míngwénjīngchánggēnpéngyouliáotiānjiècǐliànxítādezhōngwén",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7680,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/mi2ngwe2nji1ngcha2ngge1npe2ngyoulia2otia1njie4ci3lia4nxi2ta1dezho1ngwe2n.mp3"
+    },
+    {
+      "text": "mǎizhètáidiànnǎotàiguìlenǐjuédezěnmeyàng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4600,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ma3izhe4ta2idia4nna3ota4igui4leni3jue2deze3nmeya4ng.mp3"
+    },
+    {
+      "text": "tāměitiānzìjǐliànxíshuōhuàsuǒyǐbiǎodádeyuèláiyuèqīngchu",
+      "mimeType": "audio/mpeg",
+      "durationMs": 10560,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1me3itia1nzi4ji3lia4nxi2shuo1hua4suo3yi3bia3oda2deyue4la2iyue4qi1ngchu.mp3"
+    },
+    {
+      "text": "nǐhuìxiěduōshǎogehànzìchàbùduōyǒuyìbǎigeba",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3hui4xie3duo1sha3ogeha4nzi4cha4bu4duo1yo3uyi4ba3igeba.mp3"
+    },
+    {
+      "text": "xiàkèyǐhòuwǒmenqùhēbēikāfēiliáotiānba",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xia4ke4yi3ho4uwo3menqu4he1be1ika1fe1ilia2otia1nba.mp3"
     }
   ]
 }
