@@ -11,6 +11,7 @@ import { ApiKeyWarning } from "./ApiKeyWarning";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 import { StreamingPreview } from "./StreamingPreview";
 import { AudioPlayIcon } from "./AudioPlayIcon";
+import { extractPastedImages } from "./imageFiles";
 
 const AUDIO_CONCURRENCY = 3;
 
@@ -27,6 +28,8 @@ function SentenceForm({ onComplete }) {
   const [selectedCollectionIds, setSelectedCollectionIds] = useState([]);
   const [count, setCount] = useState('');
   const [additionalInstructions, setAdditionalInstructions] = useState('');
+  const [attachedImages, setAttachedImages] = useState([]);
+  const nextImageIdRef = useRef(1);
   const [sentenceProvider, setSentenceProvider] = useState('gemini');
   const [status, setStatus] = useState('idle'); // idle | generating | error
   const [error, setError] = useState(null);
@@ -38,6 +41,36 @@ function SentenceForm({ onComplete }) {
       abortRef.current?.abort();
     };
   }, []);
+
+  const attachedImagesRef = useRef(attachedImages);
+  attachedImagesRef.current = attachedImages;
+
+  useEffect(() => {
+    return () => {
+      attachedImagesRef.current.forEach(image => URL.revokeObjectURL(image.previewUrl));
+    };
+  }, []);
+
+  const handleInstructionsPaste = (e) => {
+    const files = extractPastedImages(e.clipboardData);
+    if (!files.length) return;
+    e.preventDefault();
+    setAttachedImages(prev => [
+      ...prev,
+      ...files.map(file => ({
+        id: nextImageIdRef.current++,
+        file,
+        previewUrl: URL.createObjectURL(file),
+      })),
+    ]);
+  };
+
+  const removeAttachedImage = (id) => {
+    setAttachedImages(prev => {
+      prev.filter(image => image.id === id).forEach(image => URL.revokeObjectURL(image.previewUrl));
+      return prev.filter(image => image.id !== id);
+    });
+  };
 
   const handleToggleCollection = (id) => {
     setSelectedCollectionIds(prev =>
@@ -99,6 +132,7 @@ function SentenceForm({ onComplete }) {
         count: count ? Number(count) : undefined,
         objectives: objectives || undefined,
         additionalInstructions: additionalInstructions.trim() || undefined,
+        images: attachedImages.map(image => image.file),
         signal: controller.signal,
         onChunk: (_chunk, fullText) => {
           if (!controller.signal.aborted) {
@@ -138,7 +172,7 @@ function SentenceForm({ onComplete }) {
       <StreamingPreview
         active={true}
         streamText={streamText}
-        meta={count ? `Sentences: ${count}` : undefined}
+        meta={[count ? `Sentences: ${count}` : null, attachedImages.length ? `Images: ${attachedImages.length}` : null].filter(Boolean).join(' · ') || undefined}
         onCancel={handleCancel}
       />
     );
@@ -184,10 +218,38 @@ function SentenceForm({ onComplete }) {
           <label>Additional instructions (optional)</label>
           <textarea
             rows={3}
-            placeholder="e.g. Focus on food-related topics, use past tense..."
+            placeholder="e.g. Focus on food-related topics, use past tense... Paste images here to attach them as references."
             value={additionalInstructions}
             onChange={(e) => setAdditionalInstructions(e.target.value)}
+            onPaste={handleInstructionsPaste}
           />
+          {attachedImages.length > 0 && (
+            <ul className={styles.attachedImageList}>
+              {attachedImages.map(image => (
+                <li key={image.id} className={styles.attachedImageItem}>
+                  <img
+                    className={styles.attachedImageThumb}
+                    src={image.previewUrl}
+                    alt={image.file.name || 'Attached image'}
+                  />
+                  <button
+                    type="button"
+                    className={styles.attachedImageRemove}
+                    onClick={() => removeAttachedImage(image.id)}
+                    title="Remove image"
+                    aria-label="Remove image"
+                  >
+                    ×
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+          <p className={styles.formHint}>
+            {attachedImages.length > 0
+              ? `${attachedImages.length} image${attachedImages.length === 1 ? '' : 's'} attached as reference.`
+              : 'Paste an image into the box above to attach it as a reference.'}
+          </p>
         </div>
 
         <div className={styles.formField}>

@@ -1,5 +1,6 @@
 import { config } from './config.js';
 import { sampleWords, formatWordList, generateSentencesPrompt } from './prompts.js';
+import { encodeImageFile } from './imageFiles.js';
 
 const OPENAI_CHAT_MODEL = 'gpt-5.4-mini';
 const OPENAI_TTS_MODEL = 'gpt-4o-mini-tts';
@@ -56,19 +57,27 @@ export async function generateTts(text, { signal } = {}) {
   };
 }
 
-export async function generateSentences(words, { count = 10, objectives, additionalInstructions, signal, onChunk } = {}) {
+export async function generateSentences(words, { count = 10, objectives, additionalInstructions, images = [], signal, onChunk } = {}) {
   if (!words || words.length === 0) {
     throw new Error('At least one word is required to generate sentences');
   }
 
   const wordList = formatWordList(sampleWords(words));
-  const prompt = generateSentencesPrompt(wordList, { count, objectives, additionalInstructions })
+  const prompt = generateSentencesPrompt(wordList, { count, objectives, additionalInstructions, imageCount: images.length })
     + `\n\nRespond with a JSON object: { "sentences": [{ "simplified": "...", "traditional": "...", "pinyin": "...", "english": "...", "words_used": ["..."] }] }`;
+
+  const encodedImages = await Promise.all(images.map(encodeImageFile));
+  const content = encodedImages.length
+    ? [
+        { type: 'text', text: prompt },
+        ...encodedImages.map(({ dataUrl }) => ({ type: 'image_url', image_url: { url: dataUrl } })),
+      ]
+    : prompt;
 
   const apiKey = await getApiKey();
   const body = {
     model: OPENAI_CHAT_MODEL,
-    messages: [{ role: 'user', content: prompt }],
+    messages: [{ role: 'user', content }],
     response_format: { type: 'json_object' },
     stream: !!onChunk,
   };

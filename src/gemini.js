@@ -1,5 +1,6 @@
 import { config } from './config.js';
 import { sampleWords, formatWordList, generateSentencesPrompt } from './prompts.js';
+import { encodeImageFile } from './imageFiles.js';
 
 const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 const GEMINI_MODEL = 'gemini-flash-latest';
@@ -366,17 +367,8 @@ function buildOcrWordsRequestBody(images, additionalInstructions) {
 }
 
 async function encodeFileAsInlineData(file) {
-  const base64 = await new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-
-  return {
-    base64Data: base64.split(',')[1],
-    mimeType: file.type,
-  };
+  const { base64Data, mimeType } = await encodeImageFile(file);
+  return { base64Data, mimeType };
 }
 
 export async function ocrWords(files, options = {}) {
@@ -479,19 +471,23 @@ const GENERATE_SENTENCES_RESPONSE_SCHEMA = {
   required: ["sentences"]
 };
 
-export async function generateSentences(words, { count = 10, objectives, additionalInstructions, signal, onChunk } = {}) {
+export async function generateSentences(words, { count = 10, objectives, additionalInstructions, images = [], signal, onChunk } = {}) {
   if (!words || words.length === 0) {
     throw new Error('At least one word is required to generate sentences');
   }
 
   const wordList = formatWordList(sampleWords(words));
-  const prompt = generateSentencesPrompt(wordList, { count, objectives, additionalInstructions });
+  const prompt = generateSentencesPrompt(wordList, { count, objectives, additionalInstructions, imageCount: images.length });
+  const encodedImages = await Promise.all(images.map(encodeFileAsInlineData));
 
   const requestBody = {
     contents: [
       {
         parts: [
-          { text: prompt }
+          { text: prompt },
+          ...encodedImages.map(({ base64Data, mimeType }) => ({
+            inlineData: { mimeType, data: base64Data }
+          }))
         ]
       }
     ],
