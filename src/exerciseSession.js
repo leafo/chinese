@@ -89,15 +89,29 @@ function makeCycler(items) {
   };
 }
 
+// Two entries can share a gloss ("not") or the same characters, and either
+// would show up as an identical option scored wrong, so candidates are
+// deduped by every text they could be displayed as.
+function displayTexts(item) {
+  return [item.english, item.simplified, item.traditional]
+    .filter(Boolean)
+    .map(t => t.trim().toLowerCase());
+}
+
 function distractorsFor(item, primary, fallback, count) {
-  const same = (a, b) => a.id === b.id;
-  const notItem = list => list.filter(x => !same(x, item));
-  let candidates = shuffle(notItem(primary));
-  if (candidates.length < count) {
-    const extra = shuffle(notItem(fallback)).filter(x => !candidates.some(c => same(c, x)));
-    candidates = [...candidates, ...extra];
+  const seen = new Set(displayTexts(item));
+  const seenIds = new Set([item.id]);
+  const result = [];
+  for (const candidate of [...shuffle(primary), ...shuffle(fallback)]) {
+    if (result.length >= count) break;
+    if (seenIds.has(candidate.id)) continue;
+    const texts = displayTexts(candidate);
+    if (texts.some(t => seen.has(t))) continue;
+    seenIds.add(candidate.id);
+    for (const t of texts) seen.add(t);
+    result.push(candidate);
   }
-  return candidates.slice(0, count);
+  return result;
 }
 
 function choiceExercise(type, kind, item, pool, all) {

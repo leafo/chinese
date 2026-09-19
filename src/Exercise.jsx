@@ -198,7 +198,7 @@ function PinyinExercise({ exercise, displayScript, onAnswer, answered }) {
       </div>
       <SyllablePicker
         word={item}
-        onCorrect={(clean) => onAnswer(clean)}
+        onCorrect={(clean) => onAnswer(true, { retry: !clean })}
         disabled={Boolean(answered)}
       />
     </>
@@ -225,9 +225,11 @@ function ExerciseSession({ initialQueue, ctx, displayScript, onFinish, onQuit })
     (exercise.type === 'wordbank' && built.length > 0)
   );
 
-  const submit = useCallback((correct) => {
-    setAnswered({ correct });
-    if (!correct) {
+  // retry: answered correctly in the end but with mistakes along the way,
+  // so it still comes back around and counts as missed.
+  const submit = useCallback((correct, { retry = false } = {}) => {
+    setAnswered({ correct, retry });
+    if (!correct || retry) {
       setMissed(prev => {
         const next = new Map(prev);
         next.set(itemKey(exercise), exercise.item);
@@ -248,7 +250,7 @@ function ExerciseSession({ initialQueue, ctx, displayScript, onFinish, onQuit })
   const next = useCallback(() => {
     if (!answered) return;
     stopCurrentAudio();
-    if (!answered.correct) {
+    if (!answered.correct || answered.retry) {
       setQueue(prev => [...prev, { ...retryExercise(exercise, ctx), retryOf: exercise.retryOf || exercise.id }]);
     }
     setAnswered(null);
@@ -334,7 +336,9 @@ function ExerciseSession({ initialQueue, ctx, displayScript, onFinish, onQuit })
         <div className={answered.correct ? styles.exerciseFeedbackCorrect : styles.exerciseFeedbackWrong}>
           <div className={styles.exerciseFeedbackBody}>
             <div className={styles.exerciseFeedbackTitle}>
-              {answered.correct ? 'Correct!' : 'Not quite. The answer is:'}
+              {!answered.correct
+                ? 'Not quite. The answer is:'
+                : answered.retry ? 'Got there, with mistakes. This one will come back.' : 'Correct!'}
             </div>
             {(!answered.correct || exercise.type !== 'zh2en') && (
               <ItemAnswer item={exercise.item} displayScript={displayScript} />
