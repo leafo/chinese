@@ -8,7 +8,7 @@ import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 import { PlayButton } from "./PlayButton";
 import { SyllablePicker } from "./SyllablePicker";
-import { audioKey, playAudio, stopCurrentAudio } from "./audio";
+import { audioKey, playAudio, stopCurrentAudio, isInManifest, getCachedAudio } from "./audio";
 import { useElapsedTimer } from "./useElapsedTimer";
 import { useShaker } from "./util";
 import {
@@ -30,15 +30,27 @@ function formatDuration(ms) {
   return `${minutes}:${String(seconds).padStart(2, '0')}`;
 }
 
-// Plays the item's clip once when it mounts. PlayButton's own autoPlay only
-// fires for clips already in the cache, which misses manifest audio on first
-// use, so this goes through playAudio instead.
+// Only plays clips already cached or in the manifest, so mounting an exercise
+// never spends a TTS call. The play button still generates on demand.
 function useAutoPlay(item, enabled) {
   useEffect(() => {
     if (!enabled || !item?.pinyin) return;
+    const text = audioKey(item.pinyin);
     const chineseText = item.simplified || item.traditional;
-    playAudio(audioKey(item.pinyin), { chineseText }).catch(() => {});
-    return () => stopCurrentAudio();
+    const controller = new AbortController();
+    let cancelled = false;
+
+    (async () => {
+      const available = isInManifest(text) || Boolean(await getCachedAudio(text));
+      if (cancelled || !available) return;
+      await playAudio(text, { chineseText, signal: controller.signal });
+    })().catch(() => {});
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+      stopCurrentAudio();
+    };
   }, [item, enabled]);
 }
 
@@ -263,7 +275,7 @@ function ExerciseSession({ initialQueue, ctx, displayScript, onFinish, onQuit })
       if (e.repeat) return;
       const tag = document.activeElement?.tagName;
       if (tag === 'INPUT') return;
-      // A focused button handles Enter itself via its click; avoid double-firing.
+      // A focused button already turns Enter into a click.
       if (e.key === 'Enter' && tag !== 'BUTTON') {
         e.preventDefault();
         if (answered) next();

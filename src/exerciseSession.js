@@ -1,6 +1,5 @@
-// Pure helpers for building a Duolingo-style exercise session from the
-// words and sentences in a set of collections. No React here so the queue
-// generation is easy to reason about and test.
+// Session building for the Exercise tab: pools, queue, retries. No React so
+// it can run under node.
 
 import { getPreferredChineseText } from './display';
 
@@ -26,10 +25,6 @@ export function shuffle(items) {
   return result;
 }
 
-function pick(items) {
-  return items[Math.floor(Math.random() * items.length)];
-}
-
 function inCollections(item, collectionIds) {
   return (item.collection_ids || []).some(id => collectionIds.includes(id));
 }
@@ -41,9 +36,8 @@ export function buildPool(allWords, allSentences, collectionIds) {
   };
 }
 
-// Forward maximum matching of a sentence against the word list, in the given
-// script. Unmatched characters become single-character tokens so every
-// sentence can still be built from tiles.
+// Forward maximum matching against the word list. Characters no word covers
+// become single-character tokens so every sentence can still be tiled.
 export function tokenizeSentence(sentence, allWords, script) {
   const text = getPreferredChineseText(sentence, script);
   const byText = new Map();
@@ -81,7 +75,7 @@ export function tokenizeSentence(sentence, allWords, script) {
   return tokens;
 }
 
-// Cycles through a shuffled list so items are spread evenly before repeating.
+// Shuffled round-robin, so nothing repeats before everything has been drawn.
 function makeCycler(items) {
   let order = shuffle(items);
   let index = 0;
@@ -161,9 +155,7 @@ function hasAudio(item) {
   return Boolean(item.pinyin);
 }
 
-// Builds one exercise of the given type. `item` is optional; when omitted a
-// fresh item is drawn from the cyclers. Returns null if the pool can't
-// support that type.
+// forcedItem replays a specific item (retries) instead of drawing a new one.
 export function makeExercise(type, ctx, forcedItem = null) {
   const { pool, all, script, nextWord, nextSentence } = ctx;
   const wantSentence = () =>
@@ -208,30 +200,33 @@ export function createSessionContext({ pool, all, script }) {
   };
 }
 
+// makeExercise can fail for one item (no pinyin, sentence too short to tile)
+// without the type being unbuildable, so a type is only dropped after
+// several misses.
+const BUILD_RETRIES = 8;
+
 export function buildQueue(ctx, enabledTypes, length) {
   const queue = [];
   const types = enabledTypes.filter(t => EXERCISE_TYPES.some(e => e.id === t));
   if (types.length === 0) return queue;
 
   let typeOrder = shuffle(types);
-  let attempts = 0;
-  while (queue.length < length && attempts < length * 6) {
-    attempts++;
+  while (queue.length < length && typeOrder.length > 0) {
     const type = typeOrder[queue.length % typeOrder.length];
-    const exercise = makeExercise(type, ctx);
+    let exercise = null;
+    for (let i = 0; i < BUILD_RETRIES && !exercise; i++) {
+      exercise = makeExercise(type, ctx);
+    }
     if (exercise) {
       queue.push(exercise);
     } else {
-      // This type can't be built from the pool; drop it so we don't spin.
       typeOrder = typeOrder.filter(t => t !== type);
-      if (typeOrder.length === 0) break;
     }
   }
   return queue;
 }
 
-// Rebuild a missed exercise with fresh distractors and tile order so the
-// retry isn't answerable from memory of positions.
+// Fresh distractors and tile order, so a retry can't be answered by position.
 export function retryExercise(exercise, ctx) {
   return makeExercise(exercise.type, ctx, { item: exercise.item, kind: exercise.kind }) || exercise;
 }
