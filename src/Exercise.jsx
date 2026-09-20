@@ -22,6 +22,8 @@ import {
 
 const LENGTH_OPTIONS = [10, 20, 30];
 const CHOICE_TYPES = new Set(['zh2en', 'en2zh', 'listen']);
+// Exercise types whose prompt already played the word
+const HEARD_TYPES = new Set(['zh2en', 'listen']);
 
 function formatDuration(ms) {
   const totalSeconds = Math.round(ms / 1000);
@@ -54,7 +56,8 @@ function useAutoPlay(item, enabled) {
   }, [item, enabled]);
 }
 
-function ItemAnswer({ item, displayScript }) {
+function ItemAnswer({ item, displayScript, autoPlay = false }) {
+  useAutoPlay(item, autoPlay);
   return (
     <div className={styles.exerciseAnswer}>
       <span className={styles.exerciseAnswerChinese}>{getPreferredChineseText(item, displayScript)}</span>
@@ -351,7 +354,11 @@ function ExerciseSession({ initialQueue, ctx, displayScript, onFinish, onQuit })
                 : answered.retry ? 'Got there, with mistakes. This one will come back.' : 'Correct!'}
             </div>
             {(!answered.correct || exercise.type !== 'zh2en') && (
-              <ItemAnswer item={exercise.item} displayScript={displayScript} />
+              <ItemAnswer
+                item={exercise.item}
+                displayScript={displayScript}
+                autoPlay={!HEARD_TYPES.has(exercise.type)}
+              />
             )}
           </div>
           <button type="button" className={styles.primaryButton} onClick={next}>
