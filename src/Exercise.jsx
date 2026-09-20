@@ -25,6 +25,10 @@ const LENGTH_OPTIONS = [10, 20, 30];
 const CHOICE_TYPES = new Set(['zh2en', 'en2zh', 'listen']);
 // Exercise types whose prompt already played the word
 const HEARD_TYPES = new Set(['zh2en', 'listen']);
+// A retry lands a few exercises after the miss so it tests recall rather
+// than the answer just shown; jitter keeps the distance unpredictable.
+const RETRY_GAP = 3;
+const RETRY_JITTER = 2;
 
 function formatDuration(ms) {
   const totalSeconds = Math.round(ms / 1000);
@@ -276,13 +280,17 @@ function ExerciseSession({ initialQueue, ctx, displayScript, onFinish, onQuit })
     if (!answered) return;
     stopCurrentAudio();
     if (!answered.correct || answered.retry) {
-      setQueue(prev => [...prev, { ...retryExercise(exercise, ctx), retryOf: exercise.retryOf || exercise.id }]);
+      const retry = { ...retryExercise(exercise, ctx), retryOf: exercise.retryOf || exercise.id };
+      setQueue(prev => {
+        const at = Math.min(prev.length, index + 1 + RETRY_GAP + Math.floor(Math.random() * (RETRY_JITTER + 1)));
+        return [...prev.slice(0, at), retry, ...prev.slice(at)];
+      });
     }
     setAnswered(null);
     setSelected(null);
     setBuilt([]);
     setIndex(i => i + 1);
-  }, [answered, exercise, ctx]);
+  }, [answered, exercise, ctx, index]);
 
   useEffect(() => {
     if (!finished) return;

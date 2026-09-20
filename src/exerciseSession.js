@@ -242,9 +242,9 @@ export function buildQueue(ctx, enabledTypes, length) {
   return queue;
 }
 
-// Every item in every enabled type it fits, arranged round-robin across items
-// so the same one never comes up twice in a row. Used for the follow-up
-// session on a summary's missed list, where the pool is usually tiny.
+// Builds the follow-up session for a summary's missed list. The pool is tiny,
+// so each item gets every enabled type it fits, round-robin across items so
+// the same one never comes up twice in a row.
 export function buildFocusQueue(ctx, enabledTypes, items, maxLength) {
   const types = enabledTypes.filter(t => EXERCISE_TYPES.some(e => e.id === t));
   const perItem = shuffle(items).map(({ item, kind }) =>
