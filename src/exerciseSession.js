@@ -190,11 +190,13 @@ export function makeExercise(type, ctx, forcedItem = null) {
       return choiceExercise(type, kind, item, pool, all);
     }
     case 'wordbank': {
+      if (forcedItem && forcedItem.kind !== 'sentence') return null;
       const item = forcedItem ? forcedItem.item : nextSentence();
       if (!item) return null;
       return wordbankExercise(item, pool, all, script);
     }
     case 'pinyin': {
+      if (forcedItem && forcedItem.kind !== 'word') return null;
       const item = forcedItem ? forcedItem.item : nextWord();
       if (!item) return null;
       return pinyinExercise(item);
@@ -238,6 +240,26 @@ export function buildQueue(ctx, enabledTypes, length) {
     }
   }
   return queue;
+}
+
+// Every item in every enabled type it fits, arranged round-robin across items
+// so the same one never comes up twice in a row. Used for the follow-up
+// session on a summary's missed list, where the pool is usually tiny.
+export function buildFocusQueue(ctx, enabledTypes, items, maxLength) {
+  const types = enabledTypes.filter(t => EXERCISE_TYPES.some(e => e.id === t));
+  const perItem = shuffle(items).map(({ item, kind }) =>
+    shuffle(types)
+      .map(type => makeExercise(type, ctx, { item, kind }))
+      .filter(Boolean)
+  );
+  const queue = [];
+  const longest = Math.max(0, ...perItem.map(list => list.length));
+  for (let round = 0; round < longest; round++) {
+    for (const list of perItem) {
+      if (list[round]) queue.push(list[round]);
+    }
+  }
+  return queue.slice(0, maxLength);
 }
 
 // Fresh distractors and tile order, so a retry can't be answered by position.

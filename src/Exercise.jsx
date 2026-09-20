@@ -15,6 +15,7 @@ import {
   EXERCISE_TYPES,
   buildPool,
   buildQueue,
+  buildFocusQueue,
   createSessionContext,
   retryExercise,
   itemKey,
@@ -245,7 +246,7 @@ function ExerciseSession({ initialQueue, ctx, displayScript, onFinish, onQuit })
     if (!correct || retry) {
       setMissed(prev => {
         const next = new Map(prev);
-        next.set(itemKey(exercise), exercise.item);
+        next.set(itemKey(exercise), { item: exercise.item, kind: exercise.kind });
         return next;
       });
     }
@@ -376,7 +377,7 @@ function ExerciseSession({ initialQueue, ctx, displayScript, onFinish, onQuit })
   );
 }
 
-function ExerciseSummary({ result, displayScript, onAgain, onChange }) {
+function ExerciseSummary({ result, displayScript, onAgain, onPracticeMissed, onChange }) {
   const accuracy = result.total > 0 ? Math.round((result.firstTryCorrect / result.total) * 100) : 0;
   return (
     <div className={styles.exerciseSummary}>
@@ -404,8 +405,8 @@ function ExerciseSummary({ result, displayScript, onAgain, onChange }) {
         <>
           <h3>Review these</h3>
           <ul className={styles.exerciseMissedList}>
-            {result.missed.map(item => (
-              <li key={`${item.id}-${item.english}`}>
+            {result.missed.map(({ item, kind }) => (
+              <li key={`${kind}-${item.id}`}>
                 <ItemAnswer item={item} displayScript={displayScript} />
               </li>
             ))}
@@ -414,7 +415,14 @@ function ExerciseSummary({ result, displayScript, onAgain, onChange }) {
       )}
 
       <div className={styles.exerciseActions}>
-        <button type="button" className={styles.primaryButton} onClick={onAgain}>Again</button>
+        {result.missed.length > 0 && (
+          <button type="button" className={styles.primaryButton} onClick={onPracticeMissed}>Practice missed</button>
+        )}
+        <button
+          type="button"
+          className={result.missed.length > 0 ? styles.secondaryButton : styles.primaryButton}
+          onClick={onAgain}
+        >Again</button>
         <button type="button" className={styles.secondaryButton} onClick={onChange}>Change chapters</button>
       </div>
     </div>
@@ -506,16 +514,26 @@ export function Exercise() {
     prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]
   );
 
+  const all = { words: allWords || [], sentences: allSentences || [] };
+
   const startSession = () => {
-    const ctx = createSessionContext({
-      pool,
-      all: { words: allWords || [], sentences: allSentences || [] },
-      script,
-    });
+    const ctx = createSessionContext({ pool, all, script });
     const queue = buildQueue(ctx, enabledTypes, length);
     if (queue.length === 0) return;
     setResult(null);
     setSession({ ctx, queue, nonce: Date.now() });
+  };
+
+  const startFocusSession = (items) => {
+    const focusPool = {
+      words: items.filter(m => m.kind === 'word').map(m => m.item),
+      sentences: items.filter(m => m.kind === 'sentence').map(m => m.item),
+    };
+    const ctx = createSessionContext({ pool: focusPool, all, script });
+    const queue = buildFocusQueue(ctx, enabledTypes, items, length);
+    if (queue.length === 0) return;
+    setResult(null);
+    setSession({ ctx, queue, nonce: Date.now(), focus: items });
   };
 
   if (result) {
@@ -523,7 +541,8 @@ export function Exercise() {
       <ExerciseSummary
         result={result}
         displayScript={script}
-        onAgain={startSession}
+        onAgain={() => (result.focus ? startFocusSession(result.focus) : startSession())}
+        onPracticeMissed={() => startFocusSession(result.missed)}
         onChange={() => { setResult(null); setSession(null); }}
       />
     );
@@ -536,7 +555,7 @@ export function Exercise() {
         initialQueue={session.queue}
         ctx={session.ctx}
         displayScript={script}
-        onFinish={(r) => { setSession(null); setResult(r); }}
+        onFinish={(r) => { setResult({ ...r, focus: session.focus }); setSession(null); }}
         onQuit={() => setSession(null)}
       />
     );
