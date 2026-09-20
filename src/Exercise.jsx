@@ -139,7 +139,7 @@ function ChoiceExercise({ exercise, displayScript, selected, onSelect, answered 
 }
 
 function WordBankExercise({ exercise, displayScript, built, onBuiltChange, answered }) {
-  const { item, tiles } = exercise;
+  const { item, tiles, answer } = exercise;
   const usedIds = new Set(built.map(t => t.id));
   const [shakeClass, shake] = useShaker();
   const wasWrong = answered && !answered.correct;
@@ -147,6 +147,17 @@ function WordBankExercise({ exercise, displayScript, built, onBuiltChange, answe
   useEffect(() => {
     if (wasWrong) shake();
   }, [wasWrong, shake]);
+
+  let firstWrong = -1;
+  if (wasWrong) {
+    firstWrong = built.findIndex((tile, i) => tile.text !== answer[i]);
+  }
+  const builtTileClass = (i) => {
+    if (!wasWrong) return styles.wordbankBuiltTile;
+    if (i === firstWrong) return styles.wordbankBuiltTileWrong;
+    if (firstWrong === -1 || i < firstWrong) return styles.wordbankBuiltTileCorrect;
+    return styles.wordbankBuiltTile;
+  };
 
   return (
     <>
@@ -160,11 +171,11 @@ function WordBankExercise({ exercise, displayScript, built, onBuiltChange, answe
         {built.length === 0 ? (
           <span className={styles.syllableBuiltPlaceholder}>Tap the words in order...</span>
         ) : (
-          built.map(tile => (
+          built.map((tile, i) => (
             <button
               key={tile.id}
               type="button"
-              className={styles.wordbankBuiltTile}
+              className={builtTileClass(i)}
               onClick={() => onBuiltChange(built.filter(t => t.id !== tile.id))}
               disabled={Boolean(answered)}
             >

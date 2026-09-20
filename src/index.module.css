@@ -2681,6 +2681,8 @@
 }
 
 .wordbankBuiltTile,
+.wordbankBuiltTileCorrect,
+.wordbankBuiltTileWrong,
 .wordbankTile,
 .wordbankTileUsed {
   padding: 10px 14px;
@@ -2710,8 +2712,20 @@
 }
 
 .wordbankBuiltTile:disabled,
+.wordbankBuiltTileCorrect:disabled,
+.wordbankBuiltTileWrong:disabled,
 .wordbankTile:disabled {
   cursor: default;
+}
+
+.wordbankBuiltTileCorrect {
+  border-color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.wordbankBuiltTileWrong {
+  border-color: var(--color-danger);
+  background: var(--color-danger-bg);
 }
 
 .exerciseActions {
