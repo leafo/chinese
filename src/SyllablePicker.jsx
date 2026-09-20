@@ -154,7 +154,9 @@ function buildTiles(correctSyllables) {
 // Tap-to-build pinyin answer input: shows the word's syllables mixed with
 // distractor tiles (mostly tone variants). Auto-checks once enough syllables
 // are placed; a wrong answer shakes and drops the wrong syllables, keeping
-// the correct prefix.
+// the correct prefix. Only the first dropped syllable is known to be wrong,
+// and only at that position: later dropped ones may be right in their own
+// slots, and a tile ruled out in one slot can be the answer in a later one.
 export function SyllablePicker({ word, onCorrect, disabled, gaveUp }) {
   const { correctSyllables, tiles } = useMemo(() => {
     const variant = (word.pinyin || '').split('/')[0].trim();
@@ -164,7 +166,9 @@ export function SyllablePicker({ word, onCorrect, disabled, gaveUp }) {
 
   const [built, setBuilt] = useState([]);
   const [hadMistake, setHadMistake] = useState(false);
+  const [ruledOut, setRuledOut] = useState(() => new Map());
   const [shakeClass, shake] = useShaker();
+  const ruledOutHere = ruledOut.get(built.length);
 
   const handleTile = (syllable) => {
     if (disabled) return;
@@ -179,6 +183,13 @@ export function SyllablePicker({ word, onCorrect, disabled, gaveUp }) {
       setHadMistake(true);
       let keep = 0;
       while (keep < next.length && next[keep].toLowerCase() === correctSyllables[keep].toLowerCase()) keep++;
+      if (keep < next.length) {
+        setRuledOut(prev => {
+          const map = new Map(prev);
+          map.set(keep, new Set([...(map.get(keep) || []), next[keep].toLowerCase()]));
+          return map;
+        });
+      }
       setBuilt(next.slice(0, keep));
       shake();
     }
@@ -203,15 +214,18 @@ export function SyllablePicker({ word, onCorrect, disabled, gaveUp }) {
         >⌫</button>
       </div>
       <div className={styles.syllableTiles}>
-        {tiles.map((syllable) => (
-          <button
-            key={syllable}
-            type="button"
-            className={styles.syllableTile}
-            onClick={() => handleTile(syllable)}
-            disabled={disabled}
-          >{syllable}</button>
-        ))}
+        {tiles.map((syllable) => {
+          const isRuledOut = Boolean(ruledOutHere?.has(syllable.toLowerCase()));
+          return (
+            <button
+              key={syllable}
+              type="button"
+              className={isRuledOut ? styles.syllableTileRuledOut : styles.syllableTile}
+              onClick={() => handleTile(syllable)}
+              disabled={disabled || isRuledOut}
+            >{syllable}</button>
+          );
+        })}
       </div>
     </div>
   );

@@ -189,18 +189,28 @@ function WordBankExercise({ exercise, displayScript, built, onBuiltChange, answe
 
 function PinyinExercise({ exercise, displayScript, onAnswer, answered }) {
   const { item } = exercise;
+  const [gaveUp, setGaveUp] = useState(false);
   return (
     <>
       <div className={styles.exercisePrompt}>
         <div className={styles.exerciseHint}>Tap the pinyin for this word</div>
         <div className={styles.exercisePromptChinese}>{getPreferredChineseText(item, displayScript)}</div>
         <div className={styles.exercisePromptEnglish}>{item.english}</div>
+        {gaveUp && <div className={styles.giveUpAnswer}>{item.pinyin}</div>}
       </div>
       <SyllablePicker
         word={item}
         onCorrect={(clean) => onAnswer(true, { retry: !clean })}
         disabled={Boolean(answered)}
+        gaveUp={gaveUp}
       />
+      {!answered && !gaveUp && (
+        <div className={styles.exerciseActions}>
+          <button type="button" className={styles.secondaryButton} onClick={() => setGaveUp(true)}>
+            I don't know
+          </button>
+        </div>
+      )}
     </>
   );
 }

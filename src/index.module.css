@@ -1753,7 +1753,8 @@
   gap: 8px;
 }
 
-.syllableTile {
+.syllableTile,
+.syllableTileRuledOut {
   padding: 14px 8px;
   background: var(--color-bg-surface);
   border: 2px solid var(--color-border);
@@ -1770,6 +1771,13 @@
 
 .syllableTile:disabled {
   opacity: 0.4;
+  cursor: default;
+}
+
+.syllableTileRuledOut {
+  opacity: 0.35;
+  border-color: var(--color-danger);
+  text-decoration: line-through;
   cursor: default;
 }
 
