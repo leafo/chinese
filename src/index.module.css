@@ -918,6 +918,23 @@
   margin: 0;
 }
 
+.infoBox {
+  padding: 12px 16px;
+  background: var(--color-primary-bg);
+  border: 1px solid color-mix(in oklab, var(--color-primary) 25%, white);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.infoBox p {
+  margin: 0;
+}
+
 .linkButton {
   background: none;
   border: none;

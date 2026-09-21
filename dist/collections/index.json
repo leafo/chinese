@@ -3,66 +3,77 @@
     "file": "collection-chapter-1.json",
     "name": "Chapter 1",
     "notes": "Hello!",
-    "wordCount": 13
+    "wordCount": 13,
+    "sentenceCount": 9
   },
   {
     "file": "collection-chapter-2.json",
     "name": "Chapter 2",
     "notes": "I have two younger brothers",
-    "wordCount": 14
+    "wordCount": 14,
+    "sentenceCount": 11
   },
   {
     "file": "collection-chapter-3.json",
     "name": "Chapter 3",
     "notes": "She is not a student",
-    "wordCount": 24
+    "wordCount": 24,
+    "sentenceCount": 9
   },
   {
     "file": "collection-chapter-4.json",
     "name": "Chapter 4",
     "notes": "My father works at a computer company",
-    "wordCount": 26
+    "wordCount": 26,
+    "sentenceCount": 8
   },
   {
     "file": "collection-chapter-5.json",
     "name": "Chapter 5",
     "notes": "Welcome",
-    "wordCount": 20
+    "wordCount": 20,
+    "sentenceCount": 8
   },
   {
     "file": "collection-chapter-6.json",
     "name": "Chapter 6",
     "notes": "What do you usually like to do?",
-    "wordCount": 25
+    "wordCount": 25,
+    "sentenceCount": 8
   },
   {
     "file": "collection-chapter-7.json",
     "name": "Chapter 7",
     "notes": "May I ask who this is",
-    "wordCount": 33
+    "wordCount": 33,
+    "sentenceCount": 8
   },
   {
     "file": "collection-chapter-8.json",
     "name": "Chapter 8",
     "notes": "Happy birthday to you",
-    "wordCount": 37
+    "wordCount": 37,
+    "sentenceCount": 18
   },
   {
     "file": "collection-chapter-9.json",
     "name": "Chapter 9",
     "notes": "Are you free on Friday?",
-    "wordCount": 29
+    "wordCount": 29,
+    "sentenceCount": 8
   },
   {
     "file": "collection-chapter-10.json",
     "name": "Chapter 10",
     "notes": "Is it hard to learn Mandarin",
-    "wordCount": 25
+    "wordCount": 25,
+    "sentenceCount": 15
   },
   {
     "file": "collection-chapter-11.json",
     "name": "Chapter 11",
     "notes": "The weather is nice today",
-    "wordCount": 29
+    "wordCount": 29,
+    "sentenceCount": 10
   }
 ]

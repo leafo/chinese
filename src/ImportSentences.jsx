@@ -15,6 +15,17 @@ export function setLocalSentenceImportData(data) {
   _pendingSentenceData = data;
 }
 
+// Open the sentence importer with only the sentences from a collection export,
+// for people who already imported the collection's words.
+export function importSentencesFromCollection(collectionData) {
+  setLocalSentenceImportData({
+    format: "chinese-sentences-export",
+    collection: { name: collectionData.collection?.name },
+    sentences: collectionData.sentences || [],
+  });
+  setRoute({ view: "import-sentences", source: "local" });
+}
+
 export function ImportSentences() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -116,6 +127,7 @@ export function ImportSentences() {
           traditional: row.sentence.traditional,
           pinyin: row.sentence.pinyin,
           english: row.sentence.english,
+          notes: row.sentence.notes,
           collection_ids: selectedCollectionIds,
           word_ids: row.wordIds,
         });

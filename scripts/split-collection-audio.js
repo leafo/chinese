@@ -75,6 +75,7 @@ function updateIndex(collections) {
     name: data.collection.name,
     notes: data.collection.notes || '',
     wordCount: (data.words || []).length,
+    sentenceCount: (data.sentences || []).length,
   }));
 
   const indexPath = path.join(COLLECTIONS_DIR, 'index.json');

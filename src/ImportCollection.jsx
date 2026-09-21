@@ -8,6 +8,8 @@ import { store as audioStore } from "./audio";
 import { getAllWords } from "./words";
 import { insertSentence, getAllSentences } from "./sentences";
 import { findConnectedWordIds } from "./wordMatching";
+import { importSentencesFromCollection } from "./ImportSentences";
+import { useCollections } from "./collections";
 
 // Module-level store for passing local file data to the import view
 let _pendingLocalData = null;
@@ -22,6 +24,11 @@ export function ImportCollection() {
   const [importing, setImporting] = useState(false);
   const [error, setError] = useState(null);
   const [includeSentences, setIncludeSentences] = useState(true);
+  const [collections] = useCollections();
+
+  const existingCollection = collectionData && collections?.find(c =>
+    (c.name || '').trim().toLowerCase() === (collectionData.collection.name || '').trim().toLowerCase()
+  );
 
   const {
     addExistingToCollection, duplicateMatches, isWordSelected,
@@ -129,6 +136,19 @@ export function ImportCollection() {
           <button className={styles.smallButton} onClick={() => setRoute({ view: 'collections' })}>
             Back to Collections
           </button>
+        </div>
+      )}
+
+      {existingCollection && collectionData.sentences?.length > 0 && (
+        <div className={styles.infoBox}>
+          <p>
+            You already have a collection named "{existingCollection.name}". Importing again creates a second copy.
+            To add only this collection's {collectionData.sentences.length} sentences to your existing one:
+          </p>
+          <button
+            className={styles.smallButton}
+            onClick={() => importSentencesFromCollection(collectionData)}
+          >Import Sentences Only</button>
         </div>
       )}
 

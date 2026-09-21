@@ -5,6 +5,7 @@ import { useCollections, insertCollection, updateCollection, deleteCollection } 
 import { useAllWords } from "./words";
 import { EditCollectionDialog } from "./EditCollectionDialog";
 import { setLocalImportData } from "./ImportCollection";
+import { importSentencesFromCollection } from "./ImportSentences";
 
 function CollectionForm({ onSave, onCancel }) {
   const [name, setName] = useState('');
@@ -163,6 +164,16 @@ function PremadeCollections() {
     e.target.value = '';
   };
 
+  const handleSentencesOnly = async (file) => {
+    try {
+      const res = await fetch(`collections/${file}`);
+      if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
+      importSentencesFromCollection(await res.json());
+    } catch (err) {
+      alert(err.message || String(err));
+    }
+  };
+
   if (!manifest || manifest.length === 0) return null;
 
   return (
@@ -181,7 +192,7 @@ function PremadeCollections() {
           onClick={() => fileInputRef.current?.click()}
         >Import from File</button>
       </div>
-      <p className={styles.sectionDescription}>Import a collection to add its words and audio to your local library. You can review and edit the words before importing.</p>
+      <p className={styles.sectionDescription}>Import a collection to add its words and audio to your local library. You can review and edit the words before importing. If you already have the collection, use "Sentences only" to add just its sentences.</p>
       <ul className={styles.collectionList}>
         {manifest.map(entry => (
           <li key={entry.file} className={styles.collectionItem}>
@@ -195,6 +206,12 @@ function PremadeCollections() {
                 className={styles.smallButton}
                 onClick={() => setRoute({ view: 'import-collection', file: entry.file })}
               >Import</button>
+              {entry.sentenceCount > 0 && (
+                <button
+                  className={styles.smallButton}
+                  onClick={() => handleSentencesOnly(entry.file)}
+                >Sentences only</button>
+              )}
             </div>
           </li>
         ))}
