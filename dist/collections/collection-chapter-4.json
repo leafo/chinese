@@ -354,26 +354,24 @@
       ]
     },
     {
-      "traditional": "李老師喜歡不喜歡教法文？",
-      "simplified": "李老师喜欢不喜欢教法文？",
-      "pinyin": "Lǐ lǎoshī xǐhuān bù xǐhuān jiāo Fǎwén?",
-      "english": "Does Teacher Li like teaching French?",
+      "traditional": "王先生喜歡不喜歡教法文？",
+      "simplified": "王先生喜欢不喜欢教法文？",
+      "pinyin": "Wáng xiānsheng xǐhuān bù xǐhuān jiāo Fǎwén?",
+      "english": "Does Mr. Wang like teaching French?",
       "notes": "",
       "words_used": [
-        "老师",
         "喜欢",
         "教",
         "法文"
       ]
     },
     {
-      "traditional": "李老師有沒有小孩子？",
-      "simplified": "李老师有没有小孩子？",
-      "pinyin": "Lǐ lǎoshī yǒu méiyǒu xiǎoháizi?",
-      "english": "Does Teacher Li have children?",
+      "traditional": "王先生有沒有小孩子？",
+      "simplified": "王先生有没有小孩子？",
+      "pinyin": "Wáng xiānsheng yǒu méiyǒu xiǎoháizi?",
+      "english": "Does Mr. Wang have children?",
       "notes": "",
       "words_used": [
-        "老师",
         "小孩子"
       ]
     },
@@ -415,10 +413,10 @@
       ]
     },
     {
-      "traditional": "李先生退休了，他女兒是會計師。",
-      "simplified": "李先生退休了，他女儿是会计师。",
-      "pinyin": "Lǐ xiānsheng tuìxiū le, tā nǚ'ér shì kuàijìshī.",
-      "english": "Mr. Li is retired; his daughter is an accountant.",
+      "traditional": "林小姐的爸爸退休了，她是會計師。",
+      "simplified": "林小姐的爸爸退休了，她是会计师。",
+      "pinyin": "Lín xiǎojiě de bàba tuìxiū le, tā shì kuàijìshī.",
+      "english": "Ms. Lin's father is retired; she is an accountant.",
       "notes": "",
       "words_used": [
         "退休了",

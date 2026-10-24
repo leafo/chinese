@@ -259,13 +259,12 @@
       ]
     },
     {
-      "traditional": "王太太喜歡聽音樂，可是她先生喜歡看電影。",
-      "simplified": "王太太喜欢听音乐，可是她先生喜欢看电影。",
-      "pinyin": "Wáng tàitai xǐhuān tīng yīnyuè, kěshì tā xiānsheng xǐhuān kàn diànyǐng.",
-      "english": "Mrs. Wang likes to listen to music, but her husband likes to watch movies.",
+      "traditional": "劉小姐喜歡聽音樂，可是她哥哥喜歡看電影。",
+      "simplified": "刘小姐喜欢听音乐，可是她哥哥喜欢看电影。",
+      "pinyin": "Liú xiǎojiě xǐhuān tīng yīnyuè, kěshì tā gēge xǐhuān kàn diànyǐng.",
+      "english": "Ms. Liu likes to listen to music, but her older brother likes to watch movies.",
       "notes": "",
       "words_used": [
-        "太太",
         "听",
         "音乐",
         "可是",
@@ -312,10 +311,10 @@
       ]
     },
     {
-      "traditional": "Gloria週末常常在朋友家跳舞。",
-      "simplified": "Gloria周末常常在朋友家跳舞。",
-      "pinyin": "Gloria zhōumò chángcháng zài péngyǒu jiā tiào wǔ.",
-      "english": "Gloria often dances at her friend's house on weekends.",
+      "traditional": "劉小姐週末常常在朋友家跳舞。",
+      "simplified": "刘小姐周末常常在朋友家跳舞。",
+      "pinyin": "Liú xiǎojiě zhōumò chángcháng zài péngyǒu jiā tiào wǔ.",
+      "english": "Ms. Liu often dances at her friend's house on weekends.",
       "notes": "",
       "words_used": [
         "周末",

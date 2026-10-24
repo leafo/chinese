@@ -228,10 +228,10 @@
   ],
   "sentences": [
     {
-      "traditional": "李先生星期五有時間。",
-      "simplified": "李先生星期五有时间。",
-      "pinyin": "Lǐ xiānsheng xīngqīwǔ yǒu shíjiān.",
-      "english": "Mr. Li has time on Friday.",
+      "traditional": "王先生星期五有時間。",
+      "simplified": "王先生星期五有时间。",
+      "pinyin": "Wáng xiānsheng xīngqīwǔ yǒu shíjiān.",
+      "english": "Mr. Wang has time on Friday.",
       "notes": "",
       "words_used": [
         "星期五",
@@ -360,10 +360,10 @@
       ]
     },
     {
-      "traditional": "張先生每天跟他太太一起吃晚飯。",
-      "simplified": "张先生每天跟他太太一起吃晚饭。",
-      "pinyin": "Zhāng xiānsheng měitiān gēn tā tàitai yìqǐ chī wǎn fàn.",
-      "english": "Mr. Zhang has dinner with his wife every day.",
+      "traditional": "王先生每天跟他太太一起吃晚飯。",
+      "simplified": "王先生每天跟他太太一起吃晚饭。",
+      "pinyin": "Wáng xiānsheng měitiān gēn tā tàitai yìqǐ chī wǎn fàn.",
+      "english": "Mr. Wang has dinner with his wife every day.",
       "notes": "",
       "words_used": [
         "跟",

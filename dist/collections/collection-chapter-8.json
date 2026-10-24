@@ -144,14 +144,14 @@
     {
       "traditional": "可以嗎",
       "simplified": "可以吗",
-      "pinyin": "kěyǐ ma?",
+      "pinyin": "kěyǐ ma",
       "english": "Could I? Is it okay?",
       "notes": "Phrases"
     },
     {
       "traditional": "好不好",
       "simplified": "好不好",
-      "pinyin": "hǎo bù hǎo?",
+      "pinyin": "hǎo bù hǎo",
       "english": "Is it okay? How does that sound?",
       "notes": "Phrases"
     },
@@ -553,10 +553,10 @@
       ]
     },
     {
-      "traditional": "李先生的生日是十月十日。",
-      "simplified": "李先生的生日是十月十日。",
-      "pinyin": "Lǐ xiānsheng de shēngrì shì shíyuè shí rì.",
-      "english": "Mr. Li's birthday is October 10th.",
+      "traditional": "王先生的生日是十月十日。",
+      "simplified": "王先生的生日是十月十日。",
+      "pinyin": "Wáng xiānsheng de shēngrì shì shíyuè shí rì.",
+      "english": "Mr. Wang's birthday is October 10th.",
       "notes": "",
       "words_used": [
         "生日",

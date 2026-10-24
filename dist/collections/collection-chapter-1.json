@@ -142,10 +142,10 @@
       ]
     },
     {
-      "traditional": "我姓王，我叫王明。",
-      "simplified": "我姓王，我叫王明。",
-      "pinyin": "Wǒ xìng Wáng, wǒ jiào Wáng Míng.",
-      "english": "My surname is Wang; I am called Wang Ming.",
+      "traditional": "我姓王，我叫王明文。",
+      "simplified": "我姓王，我叫王明文。",
+      "pinyin": "Wǒ xìng Wáng, wǒ jiào Wáng Míngwén.",
+      "english": "My surname is Wang; my name is Wang Mingwen.",
       "notes": "",
       "words_used": [
         "我",
@@ -188,16 +188,16 @@
       ]
     },
     {
-      "traditional": "我叫Gloria，我是美國人。",
-      "simplified": "我叫Gloria，我是美国人。",
-      "pinyin": "Wǒ jiào Gloria, wǒ shì Měiguórén.",
-      "english": "My name is Gloria; I am American.",
+      "traditional": "我姓劉，我是美國人。",
+      "simplified": "我姓刘，我是美国人。",
+      "pinyin": "Wǒ xìng Liú, wǒ shì Měiguórén.",
+      "english": "My surname is Liu; I am American.",
       "notes": "",
       "words_used": [
         "我",
-        "叫",
         "是",
-        "美国人"
+        "美国人",
+        "姓"
       ]
     },
     {
@@ -304,16 +304,15 @@
       ]
     },
     {
-      "traditional": "我姓張，我是美國人。",
-      "simplified": "我姓张，我是美国人。",
-      "pinyin": "Wǒ xìng Zhāng, wǒ shì Měiguórén.",
-      "english": "My surname is Zhang; I am American.",
+      "traditional": "劉小姐是美國人，明文是臺灣人。",
+      "simplified": "刘小姐是美国人，明文是台湾人。",
+      "pinyin": "Liú xiǎojiě shì Měiguórén, Míngwén shì Táiwānrén.",
+      "english": "Ms. Liu is American; Mingwen is Taiwanese.",
       "notes": "",
       "words_used": [
-        "我",
-        "姓",
         "是",
-        "美国人"
+        "美国人",
+        "台湾人"
       ]
     }
   ],

@@ -200,23 +200,25 @@
   ],
   "sentences": [
     {
-      "traditional": "Gloria覺得學中文很有意思，但是寫字很難。",
-      "simplified": "Gloria觉得学中文很有意思，但是写字很难。",
-      "pinyin": "Gloria juéde xué Zhōngwén hěn yǒuyìsi, dànshì xiě zì hěn nán.",
-      "english": "Gloria feels that learning Chinese is very interesting, but writing characters is very difficult.",
+      "traditional": "林小姐覺得學中文很有意思，可是寫字很難。",
+      "simplified": "林小姐觉得学中文很有意思，可是写字很难。",
+      "pinyin": "Lín xiǎojiě juéde xué Zhōngwén hěn yǒuyìsi, kěshì xiě zì hěn nán.",
+      "english": "Ms. Lin feels that learning Chinese is very interesting, but writing characters is very difficult.",
       "notes": "",
       "words_used": [
         "觉得",
         "学",
         "中文",
-        "难"
+        "难",
+        "写字",
+        "字"
       ]
     },
     {
-      "traditional": "李老師寫字寫得很快，我覺得自己寫得很慢。",
-      "simplified": "李老师写字写得很快，我觉得自己写得很慢。",
-      "pinyin": "Lǐ lǎoshī xiě zì xiě de hěn kuài, wǒ juéde zìjǐ xiě de hěn màn.",
-      "english": "Teacher Li writes characters very fast, while I feel that I write very slowly.",
+      "traditional": "王先生寫字寫得很快，我覺得自己寫得很慢。",
+      "simplified": "王先生写字写得很快，我觉得自己写得很慢。",
+      "pinyin": "Wáng xiānsheng xiě zì xiě de hěn kuài, wǒ juéde zìjǐ xiě de hěn màn.",
+      "english": "Mr. Wang writes characters very fast, while I feel that I write very slowly.",
       "notes": "",
       "words_used": [
         "写字",
@@ -457,10 +459,10 @@
       ]
     },
     {
-      "traditional": "Lisa要喝幾杯咖啡？她只要喝一杯咖啡。",
-      "simplified": "Lisa要喝几杯咖啡？她只要喝一杯咖啡。",
-      "pinyin": "Lisa yào hē jǐ bēi kāfēi? Tā zhǐ yào hē yì bēi kāfēi.",
-      "english": "How many cups of coffee does Lisa want? She only wants one cup.",
+      "traditional": "劉小姐要喝幾杯咖啡？她只要喝一杯咖啡。",
+      "simplified": "刘小姐要喝几杯咖啡？她只要喝一杯咖啡。",
+      "pinyin": "Liú xiǎojiě yào hē jǐ bēi kāfēi? Tā zhǐ yào hē yì bēi kāfēi.",
+      "english": "How many cups of coffee does Ms. Liu want? She only wants one cup.",
       "notes": "",
       "words_used": [
         "喝",
