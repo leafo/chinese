@@ -235,6 +235,7 @@ export function Flashcards() {
   const [editingWord, setEditingWord] = useState(null);
   const ratingPendingRef = useRef(false);
   const activeFilterRef = useRef(selectedCollectionIds);
+  const lastSeenWordsRef = useRef(new Map());
   const [toasts, pushToast] = useToasts();
 
   const toggleCollection = useCallback((id) => {
@@ -246,7 +247,10 @@ export function Flashcards() {
   const fetchNextCard = useCallback(async () => {
     setLoadingCard(true);
     try {
-      const next = await getNextDueCard({ collectionIds: activeFilterRef.current });
+      const next = await getNextDueCard({
+        collectionIds: activeFilterRef.current,
+        lastSeenWords: lastSeenWordsRef.current,
+      });
       setCard(next);
       setRevealed(false);
     } finally {
@@ -257,6 +261,7 @@ export function Flashcards() {
   const startReview = useCallback(async () => {
     activeFilterRef.current = selectedCollectionIds;
     await ensureCardsForAllWords();
+    lastSeenWordsRef.current = new Map();
     setResults([]);
     setActive(true);
     await fetchNextCard();
@@ -282,6 +287,7 @@ export function Flashcards() {
 
     try {
       await rateCard(card.key, rating);
+      lastSeenWordsRef.current.set(card.wordId, Date.now());
       setResults(prev => [...prev, { key: card.key, rating }]);
       await fetchNextCard();
     } finally {

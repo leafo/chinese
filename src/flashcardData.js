@@ -151,9 +151,21 @@ export async function getDueCards(limit = 20, { collectionIds } = {}) {
   }));
 }
 
-export async function getNextDueCard({ collectionIds } = {}) {
-  const cards = await getDueCards(1, { collectionIds });
-  return cards[0] || null;
+// lastSeenWords maps wordId -> when that word was last reviewed this session.
+// Prefer the card whose word was seen longest ago (unseen words first) so a
+// card's flipped sibling doesn't come up right after it. Ties keep due order.
+export async function getNextDueCard({ collectionIds, lastSeenWords } = {}) {
+  const cards = await getDueCards(Infinity, { collectionIds });
+  let best = null;
+  let bestSeen = Infinity;
+  for (const card of cards) {
+    const seen = lastSeenWords?.get(card.wordId) ?? -Infinity;
+    if (seen < bestSeen) {
+      best = card;
+      bestSeen = seen;
+    }
+  }
+  return best;
 }
 
 export async function getStats({ collectionIds } = {}) {
