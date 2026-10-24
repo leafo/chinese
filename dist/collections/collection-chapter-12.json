@@ -1,0 +1,377 @@
+{
+  "format": "chinese-collection-export",
+  "version": 2,
+  "exportedAt": "2026-10-23T00:00:00.000Z",
+  "collection": {
+    "name": "Chapter 12",
+    "notes": "I would like to buy gifts for my parents",
+    "objectives": "Talk about what gifts to buy for family; list the advantages of shopping online; compare shopping online versus in-person"
+  },
+  "words": [
+    {
+      "traditional": "家人",
+      "simplified": "家人",
+      "pinyin": "jiārén",
+      "english": "family (members)",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "回",
+      "simplified": "回",
+      "pinyin": "huí",
+      "english": "to return, (to go back, to come back)",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "帽子",
+      "simplified": "帽子",
+      "pinyin": "màozi",
+      "english": "hat",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "件",
+      "simplified": "件",
+      "pinyin": "jiàn",
+      "english": "measure word for clothes",
+      "notes": "Part of speech: M"
+    },
+    {
+      "traditional": "衣服",
+      "simplified": "衣服",
+      "pinyin": "yīfú",
+      "english": "clothes, clothing",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "盒",
+      "simplified": "盒",
+      "pinyin": "hé",
+      "english": "measure word, a box of",
+      "notes": "Part of speech: M"
+    },
+    {
+      "traditional": "巧克力",
+      "simplified": "巧克力",
+      "pinyin": "qiǎokèlì",
+      "english": "chocolate",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "網路",
+      "simplified": "网路",
+      "pinyin": "wǎnglù",
+      "english": "internet",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "商店",
+      "simplified": "商店",
+      "pinyin": "shāngdiàn",
+      "english": "store, shop",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "東西",
+      "simplified": "东西",
+      "pinyin": "dōngxi",
+      "english": "goods, things, stuff",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "比較",
+      "simplified": "比较",
+      "pinyin": "bǐjiào",
+      "english": "more, comparatively",
+      "notes": "Part of speech: Adv"
+    },
+    {
+      "traditional": "方便",
+      "simplified": "方便",
+      "pinyin": "fāngbiàn",
+      "english": "convenient",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "又",
+      "simplified": "又",
+      "pinyin": "yòu",
+      "english": "both…and",
+      "notes": "Part of speech: Adv"
+    },
+    {
+      "traditional": "便宜",
+      "simplified": "便宜",
+      "pinyin": "piányí",
+      "english": "inexpensive",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "因為",
+      "simplified": "因为",
+      "pinyin": "yīnwèi",
+      "english": "because",
+      "notes": "Part of speech: Conj"
+    },
+    {
+      "traditional": "所以",
+      "simplified": "所以",
+      "pinyin": "suǒyǐ",
+      "english": "therefore, so",
+      "notes": "Part of speech: Conj"
+    },
+    {
+      "traditional": "百貨公司",
+      "simplified": "百货公司",
+      "pinyin": "bǎihuògōngsī",
+      "english": "department store",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "背包",
+      "simplified": "背包",
+      "pinyin": "bēibāo",
+      "english": "backpack",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "旅行",
+      "simplified": "旅行",
+      "pinyin": "lǚxíng",
+      "english": "to travel",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "有用",
+      "simplified": "有用",
+      "pinyin": "yǒuyòng",
+      "english": "useful",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "太陽眼鏡",
+      "simplified": "太阳眼镜",
+      "pinyin": "tàiyáng yǎnjìng",
+      "english": "sunglasses",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "又……又……",
+      "simplified": "又……又……",
+      "pinyin": "yòu...yòu...",
+      "english": "both...and...",
+      "notes": "Grammar: links two state verbs, e.g. 又便宜又好吃"
+    },
+    {
+      "traditional": "上網",
+      "simplified": "上网",
+      "pinyin": "shàngwǎng",
+      "english": "to go online",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "逛街",
+      "simplified": "逛街",
+      "pinyin": "guàngjiē",
+      "english": "to go shopping",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "有空",
+      "simplified": "有空",
+      "pinyin": "yǒukòng",
+      "english": "to have time, to be free",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "出門",
+      "simplified": "出门",
+      "pinyin": "chūmén",
+      "english": "to go out, to leave the house",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "下個星期",
+      "simplified": "下个星期",
+      "pinyin": "xià ge xīngqí",
+      "english": "next week",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "去年",
+      "simplified": "去年",
+      "pinyin": "qùnián",
+      "english": "last year",
+      "notes": "Supplementary Vocabulary; Part of speech: N"
+    },
+    {
+      "traditional": "明年",
+      "simplified": "明年",
+      "pinyin": "míngnián",
+      "english": "next year",
+      "notes": "Supplementary Vocabulary; Part of speech: N"
+    },
+    {
+      "traditional": "為什麼",
+      "simplified": "为什么",
+      "pinyin": "wèishénme",
+      "english": "why",
+      "notes": "Supplementary Vocabulary; Part of speech: QPr"
+    },
+    {
+      "traditional": "上個星期",
+      "simplified": "上个星期",
+      "pinyin": "shàng ge xīngqí",
+      "english": "last week",
+      "notes": "Supplementary Vocabulary; Phrase"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "大哥，我下個星期回臺灣。",
+      "simplified": "大哥，我下个星期回台湾。",
+      "pinyin": "Dàgē, wǒ xià ge xīngqí huí Táiwān.",
+      "english": "Big brother, I am going back to Taiwan next week.",
+      "notes": "",
+      "words_used": [
+        "下个星期",
+        "回"
+      ]
+    },
+    {
+      "traditional": "我想給爸爸買一個帽子，給媽媽買一件衣服。",
+      "simplified": "我想给爸爸买一个帽子，给妈妈买一件衣服。",
+      "pinyin": "Wǒ xiǎng gěi bàba mǎi yí ge màozi, gěi māma mǎi yí jiàn yīfú.",
+      "english": "I want to buy a hat for Dad and an item of clothing for Mom.",
+      "notes": "",
+      "words_used": [
+        "帽子",
+        "件",
+        "衣服"
+      ]
+    },
+    {
+      "traditional": "我還想給家人買兩盒巧克力。",
+      "simplified": "我还想给家人买两盒巧克力。",
+      "pinyin": "Wǒ hái xiǎng gěi jiārén mǎi liǎng hé qiǎokèlì.",
+      "english": "I also want to buy two boxes of chocolates for my family.",
+      "notes": "",
+      "words_used": [
+        "家人",
+        "盒",
+        "巧克力"
+      ]
+    },
+    {
+      "traditional": "在網路商店買東西比較方便。",
+      "simplified": "在网路商店买东西比较方便。",
+      "pinyin": "Zài wǎnglù shāngdiàn mǎi dōngxi bǐjiào fāngbiàn.",
+      "english": "Buying things at online stores is more convenient.",
+      "notes": "",
+      "words_used": [
+        "网路",
+        "商店",
+        "东西",
+        "比较",
+        "方便"
+      ]
+    },
+    {
+      "traditional": "網路商店的東西又好又便宜。",
+      "simplified": "网路商店的东西又好又便宜。",
+      "pinyin": "Wǎnglù shāngdiàn de dōngxi yòu hǎo yòu piányí.",
+      "english": "The goods from online stores are both good and inexpensive.",
+      "notes": "",
+      "words_used": [
+        "网路",
+        "商店",
+        "东西",
+        "又……又……",
+        "便宜"
+      ]
+    },
+    {
+      "traditional": "因為我喜歡逛街，所以想去百貨公司買東西。",
+      "simplified": "因为我喜欢逛街，所以想去百货公司买东西。",
+      "pinyin": "Yīnwèi wǒ xǐhuān guàngjiē, suǒyǐ xiǎng qù bǎihuògōngsī mǎi dōngxi.",
+      "english": "Because I like shopping in person, I want to go to a department store to buy things.",
+      "notes": "",
+      "words_used": [
+        "因为",
+        "逛街",
+        "所以",
+        "百货公司",
+        "东西"
+      ]
+    },
+    {
+      "traditional": "她喜歡旅行，背包很有用。",
+      "simplified": "她喜欢旅行，背包很有用。",
+      "pinyin": "Tā xǐhuān lǚxíng, bēibāo hěn yǒuyòng.",
+      "english": "She likes to travel, so a backpack is very useful.",
+      "notes": "",
+      "words_used": [
+        "旅行",
+        "背包",
+        "有用"
+      ]
+    },
+    {
+      "traditional": "你還可以給姊姊買太陽眼鏡。",
+      "simplified": "你还可以给姊姊买太阳眼镜。",
+      "pinyin": "Nǐ hái kěyǐ gěi jiějie mǎi tàiyáng yǎnjìng.",
+      "english": "You can also buy sunglasses for your older sister.",
+      "notes": "",
+      "words_used": [
+        "太阳眼镜"
+      ]
+    },
+    {
+      "traditional": "這個週末我有空，我們什麼時候出門？",
+      "simplified": "这个周末我有空，我们什么时候出门？",
+      "pinyin": "Zhè ge zhōumò wǒ yǒukòng, wǒmen shénme shíhòu chūmén?",
+      "english": "I am free this weekend; when shall we leave the house?",
+      "notes": "",
+      "words_used": [
+        "有空",
+        "出门"
+      ]
+    },
+    {
+      "traditional": "王小姐為什麼常常上網買東西？",
+      "simplified": "王小姐为什么常常上网买东西？",
+      "pinyin": "Wáng xiǎojiě wèishénme chángcháng shàngwǎng mǎi dōngxi?",
+      "english": "Why does Miss Wang often buy things online?",
+      "notes": "",
+      "words_used": [
+        "为什么",
+        "上网",
+        "东西"
+      ]
+    },
+    {
+      "traditional": "我去年去臺灣旅行，明年也想去。",
+      "simplified": "我去年去台湾旅行，明年也想去。",
+      "pinyin": "Wǒ qùnián qù Táiwān lǚxíng, míngnián yě xiǎng qù.",
+      "english": "I traveled to Taiwan last year, and I want to go next year too.",
+      "notes": "",
+      "words_used": [
+        "去年",
+        "旅行",
+        "明年"
+      ]
+    },
+    {
+      "traditional": "上個星期我給家人買了很多東西。",
+      "simplified": "上个星期我给家人买了很多东西。",
+      "pinyin": "Shàng ge xīngqí wǒ gěi jiārén mǎi le hěn duō dōngxi.",
+      "english": "Last week I bought a lot of things for my family.",
+      "notes": "",
+      "words_used": [
+        "上个星期",
+        "家人",
+        "东西"
+      ]
+    }
+  ]
+}

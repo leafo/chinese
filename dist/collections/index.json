@@ -75,5 +75,12 @@
     "notes": "The weather is nice today",
     "wordCount": 29,
     "sentenceCount": 10
+  },
+  {
+    "file": "collection-chapter-12.json",
+    "name": "Chapter 12",
+    "notes": "I would like to buy gifts for my parents",
+    "wordCount": 31,
+    "sentenceCount": 12
   }
 ]
