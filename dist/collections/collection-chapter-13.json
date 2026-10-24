@@ -1,0 +1,391 @@
+{
+  "format": "chinese-collection-export",
+  "version": 2,
+  "exportedAt": "2026-10-23T00:00:00.000Z",
+  "collection": {
+    "name": "Chapter 13",
+    "notes": "The braised fish is very delicious",
+    "objectives": "List the names of common foods; describe the taste of foods and ways of cooking; express liking for foods; order Chinese dishes in a restaurant"
+  },
+  "words": [
+    {
+      "traditional": "紅燒",
+      "simplified": "红烧",
+      "pinyin": "hóngshāo",
+      "english": "to braise in soy sauce",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "魚",
+      "simplified": "鱼",
+      "pinyin": "yú",
+      "english": "fish",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "非常",
+      "simplified": "非常",
+      "pinyin": "fēicháng",
+      "english": "very, extremely, exceedingly",
+      "notes": "Part of speech: Adv"
+    },
+    {
+      "traditional": "愛",
+      "simplified": "爱",
+      "pinyin": "ài",
+      "english": "to love",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "豆腐",
+      "simplified": "豆腐",
+      "pinyin": "dòufǔ",
+      "english": "tofu",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "還是",
+      "simplified": "还是",
+      "pinyin": "háishì",
+      "english": "or (used in a question)",
+      "notes": "Part of speech: Conj"
+    },
+    {
+      "traditional": "青菜",
+      "simplified": "青菜",
+      "pinyin": "qīngcài",
+      "english": "green vegetables",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "點",
+      "simplified": "点",
+      "pinyin": "diǎn",
+      "english": "to order",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "炸",
+      "simplified": "炸",
+      "pinyin": "zhá",
+      "english": "to fry",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "盤",
+      "simplified": "盘",
+      "pinyin": "pán",
+      "english": "a plate of",
+      "notes": "Part of speech: M"
+    },
+    {
+      "traditional": "炒",
+      "simplified": "炒",
+      "pinyin": "chǎo",
+      "english": "to stir-fry",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "碗",
+      "simplified": "碗",
+      "pinyin": "wǎn",
+      "english": "a bowl of",
+      "notes": "Part of speech: M"
+    },
+    {
+      "traditional": "白飯",
+      "simplified": "白饭",
+      "pinyin": "báifàn",
+      "english": "steamed rice",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "酸",
+      "simplified": "酸",
+      "pinyin": "suān",
+      "english": "sour",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "辣",
+      "simplified": "辣",
+      "pinyin": "là",
+      "english": "spicy, hot",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "湯",
+      "simplified": "汤",
+      "pinyin": "tāng",
+      "english": "soup",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "好喝",
+      "simplified": "好喝",
+      "pinyin": "hǎohē",
+      "english": "tasty (for soup or drinks)",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "瓶",
+      "simplified": "瓶",
+      "pinyin": "píng",
+      "english": "a bottle of",
+      "notes": "Part of speech: M"
+    },
+    {
+      "traditional": "啤酒",
+      "simplified": "啤酒",
+      "pinyin": "píjiǔ",
+      "english": "beer",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "包子",
+      "simplified": "包子",
+      "pinyin": "bāozi",
+      "english": "steamed stuffed bun",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "那麼",
+      "simplified": "那么",
+      "pinyin": "nàme",
+      "english": "then",
+      "notes": "Part of speech: Ptc"
+    },
+    {
+      "traditional": "豆沙包",
+      "simplified": "豆沙包",
+      "pinyin": "dòushābāo",
+      "english": "steamed stuffed bun with smashed red bean filling",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "服務員",
+      "simplified": "服务员",
+      "pinyin": "fúwùyuán",
+      "english": "waiter, waitress",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "什麼……都……",
+      "simplified": "什么……都……",
+      "pinyin": "shénme...dōu...",
+      "english": "all kinds of..., (with 不) none at all",
+      "notes": "Grammar: question pronoun + 都, e.g. 我什麼魚都愛吃"
+    },
+    {
+      "traditional": "紅燒魚",
+      "simplified": "红烧鱼",
+      "pinyin": "hóngshāoyú",
+      "english": "braised fish",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "酸辣湯",
+      "simplified": "酸辣汤",
+      "pinyin": "suānlàtāng",
+      "english": "hot and sour soup",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "炸豆腐",
+      "simplified": "炸豆腐",
+      "pinyin": "zhádòufǔ",
+      "english": "fried tofu",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "炒青菜",
+      "simplified": "炒青菜",
+      "pinyin": "chǎoqīngcài",
+      "english": "stir-fried green vegetables",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "聽說",
+      "simplified": "听说",
+      "pinyin": "tīngshuō",
+      "english": "I hear that",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "點菜",
+      "simplified": "点菜",
+      "pinyin": "diǎncài",
+      "english": "to order dishes in a restaurant",
+      "notes": "Phrases"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "這家餐廳的紅燒魚做得很好，非常好吃。",
+      "simplified": "这家餐厅的红烧鱼做得很好，非常好吃。",
+      "pinyin": "Zhè jiā cāntīng de hóngshāoyú zuò de hěn hǎo, fēicháng hǎochī.",
+      "english": "This restaurant's braised fish is made very well; it is extremely delicious.",
+      "notes": "",
+      "words_used": [
+        "红烧鱼",
+        "非常"
+      ]
+    },
+    {
+      "traditional": "我最喜歡吃魚，什麼魚都愛吃。",
+      "simplified": "我最喜欢吃鱼，什么鱼都爱吃。",
+      "pinyin": "Wǒ zuì xǐhuān chī yú, shénme yú dōu ài chī.",
+      "english": "I like eating fish the most; I love to eat all kinds of fish.",
+      "notes": "",
+      "words_used": [
+        "鱼",
+        "什么……都……",
+        "爱"
+      ]
+    },
+    {
+      "traditional": "妳想吃豆腐還是青菜？",
+      "simplified": "你想吃豆腐还是青菜？",
+      "pinyin": "Nǐ xiǎng chī dòufǔ háishì qīngcài?",
+      "english": "Would you like to eat tofu or green vegetables?",
+      "notes": "",
+      "words_used": [
+        "豆腐",
+        "还是",
+        "青菜"
+      ]
+    },
+    {
+      "traditional": "我們點一個炸豆腐、一盤炒青菜，三碗白飯。",
+      "simplified": "我们点一个炸豆腐、一盘炒青菜，三碗白饭。",
+      "pinyin": "Wǒmen diǎn yí ge zhádòufǔ, yì pán chǎoqīngcài, sān wǎn báifàn.",
+      "english": "Let's order one fried tofu, a plate of stir-fried green vegetables, and three bowls of steamed rice.",
+      "notes": "",
+      "words_used": [
+        "点",
+        "炸豆腐",
+        "盘",
+        "炒青菜",
+        "碗",
+        "白饭"
+      ]
+    },
+    {
+      "traditional": "酸辣湯又酸又辣，真好喝！",
+      "simplified": "酸辣汤又酸又辣，真好喝！",
+      "pinyin": "Suānlàtāng yòu suān yòu là, zhēn hǎohē!",
+      "english": "Hot and sour soup is both sour and spicy; it's really tasty!",
+      "notes": "",
+      "words_used": [
+        "酸辣汤",
+        "酸",
+        "辣",
+        "好喝"
+      ]
+    },
+    {
+      "traditional": "我也想喝湯，還要一瓶啤酒。",
+      "simplified": "我也想喝汤，还要一瓶啤酒。",
+      "pinyin": "Wǒ yě xiǎng hē tāng, hái yào yì píng píjiǔ.",
+      "english": "I also want to have soup, and I'd like a bottle of beer too.",
+      "notes": "",
+      "words_used": [
+        "汤",
+        "瓶",
+        "啤酒"
+      ]
+    },
+    {
+      "traditional": "聽說這家餐廳的包子做得不錯。",
+      "simplified": "听说这家餐厅的包子做得不错。",
+      "pinyin": "Tīngshuō zhè jiā cāntīng de bāozi zuò de búcuò.",
+      "english": "I hear that this restaurant's steamed buns are pretty good.",
+      "notes": "",
+      "words_used": [
+        "听说",
+        "包子"
+      ]
+    },
+    {
+      "traditional": "那麼，我們也點兩個豆沙包，怎麼樣？",
+      "simplified": "那么，我们也点两个豆沙包，怎么样？",
+      "pinyin": "Nàme, wǒmen yě diǎn liǎng ge dòushābāo, zěnmeyàng?",
+      "english": "Then how about we also order two red bean buns?",
+      "notes": "",
+      "words_used": [
+        "那么",
+        "点",
+        "豆沙包"
+      ]
+    },
+    {
+      "traditional": "服務員，我們要點菜。",
+      "simplified": "服务员，我们要点菜。",
+      "pinyin": "Fúwùyuán, wǒmen yào diǎncài.",
+      "english": "Waiter, we would like to order.",
+      "notes": "",
+      "words_used": [
+        "服务员",
+        "点菜"
+      ]
+    },
+    {
+      "traditional": "我們點紅燒魚還是炒青菜？",
+      "simplified": "我们点红烧鱼还是炒青菜？",
+      "pinyin": "Wǒmen diǎn hóngshāoyú háishì chǎoqīngcài?",
+      "english": "Shall we order braised fish or stir-fried green vegetables?",
+      "notes": "",
+      "words_used": [
+        "点",
+        "红烧鱼",
+        "还是",
+        "炒青菜"
+      ]
+    },
+    {
+      "traditional": "我什麼菜都不會做。",
+      "simplified": "我什么菜都不会做。",
+      "pinyin": "Wǒ shénme cài dōu bú huì zuò.",
+      "english": "I don't know how to cook anything at all.",
+      "notes": "",
+      "words_used": [
+        "什么……都……"
+      ]
+    },
+    {
+      "traditional": "你要吃白飯還是包子？",
+      "simplified": "你要吃白饭还是包子？",
+      "pinyin": "Nǐ yào chī báifàn háishì bāozi?",
+      "english": "Do you want to eat steamed rice or steamed buns?",
+      "notes": "",
+      "words_used": [
+        "白饭",
+        "还是",
+        "包子"
+      ]
+    },
+    {
+      "traditional": "他喜歡紅燒的魚，不喜歡炸的。",
+      "simplified": "他喜欢红烧的鱼，不喜欢炸的。",
+      "pinyin": "Tā xǐhuān hóngshāo de yú, bù xǐhuān zhá de.",
+      "english": "He likes braised fish, not fried.",
+      "notes": "",
+      "words_used": [
+        "红烧",
+        "鱼",
+        "炸"
+      ]
+    },
+    {
+      "traditional": "我炒菜的時候，你可以做湯嗎？",
+      "simplified": "我炒菜的时候，你可以做汤吗？",
+      "pinyin": "Wǒ chǎo cài de shíhòu, nǐ kěyǐ zuò tāng ma?",
+      "english": "While I stir-fry the vegetables, can you make the soup?",
+      "notes": "",
+      "words_used": [
+        "炒",
+        "汤"
+      ]
+    }
+  ]
+}

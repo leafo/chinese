@@ -82,5 +82,12 @@
     "notes": "I would like to buy gifts for my parents",
     "wordCount": 31,
     "sentenceCount": 12
+  },
+  {
+    "file": "collection-chapter-13.json",
+    "name": "Chapter 13",
+    "notes": "The braised fish is very delicious",
+    "wordCount": 30,
+    "sentenceCount": 14
   }
 ]
