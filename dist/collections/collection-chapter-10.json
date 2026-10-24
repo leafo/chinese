@@ -5,36 +5,43 @@
   "collection": {
     "name": "Chapter 10",
     "notes": "Is it hard to learn Mandarin",
-    "objectives": ""
+    "objectives": "Describe one's experience studying a language; talk about one's skill through learning; comment on one's language ability; ask about others' performance in some task"
   },
   "words": [
     {
       "traditional": "學",
       "simplified": "学",
       "pinyin": "xué",
-      "english": "to learn",
-      "notes": "Handwritten note at top of page"
+      "english": "to learn, to study",
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "中文",
       "simplified": "中文",
       "pinyin": "Zhōngwén",
       "english": "Mandarin (Chinese)",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N; note: not in the book list, which uses 華語 (Huáyǔ) for Mandarin"
+    },
+    {
+      "traditional": "華語",
+      "simplified": "华语",
+      "pinyin": "Huáyǔ",
+      "english": "Mandarin (Chinese)",
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "難",
       "simplified": "难",
       "pinyin": "nán",
       "english": "hard, difficult",
-      "notes": "Part of speech: Vs (Stative Verb)"
+      "notes": "Part of speech: Vs"
     },
     {
       "traditional": "休息",
       "simplified": "休息",
-      "pinyin": "xiūxí",
+      "pinyin": "xiūxí / xiūxi",
       "english": "to take a break",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "一下",
@@ -48,140 +55,147 @@
       "simplified": "喝",
       "pinyin": "hē",
       "english": "to drink",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "杯",
       "simplified": "杯",
       "pinyin": "bēi",
       "english": "measure word for drinks (cup / glass)",
-      "notes": "Part of speech: M (Measure Word)"
+      "notes": "Part of speech: M"
     },
     {
       "traditional": "咖啡",
       "simplified": "咖啡",
       "pinyin": "kāfēi",
       "english": "coffee",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "吧",
       "simplified": "吧",
       "pinyin": "ba",
       "english": "sentence-final particle for suggestion",
-      "notes": "Part of speech: Ptc (Particle)"
+      "notes": "Part of speech: Ptc"
     },
     {
       "traditional": "得",
       "simplified": "得",
       "pinyin": "de",
       "english": "complement marker",
-      "notes": "Part of speech: Ptc (Particle)"
+      "notes": "Part of speech: Ptc"
     },
     {
       "traditional": "覺得",
       "simplified": "觉得",
       "pinyin": "juéde",
       "english": "to think, to feel",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "自己",
       "simplified": "自己",
       "pinyin": "zìjǐ",
       "english": "self",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "不錯",
       "simplified": "不错",
       "pinyin": "búcuò",
       "english": "not bad, pretty good",
-      "notes": "Part of speech: Vs (Stative Verb)"
+      "notes": "Part of speech: Vs"
     },
     {
       "traditional": "會",
       "simplified": "会",
       "pinyin": "huì",
       "english": "can, know how to, will",
-      "notes": "Part of speech: Vaux (Auxiliary Verb)"
+      "notes": "Part of speech: Vaux"
     },
     {
       "traditional": "多少",
       "simplified": "多少",
-      "pinyin": "duōshǎo",
+      "pinyin": "duōshǎo / duōshao",
       "english": "how much, how many",
-      "notes": "Part of speech: QPr (Question Pronoun)"
+      "notes": "Part of speech: QPr"
     },
     {
       "traditional": "差不多",
       "simplified": "差不多",
-      "pinyin": "chàbùduō",
+      "pinyin": "chàbùduō / chābùduō",
       "english": "approximately",
-      "notes": "Part of speech: Adv (Adverb)"
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "字",
       "simplified": "字",
       "pinyin": "zì",
       "english": "traditional character / character",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "練習",
       "simplified": "练习",
       "pinyin": "liànxí",
       "english": "to practice",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "說話",
       "simplified": "说话",
       "pinyin": "shuō huà",
       "english": "to talk",
-      "notes": "Phrase (短語)"
+      "notes": "Phrases"
     },
     {
       "traditional": "寫字",
       "simplified": "写字",
       "pinyin": "xiě zì",
       "english": "to write characters",
-      "notes": "Phrase (短語)"
+      "notes": "Phrases"
     },
     {
       "traditional": "有一點",
       "simplified": "有一点",
       "pinyin": "yǒu yìdiǎn",
       "english": "a little, somewhat",
-      "notes": "Phrase (短語)"
+      "notes": "Phrases"
     },
     {
       "traditional": "聊天",
       "simplified": "聊天",
       "pinyin": "liáo tiān",
       "english": "to chat",
-      "notes": "Phrase (短語)"
+      "notes": "Phrases"
     },
     {
       "traditional": "做飯",
       "simplified": "做饭",
       "pinyin": "zuò fàn",
       "english": "to cook",
-      "notes": "Supplementary Vocabulary (補充生詞); Part of speech: V (Verb)"
+      "notes": "Supplementary Vocabulary; Part of speech: V"
     },
     {
       "traditional": "快",
       "simplified": "快",
       "pinyin": "kuài",
       "english": "fast, quick",
-      "notes": "Supplementary Vocabulary (補充生詞); Part of speech: Vs (Stative Verb)"
+      "notes": "Supplementary Vocabulary; Part of speech: Vs"
     },
     {
       "traditional": "貴",
       "simplified": "贵",
       "pinyin": "guì",
       "english": "expensive",
-      "notes": "Supplementary Vocabulary (補充生詞); Part of speech: Vs (Stative Verb)"
+      "notes": "Supplementary Vocabulary; Part of speech: Vs"
+    },
+    {
+      "traditional": "幾",
+      "simplified": "几",
+      "pinyin": "jǐ",
+      "english": "how many (for small quantities, under ten; needs a measure word)",
+      "notes": "Grammar page vocabulary"
     }
   ],
   "sentences": [
@@ -224,13 +238,14 @@
       ]
     },
     {
-      "traditional": "這家咖啡館的咖啡很貴，但是味道很不錯。",
-      "simplified": "这家咖啡馆的咖啡很贵，但是味道很不错。",
-      "pinyin": "Zhè jiā kāfēiguǎn de kāfēi hěn guì, dànshì wèidao hěn búcuò.",
-      "english": "The coffee in this cafe is quite expensive, but the taste is pretty good.",
+      "traditional": "這家餐廳的咖啡有一點貴，可是很不錯。",
+      "simplified": "这家餐厅的咖啡有一点贵，可是很不错。",
+      "pinyin": "Zhè jiā cāntīng de kāfēi yǒu yìdiǎn guì, kěshì hěn búcuò.",
+      "english": "The coffee at this restaurant is a little expensive, but it's pretty good.",
       "notes": "",
       "words_used": [
         "咖啡",
+        "有一点",
         "贵",
         "不错"
       ]
@@ -285,12 +300,15 @@
       ]
     },
     {
-      "traditional": "走了這麼長時間的路，我們去長椅上休息一下吧。",
-      "simplified": "走了这么长时间的路，我们去长椅上休息一下吧。",
-      "pinyin": "Zǒu le zhème cháng shíjiān de lù, wǒmen qù chángyǐ shang xiūxí yíxià ba.",
-      "english": "Having walked for such a long time, let's take a break on the bench.",
+      "traditional": "寫字寫得有一點累，我們休息一下吧。",
+      "simplified": "写字写得有一点累，我们休息一下吧。",
+      "pinyin": "Xiě zì xiě de yǒu yìdiǎn lèi, wǒmen xiūxí yíxià ba.",
+      "english": "Writing characters has made me a little tired; let's take a short break.",
       "notes": "",
       "words_used": [
+        "写字",
+        "得",
+        "有一点",
         "休息",
         "一下",
         "吧"
@@ -310,39 +328,40 @@
       ]
     },
     {
-      "traditional": "明文經常跟朋友聊天，藉此練習他的中文。",
-      "simplified": "明文经常跟朋友聊天，借此练习他的中文。",
-      "pinyin": "Míngwén jīngcháng gēn péngyou liáo tiān, jiè cǐ liànxí tā de Zhōngwén.",
-      "english": "Mingwen often chats with friends, thereby practicing his Chinese.",
+      "traditional": "家文說華語說得很好。",
+      "simplified": "家文说华语说得很好。",
+      "pinyin": "Jiāwén shuō Huáyǔ shuō de hěn hǎo.",
+      "english": "Jiawen speaks Mandarin very well.",
       "notes": "",
       "words_used": [
-        "聊天",
-        "练习",
-        "中文"
+        "华语",
+        "得"
       ]
     },
     {
-      "traditional": "買這台電腦太貴了，你覺得怎麼樣？",
-      "simplified": "买这台电脑太贵了，你觉得怎么样？",
-      "pinyin": "Mǎi zhè tái diànnǎo tài guì le, nǐ juéde zěnmeyàng?",
-      "english": "Buying this computer is too expensive, what do you think?",
+      "traditional": "這個電腦有一點貴，你覺得怎麼樣？",
+      "simplified": "这个电脑有一点贵，你觉得怎么样？",
+      "pinyin": "Zhè ge diànnǎo yǒu yìdiǎn guì, nǐ juéde zěnmeyàng?",
+      "english": "This computer is a little expensive; what do you think?",
       "notes": "",
       "words_used": [
+        "有一点",
         "贵",
         "觉得"
       ]
     },
     {
-      "traditional": "他每天自己練習說話，所以表達得越來越清楚。",
-      "simplified": "他每天自己练习说话，所以表达得越来越清楚。",
-      "pinyin": "Tā měitiān zìjǐ liànxí shuō huà, suǒyǐ biǎodá de yuèláiyuè qīngchu.",
-      "english": "He practices speaking on his own every day, so he expresses himself more and more clearly.",
+      "traditional": "他每天自己練習寫字，寫得很不錯。",
+      "simplified": "他每天自己练习写字，写得很不错。",
+      "pinyin": "Tā měitiān zìjǐ liànxí xiě zì, xiě de hěn búcuò.",
+      "english": "He practices writing characters by himself every day, and he writes quite well.",
       "notes": "",
       "words_used": [
         "自己",
         "练习",
-        "说话",
-        "得"
+        "写字",
+        "得",
+        "不错"
       ]
     },
     {
@@ -369,6 +388,97 @@
         "杯",
         "咖啡",
         "聊天"
+      ]
+    },
+    {
+      "traditional": "學華語難不難？我覺得說話不難，可是寫字有一點難。",
+      "simplified": "学华语难不难？我觉得说话不难，可是写字有一点难。",
+      "pinyin": "Xué Huáyǔ nán bù nán? Wǒ juéde shuō huà bù nán, kěshì xiě zì yǒu yìdiǎn nán.",
+      "english": "Is learning Mandarin hard? I think speaking isn't hard, but writing characters is a little hard.",
+      "notes": "",
+      "words_used": [
+        "学",
+        "华语",
+        "难",
+        "觉得",
+        "说话",
+        "写字",
+        "有一点"
+      ]
+    },
+    {
+      "traditional": "你現在學華語，學得怎麼樣？",
+      "simplified": "你现在学华语，学得怎么样？",
+      "pinyin": "Nǐ xiànzài xué Huáyǔ, xué de zěnmeyàng?",
+      "english": "You are studying Mandarin now; how well is it going?",
+      "notes": "",
+      "words_used": [
+        "学",
+        "华语",
+        "得"
+      ]
+    },
+    {
+      "traditional": "你會寫多少字？差不多三十個字，我還會寫我的華語名字。",
+      "simplified": "你会写多少字？差不多三十个字，我还会写我的华语名字。",
+      "pinyin": "Nǐ huì xiě duōshǎo zì? Chàbùduō sānshí ge zì, wǒ hái huì xiě wǒ de Huáyǔ míngzi.",
+      "english": "How many characters can you write? About thirty, and I can also write my Chinese name.",
+      "notes": "",
+      "words_used": [
+        "会",
+        "多少",
+        "字",
+        "差不多",
+        "华语"
+      ]
+    },
+    {
+      "traditional": "你會不會做飯？我會做飯，我常常自己在家做飯。",
+      "simplified": "你会不会做饭？我会做饭，我常常自己在家做饭。",
+      "pinyin": "Nǐ huì bú huì zuò fàn? Wǒ huì zuò fàn, wǒ chángcháng zìjǐ zài jiā zuò fàn.",
+      "english": "Do you know how to cook? I can cook; I often cook at home by myself.",
+      "notes": "",
+      "words_used": [
+        "会",
+        "做饭",
+        "自己"
+      ]
+    },
+    {
+      "traditional": "這雙運動鞋不錯，可是有一點貴。",
+      "simplified": "这双运动鞋不错，可是有一点贵。",
+      "pinyin": "Zhè shuāng yùndòng xié búcuò, kěshì yǒu yìdiǎn guì.",
+      "english": "This pair of sneakers is nice, but a little expensive.",
+      "notes": "",
+      "words_used": [
+        "不错",
+        "有一点",
+        "贵"
+      ]
+    },
+    {
+      "traditional": "Lisa要喝幾杯咖啡？她只要喝一杯咖啡。",
+      "simplified": "Lisa要喝几杯咖啡？她只要喝一杯咖啡。",
+      "pinyin": "Lisa yào hē jǐ bēi kāfēi? Tā zhǐ yào hē yì bēi kāfēi.",
+      "english": "How many cups of coffee does Lisa want? She only wants one cup.",
+      "notes": "",
+      "words_used": [
+        "喝",
+        "几",
+        "杯",
+        "咖啡"
+      ]
+    },
+    {
+      "traditional": "我常常跟明文聊天，練習我的華語。",
+      "simplified": "我常常跟明文聊天，练习我的华语。",
+      "pinyin": "Wǒ chángcháng gēn Míngwén liáo tiān, liànxí wǒ de Huáyǔ.",
+      "english": "I often chat with Mingwen to practice my Mandarin.",
+      "notes": "",
+      "words_used": [
+        "聊天",
+        "练习",
+        "华语"
       ]
     }
   ],

@@ -39,7 +39,7 @@
     {
       "traditional": "衣服",
       "simplified": "衣服",
-      "pinyin": "yīfú",
+      "pinyin": "yīfú / yīfu",
       "english": "clothes, clothing",
       "notes": "Part of speech: N"
     },
@@ -74,7 +74,7 @@
     {
       "traditional": "東西",
       "simplified": "东西",
-      "pinyin": "dōngxi",
+      "pinyin": "dōngxi / dōngxī",
       "english": "goods, things, stuff",
       "notes": "Part of speech: N"
     },
@@ -102,7 +102,7 @@
     {
       "traditional": "便宜",
       "simplified": "便宜",
-      "pinyin": "piányí",
+      "pinyin": "piányí / piányi",
       "english": "inexpensive",
       "notes": "Part of speech: Vs"
     },
@@ -193,7 +193,7 @@
     {
       "traditional": "下個星期",
       "simplified": "下个星期",
-      "pinyin": "xià ge xīngqí",
+      "pinyin": "xià ge xīngqī / xià ge xīngqí",
       "english": "next week",
       "notes": "Phrases"
     },
@@ -221,7 +221,7 @@
     {
       "traditional": "上個星期",
       "simplified": "上个星期",
-      "pinyin": "shàng ge xīngqí",
+      "pinyin": "shàng ge xīngqī / shàng ge xīngqí",
       "english": "last week",
       "notes": "Supplementary Vocabulary; Phrase"
     }
@@ -230,7 +230,7 @@
     {
       "traditional": "大哥，我下個星期回臺灣。",
       "simplified": "大哥，我下个星期回台湾。",
-      "pinyin": "Dàgē, wǒ xià ge xīngqí huí Táiwān.",
+      "pinyin": "Dàgē, wǒ xià ge xīngqī huí Táiwān.",
       "english": "Big brother, I am going back to Taiwan next week.",
       "notes": "",
       "words_used": [
@@ -364,7 +364,7 @@
     {
       "traditional": "上個星期我給家人買了很多東西。",
       "simplified": "上个星期我给家人买了很多东西。",
-      "pinyin": "Shàng ge xīngqí wǒ gěi jiārén mǎi le hěn duō dōngxi.",
+      "pinyin": "Shàng ge xīngqī wǒ gěi jiārén mǎi le hěn duō dōngxi.",
       "english": "Last week I bought a lot of things for my family.",
       "notes": "",
       "words_used": [

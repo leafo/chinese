@@ -5,7 +5,7 @@
   "collection": {
     "name": "Chapter 6",
     "notes": "What do you usually like to do?",
-    "objectives": ""
+    "objectives": "List common hobbies; inquire about the interests of others; discuss likes and dislikes; describe your daily activities"
   },
   "words": [
     {
@@ -13,175 +13,168 @@
       "simplified": "运动",
       "pinyin": "yùndòng",
       "english": "to exercise",
-      "notes": "V (verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "做",
       "simplified": "做",
       "pinyin": "zuò",
       "english": "to do",
-      "notes": "V (verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "週末",
       "simplified": "周末",
       "pinyin": "zhōumò",
       "english": "weekend",
-      "notes": "N (noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "打",
       "simplified": "打",
       "pinyin": "dǎ",
       "english": "to play (ball), hit",
-      "notes": "V (verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "網球",
       "simplified": "网球",
       "pinyin": "wǎngqiú",
       "english": "tennis",
-      "notes": "N (noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "聽",
       "simplified": "听",
       "pinyin": "tīng",
       "english": "to listen",
-      "notes": "V (verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "音樂",
       "simplified": "音乐",
       "pinyin": "yīnyuè",
       "english": "music",
-      "notes": "N (noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "和",
       "simplified": "和",
-      "pinyin": "hàn / hé",
+      "pinyin": "hé / hàn",
       "english": "and",
-      "notes": "Conj (conjunction)"
+      "notes": "Part of speech: Conj"
     },
     {
       "traditional": "可是",
       "simplified": "可是",
       "pinyin": "kěshì",
       "english": "but, however",
-      "notes": "Conj (conjunction)"
+      "notes": "Part of speech: Conj"
     },
     {
       "traditional": "還",
       "simplified": "还",
       "pinyin": "hái",
       "english": "also, in addition, as well",
-      "notes": "Adv (adverb). Grammar note: connects two actions performed by the same person and implies a surprise element for the second action."
+      "notes": "Part of speech: Adv; note: connects two actions performed by the same person and implies a surprise element for the second action"
     },
     {
       "traditional": "看",
       "simplified": "看",
       "pinyin": "kàn",
       "english": "to see, look, watch, read",
-      "notes": "V (verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "電視",
       "simplified": "电视",
       "pinyin": "diànshì",
       "english": "television",
-      "notes": "N (noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "晚上",
       "simplified": "晚上",
-      "pinyin": "wǎnshàng",
+      "pinyin": "wǎnshàng / wǎnshang",
       "english": "night, at night",
-      "notes": "N (noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "常常",
       "simplified": "常常",
       "pinyin": "chángcháng",
       "english": "often",
-      "notes": "Adv (adverb)"
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "家",
       "simplified": "家",
       "pinyin": "jiā",
       "english": "house, home, family",
-      "notes": "N (noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "跑步",
       "simplified": "跑步",
       "pinyin": "pǎobù",
       "english": "to run, to jog",
-      "notes": "Phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "唱歌",
       "simplified": "唱歌",
       "pinyin": "chàng gē",
       "english": "to sing a song",
-      "notes": "Phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "跳舞",
       "simplified": "跳舞",
       "pinyin": "tiào wǔ",
       "english": "to dance",
-      "notes": "Phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "上午",
       "simplified": "上午",
       "pinyin": "shàngwǔ",
       "english": "later morning",
-      "notes": "N (noun)"
+      "notes": "Supplementary Vocabulary; Part of speech: N"
     },
     {
       "traditional": "太太",
       "simplified": "太太",
       "pinyin": "tàitai",
       "english": "wife, Mrs.",
-      "notes": "N (noun)"
+      "notes": "Supplementary Vocabulary; Part of speech: N"
     },
     {
       "traditional": "看書",
       "simplified": "看书",
       "pinyin": "kàn shū",
       "english": "to read",
-      "notes": ""
+      "notes": "Phrases; note: from the List of Activities (classroom activities)"
     },
     {
       "traditional": "看電影",
       "simplified": "看电影",
       "pinyin": "kàn diànyǐng",
       "english": "to watch movies",
-      "notes": ""
+      "notes": "Phrases; note: from the List of Activities (classroom activities)"
     },
     {
       "traditional": "打籃球",
       "simplified": "打篮球",
       "pinyin": "dǎ lánqiú",
-      "english": "to play basket ball",
-      "notes": ""
+      "english": "to play basketball",
+      "notes": "Phrases; note: from the List of Activities (classroom activities)"
     },
     {
       "traditional": "踢足球",
       "simplified": "踢足球",
       "pinyin": "tī zúqiú",
       "english": "to play soccer",
-      "notes": ""
-    },
-    {
-      "traditional": "上午",
-      "simplified": "上午",
-      "pinyin": "shàngwǔ",
-      "english": "morning",
-      "notes": ""
+      "notes": "Phrases; note: from the List of Activities (classroom activities)"
     }
   ],
   "sentences": [
@@ -192,9 +185,7 @@
       "english": "On weekends I like to play tennis.",
       "notes": "",
       "words_used": [
-        "我",
         "周末",
-        "喜欢",
         "打",
         "网球"
       ]
@@ -206,11 +197,7 @@
       "english": "What sport do you usually like to do?",
       "notes": "",
       "words_used": [
-        "你",
-        "平常",
-        "喜欢",
         "做",
-        "什么",
         "运动"
       ]
     },
@@ -223,7 +210,6 @@
       "words_used": [
         "晚上",
         "常常",
-        "在",
         "家",
         "看",
         "电视"
@@ -236,8 +222,6 @@
       "english": "Who likes to sing and dance?",
       "notes": "",
       "words_used": [
-        "谁",
-        "喜欢",
         "唱歌",
         "和",
         "跳舞"
@@ -250,11 +234,7 @@
       "english": "My older brother likes to play soccer; how about you?",
       "notes": "",
       "words_used": [
-        "我",
-        "哥哥",
-        "喜欢",
-        "踢足球",
-        "你"
+        "踢足球"
       ]
     },
     {
@@ -264,10 +244,6 @@
       "english": "That is my father's TV.",
       "notes": "",
       "words_used": [
-        "那",
-        "是",
-        "我",
-        "爸爸",
         "电视"
       ]
     },
@@ -279,9 +255,6 @@
       "notes": "",
       "words_used": [
         "上午",
-        "想",
-        "去",
-        "公园",
         "跑步"
       ]
     },
@@ -293,12 +266,95 @@
       "notes": "",
       "words_used": [
         "太太",
-        "喜欢",
         "听",
         "音乐",
         "可是",
-        "先生",
         "看电影"
+      ]
+    },
+    {
+      "traditional": "我喜歡唱歌、聽音樂，還喜歡跳舞。",
+      "simplified": "我喜欢唱歌、听音乐，还喜欢跳舞。",
+      "pinyin": "Wǒ xǐhuān chàng gē, tīng yīnyuè, hái xǐhuān tiào wǔ.",
+      "english": "I like to sing and listen to music. In addition, I like to dance.",
+      "notes": "",
+      "words_used": [
+        "唱歌",
+        "听",
+        "音乐",
+        "还",
+        "跳舞"
+      ]
+    },
+    {
+      "traditional": "他喜歡跑步，還喜歡打網球。",
+      "simplified": "他喜欢跑步，还喜欢打网球。",
+      "pinyin": "Tā xǐhuān pǎobù, hái xǐhuān dǎ wǎngqiú.",
+      "english": "He likes to run. In addition, he likes to play tennis.",
+      "notes": "",
+      "words_used": [
+        "跑步",
+        "还",
+        "打",
+        "网球"
+      ]
+    },
+    {
+      "traditional": "王明文上午在公園打網球。",
+      "simplified": "王明文上午在公园打网球。",
+      "pinyin": "Wáng Míngwén shàngwǔ zài gōngyuán dǎ wǎngqiú.",
+      "english": "Wang Mingwen plays tennis in the park in the morning.",
+      "notes": "",
+      "words_used": [
+        "上午",
+        "打",
+        "网球"
+      ]
+    },
+    {
+      "traditional": "Gloria週末常常在朋友家跳舞。",
+      "simplified": "Gloria周末常常在朋友家跳舞。",
+      "pinyin": "Gloria zhōumò chángcháng zài péngyǒu jiā tiào wǔ.",
+      "english": "Gloria often dances at her friend's house on weekends.",
+      "notes": "",
+      "words_used": [
+        "周末",
+        "常常",
+        "家",
+        "跳舞"
+      ]
+    },
+    {
+      "traditional": "他們喜歡跳舞，我們也都喜歡跳舞。",
+      "simplified": "他们喜欢跳舞，我们也都喜欢跳舞。",
+      "pinyin": "Tāmen xǐhuān tiào wǔ, wǒmen yě dōu xǐhuān tiào wǔ.",
+      "english": "They like to dance, and we all like to dance too.",
+      "notes": "",
+      "words_used": [
+        "跳舞"
+      ]
+    },
+    {
+      "traditional": "我哥哥和我都喜歡唱歌，可是我們都不喜歡跳舞。",
+      "simplified": "我哥哥和我都喜欢唱歌，可是我们都不喜欢跳舞。",
+      "pinyin": "Wǒ gēge hé wǒ dōu xǐhuān chàng gē, kěshì wǒmen dōu bù xǐhuān tiào wǔ.",
+      "english": "My older brother and I both like to sing, but neither of us likes to dance.",
+      "notes": "",
+      "words_used": [
+        "和",
+        "唱歌",
+        "可是",
+        "跳舞"
+      ]
+    },
+    {
+      "traditional": "家文，你喜歡不喜歡運動？",
+      "simplified": "家文，你喜欢不喜欢运动？",
+      "pinyin": "Jiāwén, nǐ xǐhuān bù xǐhuān yùndòng?",
+      "english": "Jiawen, do you like to exercise?",
+      "notes": "",
+      "words_used": [
+        "运动"
       ]
     }
   ],

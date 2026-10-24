@@ -5,190 +5,190 @@
   "collection": {
     "name": "Chapter 4",
     "notes": "My father works at a computer company",
-    "objectives": ""
+    "objectives": "Discuss your life; identify more specific occupations and work places"
   },
   "words": [
     {
       "traditional": "爸爸",
       "simplified": "爸爸",
       "pinyin": "bàba",
-      "english": "father",
-      "notes": "Handwritten addition: \"bà ba\""
+      "english": "father, dad",
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "喜歡",
       "simplified": "喜欢",
-      "pinyin": "xǐhuān",
+      "pinyin": "xǐhuān / xǐhuan",
       "english": "to like",
-      "notes": "From example sentence"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "媽媽",
       "simplified": "妈妈",
       "pinyin": "māma",
       "english": "mother, mom",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "老師",
       "simplified": "老师",
       "pinyin": "lǎoshī",
       "english": "teacher",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "忙",
       "simplified": "忙",
       "pinyin": "máng",
       "english": "busy",
-      "notes": "Part of speech: Vs (Stative Verb)"
+      "notes": "Part of speech: Vs"
     },
     {
       "traditional": "很",
       "simplified": "很",
       "pinyin": "hěn",
       "english": "very",
-      "notes": "Part of speech: Adv (Adverb)"
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "每天",
       "simplified": "每天",
       "pinyin": "měitiān",
       "english": "every day",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "累",
       "simplified": "累",
       "pinyin": "lèi",
       "english": "tired, tiring",
-      "notes": "Part of speech: Vs (Stative Verb)"
+      "notes": "Part of speech: Vs"
     },
     {
       "traditional": "小孩子",
       "simplified": "小孩子",
-      "pinyin": "xiǎo háizi",
+      "pinyin": "xiǎoháizi",
       "english": "children, kids",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "說",
       "simplified": "说",
       "pinyin": "shuō",
       "english": "to say",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "教",
       "simplified": "教",
       "pinyin": "jiāo",
       "english": "to teach",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "法文",
       "simplified": "法文",
       "pinyin": "Fǎwén",
       "english": "French language",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "教書",
       "simplified": "教书",
       "pinyin": "jiāo shū",
-      "english": "the job of teaching / teach book",
-      "notes": "Category: Phrases"
+      "english": "the job of teaching (lit. \"teach books\")",
+      "notes": "Phrases"
     },
     {
       "traditional": "今天",
       "simplified": "今天",
       "pinyin": "jīntiān",
       "english": "today",
-      "notes": "Category: Supplementary Vocabulary; Part of speech: N (Noun)"
+      "notes": "Supplementary Vocabulary; Part of speech: N"
     },
     {
       "traditional": "非常",
       "simplified": "非常",
       "pinyin": "fēicháng",
       "english": "extremely",
-      "notes": "Based on handwritten note at top: \"feichan - extremely\""
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "工程師",
       "simplified": "工程师",
       "pinyin": "gōngchéngshī",
       "english": "engineer",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "廚師",
       "simplified": "厨师",
       "pinyin": "chúshī",
       "english": "chef",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "服務員",
       "simplified": "服务员",
       "pinyin": "fúwùyuán",
       "english": "server, waiter, waitress",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "醫生",
       "simplified": "医生",
       "pinyin": "yīshēng",
       "english": "doctor",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "護士",
       "simplified": "护士",
       "pinyin": "hùshì",
       "english": "nurse",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "律師",
       "simplified": "律师",
       "pinyin": "lǜshī",
       "english": "lawyer",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "軍人",
       "simplified": "军人",
       "pinyin": "jūnrén",
       "english": "soldier",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "商人",
       "simplified": "商人",
       "pinyin": "shāngrén",
       "english": "businessman",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "農人",
       "simplified": "农人",
       "pinyin": "nóngrén",
       "english": "farmer",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "退休了",
       "simplified": "退休了",
       "pinyin": "tuìxiū le",
       "english": "retired",
-      "notes": ""
+      "notes": "List of Occupations"
     },
     {
       "traditional": "會計師",
       "simplified": "会计师",
-      "pinyin": "kuài jì shī",
+      "pinyin": "kuàijìshī",
       "english": "accountant",
-      "notes": "Handwritten addition at the bottom"
+      "notes": "List of Occupations; note: handwritten addition, not in the book's list"
     }
   ],
   "sentences": [
@@ -199,12 +199,7 @@
       "english": "My dad works at a computer company.",
       "notes": "",
       "words_used": [
-        "我",
-        "爸爸",
-        "在",
-        "电脑",
-        "公司",
-        "工作"
+        "爸爸"
       ]
     },
     {
@@ -215,10 +210,8 @@
       "notes": "",
       "words_used": [
         "妈妈",
-        "是",
         "老师",
         "每天",
-        "都",
         "很",
         "忙"
       ]
@@ -230,11 +223,7 @@
       "english": "Who is that doctor?",
       "notes": "",
       "words_used": [
-        "那",
-        "个",
-        "医生",
-        "是",
-        "谁"
+        "医生"
       ]
     },
     {
@@ -244,10 +233,8 @@
       "english": "Do you like teaching?",
       "notes": "",
       "words_used": [
-        "你",
         "喜欢",
-        "教书",
-        "吗"
+        "教书"
       ]
     },
     {
@@ -269,11 +256,7 @@
       "english": "My older brother is an engineer; what about your older brother?",
       "notes": "",
       "words_used": [
-        "我",
-        "哥哥",
-        "是",
-        "工程师",
-        "你"
+        "工程师"
       ]
     },
     {
@@ -283,25 +266,163 @@
       "english": "This is the teacher's daughter.",
       "notes": "",
       "words_used": [
-        "这",
-        "是",
-        "老师",
-        "女儿"
+        "老师"
       ]
     },
     {
       "traditional": "王先生教法文，他說法文很好。",
       "simplified": "王先生教法文，他说法文很好。",
       "pinyin": "Wáng xiānsheng jiāo Fǎwén, tā shuō Fǎwén hěn hǎo.",
-      "english": "Mr. Wang teaches French; he speaks French very well.",
+      "english": "Mr. Wang teaches French; he says French is very good.",
       "notes": "",
       "words_used": [
-        "先生",
         "教",
         "法文",
         "说",
+        "很"
+      ]
+    },
+    {
+      "traditional": "請問你爸爸、媽媽在哪裡工作？",
+      "simplified": "请问你爸爸、妈妈在哪里工作？",
+      "pinyin": "Qǐngwèn nǐ bàba, māma zài nǎlǐ gōngzuò?",
+      "english": "Excuse me, where do your father and mother work?",
+      "notes": "",
+      "words_used": [
+        "爸爸",
+        "妈妈"
+      ]
+    },
+    {
+      "traditional": "你爸爸的工作忙不忙？",
+      "simplified": "你爸爸的工作忙不忙？",
+      "pinyin": "Nǐ bàba de gōngzuò máng bù máng?",
+      "english": "Is your father's job busy?",
+      "notes": "",
+      "words_used": [
+        "爸爸",
+        "忙"
+      ]
+    },
+    {
+      "traditional": "他的工作很忙，他每天都很累。",
+      "simplified": "他的工作很忙，他每天都很累。",
+      "pinyin": "Tā de gōngzuò hěn máng, tā měitiān dōu hěn lèi.",
+      "english": "His job is very busy; he is very tired every day.",
+      "notes": "",
+      "words_used": [
         "很",
-        "好"
+        "忙",
+        "每天",
+        "累"
+      ]
+    },
+    {
+      "traditional": "你今天累不累？",
+      "simplified": "你今天累不累？",
+      "pinyin": "Nǐ jīntiān lèi bú lèi?",
+      "english": "Are you tired today?",
+      "notes": "",
+      "words_used": [
+        "今天",
+        "累"
+      ]
+    },
+    {
+      "traditional": "我媽媽是小學老師，她喜歡小孩子。",
+      "simplified": "我妈妈是小学老师，她喜欢小孩子。",
+      "pinyin": "Wǒ māma shì xiǎoxué lǎoshī, tā xǐhuān xiǎoháizi.",
+      "english": "My mother is an elementary school teacher; she likes children.",
+      "notes": "",
+      "words_used": [
+        "妈妈",
+        "老师",
+        "喜欢",
+        "小孩子"
+      ]
+    },
+    {
+      "traditional": "她說教書不累。",
+      "simplified": "她说教书不累。",
+      "pinyin": "Tā shuō jiāo shū bú lèi.",
+      "english": "She says teaching is not tiring.",
+      "notes": "",
+      "words_used": [
+        "说",
+        "教书",
+        "累"
+      ]
+    },
+    {
+      "traditional": "李老師喜歡不喜歡教法文？",
+      "simplified": "李老师喜欢不喜欢教法文？",
+      "pinyin": "Lǐ lǎoshī xǐhuān bù xǐhuān jiāo Fǎwén?",
+      "english": "Does Teacher Li like teaching French?",
+      "notes": "",
+      "words_used": [
+        "老师",
+        "喜欢",
+        "教",
+        "法文"
+      ]
+    },
+    {
+      "traditional": "李老師有沒有小孩子？",
+      "simplified": "李老师有没有小孩子？",
+      "pinyin": "Lǐ lǎoshī yǒu méiyǒu xiǎoháizi?",
+      "english": "Does Teacher Li have children?",
+      "notes": "",
+      "words_used": [
+        "老师",
+        "小孩子"
+      ]
+    },
+    {
+      "traditional": "我爸爸也是老師，他在大學教法文。",
+      "simplified": "我爸爸也是老师，他在大学教法文。",
+      "pinyin": "Wǒ bàba yě shì lǎoshī, tā zài dàxué jiāo Fǎwén.",
+      "english": "My father is also a teacher; he teaches French at a university.",
+      "notes": "",
+      "words_used": [
+        "爸爸",
+        "老师",
+        "教",
+        "法文"
+      ]
+    },
+    {
+      "traditional": "我爸爸是醫生，我媽媽是護士。",
+      "simplified": "我爸爸是医生，我妈妈是护士。",
+      "pinyin": "Wǒ bàba shì yīshēng, wǒ māma shì hùshì.",
+      "english": "My father is a doctor, and my mother is a nurse.",
+      "notes": "",
+      "words_used": [
+        "爸爸",
+        "医生",
+        "妈妈",
+        "护士"
+      ]
+    },
+    {
+      "traditional": "我哥哥是律師，我姊姊是廚師。",
+      "simplified": "我哥哥是律师，我姐姐是厨师。",
+      "pinyin": "Wǒ gēge shì lǜshī, wǒ jiějie shì chúshī.",
+      "english": "My older brother is a lawyer, and my older sister is a chef.",
+      "notes": "",
+      "words_used": [
+        "律师",
+        "厨师"
+      ]
+    },
+    {
+      "traditional": "李先生退休了，他女兒是會計師。",
+      "simplified": "李先生退休了，他女儿是会计师。",
+      "pinyin": "Lǐ xiānsheng tuìxiū le, tā nǚ'ér shì kuàijìshī.",
+      "english": "Mr. Li is retired; his daughter is an accountant.",
+      "notes": "",
+      "words_used": [
+        "退休了",
+        "会计师"
       ]
     }
   ],

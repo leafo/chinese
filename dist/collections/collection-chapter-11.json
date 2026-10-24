@@ -9,20 +9,6 @@
   },
   "words": [
     {
-      "traditional": "給",
-      "simplified": "给",
-      "pinyin": "gěi",
-      "english": "to, to give",
-      "notes": "Part of speech: Prep (Preposition)"
-    },
-    {
-      "traditional": "會",
-      "simplified": "会",
-      "pinyin": "huì",
-      "english": "can, know how to, will",
-      "notes": "Part of speech: Vaux (Auxiliary Verb)"
-    },
-    {
       "traditional": "天氣",
       "simplified": "天气",
       "pinyin": "tiānqì",
@@ -32,7 +18,7 @@
     {
       "traditional": "這裡",
       "simplified": "这里",
-      "pinyin": "zhèlǐ",
+      "pinyin": "zhèlǐ / zhèli",
       "english": "here",
       "notes": "Part of speech: Pron"
     },
@@ -46,7 +32,7 @@
     {
       "traditional": "舒服",
       "simplified": "舒服",
-      "pinyin": "shūfú",
+      "pinyin": "shūfú / shūfu",
       "english": "comfortable",
       "notes": "Part of speech: Vs"
     },
@@ -109,9 +95,16 @@
     {
       "traditional": "時候",
       "simplified": "时候",
-      "pinyin": "shíhòu",
+      "pinyin": "shíhòu / shíhou",
       "english": "(a point of) time, (a duration of) time",
       "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "麻煩",
+      "simplified": "麻烦",
+      "pinyin": "máfán / máfan",
+      "english": "troublesome",
+      "notes": "Part of speech: Vs"
     },
     {
       "traditional": "對",
@@ -140,6 +133,13 @@
       "pinyin": "kěnéng",
       "english": "probably",
       "notes": "Part of speech: Adv"
+    },
+    {
+      "traditional": "會",
+      "simplified": "会",
+      "pinyin": "huì",
+      "english": "can, know how to, will",
+      "notes": "Part of speech: Vaux"
     },
     {
       "traditional": "希望",
@@ -186,7 +186,7 @@
     {
       "traditional": "……的時候",
       "simplified": "……的时候",
-      "pinyin": "...de shíhòu",
+      "pinyin": "...de shíhòu / ...de shíhou",
       "english": "when..., during...",
       "notes": "Phrases"
     },
@@ -203,6 +203,13 @@
       "pinyin": "dà",
       "english": "old, big, large",
       "notes": "Supplementary Vocabulary; Part of speech: Vs"
+    },
+    {
+      "traditional": "給",
+      "simplified": "给",
+      "pinyin": "gěi",
+      "english": "to give",
+      "notes": "Supplementary Vocabulary; Part of speech: V"
     },
     {
       "traditional": "一定",
@@ -347,6 +354,35 @@
         "给",
         "会",
         "下雪"
+      ]
+    },
+    {
+      "traditional": "下雨的時候很麻煩，我們不能出來跑步。",
+      "simplified": "下雨的时候很麻烦，我们不能出来跑步。",
+      "pinyin": "Xià yǔ de shíhòu hěn máfán, wǒmen bù néng chūlái pǎobù.",
+      "english": "It is troublesome when it rains; we can't come out to run.",
+      "notes": "",
+      "words_used": [
+        "下雨",
+        "……的时候",
+        "麻烦",
+        "能",
+        "出来"
+      ]
+    },
+    {
+      "traditional": "今天比昨天熱，明天可能會下雨。",
+      "simplified": "今天比昨天热，明天可能会下雨。",
+      "pinyin": "Jīntiān bǐ zuótiān rè, míngtiān kěnéng huì xià yǔ.",
+      "english": "Today is hotter than yesterday, and it will probably rain tomorrow.",
+      "notes": "",
+      "words_used": [
+        "比",
+        "昨天",
+        "热",
+        "可能",
+        "会",
+        "下雨"
       ]
     }
   ],

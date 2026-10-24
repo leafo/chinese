@@ -5,7 +5,7 @@
   "collection": {
     "name": "Chapter 2",
     "notes": "I have two younger brothers",
-    "objectives": "Ask others if they have siblings and tell how many siblings you have"
+    "objectives": "Quantify and describe family members; ask others if they have siblings"
   },
   "words": [
     {
@@ -13,98 +13,98 @@
       "simplified": "有",
       "pinyin": "yǒu",
       "english": "to have, there is / are",
-      "notes": "V"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "兩",
       "simplified": "两",
       "pinyin": "liǎng",
       "english": "two (to express for quantity)",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "個",
       "simplified": "个",
       "pinyin": "ge",
       "english": "generic measure word",
-      "notes": "M"
+      "notes": "Part of speech: M"
     },
     {
       "traditional": "弟弟",
       "simplified": "弟弟",
       "pinyin": "dìdi",
       "english": "younger brother",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "你 / 妳",
-      "simplified": "你 / 妳",
+      "simplified": "你",
       "pinyin": "nǐ",
       "english": "you (male or generic) / you (female only)",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "嗎",
       "simplified": "吗",
       "pinyin": "ma",
       "english": "question particle",
-      "notes": "Ptc; Handwritten note: \"only when you think answer is true\""
+      "notes": "Part of speech: Ptc; note: added to the end of a statement to make a yes/no question (handwritten: \"only when you think answer is true\")"
     },
     {
       "traditional": "一",
       "simplified": "一",
       "pinyin": "yī",
       "english": "one",
-      "notes": "Num; listed with three tones to show tone sandhi variations"
+      "notes": "Part of speech: Num; note: pronounced yī / yí / yì depending on tone sandhi (yí before 4th tone, e.g. 一個 yí ge)"
     },
     {
       "traditional": "姐姐",
       "simplified": "姐姐",
       "pinyin": "jiějie",
       "english": "older sister",
-      "notes": ""
+      "notes": "Part of speech: N; note: the textbook's main form is 姊姊"
     },
     {
       "traditional": "也",
       "simplified": "也",
       "pinyin": "yě",
       "english": "also",
-      "notes": "Adv"
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "哥哥",
       "simplified": "哥哥",
       "pinyin": "gēge",
       "english": "older brother",
-      "notes": "N; Handwritten pronunciation guide: \"guh guh\""
+      "notes": "Part of speech: N; note: pronounced roughly \"guh guh\""
     },
     {
       "traditional": "沒",
       "simplified": "没",
       "pinyin": "méi",
       "english": "not",
-      "notes": "Adv"
+      "notes": "Part of speech: Adv; note: negates 有 (沒有 = not have)"
     },
     {
       "traditional": "只",
       "simplified": "只",
       "pinyin": "zhǐ",
       "english": "only",
-      "notes": "Adv"
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "兄弟姐妹",
       "simplified": "兄弟姐妹",
       "pinyin": "xiōngdì jiěmèi",
       "english": "siblings",
-      "notes": "Phrase; \"xiōng\" refers to the older brother"
+      "notes": "Phrases; note: textbook writes 兄弟姊（姐）妹; 兄 (xiōng) means older brother"
     },
     {
       "traditional": "妹妹",
       "simplified": "妹妹",
       "pinyin": "mèimei",
       "english": "younger sister",
-      "notes": "N; Supplementary Vocabulary"
+      "notes": "Supplementary Vocabulary; Part of speech: N"
     }
   ],
   "sentences": [
@@ -115,6 +115,7 @@
       "english": "Do you have any siblings?",
       "notes": "",
       "words_used": [
+        "你",
         "有",
         "兄弟姐妹",
         "吗"
@@ -123,8 +124,8 @@
     {
       "traditional": "我沒有姐姐，只有一個哥哥。",
       "simplified": "我没有姐姐，只有一个哥哥。",
-      "pinyin": "Wǒ méiyǒu jiějie, zhǐyǒu yī gè gēge.",
-      "english": "I don't have an older sister, I only have an older brother.",
+      "pinyin": "Wǒ méiyǒu jiějie, zhǐyǒu yí gè gēge.",
+      "english": "I don't have an older sister; I only have one older brother.",
       "notes": "",
       "words_used": [
         "没",
@@ -139,16 +140,14 @@
     {
       "traditional": "我有一個哥哥，還有兩個姐姐。",
       "simplified": "我有一个哥哥，还有两个姐姐。",
-      "pinyin": "wǒ yǒu yí gè gēge, hái yǒu liǎng gè jiějie",
+      "pinyin": "Wǒ yǒu yí gè gēge, hái yǒu liǎng gè jiějie.",
       "english": "I have an older brother and two older sisters.",
       "notes": "",
       "words_used": [
-        "我",
         "有",
         "一",
         "个",
         "哥哥",
-        "还",
         "两",
         "姐姐"
       ]
@@ -160,7 +159,6 @@
       "english": "I have two younger brothers.",
       "notes": "",
       "words_used": [
-        "我",
         "有",
         "两",
         "个",
@@ -215,9 +213,6 @@
       "english": "Whose younger sister is this?",
       "notes": "",
       "words_used": [
-        "这",
-        "是",
-        "谁",
         "妹妹"
       ]
     },
@@ -228,7 +223,6 @@
       "english": "I have one older sister, and you?",
       "notes": "",
       "words_used": [
-        "我",
         "有",
         "一",
         "个",
@@ -243,12 +237,8 @@
       "english": "Those two people are my siblings.",
       "notes": "",
       "words_used": [
-        "那",
         "两",
         "个",
-        "人",
-        "是",
-        "我",
         "兄弟姐妹"
       ]
     },
@@ -262,6 +252,76 @@
         "有",
         "弟弟",
         "吗"
+      ]
+    },
+    {
+      "traditional": "你是美國人嗎？",
+      "simplified": "你是美国人吗？",
+      "pinyin": "Nǐ shì Měiguórén ma?",
+      "english": "Are you American?",
+      "notes": "",
+      "words_used": [
+        "你",
+        "吗"
+      ]
+    },
+    {
+      "traditional": "您姓王嗎？",
+      "simplified": "您姓王吗？",
+      "pinyin": "Nín xìng Wáng ma?",
+      "english": "Are you surnamed Wang?",
+      "notes": "",
+      "words_used": [
+        "吗"
+      ]
+    },
+    {
+      "traditional": "我有一個姐姐，兩個弟弟。妳呢？",
+      "simplified": "我有一个姐姐，两个弟弟。你呢？",
+      "pinyin": "Wǒ yǒu yí ge jiějie, liǎng ge dìdi. Nǐ ne?",
+      "english": "I have one older sister and two younger brothers. How about you?",
+      "notes": "",
+      "words_used": [
+        "有",
+        "一",
+        "个",
+        "姐姐",
+        "两",
+        "弟弟",
+        "你"
+      ]
+    },
+    {
+      "traditional": "我也是臺灣人。",
+      "simplified": "我也是台湾人。",
+      "pinyin": "Wǒ yě shì Táiwānrén.",
+      "english": "I am also Taiwanese.",
+      "notes": "",
+      "words_used": [
+        "也"
+      ]
+    },
+    {
+      "traditional": "他姓王，我也姓王。",
+      "simplified": "他姓王，我也姓王。",
+      "pinyin": "Tā xìng Wáng, wǒ yě xìng Wáng.",
+      "english": "His surname is Wang; my surname is also Wang.",
+      "notes": "",
+      "words_used": [
+        "也"
+      ]
+    },
+    {
+      "traditional": "我有兩個妹妹。",
+      "simplified": "我有两个妹妹。",
+      "pinyin": "Wǒ yǒu liǎng ge mèimei.",
+      "english": "I have two younger sisters.",
+      "notes": "",
+      "words_used": [
+        "有",
+        "两",
+        "个",
+        "妹妹"
       ]
     }
   ],

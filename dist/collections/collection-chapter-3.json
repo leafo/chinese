@@ -5,7 +5,7 @@
   "collection": {
     "name": "Chapter 3",
     "notes": "She is not a student",
-    "objectives": "Ask others if they are a student. Ask common occupation and workplace"
+    "objectives": "Ask others if they are students; ask others common occupations and work places; describe marital status and family members"
   },
   "words": [
     {
@@ -13,168 +13,175 @@
       "simplified": "她 / 他",
       "pinyin": "tā",
       "english": "she, her / he, him",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "不",
       "simplified": "不",
       "pinyin": "bú / bù",
       "english": "no, not",
-      "notes": "Adv"
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "學生",
       "simplified": "学生",
-      "pinyin": "xuésheng",
+      "pinyin": "xuésheng / xuéshēng",
       "english": "student",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "大學",
       "simplified": "大学",
       "pinyin": "dàxué",
       "english": "university, college",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "在",
       "simplified": "在",
       "pinyin": "zài",
       "english": "in, on, at",
-      "notes": "Prep; handwritten note: location or currently doing"
+      "notes": "Part of speech: Prep; note: location or currently doing"
     },
     {
       "traditional": "哪裡 (哪兒)",
       "simplified": "哪里 (哪儿)",
-      "pinyin": "nǎlǐ (nǎr)",
+      "pinyin": "nǎlǐ / nǎr",
       "english": "where",
-      "notes": "QPr"
+      "notes": "Part of speech: QPr"
     },
     {
       "traditional": "工作",
       "simplified": "工作",
       "pinyin": "gōngzuò",
       "english": "to work, work",
-      "notes": "V / N"
+      "notes": "Part of speech: V / N"
     },
     {
       "traditional": "銀行",
       "simplified": "银行",
       "pinyin": "yínháng",
       "english": "bank",
-      "notes": "N; handwritten note: yín (银) means silver"
+      "notes": "Part of speech: N; note: yín (银) means silver"
     },
     {
       "traditional": "先生",
       "simplified": "先生",
-      "pinyin": "xiānsheng",
+      "pinyin": "xiānsheng / xiānshēng",
       "english": "husband, Mr.",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "電腦",
       "simplified": "电脑",
       "pinyin": "diànnǎo",
       "english": "computer",
-      "notes": "N; handwritten note: literally \"electric brain\""
+      "notes": "Part of speech: N; note: literally \"electric brain\""
     },
     {
       "traditional": "公司",
       "simplified": "公司",
       "pinyin": "gōngsī",
       "english": "company",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "孩子",
       "simplified": "孩子",
       "pinyin": "háizi",
       "english": "child",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "兒子",
       "simplified": "儿子",
       "pinyin": "érzi",
       "english": "son",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "女兒",
       "simplified": "女儿",
       "pinyin": "nǚ'ér",
       "english": "daughter",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "小孩",
       "simplified": "小孩",
       "pinyin": "xiǎohái",
       "english": "child",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "都",
       "simplified": "都",
       "pinyin": "dōu",
       "english": "both, all",
-      "notes": "Adv"
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "小學",
       "simplified": "小学",
       "pinyin": "xiǎoxué",
       "english": "elementary school",
-      "notes": "N"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "學",
       "simplified": "学",
       "pinyin": "xué",
-      "english": "to learn",
-      "notes": "Handwritten note at top of page"
+      "english": "to learn, to study",
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "中學",
       "simplified": "中学",
       "pinyin": "zhōngxué",
       "english": "middle school",
-      "notes": "Handwritten note at bottom of page"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "畢業了",
       "simplified": "毕业了",
       "pinyin": "bìyè le",
       "english": "graduated",
-      "notes": "Handwritten note: le indicates \"lit. already done (past tense)\""
+      "notes": "Phrases; note: le indicates \"lit. already done (past tense)\""
     },
     {
       "traditional": "結婚了",
       "simplified": "结婚了",
       "pinyin": "jiéhūn le",
       "english": "married",
-      "notes": ""
+      "notes": "Phrases"
     },
     {
       "traditional": "他們 / 她們",
       "simplified": "他们 / 她们",
       "pinyin": "tāmen",
       "english": "they (plural of \"he / she\")",
-      "notes": ""
+      "notes": "Phrases"
     },
     {
-      "traditional": "唸書",
+      "traditional": "念書",
       "simplified": "念书",
       "pinyin": "niàn shū",
       "english": "to study",
-      "notes": "Handwritten note: shū (书) means book"
+      "notes": "Phrases; note: shū (书) means book"
     },
     {
       "traditional": "法國",
       "simplified": "法国",
       "pinyin": "Fǎguó",
       "english": "France",
-      "notes": "N; handwritten note: guó (国) means country"
+      "notes": "Supplementary Vocabulary; Part of speech: N; note: guó (国) means country"
+    },
+    {
+      "traditional": "和",
+      "simplified": "和",
+      "pinyin": "hé / hàn",
+      "english": "and",
+      "notes": "Supplementary Vocabulary; Part of speech: Conj"
     }
   ],
   "sentences": [
@@ -199,9 +206,7 @@
       "english": "I am not a student; I work at a bank.",
       "notes": "",
       "words_used": [
-        "我",
         "不",
-        "是",
         "学生",
         "在",
         "银行",
@@ -215,9 +220,9 @@
       "english": "He studies at the university; and you?",
       "notes": "",
       "words_used": [
+        "她 / 他",
         "在",
         "大学",
-        "你",
         "念书"
       ]
     },
@@ -228,12 +233,8 @@
       "english": "That child is the French person's son.",
       "notes": "",
       "words_used": [
-        "那",
-        "个",
         "孩子",
-        "是",
         "法国",
-        "人",
         "儿子"
       ]
     },
@@ -244,13 +245,11 @@
       "english": "Does your daughter study computers at elementary school?",
       "notes": "",
       "words_used": [
-        "你",
         "女儿",
         "在",
         "小学",
         "学",
-        "电脑",
-        "吗"
+        "电脑"
       ]
     },
     {
@@ -260,10 +259,7 @@
       "english": "Who works at that company?",
       "notes": "",
       "words_used": [
-        "谁",
         "在",
-        "那",
-        "个",
         "公司",
         "工作"
       ]
@@ -275,8 +271,8 @@
       "english": "She has graduated, and she has also gotten married.",
       "notes": "",
       "words_used": [
+        "她 / 他",
         "毕业了",
-        "也",
         "结婚了"
       ]
     },
@@ -287,11 +283,10 @@
       "english": "Are their children all students?",
       "notes": "",
       "words_used": [
+        "他们 / 她们",
         "孩子",
         "都",
-        "是",
-        "学生",
-        "吗"
+        "学生"
       ]
     },
     {
@@ -302,9 +297,126 @@
       "notes": "",
       "words_used": [
         "先生",
-        "电脑",
-        "很",
-        "好"
+        "电脑"
+      ]
+    },
+    {
+      "traditional": "我姊姊不是學生，她大學畢業了。",
+      "simplified": "我姐姐不是学生，她大学毕业了。",
+      "pinyin": "Wǒ jiějie bú shì xuésheng, tā dàxué bìyè le.",
+      "english": "My older sister is not a student; she has graduated from university.",
+      "notes": "",
+      "words_used": [
+        "不",
+        "学生",
+        "她 / 他",
+        "大学",
+        "毕业了"
+      ]
+    },
+    {
+      "traditional": "我不是美國人，我是法國人。",
+      "simplified": "我不是美国人，我是法国人。",
+      "pinyin": "Wǒ bú shì Měiguó rén, wǒ shì Fǎguó rén.",
+      "english": "I am not American; I am French.",
+      "notes": "",
+      "words_used": [
+        "不",
+        "法国"
+      ]
+    },
+    {
+      "traditional": "妳姊姊在哪裡工作？",
+      "simplified": "你姐姐在哪里工作？",
+      "pinyin": "Nǐ jiějie zài nǎlǐ gōngzuò?",
+      "english": "Where does your older sister work?",
+      "notes": "",
+      "words_used": [
+        "在",
+        "哪里 (哪儿)",
+        "工作"
+      ]
+    },
+    {
+      "traditional": "妳姊姊結婚了，他們有孩子嗎？",
+      "simplified": "你姐姐结婚了，他们有孩子吗？",
+      "pinyin": "Nǐ jiějie jiéhūn le, tāmen yǒu háizi ma?",
+      "english": "Your older sister is married; do they have children?",
+      "notes": "",
+      "words_used": [
+        "结婚了",
+        "他们 / 她们",
+        "孩子"
+      ]
+    },
+    {
+      "traditional": "他們有兩個孩子，一個兒子、一個女兒。",
+      "simplified": "他们有两个孩子，一个儿子、一个女儿。",
+      "pinyin": "Tāmen yǒu liǎng ge háizi, yí ge érzi, yí ge nǚ'ér.",
+      "english": "They have two children, a son and a daughter.",
+      "notes": "",
+      "words_used": [
+        "他们 / 她们",
+        "孩子",
+        "儿子",
+        "女儿"
+      ]
+    },
+    {
+      "traditional": "兩個小孩都在小學念書。",
+      "simplified": "两个小孩都在小学念书。",
+      "pinyin": "Liǎng ge xiǎohái dōu zài xiǎoxué niàn shū.",
+      "english": "Both children study at an elementary school.",
+      "notes": "",
+      "words_used": [
+        "小孩",
+        "都",
+        "在",
+        "小学",
+        "念书"
+      ]
+    },
+    {
+      "traditional": "我先生和我都在銀行工作。",
+      "simplified": "我先生和我都在银行工作。",
+      "pinyin": "Wǒ xiānsheng hé wǒ dōu zài yínháng gōngzuò.",
+      "english": "My husband and I both work at a bank.",
+      "notes": "",
+      "words_used": [
+        "先生",
+        "和",
+        "都",
+        "在",
+        "银行",
+        "工作"
+      ]
+    },
+    {
+      "traditional": "他們都不是學生。",
+      "simplified": "他们都不是学生。",
+      "pinyin": "Tāmen dōu bú shì xuésheng.",
+      "english": "None of them are students.",
+      "notes": "",
+      "words_used": [
+        "他们 / 她们",
+        "都",
+        "不",
+        "学生"
+      ]
+    },
+    {
+      "traditional": "他們都不在銀行工作。",
+      "simplified": "他们都不在银行工作。",
+      "pinyin": "Tāmen dōu bú zài yínháng gōngzuò.",
+      "english": "None of them work at a bank.",
+      "notes": "",
+      "words_used": [
+        "他们 / 她们",
+        "都",
+        "不",
+        "在",
+        "银行",
+        "工作"
       ]
     }
   ],

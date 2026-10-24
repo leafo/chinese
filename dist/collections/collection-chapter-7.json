@@ -5,239 +5,239 @@
   "collection": {
     "name": "Chapter 7",
     "notes": "May I ask who this is",
-    "objectives": ""
+    "objectives": "Converse on the phone formally; identify yourself and your intention; ask cell phone numbers; leave a message"
   },
   "words": [
     {
       "traditional": "哪",
       "simplified": "哪",
-      "pinyin": "nǎ",
+      "pinyin": "nǎ / něi",
       "english": "which, who",
-      "notes": "Part of speech: QPr (Question Pronoun)"
+      "notes": "Part of speech: QPr"
     },
     {
       "traditional": "位",
       "simplified": "位",
       "pinyin": "wèi",
       "english": "polite measure word for people",
-      "notes": "Part of speech: M (Measure word)"
+      "notes": "Part of speech: M"
     },
     {
       "traditional": "喂",
       "simplified": "喂",
       "pinyin": "wéi",
       "english": "Hello! (over the phone)",
-      "notes": "Part of speech: Ptc (Particle)"
+      "notes": "Part of speech: Ptc"
     },
     {
       "traditional": "小姐",
       "simplified": "小姐",
-      "pinyin": "xiǎojiě",
+      "pinyin": "xiǎojiě / xiǎojie",
       "english": "Ms., Miss",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "辦公室",
       "simplified": "办公室",
       "pinyin": "bàngōngshì",
       "english": "office",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "回來",
       "simplified": "回来",
       "pinyin": "huílái",
       "english": "to return, get back",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "下午",
       "simplified": "下午",
       "pinyin": "xiàwǔ",
       "english": "afternoon",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "麻煩",
       "simplified": "麻烦",
-      "pinyin": "máfán",
+      "pinyin": "máfán / máfan",
       "english": "please, \"If it's not too much trouble\", \"can I trouble you to\"",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "以後",
       "simplified": "以后",
       "pinyin": "yǐhòu",
       "english": "after",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "給",
       "simplified": "给",
       "pinyin": "gěi",
       "english": "to, to give",
-      "notes": "Part of speech: Prep (Preposition)"
+      "notes": "Part of speech: Prep"
     },
     {
       "traditional": "電話",
       "simplified": "电话",
       "pinyin": "diànhuà",
       "english": "telephone",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "手機",
       "simplified": "手机",
       "pinyin": "shǒujī",
       "english": "cell phone",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "號碼",
       "simplified": "号码",
       "pinyin": "hàomǎ",
       "english": "number",
-      "notes": "Part of speech: N (Noun)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "謝謝",
       "simplified": "谢谢",
-      "pinyin": "xièxiè",
+      "pinyin": "xièxie / xièxiè",
       "english": "to thank, thanks",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "再見",
       "simplified": "再见",
       "pinyin": "zàijiàn",
       "english": "goodbye, see you again",
-      "notes": "Part of speech: V (Verb)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "零",
       "simplified": "零",
       "pinyin": "líng",
       "english": "0, zero",
-      "notes": "Part of speech: Num (Numeral)"
+      "notes": "Part of speech: Num"
     },
     {
       "traditional": "二",
       "simplified": "二",
       "pinyin": "èr",
       "english": "2, two",
-      "notes": "Part of speech: Num (Numeral)"
+      "notes": "Part of speech: Num"
     },
     {
       "traditional": "三",
       "simplified": "三",
       "pinyin": "sān",
       "english": "3, three",
-      "notes": "Part of speech: Num (Numeral)"
+      "notes": "Part of speech: Num"
     },
     {
       "traditional": "四",
       "simplified": "四",
       "pinyin": "sì",
       "english": "4, four",
-      "notes": "Part of speech: Num (Numeral)"
+      "notes": "Part of speech: Num"
     },
     {
       "traditional": "五",
       "simplified": "五",
       "pinyin": "wǔ",
       "english": "5, five",
-      "notes": "Part of speech: Num (Numeral)"
+      "notes": "Part of speech: Num"
     },
     {
       "traditional": "六",
       "simplified": "六",
       "pinyin": "liù",
       "english": "6, six",
-      "notes": "Part of speech: Num (Numeral)"
+      "notes": "Part of speech: Num"
     },
     {
       "traditional": "七",
       "simplified": "七",
       "pinyin": "qī",
       "english": "7, seven",
-      "notes": "Part of speech: Num (Numeral)"
+      "notes": "Part of speech: Num"
     },
     {
       "traditional": "八",
       "simplified": "八",
       "pinyin": "bā",
       "english": "8, eight",
-      "notes": "Part of speech: Num (Numeral)"
+      "notes": "Part of speech: Num"
     },
     {
       "traditional": "九",
       "simplified": "九",
       "pinyin": "jiǔ",
       "english": "9, nine",
-      "notes": "Part of speech: Num (Numeral)"
+      "notes": "Part of speech: Num"
     },
     {
       "traditional": "什麼時候",
       "simplified": "什么时候",
-      "pinyin": "shénme shíhòu",
+      "pinyin": "shénme shíhòu / shénme shíhou",
       "english": "when",
-      "notes": "Short phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "打電話",
       "simplified": "打电话",
       "pinyin": "dǎ diànhuà",
       "english": "to make a phone call",
-      "notes": "Short phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "幾號",
       "simplified": "几号",
       "pinyin": "jǐ hào",
       "english": "What is the phone number?",
-      "notes": "Short phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "好的",
       "simplified": "好的",
       "pinyin": "hǎode",
       "english": "yes, okay",
-      "notes": "Short phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "不客氣",
       "simplified": "不客气",
-      "pinyin": "bú kèqì",
+      "pinyin": "bú kèqì / bú kèqi",
       "english": "You are welcome.",
-      "notes": "Short phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "十",
       "simplified": "十",
       "pinyin": "shí",
-      "english": "ten",
-      "notes": "Numeral"
+      "english": "10, ten",
+      "notes": "Supplementary Vocabulary; Part of speech: Num"
     },
     {
       "traditional": "百",
       "simplified": "百",
       "pinyin": "bǎi",
-      "english": "hundred",
-      "notes": "Numeral"
+      "english": "100, hundred",
+      "notes": "Supplementary Vocabulary; Part of speech: Num"
     },
     {
       "traditional": "太太",
       "simplified": "太太",
       "pinyin": "tàitai",
       "english": "wife; Mrs.; madam",
-      "notes": "bonus"
+      "notes": "Part of speech: N; note: bonus word (Lesson 6 vocabulary, used in this lesson's grammar examples)"
     },
     {
       "traditional": "以前",
       "simplified": "以前",
       "pinyin": "yǐqián",
       "english": "before, previously, ago",
-      "notes": "bonus"
+      "notes": "Part of speech: N; note: bonus word (not in this lesson's vocabulary)"
     }
   ],
   "sentences": [
@@ -249,9 +249,6 @@
       "notes": "",
       "words_used": [
         "喂",
-        "请问",
-        "你",
-        "是",
         "哪",
         "位"
       ]
@@ -277,7 +274,6 @@
       "words_used": [
         "手机",
         "号码",
-        "是",
         "三",
         "八",
         "零",
@@ -291,10 +287,8 @@
       "english": "When will you call me?",
       "notes": "",
       "words_used": [
-        "你",
         "什么时候",
         "给",
-        "我",
         "打电话"
       ]
     },
@@ -306,10 +300,8 @@
       "notes": "",
       "words_used": [
         "麻烦",
-        "你",
         "办公室",
         "电话",
-        "是",
         "几号"
       ]
     },
@@ -320,9 +312,6 @@
       "english": "Whose cell phone is this?",
       "notes": "",
       "words_used": [
-        "这",
-        "是",
-        "谁",
         "手机"
       ]
     },
@@ -333,22 +322,124 @@
       "english": "I called her before; what about you?",
       "notes": "",
       "words_used": [
-        "我",
         "以前",
         "给",
-        "打电话",
-        "你"
+        "打电话"
       ]
     },
     {
       "traditional": "好的，謝謝，再見！",
       "simplified": "好的，谢谢，再见！",
-      "pinyin": "Hǎode, xièxiè, zàijiàn!",
+      "pinyin": "Hǎode, xièxie, zàijiàn!",
       "english": "Okay, thank you, goodbye!",
       "notes": "",
       "words_used": [
         "好的",
         "谢谢",
+        "再见"
+      ]
+    },
+    {
+      "traditional": "林小姐現在不在辦公室，請問您是哪位？",
+      "simplified": "林小姐现在不在办公室，请问您是哪位？",
+      "pinyin": "Lín xiǎojiě xiànzài bú zài bàngōngshì, qǐngwèn nín shì nǎ wèi?",
+      "english": "Ms. Lin is not in the office right now. May I ask who this is?",
+      "notes": "",
+      "words_used": [
+        "小姐",
+        "办公室",
+        "哪",
+        "位"
+      ]
+    },
+    {
+      "traditional": "請問林小姐什麼時候回來？",
+      "simplified": "请问林小姐什么时候回来？",
+      "pinyin": "Qǐngwèn Lín xiǎojiě shénme shíhòu huílái?",
+      "english": "May I ask when Ms. Lin will be back?",
+      "notes": "",
+      "words_used": [
+        "小姐",
+        "什么时候",
+        "回来"
+      ]
+    },
+    {
+      "traditional": "麻煩您，請她回來以後給我打電話。",
+      "simplified": "麻烦您，请她回来以后给我打电话。",
+      "pinyin": "Máfán nín, qǐng tā huílái yǐhòu gěi wǒ dǎ diànhuà.",
+      "english": "Could I trouble you to ask her to call me after she gets back?",
+      "notes": "",
+      "words_used": [
+        "麻烦",
+        "回来",
+        "以后",
+        "给",
+        "打电话"
+      ]
+    },
+    {
+      "traditional": "我的手機號碼是五一七三六零四二五九。",
+      "simplified": "我的手机号码是五一七三六零四二五九。",
+      "pinyin": "Wǒ de shǒujī hàomǎ shì wǔ yī qī sān liù líng sì èr wǔ jiǔ.",
+      "english": "My cell phone number is 517-360-4259.",
+      "notes": "",
+      "words_used": [
+        "手机",
+        "号码",
+        "五",
+        "七",
+        "三",
+        "六",
+        "零",
+        "四",
+        "二",
+        "九"
+      ]
+    },
+    {
+      "traditional": "聽音樂以後，他常常給朋友打電話。",
+      "simplified": "听音乐以后，他常常给朋友打电话。",
+      "pinyin": "Tīng yīnyuè yǐhòu, tā chángcháng gěi péngyǒu dǎ diànhuà.",
+      "english": "After listening to music, he often calls his friends.",
+      "notes": "",
+      "words_used": [
+        "以后",
+        "给",
+        "打电话"
+      ]
+    },
+    {
+      "traditional": "辦公室有十二個學生和兩個老師。",
+      "simplified": "办公室有十二个学生和两个老师。",
+      "pinyin": "Bàngōngshì yǒu shí'èr ge xuésheng hé liǎng ge lǎoshī.",
+      "english": "There are twelve students and two teachers in the office.",
+      "notes": "",
+      "words_used": [
+        "办公室",
+        "十",
+        "二"
+      ]
+    },
+    {
+      "traditional": "我們學校有一百個老師。",
+      "simplified": "我们学校有一百个老师。",
+      "pinyin": "Wǒmen xuéxiào yǒu yìbǎi ge lǎoshī.",
+      "english": "Our school has one hundred teachers.",
+      "notes": "",
+      "words_used": [
+        "百"
+      ]
+    },
+    {
+      "traditional": "謝謝您！不客氣，再見。",
+      "simplified": "谢谢您！不客气，再见。",
+      "pinyin": "Xièxie nín! Bú kèqì, zàijiàn.",
+      "english": "Thank you! You're welcome, goodbye.",
+      "notes": "",
+      "words_used": [
+        "谢谢",
+        "不客气",
         "再见"
       ]
     }

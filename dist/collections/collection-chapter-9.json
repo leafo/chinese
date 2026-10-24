@@ -5,210 +5,224 @@
   "collection": {
     "name": "Chapter 9",
     "notes": "Are you free on Friday?",
-    "objectives": ""
+    "objectives": "Invite others out to eat; say complete dates and tell time; accept or decline invitations based on availability; confirm the date/time and location of invitations"
   },
   "words": [
     {
       "traditional": "家",
       "simplified": "家",
       "pinyin": "jiā",
-      "english": "house, home, family",
-      "notes": "N (noun)"
+      "english": "measure word for restaurant, shop",
+      "notes": "Part of speech: M"
     },
     {
       "traditional": "要",
       "simplified": "要",
       "pinyin": "yào",
-      "english": "to want, to need",
-      "notes": "Verb (V)"
+      "english": "to want to, to need",
+      "notes": "Part of speech: Vaux"
     },
     {
       "traditional": "星期五",
       "simplified": "星期五",
-      "pinyin": "xīngqīwǔ",
+      "pinyin": "xīngqīwǔ / xīngqíwǔ",
       "english": "Friday",
-      "notes": "Noun (N)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "時間",
       "simplified": "时间",
       "pinyin": "shíjiān",
       "english": "time",
-      "notes": "Noun (N)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "同事",
       "simplified": "同事",
       "pinyin": "tóngshì",
       "english": "coworker, colleague",
-      "notes": "Noun (N)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "餐廳",
       "simplified": "餐厅",
       "pinyin": "cāntīng",
       "english": "restaurant",
-      "notes": "Noun (N)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "跟",
       "simplified": "跟",
       "pinyin": "gēn",
       "english": "with",
-      "notes": "Preposition (Prep)"
+      "notes": "Part of speech: Prep"
     },
     {
       "traditional": "一起",
       "simplified": "一起",
       "pinyin": "yìqǐ",
       "english": "together",
-      "notes": "Adverb (Adv)"
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "星期六",
       "simplified": "星期六",
-      "pinyin": "xīngqīliù",
+      "pinyin": "xīngqīliù / xīngqíliù",
       "english": "Saturday",
-      "notes": "Noun (N)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "行",
       "simplified": "行",
       "pinyin": "xíng",
       "english": "okay, all right",
-      "notes": "Verb (V)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "下課",
       "simplified": "下课",
       "pinyin": "xiàkè",
       "english": "to finish class",
-      "notes": "Verb (V)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "點",
       "simplified": "点",
       "pinyin": "diǎn",
       "english": "o'clock",
-      "notes": "Noun (N)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "半",
       "simplified": "半",
       "pinyin": "bàn",
       "english": "half",
-      "notes": "Noun (N)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "見",
       "simplified": "见",
       "pinyin": "jiàn",
       "english": "to see, to meet",
-      "notes": "Verb (V)"
+      "notes": "Part of speech: V"
     },
     {
       "traditional": "那",
       "simplified": "那",
-      "pinyin": "nà",
+      "pinyin": "nà / nèi",
       "english": "that",
-      "notes": "Determiner (Det)"
+      "notes": "Part of speech: Det"
     },
     {
       "traditional": "牛肉麵",
       "simplified": "牛肉面",
       "pinyin": "niúròumiàn",
       "english": "beef noodle soup",
-      "notes": "Noun (N)"
+      "notes": "Part of speech: N"
     },
     {
       "traditional": "最",
       "simplified": "最",
       "pinyin": "zuì",
       "english": "most (for a superlative degree)",
-      "notes": "Adverb (Adv)"
+      "notes": "Part of speech: Adv"
     },
     {
       "traditional": "好吃",
       "simplified": "好吃",
       "pinyin": "hǎochī",
       "english": "delicious",
-      "notes": "Stative Verb (Vs)"
+      "notes": "Part of speech: Vs"
     },
     {
       "traditional": "吃飯",
       "simplified": "吃饭",
       "pinyin": "chī fàn",
       "english": "to eat, to have a meal",
-      "notes": "Phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "不行",
       "simplified": "不行",
       "pinyin": "bù xíng",
       "english": "not good, It is not okay.",
-      "notes": "Phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "怎麼樣",
       "simplified": "怎么样",
       "pinyin": "zěnmeyàng",
       "english": "How about it? How does that sound? What do you think?",
-      "notes": "Phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "太好了",
       "simplified": "太好了",
       "pinyin": "tài hǎo le",
       "english": "Excellent! Great!",
-      "notes": "Phrase"
+      "notes": "Phrases"
     },
     {
       "traditional": "年",
       "simplified": "年",
       "pinyin": "nián",
       "english": "year",
-      "notes": "Noun (N), Supplementary Vocabulary"
+      "notes": "Supplementary Vocabulary; Part of speech: N"
     },
     {
       "traditional": "晚飯",
       "simplified": "晚饭",
       "pinyin": "wǎn fàn",
       "english": "dinner",
-      "notes": "Noun (N), Supplementary Vocabulary"
+      "notes": "Supplementary Vocabulary; Part of speech: N"
     },
     {
       "traditional": "星期一",
       "simplified": "星期一",
-      "pinyin": "xīngqīyī",
+      "pinyin": "xīngqīyī / xīngqíyī",
       "english": "Monday",
-      "notes": "Grammar page vocabulary"
+      "notes": "Grammar page vocabulary; Part of speech: N"
     },
     {
       "traditional": "星期二",
       "simplified": "星期二",
-      "pinyin": "xīngqī'èr",
+      "pinyin": "xīngqī'èr / xīngqí'èr",
       "english": "Tuesday",
-      "notes": "Grammar page vocabulary"
+      "notes": "Grammar page vocabulary; Part of speech: N"
     },
     {
       "traditional": "星期三",
       "simplified": "星期三",
-      "pinyin": "xīngqīsān",
+      "pinyin": "xīngqīsān / xīngqísān",
       "english": "Wednesday",
-      "notes": "Grammar page vocabulary"
+      "notes": "Grammar page vocabulary; Part of speech: N"
     },
     {
       "traditional": "星期四",
       "simplified": "星期四",
-      "pinyin": "xīngqīsì",
+      "pinyin": "xīngqīsì / xīngqísì",
       "english": "Thursday",
-      "notes": "Grammar page vocabulary"
+      "notes": "Grammar page vocabulary; Part of speech: N"
     },
     {
       "traditional": "星期天",
       "simplified": "星期天",
-      "pinyin": "xīngqītiān",
+      "pinyin": "xīngqītiān / xīngqítiān",
       "english": "Sunday",
+      "notes": "Grammar page vocabulary; Part of speech: N"
+    },
+    {
+      "traditional": "星期幾",
+      "simplified": "星期几",
+      "pinyin": "xīngqījǐ / xīngqíjǐ",
+      "english": "what day of the week?",
+      "notes": "Grammar page vocabulary"
+    },
+    {
+      "traditional": "分",
+      "simplified": "分",
+      "pinyin": "fēn",
+      "english": "minute",
       "notes": "Grammar page vocabulary"
     }
   ],
@@ -220,9 +234,7 @@
       "english": "Mr. Li has time on Friday.",
       "notes": "",
       "words_used": [
-        "先生",
         "星期五",
-        "有",
         "时间"
       ]
     },
@@ -233,13 +245,9 @@
       "english": "Do you want to eat together with me, okay?",
       "notes": "",
       "words_used": [
-        "你",
-        "想",
         "跟",
-        "我",
         "一起",
-        "吃饭",
-        "好不好"
+        "吃饭"
       ]
     },
     {
@@ -250,11 +258,8 @@
       "notes": "",
       "words_used": [
         "同事",
-        "在",
         "那",
-        "个",
-        "餐厅",
-        "工作"
+        "餐厅"
       ]
     },
     {
@@ -264,7 +269,6 @@
       "english": "This restaurant's beef noodle soup is the most delicious.",
       "notes": "",
       "words_used": [
-        "这",
         "家",
         "餐厅",
         "牛肉面",
@@ -279,13 +283,9 @@
       "english": "Who wants to go eat dinner together with us?",
       "notes": "",
       "words_used": [
-        "谁",
         "要",
         "跟",
-        "我",
         "一起",
-        "去",
-        "吃",
         "晚饭"
       ]
     },
@@ -296,13 +296,9 @@
       "english": "I'll come back at five thirty after class.",
       "notes": "",
       "words_used": [
-        "我",
         "下课",
-        "以后",
-        "五",
         "点",
-        "半",
-        "回来"
+        "半"
       ]
     },
     {
@@ -312,11 +308,8 @@
       "english": "We'll meet on Saturday; and your older brother?",
       "notes": "",
       "words_used": [
-        "我",
         "星期六",
-        "见",
-        "你",
-        "哥哥"
+        "见"
       ]
     },
     {
@@ -327,11 +320,97 @@
       "notes": "",
       "words_used": [
         "那",
-        "个",
         "餐厅",
         "怎么样",
         "行",
         "不行"
+      ]
+    },
+    {
+      "traditional": "今天星期幾？今天星期三。",
+      "simplified": "今天星期几？今天星期三。",
+      "pinyin": "Jīntiān xīngqījǐ? Jīntiān xīngqīsān.",
+      "english": "What day of the week is today? Today is Wednesday.",
+      "notes": "",
+      "words_used": [
+        "星期几",
+        "星期三"
+      ]
+    },
+    {
+      "traditional": "今天是二〇二一年九月十八號星期六。",
+      "simplified": "今天是二〇二一年九月十八号星期六。",
+      "pinyin": "Jīntiān shì èr líng èr yī nián jiǔyuè shíbā hào xīngqīliù.",
+      "english": "Today is Saturday, September 18th, 2021.",
+      "notes": "",
+      "words_used": [
+        "年",
+        "星期六"
+      ]
+    },
+    {
+      "traditional": "現在幾點？現在十點二十分。",
+      "simplified": "现在几点？现在十点二十分。",
+      "pinyin": "Xiànzài jǐ diǎn? Xiànzài shí diǎn èrshí fēn.",
+      "english": "What time is it now? It is 10:20.",
+      "notes": "",
+      "words_used": [
+        "点",
+        "分"
+      ]
+    },
+    {
+      "traditional": "張先生每天跟他太太一起吃晚飯。",
+      "simplified": "张先生每天跟他太太一起吃晚饭。",
+      "pinyin": "Zhāng xiānsheng měitiān gēn tā tàitai yìqǐ chī wǎn fàn.",
+      "english": "Mr. Zhang has dinner with his wife every day.",
+      "notes": "",
+      "words_used": [
+        "跟",
+        "一起",
+        "晚饭"
+      ]
+    },
+    {
+      "traditional": "星期六晚上我們要去美味餐廳吃飯，你要不要跟我們一起去？",
+      "simplified": "星期六晚上我们要去美味餐厅吃饭，你要不要跟我们一起去？",
+      "pinyin": "Xīngqīliù wǎnshàng wǒmen yào qù Měiwèi Cāntīng chī fàn, nǐ yào bú yào gēn wǒmen yìqǐ qù?",
+      "english": "On Saturday evening we are going to Tasty Café to eat. Do you want to come with us?",
+      "notes": "",
+      "words_used": [
+        "星期六",
+        "要",
+        "餐厅",
+        "吃饭",
+        "跟",
+        "一起"
+      ]
+    },
+    {
+      "traditional": "太好了！你幾點下課？我五點下課。",
+      "simplified": "太好了！你几点下课？我五点下课。",
+      "pinyin": "Tài hǎo le! Nǐ jǐ diǎn xiàkè? Wǒ wǔ diǎn xiàkè.",
+      "english": "Great! What time do you finish class? I finish class at five.",
+      "notes": "",
+      "words_used": [
+        "太好了",
+        "点",
+        "下课"
+      ]
+    },
+    {
+      "traditional": "我們星期五晚上六點半在餐廳見，怎麼樣？",
+      "simplified": "我们星期五晚上六点半在餐厅见，怎么样？",
+      "pinyin": "Wǒmen xīngqīwǔ wǎnshàng liù diǎn bàn zài cāntīng jiàn, zěnmeyàng?",
+      "english": "Let's meet at the restaurant at 6:30 on Friday evening. How does that sound?",
+      "notes": "",
+      "words_used": [
+        "星期五",
+        "点",
+        "半",
+        "餐厅",
+        "见",
+        "怎么样"
       ]
     }
   ],
