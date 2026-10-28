@@ -9,10 +9,14 @@ function nowISO() {
   return new Date().toISOString();
 }
 
-function addDaysFromNow(days) {
-  const d = new Date();
-  d.setDate(d.getDate() + days);
-  return d.toISOString();
+const DAY_MS = 24 * 60 * 60 * 1000;
+const DUE_FUZZ = 0.1;
+
+// Spread due dates by ±10% of the interval so cards reviewed together
+// (siblings, bulk-added words) don't keep coming due together.
+function fuzzedDueDate(interval) {
+  const days = interval > 0 ? interval * (1 + (Math.random() * 2 - 1) * DUE_FUZZ) : 0;
+  return new Date(Date.now() + days * DAY_MS).toISOString();
 }
 
 function createCard(wordId, direction) {
@@ -97,7 +101,7 @@ export function computeNextReview(card, rating) {
     easeFactor,
     interval,
     repetitions,
-    dueDate: addDaysFromNow(interval),
+    dueDate: fuzzedDueDate(interval),
     lastReviewDate: now,
   };
 }
@@ -136,14 +140,18 @@ export async function getDueCards(limit = 20, { collectionIds } = {}) {
     buildWordMap(collectionIds),
   ]);
 
+  // Random tie-break key assigned up front; Math.random() inside the
+  // comparator gives an inconsistent, biased shuffle.
   const dueCards = allDueCards
     .filter(card => wordMap.has(card.wordId))
+    .map(card => ({ card, tieBreak: Math.random() }))
     .sort((a, b) => {
-      if (a.repetitions === 0 && b.repetitions > 0) return 1;
-      if (a.repetitions > 0 && b.repetitions === 0) return -1;
-      if (a.dueDate !== b.dueDate) return a.dueDate < b.dueDate ? -1 : 1;
-      return Math.random() - 0.5;
-    });
+      if (a.card.repetitions === 0 && b.card.repetitions > 0) return 1;
+      if (a.card.repetitions > 0 && b.card.repetitions === 0) return -1;
+      if (a.card.dueDate !== b.card.dueDate) return a.card.dueDate < b.card.dueDate ? -1 : 1;
+      return a.tieBreak - b.tieBreak;
+    })
+    .map(({ card }) => card);
 
   return dueCards.slice(0, limit).map(card => ({
     ...card,
