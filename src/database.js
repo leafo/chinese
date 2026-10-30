@@ -164,6 +164,23 @@ export class IndexedDBStore {
     });
   }
 
+  async getAllKeys() {
+    const db = await this.getDb();
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction([this.storeName], 'readonly');
+      const store = transaction.objectStore(this.storeName);
+      const request = store.getAllKeys();
+
+      request.onsuccess = (event) => {
+        resolve(event.target.result);
+      };
+
+      request.onerror = (event) => {
+        reject(new Error(`'${this.storeName}': GetAllKeys error ${event.target.errorCode}`));
+      };
+    });
+  }
+
   async add(value) {
     const db = await this.getDb();
     return new Promise((resolve, reject) => {

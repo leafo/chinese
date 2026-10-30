@@ -282,6 +282,11 @@ export function useAudioStats() {
   return useAsync(() => getAudioStats(), [dbVersion]);
 }
 
+export function useCachedAudioKeys() {
+  const dbVersion = useDependency();
+  return useAsync(() => store.getAllKeys().then(keys => new Set(keys)), [dbVersion]);
+}
+
 export function useAllAudio() {
   const dbVersion = useDependency();
   return useAsync(() => getAllAudio(), [dbVersion]);
