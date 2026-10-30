@@ -201,8 +201,11 @@ export async function generateAudioForWords(words, { onProgress, signal, getText
 
 let currentAudioEl = null;
 let currentAudioUrl = null;
+let currentListeners = null;
 
 export function stopCurrentAudio() {
+  currentListeners?.abort();
+  currentListeners = null;
   if (currentAudioEl) {
     currentAudioEl.pause();
     currentAudioEl = null;
@@ -213,14 +216,21 @@ export function stopCurrentAudio() {
   }
 }
 
-function playUrl(url, { revoke = false } = {}) {
+// Passing an element reuses it instead of creating a new one per clip
+function playUrl(url, { revoke = false, element } = {}) {
   stopCurrentAudio();
 
-  const audio = new Audio(url);
+  const audio = element || new Audio();
+  audio.src = url;
   currentAudioEl = audio;
   if (revoke) currentAudioUrl = url;
 
+  const listeners = new AbortController();
+  currentListeners = listeners;
+
   const cleanup = () => {
+    listeners.abort();
+    if (currentListeners === listeners) currentListeners = null;
     if (revoke && currentAudioUrl === url) {
       URL.revokeObjectURL(url);
       currentAudioUrl = null;
@@ -228,19 +238,58 @@ function playUrl(url, { revoke = false } = {}) {
     if (currentAudioEl === audio) currentAudioEl = null;
   };
 
-  audio.addEventListener('ended', cleanup, { once: true });
-  audio.addEventListener('error', cleanup, { once: true });
+  audio.addEventListener('ended', cleanup, { signal: listeners.signal });
+  audio.addEventListener('error', cleanup, { signal: listeners.signal });
 
   return audio;
 }
 
-export function playBlob(blob) {
-  return playUrl(URL.createObjectURL(blob), { revoke: true });
+export function playBlob(blob, options) {
+  return playUrl(URL.createObjectURL(blob), { ...options, revoke: true });
 }
 
-export function playRecord(record) {
-  if (record.url) return playUrl(record.url);
-  return playBlob(record.blob);
+export function playRecord(record, options) {
+  if (record.url) return playUrl(record.url, options);
+  return playBlob(record.blob, options);
+}
+
+const silenceUrls = new Map();
+
+function silenceUrl(ms) {
+  if (!silenceUrls.has(ms)) {
+    const rate = 8000;
+    const samples = Math.round(rate * ms / 1000);
+    const buffer = new ArrayBuffer(44 + samples);
+    const view = new DataView(buffer);
+    const writeString = (offset, str) => {
+      for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+    };
+    // 8kHz mono 8-bit PCM WAV
+    writeString(0, 'RIFF');
+    view.setUint32(4, 36 + samples, true);
+    writeString(8, 'WAVE');
+    writeString(12, 'fmt ');
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true);
+    view.setUint32(24, rate, true);
+    view.setUint32(28, rate, true);
+    view.setUint16(32, 1, true);
+    view.setUint16(34, 8, true);
+    writeString(36, 'data');
+    view.setUint32(40, samples, true);
+    // 8-bit PCM is unsigned, so 128 is the zero level
+    new Uint8Array(buffer, 44).fill(128);
+    silenceUrls.set(ms, URL.createObjectURL(new Blob([buffer], { type: 'audio/wav' })));
+  }
+  return silenceUrls.get(ms);
+}
+
+// Mobile browsers only keep a backgrounded page running while media is
+// playing, so pauses in a playback sequence are played as silent audio rather
+// than waited out with timers.
+export function playSilence(ms, options) {
+  return playUrl(silenceUrl(ms), options);
 }
 
 export async function playAudio(text, { signal, onStart, chineseText, force } = {}) {

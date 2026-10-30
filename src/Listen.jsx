@@ -6,7 +6,7 @@ import { CollectionSelector } from "./CollectionSelector";
 import { useConfig } from "./config";
 import { DEFAULT_DISPLAY_SCRIPT, getPreferredChineseText } from "./display";
 import {
-  audioKey, getOrGenerateAudio, playRecord, stopCurrentAudio, isInManifest, useCachedAudioKeys,
+  audioKey, getOrGenerateAudio, playRecord, playSilence, stopCurrentAudio, isInManifest, useCachedAudioKeys,
 } from "./audio";
 import { AudioPlayIcon } from "./AudioPlayIcon";
 
@@ -39,10 +39,27 @@ function shuffle(list) {
   return result;
 }
 
-// Resolves when the clip finishes, is stopped, or fails, so callers can just
-// await it in sequence. Checks for cancellation after loading so a clip that
-// was still loading when the user skipped or quit never starts.
-async function playToEnd(sentence, isCancelled, onPlaying) {
+// Resolves when playback finishes, is stopped, or fails, with true only for a
+// natural finish. The session reuses one element, so a pause event still queued
+// from the previous source arrives after play() and is ignored.
+function playThrough(audio) {
+  return new Promise(resolve => {
+    const listeners = new AbortController();
+    const done = (e) => {
+      if (e?.type === 'pause' && !audio.paused) return;
+      listeners.abort();
+      resolve(e?.type === 'ended');
+    };
+    for (const event of ['ended', 'pause', 'error']) {
+      audio.addEventListener(event, done, { signal: listeners.signal });
+    }
+    audio.play().catch(done);
+  });
+}
+
+// Checks for cancellation after loading so a clip that was still loading when
+// the user skipped or quit never starts.
+async function playToEnd(sentence, player, isCancelled, onPlaying) {
   let record;
   try {
     record = await getOrGenerateAudio(audioKey(sentence.pinyin), {
@@ -54,15 +71,38 @@ async function playToEnd(sentence, isCancelled, onPlaying) {
   }
   if (isCancelled()) return;
 
-  const audio = playRecord(record);
   onPlaying(true);
-  await new Promise(resolve => {
-    for (const event of ['ended', 'pause', 'error']) {
-      audio.addEventListener(event, resolve, { once: true });
-    }
-    audio.play().catch(resolve);
-  });
+  await playThrough(playRecord(record, { element: player }));
   onPlaying(false);
+}
+
+// Keeps the screen on so an auto session runs hands-free. The lock is dropped
+// whenever the page is hidden, so it's requested again when the page returns.
+function useWakeLock(active) {
+  useEffect(() => {
+    if (!active || !navigator.wakeLock) return;
+    let lock = null;
+    let released = false;
+
+    const request = async () => {
+      if (document.visibilityState !== 'visible') return;
+      try {
+        lock = await navigator.wakeLock.request('screen');
+      } catch (err) {
+        console.warn('Wake lock failed:', err);
+        return;
+      }
+      if (released) lock.release();
+    };
+
+    request();
+    document.addEventListener('visibilitychange', request);
+    return () => {
+      released = true;
+      document.removeEventListener('visibilitychange', request);
+      lock?.release();
+    };
+  }, [active]);
 }
 
 function buildQueue(sentences, settings, collections) {
@@ -83,7 +123,12 @@ function ListenSession({ queue, settings, onSettingsChange, chapterName, display
   const [audioDone, setAudioDone] = useState(false);
   // A new nonce restarts playback, even when the index doesn't change
   const [playRequest, setPlayRequest] = useState({ nonce: 0, count: settings.plays });
+  // One element for the whole session so a backgrounded page sees a single
+  // media source that keeps playing
+  const [player] = useState(() => new Audio());
   const sentence = queue[index];
+
+  useWakeLock(settings.auto && !paused);
 
   const goTo = useCallback((nextIndex) => {
     if (nextIndex < 0) return;
@@ -112,14 +157,13 @@ function ListenSession({ queue, settings, onSettingsChange, chapterName, display
 
   useEffect(() => {
     let cancelled = false;
-    let timer = null;
     setAudioDone(false);
 
     (async () => {
       for (let i = 0; i < playRequest.count; i++) {
-        if (i > 0) await new Promise(resolve => { timer = setTimeout(resolve, REPEAT_PAUSE_MS); });
+        if (i > 0) await playThrough(playSilence(REPEAT_PAUSE_MS, { element: player }));
         if (cancelled) return;
-        await playToEnd(sentence, () => cancelled, setPlaying);
+        await playToEnd(sentence, player, () => cancelled, setPlaying);
         if (cancelled) return;
       }
       setAudioDone(true);
@@ -127,18 +171,66 @@ function ListenSession({ queue, settings, onSettingsChange, chapterName, display
 
     return () => {
       cancelled = true;
-      clearTimeout(timer);
       stopCurrentAudio();
     };
   }, [sentence, playRequest]);
 
   useEffect(() => {
     if (!settings.auto || paused || !audioDone) return;
-    const timer = reveal < REVEAL_MEANING
-      ? setTimeout(() => setReveal(REVEAL_MEANING), settings.gapSeconds * 1000)
-      : setTimeout(() => goToRef.current(index + 1), settings.holdSeconds * 1000);
-    return () => clearTimeout(timer);
+    let cancelled = false;
+    const revealing = reveal < REVEAL_MEANING;
+    const seconds = revealing ? settings.gapSeconds : settings.holdSeconds;
+    const silence = playSilence(seconds * 1000, { element: player });
+    const silenceSrc = silence.src;
+
+    playThrough(silence).then(ended => {
+      if (cancelled || !ended) return;
+      if (revealing) setReveal(REVEAL_MEANING);
+      else goToRef.current(index + 1);
+    });
+
+    return () => {
+      cancelled = true;
+      // A replay may have already loaded a clip into the shared element
+      if (player.src === silenceSrc) stopCurrentAudio();
+    };
   }, [settings.auto, settings.gapSeconds, settings.holdSeconds, paused, audioDone, reveal, index]);
+
+  const showChinese = settings.showChinese || reveal >= REVEAL_SAID;
+  const chineseText = getPreferredChineseText(sentence, displayScript);
+
+  useEffect(() => {
+    if (!('mediaSession' in navigator)) return;
+    const details = [reveal >= REVEAL_SAID && sentence.pinyin, reveal >= REVEAL_MEANING && sentence.english];
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: showChinese ? chineseText : 'What did you hear?',
+      artist: details.filter(Boolean).join(' · '),
+      album: chapterName(sentence),
+    });
+  }, [sentence, reveal, showChinese, chineseText, chapterName]);
+
+  useEffect(() => () => {
+    if ('mediaSession' in navigator) navigator.mediaSession.metadata = null;
+  }, []);
+
+  // Lock screen, notification and headset controls
+  useEffect(() => {
+    if (!('mediaSession' in navigator)) return;
+    const { mediaSession } = navigator;
+    const handlers = {
+      play: () => settings.auto ? setPaused(false) : replay(),
+      pause: () => settings.auto ? setPaused(true) : stopCurrentAudio(),
+      nexttrack: () => goTo(index + 1),
+      previoustrack: () => goTo(index - 1),
+    };
+    for (const [action, handler] of Object.entries(handlers)) {
+      mediaSession.setActionHandler(action, handler);
+    }
+    if (settings.auto) mediaSession.playbackState = paused ? 'paused' : 'playing';
+    return () => {
+      for (const action of Object.keys(handlers)) mediaSession.setActionHandler(action, null);
+    };
+  });
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -164,7 +256,6 @@ function ListenSession({ queue, settings, onSettingsChange, chapterName, display
     return () => window.removeEventListener('keydown', handleKey);
   });
 
-  const showChinese = settings.showChinese || reveal >= REVEAL_SAID;
   let advanceLabel = 'Next';
   if (reveal < REVEAL_MEANING) {
     if (settings.auto) advanceLabel = 'Reveal';
@@ -195,7 +286,7 @@ function ListenSession({ queue, settings, onSettingsChange, chapterName, display
           <span className={styles.exerciseListenLabel}>Tap to play again</span>
         </div>
         {showChinese && (
-          <div className={styles.exercisePromptChinese}>{getPreferredChineseText(sentence, displayScript)}</div>
+          <div className={styles.exercisePromptChinese}>{chineseText}</div>
         )}
         {reveal >= REVEAL_SAID && <div className={styles.exercisePromptPinyin}>{sentence.pinyin}</div>}
         {reveal >= REVEAL_MEANING && <div className={styles.listenEnglish}>{sentence.english}</div>}
