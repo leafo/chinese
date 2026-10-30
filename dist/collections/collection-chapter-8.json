@@ -1016,6 +1016,70 @@
       "model": "gemini-3.1-flash-tts-preview",
       "voice": "Zephyr",
       "url": "collections/audio/mi2ngtia1nwo3da4ge1la2iwo3jia1chi1da4ca1n.mp3"
+    },
+    {
+      "text": "shíèryuèèrshíwǔrìshìnǐdeshēngrìma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5240,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/shi2e4ryue4e4rshi2wu3ri4shi4ni3deshe1ngri4ma.mp3"
+    },
+    {
+      "text": "jīntiānshìmíngwéndeshēngrìwǒmenqǐngtāchīdàcān",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6680,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji1ntia1nshi4mi2ngwe2ndeshe1ngri4wo3menqi3ngta1chi1da4ca1n.mp3"
+    },
+    {
+      "text": "dàgēmíngtiānshìjǐyuèjǐhào",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5240,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/da4ge1mi2ngtia1nshi4ji3yue4ji3ha4o.mp3"
+    },
+    {
+      "text": "míngtiānshìbāyuèshíyīhàoòumíngtiānshìnǐdeshēngrì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 8080,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/mi2ngtia1nshi4ba1yue4shi2yi1ha4oo4umi2ngtia1nshi4ni3deshe1ngri4.mp3"
+    },
+    {
+      "text": "nǐjīnniánjǐsuì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 2880,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ni3ji1nnia2nji3sui4.mp3"
+    },
+    {
+      "text": "wǒyàoyìshuāngyùndòngxiékěyǐma",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5160,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3ya4oyi4shua1ngyu4ndo4ngxie2ke3yi3ma.mp3"
+    },
+    {
+      "text": "wángxiānshengdeshēngrìshìshíyuèshírì",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6040,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wa2ngxia1nshengdeshe1ngri4shi4shi2yue4shi2ri4.mp3"
+    },
+    {
+      "text": "qǐngnǐxiàwǔgěiwǒdǎdiànhuàhǎobùhǎo",
+      "mimeType": "audio/mpeg",
+      "durationMs": 5840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/qi3ngni3xia4wu3ge3iwo3da3dia4nhua4ha3obu4ha3o.mp3"
     }
   ]
 }

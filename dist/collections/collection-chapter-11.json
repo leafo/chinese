@@ -698,6 +698,22 @@
       "model": "gemini-3.1-flash-tts-preview",
       "voice": "Zephyr",
       "url": "collections/audio/ta1ge3ipe2ngyo3uda3dia4nhua4we4nji1ntia1nhui4buhui4xia4xue3.mp3"
+    },
+    {
+      "text": "xiàyǔdeshíhòuhěnmáfánwǒmenbùnéngchūláipǎobù",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7040,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/xia4yu3deshi2ho4uhe3nma2fa2nwo3menbu4ne2ngchu1la2ipa3obu4.mp3"
+    },
+    {
+      "text": "jīntiānbǐzuótiānrèmíngtiānkěnénghuìxiàyǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ji1ntia1nbi3zuo2tia1nre4mi2ngtia1nke3ne2nghui4xia4yu3.mp3"
     }
   ]
 }

@@ -563,6 +563,62 @@
       "model": "gemini-3.1-flash-tts-preview",
       "voice": "Zephyr",
       "url": "collections/audio/xue2xia4ofa4ngjia4leni3ne.mp3"
+    },
+    {
+      "text": "táiběi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta2ibe3i.mp3"
+    },
+    {
+      "text": "zhèshìwǒdìdiwángjiāwén",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4520,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/zhe4shi4wo3di4diwa2ngjia1we2n.mp3"
+    },
+    {
+      "text": "wǒpíngchángzhùzàitáiwānxiànzàixuéxiàofàngjiàwǒláiměiguówán",
+      "mimeType": "audio/mpeg",
+      "durationMs": 9760,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3pi2ngcha2ngzhu4za4ita2iwa1nxia4nza4ixue2xia4ofa4ngjia4wo3la2ime3iguo2wa2n.mp3"
+    },
+    {
+      "text": "huānyíngnǐláiměiguónǐxiǎngqùnǎlǐwán",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6360,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/hua1nyi2ngni3la2ime3iguo2ni3xia3ngqu4na3li3wa2n.mp3"
+    },
+    {
+      "text": "wǒxiǎngqùdíshìnílèyuánwányěxiǎngqùguójiāgōngyuánwán",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6200,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3xia3ngqu4di2shi4ni2le4yua2nwa2nye3xia3ngqu4guo2jia1go1ngyua2nwa2n.mp3"
+    },
+    {
+      "text": "shéixiǎngqùguójiāgōngyuánwán",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4040,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/she2ixia3ngqu4guo2jia1go1ngyua2nwa2n.mp3"
+    },
+    {
+      "text": "wǒgēgezhùzàitáiběi",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4440,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3ge1gezhu4za4ita2ibe3i.mp3"
     }
   ]
 }

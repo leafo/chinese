@@ -613,6 +613,78 @@
       "model": "gemini-3.1-flash-tts-preview",
       "voice": "Zephyr",
       "url": "collections/audio/wa2ngta4itaixi3hua1nti1ngyi1nyue4ke3shi4ta1xia1nshengxi3hua1nka4ndia4nyi3ng.mp3"
+    },
+    {
+      "text": "hé",
+      "mimeType": "audio/mpeg",
+      "durationMs": 1400,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/he2.mp3"
+    },
+    {
+      "text": "liúxiǎojiěxǐhuāntīngyīnyuèkěshìtāgēgexǐhuānkàndiànyǐng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 8280,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/liu2xia3ojie3xi3hua1nti1ngyi1nyue4ke3shi4ta1ge1gexi3hua1nka4ndia4nyi3ng.mp3"
+    },
+    {
+      "text": "wǒxǐhuānchànggētīngyīnyuèháixǐhuāntiàowǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 7840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3xi3hua1ncha4ngge1ti1ngyi1nyue4ha2ixi3hua1ntia4owu3.mp3"
+    },
+    {
+      "text": "tāxǐhuānpǎobùháixǐhuāndǎwǎngqiú",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6320,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1xi3hua1npa3obu4ha2ixi3hua1nda3wa3ngqiu2.mp3"
+    },
+    {
+      "text": "wángmíngwénshàngwǔzàigōngyuándǎwǎngqiú",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6840,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wa2ngmi2ngwe2nsha4ngwu3za4igo1ngyua2nda3wa3ngqiu2.mp3"
+    },
+    {
+      "text": "liúxiǎojiězhōumòchángchángzàipéngyǒujiātiàowǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6720,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/liu2xia3ojie3zho1umo4cha2ngcha2ngza4ipe2ngyo3ujia1tia4owu3.mp3"
+    },
+    {
+      "text": "tāmenxǐhuāntiàowǔwǒmenyědōuxǐhuāntiàowǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 6440,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/ta1menxi3hua1ntia4owu3wo3menye3do1uxi3hua1ntia4owu3.mp3"
+    },
+    {
+      "text": "wǒgēgehéwǒdōuxǐhuānchànggēkěshìwǒmendōubùxǐhuāntiàowǔ",
+      "mimeType": "audio/mpeg",
+      "durationMs": 8480,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/wo3ge1gehe2wo3do1uxi3hua1ncha4ngge1ke3shi4wo3mendo1ubu4xi3hua1ntia4owu3.mp3"
+    },
+    {
+      "text": "jiāwénnǐxǐhuānbùxǐhuānyùndòng",
+      "mimeType": "audio/mpeg",
+      "durationMs": 4240,
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Zephyr",
+      "url": "collections/audio/jia1we2nni3xi3hua1nbu4xi3hua1nyu4ndo4ng.mp3"
     }
   ]
 }
