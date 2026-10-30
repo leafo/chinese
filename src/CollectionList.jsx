@@ -6,6 +6,7 @@ import { useAllWords } from "./words";
 import { EditCollectionDialog } from "./EditCollectionDialog";
 import { setLocalImportData } from "./ImportCollection";
 import { importSentencesFromCollection } from "./ImportSentences";
+import { mergeCollectionData } from "./mergeCollection";
 
 function CollectionForm({ onSave, onCancel }) {
   const [name, setName] = useState('');
@@ -138,6 +139,7 @@ export function CollectionList() {
 
 function PremadeCollections() {
   const [manifest, setManifest] = useState(null);
+  const [importAllStatus, setImportAllStatus] = useState(null);
   const fileInputRef = useRef(null);
 
   useEffect(() => {
@@ -174,6 +176,35 @@ function PremadeCollections() {
     }
   };
 
+  const handleImportAll = async () => {
+    if (!confirm(`Import all ${manifest.length} premade collections? Missing words and sentences are added to your library and existing ones are linked into the matching collections. This can't be undone.`)) {
+      return;
+    }
+    const totals = { collectionsCreated: 0, wordsAdded: 0, wordsLinked: 0, sentencesAdded: 0, sentencesLinked: 0 };
+    try {
+      for (let i = 0; i < manifest.length; i++) {
+        const entry = manifest[i];
+        setImportAllStatus({ running: true, message: `Importing ${entry.name} (${i + 1} of ${manifest.length})...` });
+        const res = await fetch(`collections/${entry.file}`);
+        if (!res.ok) throw new Error(`Failed to fetch ${entry.file}: ${res.status}`);
+        const data = await res.json();
+        if (data.format !== 'chinese-collection-export') throw new Error(`Invalid collection file format: ${entry.file}`);
+        const stats = await mergeCollectionData(data);
+        if (stats.created) totals.collectionsCreated++;
+        totals.wordsAdded += stats.wordsAdded;
+        totals.wordsLinked += stats.wordsLinked;
+        totals.sentencesAdded += stats.sentencesAdded;
+        totals.sentencesLinked += stats.sentencesLinked;
+      }
+      setImportAllStatus({
+        running: false,
+        message: `Done. ${totals.collectionsCreated} new collections, ${totals.wordsAdded} new words, ${totals.wordsLinked} existing words linked, ${totals.sentencesAdded} new sentences, ${totals.sentencesLinked} existing sentences linked.`,
+      });
+    } catch (err) {
+      setImportAllStatus({ running: false, message: `Import stopped: ${err.message || String(err)}` });
+    }
+  };
+
   if (!manifest || manifest.length === 0) return null;
 
   return (
@@ -187,12 +218,24 @@ function PremadeCollections() {
           style={{ display: 'none' }}
           onChange={handleFileImport}
         />
-        <button
-          className={styles.smallButton}
-          onClick={() => fileInputRef.current?.click()}
-        >Import from File</button>
+        <div className={styles.importToolbarActions}>
+          <button
+            className={styles.smallButton}
+            onClick={handleImportAll}
+            disabled={importAllStatus?.running}
+          >Import All</button>
+          <button
+            className={styles.smallButton}
+            onClick={() => fileInputRef.current?.click()}
+          >Import from File</button>
+        </div>
       </div>
-      <p className={styles.sectionDescription}>Import a collection to add its words and audio to your local library. You can review and edit the words before importing. If you already have the collection, use "Sentences only" to add just its sentences.</p>
+      {importAllStatus && (
+        <div className={styles.infoBox}>
+          <p>{importAllStatus.message}</p>
+        </div>
+      )}
+      <p className={styles.sectionDescription}>Import a collection to add its words and audio to your local library. You can review and edit the words before importing. If you already have the collection, use "Sentences only" to add just its sentences. "Import All" merges every chapter into your library, adding whatever is missing without duplicating words or sentences you already have.</p>
       <ul className={styles.collectionList}>
         {manifest.map(entry => (
           <li key={entry.file} className={styles.collectionItem}>
