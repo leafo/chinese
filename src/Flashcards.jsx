@@ -154,7 +154,7 @@ function FlashcardCard({ card, revealed, busy, onReveal, onRate, onEdit, display
         <AnswerInput
           word={word}
           direction={card.direction}
-          onCorrect={(clean) => onRate(clean ? 'good' : 'again', true)}
+          onCorrect={(clean) => clean ? onRate('good', true) : onReveal()}
           disabled={busy}
           gaveUp={gaveUp}
           onGiveUp={() => setGaveUp(true)}
