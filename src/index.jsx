@@ -48,12 +48,6 @@ function App() {
             Sentences
           </button>
           <button
-            className={view === 'writing' ? styles.navButtonActive : styles.navButton}
-            onClick={() => setRoute({ view: 'writing' })}
-          >
-            Writing
-          </button>
-          <button
             className={(view === 'flashcards' || view === 'learn') ? styles.navButtonActive : styles.navButton}
             onClick={() => setRoute({ view: 'flashcards' })}
           >
@@ -72,13 +66,13 @@ function App() {
             Listen
           </button>
           <button
-            className={view === 'audio' ? styles.navButtonActive : styles.navButton}
-            onClick={() => setRoute({ view: 'audio' })}
+            className={view === 'writing' ? styles.navButtonActive : styles.navButton}
+            onClick={() => setRoute({ view: 'writing' })}
           >
-            Audio
+            Writing
           </button>
           <button
-            className={view === 'settings' ? styles.navButtonActive : styles.navButton}
+            className={(view === 'settings' || view === 'audio' || view === 'flashcard-debug') ? styles.navButtonActive : styles.navButton}
             onClick={() => setRoute({ view: 'settings' })}
           >
             Settings

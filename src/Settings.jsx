@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./index.module.css";
 import { useConfig } from "./config";
+import { setRoute } from "./router";
 import { DEFAULT_DISPLAY_SCRIPT } from "./display";
 import { useAudioStats } from "./audio";
 import { formatBytes } from "./util";
@@ -213,6 +214,31 @@ export function Settings() {
             <p>{backupStatus.message}</p>
           </div>
         )}
+      </div>
+
+      <div className={styles.settingsSection}>
+        <div className={styles.sectionHeader}>
+          <h2>Debug</h2>
+        </div>
+        {audioStats && (
+          <p>Audio cache: {audioStats.clipCount} clips, {formatBytes(audioStats.totalBytes)}</p>
+        )}
+        <div className={styles.formActionsRight}>
+          <button
+            type="button"
+            className={styles.secondaryButton}
+            onClick={() => setRoute({ view: 'audio' })}
+          >
+            Manage Audio
+          </button>
+          <button
+            type="button"
+            className={styles.secondaryButton}
+            onClick={() => setRoute({ view: 'flashcard-debug' })}
+          >
+            Flashcard Debug
+          </button>
+        </div>
       </div>
 
       <div className={styles.settingsSection}>
