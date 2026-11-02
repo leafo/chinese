@@ -2258,10 +2258,6 @@
   pointer-events: none;
 }
 
-.writingTargetHidden {
-  opacity: 0;
-}
-
 .writingCanvas {
   position: absolute;
   inset: 0;
@@ -2313,10 +2309,6 @@
   stroke: #0891b2;
 }
 
-.writingUserStrokeErrorExtra {
-  stroke: #64748b;
-}
-
 .writingLegend {
   display: flex;
   flex-wrap: wrap;
@@ -2365,14 +2357,11 @@
   background: #0891b2;
 }
 
-.writingLegendSwatchExtra {
-  background: #64748b;
-}
-
 .writingStatus {
   margin: 0;
   font-size: 13px;
   color: var(--color-text-muted);
+  text-align: center;
 }
 
 .writingControls {
@@ -2386,14 +2375,20 @@
   margin-left: auto;
 }
 
-.writingTierRow {
+.writingDrillRow {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  gap: 12px;
+  width: 100%;
+  max-width: 340px;
 }
 
-.writingTierLabel {
+.writingDrillInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.writingDrillLabel {
   font-size: 13px;
   font-weight: 600;
   color: var(--color-accent);
@@ -2401,30 +2396,91 @@
   letter-spacing: 0.05em;
 }
 
-.writingTierHint {
-  margin: 0;
+.writingDrillWord {
   font-size: 13px;
   color: var(--color-text-muted);
-  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.writingLine {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.writingLineCell {
+  position: relative;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  background: var(--color-bg-subtle);
+}
+
+.writingLineCell:disabled {
+  cursor: default;
+}
+
+.writingLineCell svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.writingLineCellGuide {
+  stroke: rgba(148, 163, 184, 0.45);
+  stroke-width: 4;
+  stroke-dasharray: 12 14;
+}
+
+.writingLineCellCurrent {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.writingLineCellFailed {
+  background: var(--color-danger-bg);
+}
+
+.writingLineCellSelected {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.writingLineCellBest::after {
+  content: "";
+  position: absolute;
+  inset: 4%;
+  border: 2px solid var(--color-danger);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.writingResultList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  padding: 0;
+  margin: 0 0 16px;
+  color: var(--color-text-muted);
+}
+
+.writingResultChar {
+  margin-right: 6px;
+  font-size: 22px;
+  color: var(--color-text-primary);
 }
 
 .writingReference {
   font-size: 30px;
   line-height: 1;
   color: var(--color-text-muted);
-}
-
-.writingRateChar {
-  font-size: 96px;
-  line-height: 1;
-  color: var(--color-text-primary);
-}
-
-.writingFeedback {
-  margin: 0;
-  font-size: 14px;
-  color: var(--color-text-body);
-  text-align: center;
 }
 
 .writingStartButton {
