@@ -2079,6 +2079,30 @@
     gap: 6px;
   }
 
+  .audioItem {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 4px 10px;
+    align-items: start;
+  }
+
+  .audioClipKey {
+    overflow-wrap: anywhere;
+  }
+
+  .audioClipMeta {
+    grid-column: 2 / -1;
+    grid-row: 2;
+    flex-wrap: wrap;
+    gap: 2px 10px;
+    min-width: 0;
+  }
+
+  .audioItem .wordActions {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
   .importToolbarActions,
   .formActionsRight {
     flex-wrap: wrap;

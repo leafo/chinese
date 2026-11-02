@@ -218,7 +218,7 @@ export function Settings() {
 
       <div className={styles.settingsSection}>
         <div className={styles.sectionHeader}>
-          <h2>Debug</h2>
+          <h2>Tools</h2>
         </div>
         {audioStats && (
           <p>Audio cache: {audioStats.clipCount} clips, {formatBytes(audioStats.totalBytes)}</p>
