@@ -186,17 +186,13 @@
   ],
   "sentences": [
     {
-      "traditional": "你先生在電腦公司工作嗎？",
-      "simplified": "你先生在电脑公司工作吗？",
-      "pinyin": "Nǐ xiānsheng zài diànnǎo gōngsī gōngzuò ma?",
-      "english": "Does your husband work at a computer company?",
+      "traditional": "你哥哥是學生嗎？",
+      "simplified": "你哥哥是学生吗？",
+      "pinyin": "Nǐ gēge shì xuésheng ma?",
+      "english": "Is your older brother a student?",
       "notes": "",
       "words_used": [
-        "先生",
-        "在",
-        "电脑",
-        "公司",
-        "工作"
+        "学生"
       ]
     },
     {
@@ -211,93 +207,6 @@
         "在",
         "银行",
         "工作"
-      ]
-    },
-    {
-      "traditional": "他在大學念書，你呢？",
-      "simplified": "他在大学念书，你呢？",
-      "pinyin": "Tā zài dàxué niàn shū, nǐ ne?",
-      "english": "He studies at the university; and you?",
-      "notes": "",
-      "words_used": [
-        "她 / 他",
-        "在",
-        "大学",
-        "念书"
-      ]
-    },
-    {
-      "traditional": "那個孩子是法國人的兒子。",
-      "simplified": "那个孩子是法国人的儿子。",
-      "pinyin": "Nà ge háizi shì Fǎguó rén de érzi.",
-      "english": "That child is the French person's son.",
-      "notes": "",
-      "words_used": [
-        "孩子",
-        "法国",
-        "儿子"
-      ]
-    },
-    {
-      "traditional": "你的女兒在小學學電腦嗎？",
-      "simplified": "你的女儿在小学学电脑吗？",
-      "pinyin": "Nǐ de nǚ'ér zài xiǎoxué xué diànnǎo ma?",
-      "english": "Does your daughter study computers at elementary school?",
-      "notes": "",
-      "words_used": [
-        "女儿",
-        "在",
-        "小学",
-        "学",
-        "电脑"
-      ]
-    },
-    {
-      "traditional": "誰在那個公司工作？",
-      "simplified": "谁在那个公司工作？",
-      "pinyin": "Shéi zài nà ge gōngsī gōngzuò?",
-      "english": "Who works at that company?",
-      "notes": "",
-      "words_used": [
-        "在",
-        "公司",
-        "工作"
-      ]
-    },
-    {
-      "traditional": "她畢業了，也結婚了。",
-      "simplified": "她毕业了，也结婚了。",
-      "pinyin": "Tā bìyè le, yě jiéhūn le.",
-      "english": "She has graduated, and she has also gotten married.",
-      "notes": "",
-      "words_used": [
-        "她 / 他",
-        "毕业了",
-        "结婚了"
-      ]
-    },
-    {
-      "traditional": "他們的孩子都是學生嗎？",
-      "simplified": "他们的孩子都是学生吗？",
-      "pinyin": "Tāmen de háizi dōu shì xuésheng ma?",
-      "english": "Are their children all students?",
-      "notes": "",
-      "words_used": [
-        "他们 / 她们",
-        "孩子",
-        "都",
-        "学生"
-      ]
-    },
-    {
-      "traditional": "王先生的電腦很好。",
-      "simplified": "王先生的电脑很好。",
-      "pinyin": "Wáng xiānsheng de diànnǎo hěn hǎo.",
-      "english": "Mr. Wang's computer is very good.",
-      "notes": "",
-      "words_used": [
-        "先生",
-        "电脑"
       ]
     },
     {
@@ -326,6 +235,17 @@
       ]
     },
     {
+      "traditional": "我姊姊工作，我哥哥不工作。",
+      "simplified": "我姐姐工作，我哥哥不工作。",
+      "pinyin": "Wǒ jiějie gōngzuò, wǒ gēge bù gōngzuò.",
+      "english": "My older sister works; my older brother does not work.",
+      "notes": "",
+      "words_used": [
+        "工作",
+        "不"
+      ]
+    },
+    {
       "traditional": "妳姊姊在哪裡工作？",
       "simplified": "你姐姐在哪里工作？",
       "pinyin": "Nǐ jiějie zài nǎlǐ gōngzuò?",
@@ -335,6 +255,86 @@
         "在",
         "哪里 (哪儿)",
         "工作"
+      ]
+    },
+    {
+      "traditional": "你先生在電腦公司工作嗎？",
+      "simplified": "你先生在电脑公司工作吗？",
+      "pinyin": "Nǐ xiānsheng zài diànnǎo gōngsī gōngzuò ma?",
+      "english": "Does your husband work at a computer company?",
+      "notes": "",
+      "words_used": [
+        "先生",
+        "在",
+        "电脑",
+        "公司",
+        "工作"
+      ]
+    },
+    {
+      "traditional": "他在大學念書，你呢？",
+      "simplified": "他在大学念书，你呢？",
+      "pinyin": "Tā zài dàxué niàn shū, nǐ ne?",
+      "english": "He studies at the university; and you?",
+      "notes": "",
+      "words_used": [
+        "她 / 他",
+        "在",
+        "大学",
+        "念书"
+      ]
+    },
+    {
+      "traditional": "你的女兒在小學學電腦嗎？",
+      "simplified": "你的女儿在小学学电脑吗？",
+      "pinyin": "Nǐ de nǚ'ér zài xiǎoxué xué diànnǎo ma?",
+      "english": "Does your daughter study computers at elementary school?",
+      "notes": "",
+      "words_used": [
+        "女儿",
+        "在",
+        "小学",
+        "学",
+        "电脑"
+      ]
+    },
+    {
+      "traditional": "我女兒大學畢業了，我兒子在中學念書。",
+      "simplified": "我女儿大学毕业了，我儿子在中学念书。",
+      "pinyin": "Wǒ nǚ'ér dàxué bìyè le, wǒ érzi zài zhōngxué niàn shū.",
+      "english": "My daughter has graduated from university; my son studies at a middle school.",
+      "notes": "",
+      "words_used": [
+        "女儿",
+        "大学",
+        "毕业了",
+        "儿子",
+        "在",
+        "中学",
+        "念书"
+      ]
+    },
+    {
+      "traditional": "她畢業了，也結婚了。",
+      "simplified": "她毕业了，也结婚了。",
+      "pinyin": "Tā bìyè le, yě jiéhūn le.",
+      "english": "She has graduated, and she has also gotten married.",
+      "notes": "",
+      "words_used": [
+        "她 / 他",
+        "毕业了",
+        "结婚了"
+      ]
+    },
+    {
+      "traditional": "王先生結婚了嗎？",
+      "simplified": "王先生结婚了吗？",
+      "pinyin": "Wáng xiānsheng jiéhūn le ma?",
+      "english": "Is Mr. Wang married?",
+      "notes": "",
+      "words_used": [
+        "先生",
+        "结婚了"
       ]
     },
     {
@@ -358,6 +358,17 @@
       "words_used": [
         "他们 / 她们",
         "孩子",
+        "儿子",
+        "女儿"
+      ]
+    },
+    {
+      "traditional": "我沒有兒子，只有一個女兒。",
+      "simplified": "我没有儿子，只有一个女儿。",
+      "pinyin": "Wǒ méiyǒu érzi, zhǐ yǒu yí ge nǚ'ér.",
+      "english": "I don't have a son, only a daughter.",
+      "notes": "",
+      "words_used": [
         "儿子",
         "女儿"
       ]
@@ -392,15 +403,26 @@
       ]
     },
     {
-      "traditional": "他們都不是學生。",
-      "simplified": "他们都不是学生。",
-      "pinyin": "Tāmen dōu bú shì xuésheng.",
-      "english": "None of them are students.",
+      "traditional": "明文和家文都姓王。",
+      "simplified": "明文和家文都姓王。",
+      "pinyin": "Míngwén hé Jiāwén dōu xìng Wáng.",
+      "english": "Mingwen and Jiawen are both surnamed Wang.",
+      "notes": "",
+      "words_used": [
+        "和",
+        "都"
+      ]
+    },
+    {
+      "traditional": "他們的孩子都是學生嗎？",
+      "simplified": "他们的孩子都是学生吗？",
+      "pinyin": "Tāmen de háizi dōu shì xuésheng ma?",
+      "english": "Are their children all students?",
       "notes": "",
       "words_used": [
         "他们 / 她们",
+        "孩子",
         "都",
-        "不",
         "学生"
       ]
     },
@@ -417,6 +439,19 @@
         "在",
         "银行",
         "工作"
+      ]
+    },
+    {
+      "traditional": "他們都不是學生。",
+      "simplified": "他们都不是学生。",
+      "pinyin": "Tāmen dōu bú shì xuésheng.",
+      "english": "None of them are students.",
+      "notes": "",
+      "words_used": [
+        "他们 / 她们",
+        "都",
+        "不",
+        "学生"
       ]
     }
   ],

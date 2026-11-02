@@ -176,6 +176,16 @@
       ]
     },
     {
+      "traditional": "這是我弟弟，王家文。",
+      "simplified": "这是我弟弟，王家文。",
+      "pinyin": "Zhè shì wǒ dìdi, Wáng Jiāwén.",
+      "english": "This is my younger brother, Wang Jiawen.",
+      "notes": "",
+      "words_used": [
+        "这"
+      ]
+    },
+    {
       "traditional": "認識你我很高興。",
       "simplified": "认识你我很高兴。",
       "pinyin": "Rènshì nǐ wǒ hěn gāoxìng.",
@@ -187,51 +197,14 @@
       ]
     },
     {
-      "traditional": "他平常住在加州。",
-      "simplified": "他平常住在加州。",
-      "pinyin": "Tā píngcháng zhù zài Jiāzhōu.",
-      "english": "He usually lives in California.",
+      "traditional": "林小姐，我也很高興認識妳。",
+      "simplified": "林小姐，我也很高兴认识你。",
+      "pinyin": "Lín xiǎojiě, wǒ yě hěn gāoxìng rènshì nǐ.",
+      "english": "Ms. Lin, I am also very happy to meet you.",
       "notes": "",
       "words_used": [
-        "平常",
-        "住在",
-        "加州"
-      ]
-    },
-    {
-      "traditional": "你的父母現在在哪裡？",
-      "simplified": "你的父母现在在哪里？",
-      "pinyin": "Nǐ de fùmǔ xiànzài zài nǎlǐ?",
-      "english": "Where are your parents now?",
-      "notes": "",
-      "words_used": [
-        "父母",
-        "现在"
-      ]
-    },
-    {
-      "traditional": "她們想去公園玩。",
-      "simplified": "她们想去公园玩。",
-      "pinyin": "Tāmen xiǎng qù gōngyuán wán.",
-      "english": "They would like to go to the park to have fun.",
-      "notes": "",
-      "words_used": [
-        "想",
-        "去",
-        "公园",
-        "玩"
-      ]
-    },
-    {
-      "traditional": "誰來學校？",
-      "simplified": "谁来学校？",
-      "pinyin": "Shéi lái xuéxiào?",
-      "english": "Who is coming to the school?",
-      "notes": "",
-      "words_used": [
-        "谁",
-        "来",
-        "学校"
+        "高兴",
+        "认识"
       ]
     },
     {
@@ -248,24 +221,27 @@
       ]
     },
     {
-      "traditional": "學校放假了，你呢？",
-      "simplified": "学校放假了，你呢？",
-      "pinyin": "Xuéxiào fàngjià le, nǐ ne?",
-      "english": "School is on break, and you?",
+      "traditional": "歡迎你來美國。你想去哪裡玩？",
+      "simplified": "欢迎你来美国。你想去哪里玩？",
+      "pinyin": "Huānyíng nǐ lái Měiguó. Nǐ xiǎng qù nǎlǐ wán?",
+      "english": "Welcome to the US. Where would you like to go to have fun?",
       "notes": "",
       "words_used": [
-        "学校",
-        "放假"
+        "欢迎",
+        "来",
+        "想",
+        "去",
+        "玩"
       ]
     },
     {
-      "traditional": "這是我弟弟，王家文。",
-      "simplified": "这是我弟弟，王家文。",
-      "pinyin": "Zhè shì wǒ dìdi, Wáng Jiāwén.",
-      "english": "This is my younger brother, Wang Jiawen.",
+      "traditional": "你來美國念書嗎？",
+      "simplified": "你来美国念书吗？",
+      "pinyin": "Nǐ lái Měiguó niàn shū ma?",
+      "english": "Did you come to the US to study?",
       "notes": "",
       "words_used": [
-        "这"
+        "来"
       ]
     },
     {
@@ -285,14 +261,106 @@
       ]
     },
     {
-      "traditional": "歡迎你來美國。你想去哪裡玩？",
-      "simplified": "欢迎你来美国。你想去哪里玩？",
-      "pinyin": "Huānyíng nǐ lái Měiguó. Nǐ xiǎng qù nǎlǐ wán?",
-      "english": "Welcome to the US. Where would you like to go to have fun?",
+      "traditional": "學校放假了，你呢？",
+      "simplified": "学校放假了，你呢？",
+      "pinyin": "Xuéxiào fàngjià le, nǐ ne?",
+      "english": "School is on break, and you?",
       "notes": "",
       "words_used": [
-        "欢迎",
+        "学校",
+        "放假"
+      ]
+    },
+    {
+      "traditional": "他平常住在加州。",
+      "simplified": "他平常住在加州。",
+      "pinyin": "Tā píngcháng zhù zài Jiāzhōu.",
+      "english": "He usually lives in California.",
+      "notes": "",
+      "words_used": [
+        "平常",
+        "住在",
+        "加州"
+      ]
+    },
+    {
+      "traditional": "我哥哥住在臺北。",
+      "simplified": "我哥哥住在台北。",
+      "pinyin": "Wǒ gēge zhù zài Táiběi.",
+      "english": "My older brother lives in Taipei.",
+      "notes": "",
+      "words_used": [
+        "住在",
+        "台北"
+      ]
+    },
+    {
+      "traditional": "你現在住在哪裡？",
+      "simplified": "你现在住在哪里？",
+      "pinyin": "Nǐ xiànzài zhù zài nǎlǐ?",
+      "english": "Where do you live now?",
+      "notes": "",
+      "words_used": [
+        "现在",
+        "住在"
+      ]
+    },
+    {
+      "traditional": "你的父母現在在哪裡？",
+      "simplified": "你的父母现在在哪里？",
+      "pinyin": "Nǐ de fùmǔ xiànzài zài nǎlǐ?",
+      "english": "Where are your parents now?",
+      "notes": "",
+      "words_used": [
+        "父母",
+        "现在"
+      ]
+    },
+    {
+      "traditional": "你朋友叫什麼名字？",
+      "simplified": "你朋友叫什么名字？",
+      "pinyin": "Nǐ péngyǒu jiào shénme míngzi?",
+      "english": "What is your friend's name?",
+      "notes": "",
+      "words_used": [
+        "朋友"
+      ]
+    },
+    {
+      "traditional": "誰來學校？",
+      "simplified": "谁来学校？",
+      "pinyin": "Shéi lái xuéxiào?",
+      "english": "Who is coming to the school?",
+      "notes": "",
+      "words_used": [
+        "谁",
         "来",
+        "学校"
+      ]
+    },
+    {
+      "traditional": "誰想去國家公園玩？",
+      "simplified": "谁想去国家公园玩？",
+      "pinyin": "Shéi xiǎng qù guójiā gōngyuán wán?",
+      "english": "Who would like to visit a national park?",
+      "notes": "",
+      "words_used": [
+        "谁",
+        "想",
+        "去",
+        "国家",
+        "公园",
+        "玩"
+      ]
+    },
+    {
+      "traditional": "你放假想去哪裡玩？",
+      "simplified": "你放假想去哪里玩？",
+      "pinyin": "Nǐ fàngjià xiǎng qù nǎlǐ wán?",
+      "english": "Where would you like to go during the break?",
+      "notes": "",
+      "words_used": [
+        "放假",
         "想",
         "去",
         "玩"
@@ -313,29 +381,29 @@
       ]
     },
     {
-      "traditional": "誰想去國家公園玩？",
-      "simplified": "谁想去国家公园玩？",
-      "pinyin": "Shéi xiǎng qù guójiā gōngyuán wán?",
-      "english": "Who would like to visit a national park?",
+      "traditional": "我朋友想去舊金山工作。",
+      "simplified": "我朋友想去旧金山工作。",
+      "pinyin": "Wǒ péngyǒu xiǎng qù Jiùjīnshān gōngzuò.",
+      "english": "My friend would like to go to San Francisco to work.",
       "notes": "",
       "words_used": [
-        "谁",
+        "朋友",
         "想",
         "去",
-        "国家",
-        "公园",
-        "玩"
+        "旧金山"
       ]
     },
     {
-      "traditional": "我哥哥住在臺北。",
-      "simplified": "我哥哥住在台北。",
-      "pinyin": "Wǒ gēge zhù zài Táiběi.",
-      "english": "My older brother lives in Taipei.",
+      "traditional": "她們想去公園玩。",
+      "simplified": "她们想去公园玩。",
+      "pinyin": "Tāmen xiǎng qù gōngyuán wán.",
+      "english": "They would like to go to the park to have fun.",
       "notes": "",
       "words_used": [
-        "住在",
-        "台北"
+        "想",
+        "去",
+        "公园",
+        "玩"
       ]
     }
   ],

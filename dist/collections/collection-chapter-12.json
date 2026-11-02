@@ -239,6 +239,26 @@
       ]
     },
     {
+      "traditional": "家文什麼時候回臺灣？",
+      "simplified": "家文什么时候回台湾？",
+      "pinyin": "Jiāwén shénme shíhòu huí Táiwān?",
+      "english": "When is Jiawen going back to Taiwan?",
+      "notes": "",
+      "words_used": [
+        "回"
+      ]
+    },
+    {
+      "traditional": "你想給家人買什麼禮物？",
+      "simplified": "你想给家人买什么礼物？",
+      "pinyin": "Nǐ xiǎng gěi jiārén mǎi shénme lǐwù?",
+      "english": "What gifts do you want to buy for your family?",
+      "notes": "",
+      "words_used": [
+        "家人"
+      ]
+    },
+    {
       "traditional": "我想給爸爸買一個帽子，給媽媽買一件衣服。",
       "simplified": "我想给爸爸买一个帽子，给妈妈买一件衣服。",
       "pinyin": "Wǒ xiǎng gěi bàba mǎi yí ge màozi, gěi māma mǎi yí jiàn yīfú.",
@@ -260,6 +280,38 @@
         "家人",
         "盒",
         "巧克力"
+      ]
+    },
+    {
+      "traditional": "你還可以給姊姊買太陽眼鏡。",
+      "simplified": "你还可以给姊姊买太阳眼镜。",
+      "pinyin": "Nǐ hái kěyǐ gěi jiějie mǎi tàiyáng yǎnjìng.",
+      "english": "You can also buy sunglasses for your older sister.",
+      "notes": "",
+      "words_used": [
+        "太阳眼镜"
+      ]
+    },
+    {
+      "traditional": "下個星期明文想給家文做牛肉麵。",
+      "simplified": "下个星期明文想给家文做牛肉面。",
+      "pinyin": "Xià ge xīngqī Míngwén xiǎng gěi Jiāwén zuò niúròumiàn.",
+      "english": "Next week Mingwen wants to make beef noodles for Jiawen.",
+      "notes": "",
+      "words_used": [
+        "下个星期"
+      ]
+    },
+    {
+      "traditional": "上個星期我給家人買了很多東西。",
+      "simplified": "上个星期我给家人买了很多东西。",
+      "pinyin": "Shàng ge xīngqī wǒ gěi jiārén mǎi le hěn duō dōngxi.",
+      "english": "Last week I bought a lot of things for my family.",
+      "notes": "",
+      "words_used": [
+        "上个星期",
+        "家人",
+        "东西"
       ]
     },
     {
@@ -291,50 +343,28 @@
       ]
     },
     {
-      "traditional": "因為我喜歡逛街，所以想去百貨公司買東西。",
-      "simplified": "因为我喜欢逛街，所以想去百货公司买东西。",
-      "pinyin": "Yīnwèi wǒ xǐhuān guàngjiē, suǒyǐ xiǎng qù bǎihuògōngsī mǎi dōngxi.",
-      "english": "Because I like shopping in person, I want to go to a department store to buy things.",
+      "traditional": "這個背包又便宜又有用。",
+      "simplified": "这个背包又便宜又有用。",
+      "pinyin": "Zhè ge bēibāo yòu piányí yòu yǒuyòng.",
+      "english": "This backpack is both inexpensive and useful.",
       "notes": "",
       "words_used": [
-        "因为",
-        "逛街",
-        "所以",
-        "百货公司",
-        "东西"
-      ]
-    },
-    {
-      "traditional": "她喜歡旅行，背包很有用。",
-      "simplified": "她喜欢旅行，背包很有用。",
-      "pinyin": "Tā xǐhuān lǚxíng, bēibāo hěn yǒuyòng.",
-      "english": "She likes to travel, so a backpack is very useful.",
-      "notes": "",
-      "words_used": [
-        "旅行",
         "背包",
+        "又……又……",
+        "便宜",
         "有用"
       ]
     },
     {
-      "traditional": "你還可以給姊姊買太陽眼鏡。",
-      "simplified": "你还可以给姊姊买太阳眼镜。",
-      "pinyin": "Nǐ hái kěyǐ gěi jiějie mǎi tàiyáng yǎnjìng.",
-      "english": "You can also buy sunglasses for your older sister.",
+      "traditional": "這件衣服又貴又不舒服。",
+      "simplified": "这件衣服又贵又不舒服。",
+      "pinyin": "Zhè jiàn yīfú yòu guì yòu bù shūfu.",
+      "english": "This piece of clothing is both expensive and uncomfortable.",
       "notes": "",
       "words_used": [
-        "太阳眼镜"
-      ]
-    },
-    {
-      "traditional": "這個週末我有空，我們什麼時候出門？",
-      "simplified": "这个周末我有空，我们什么时候出门？",
-      "pinyin": "Zhè ge zhōumò wǒ yǒukòng, wǒmen shénme shíhòu chūmén?",
-      "english": "I am free this weekend; when shall we leave the house?",
-      "notes": "",
-      "words_used": [
-        "有空",
-        "出门"
+        "件",
+        "衣服",
+        "又……又……"
       ]
     },
     {
@@ -350,6 +380,78 @@
       ]
     },
     {
+      "traditional": "因為百貨公司的東西太貴，所以我上網買。",
+      "simplified": "因为百货公司的东西太贵，所以我上网买。",
+      "pinyin": "Yīnwèi bǎihuògōngsī de dōngxi tài guì, suǒyǐ wǒ shàngwǎng mǎi.",
+      "english": "Because things at department stores are too expensive, I buy online.",
+      "notes": "",
+      "words_used": [
+        "因为",
+        "百货公司",
+        "东西",
+        "所以",
+        "上网"
+      ]
+    },
+    {
+      "traditional": "因為我喜歡逛街，所以想去百貨公司買東西。",
+      "simplified": "因为我喜欢逛街，所以想去百货公司买东西。",
+      "pinyin": "Yīnwèi wǒ xǐhuān guàngjiē, suǒyǐ xiǎng qù bǎihuògōngsī mǎi dōngxi.",
+      "english": "Because I like shopping in person, I want to go to a department store to buy things.",
+      "notes": "",
+      "words_used": [
+        "因为",
+        "逛街",
+        "所以",
+        "百货公司",
+        "东西"
+      ]
+    },
+    {
+      "traditional": "因為下雨，所以王先生不去跑步。",
+      "simplified": "因为下雨，所以王先生不去跑步。",
+      "pinyin": "Yīnwèi xià yǔ, suǒyǐ Wáng xiānsheng bú qù pǎobù.",
+      "english": "Because it is raining, Mr. Wang isn't going running.",
+      "notes": "",
+      "words_used": [
+        "因为",
+        "所以"
+      ]
+    },
+    {
+      "traditional": "哪一天比較熱？",
+      "simplified": "哪一天比较热？",
+      "pinyin": "Nǎ yì tiān bǐjiào rè?",
+      "english": "Which day is hotter?",
+      "notes": "",
+      "words_used": [
+        "比较"
+      ]
+    },
+    {
+      "traditional": "她喜歡旅行，背包很有用。",
+      "simplified": "她喜欢旅行，背包很有用。",
+      "pinyin": "Tā xǐhuān lǚxíng, bēibāo hěn yǒuyòng.",
+      "english": "She likes to travel, so a backpack is very useful.",
+      "notes": "",
+      "words_used": [
+        "旅行",
+        "背包",
+        "有用"
+      ]
+    },
+    {
+      "traditional": "這個週末我有空，我們什麼時候出門？",
+      "simplified": "这个周末我有空，我们什么时候出门？",
+      "pinyin": "Zhè ge zhōumò wǒ yǒukòng, wǒmen shénme shíhòu chūmén?",
+      "english": "I am free this weekend; when shall we leave the house?",
+      "notes": "",
+      "words_used": [
+        "有空",
+        "出门"
+      ]
+    },
+    {
       "traditional": "我去年去臺灣旅行，明年也想去。",
       "simplified": "我去年去台湾旅行，明年也想去。",
       "pinyin": "Wǒ qùnián qù Táiwān lǚxíng, míngnián yě xiǎng qù.",
@@ -359,18 +461,6 @@
         "去年",
         "旅行",
         "明年"
-      ]
-    },
-    {
-      "traditional": "上個星期我給家人買了很多東西。",
-      "simplified": "上个星期我给家人买了很多东西。",
-      "pinyin": "Shàng ge xīngqī wǒ gěi jiārén mǎi le hěn duō dōngxi.",
-      "english": "Last week I bought a lot of things for my family.",
-      "notes": "",
-      "words_used": [
-        "上个星期",
-        "家人",
-        "东西"
       ]
     }
   ],

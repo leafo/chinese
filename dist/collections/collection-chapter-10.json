@@ -200,196 +200,29 @@
   ],
   "sentences": [
     {
-      "traditional": "林小姐覺得學中文很有意思，可是寫字很難。",
-      "simplified": "林小姐觉得学中文很有意思，可是写字很难。",
-      "pinyin": "Lín xiǎojiě juéde xué Zhōngwén hěn yǒuyìsi, kěshì xiě zì hěn nán.",
-      "english": "Ms. Lin feels that learning Chinese is very interesting, but writing characters is very difficult.",
+      "traditional": "你現在學華語，學得怎麼樣？",
+      "simplified": "你现在学华语，学得怎么样？",
+      "pinyin": "Nǐ xiànzài xué Huáyǔ, xué de zěnmeyàng?",
+      "english": "You are studying Mandarin now; how well is it going?",
       "notes": "",
       "words_used": [
-        "觉得",
         "学",
-        "中文",
-        "难",
-        "写字",
-        "字"
-      ]
-    },
-    {
-      "traditional": "王先生寫字寫得很快，我覺得自己寫得很慢。",
-      "simplified": "王先生写字写得很快，我觉得自己写得很慢。",
-      "pinyin": "Wáng xiānsheng xiě zì xiě de hěn kuài, wǒ juéde zìjǐ xiě de hěn màn.",
-      "english": "Mr. Wang writes characters very fast, while I feel that I write very slowly.",
-      "notes": "",
-      "words_used": [
-        "写字",
-        "得",
-        "快",
-        "自己"
-      ]
-    },
-    {
-      "traditional": "你平常喜歡跟誰一起聊天練習說話？",
-      "simplified": "你平常喜欢跟谁一起聊天练习说话？",
-      "pinyin": "Nǐ píngcháng xǐhuan gēn shéi yìqǐ liáo tiān liànxí shuō huà?",
-      "english": "Who do you usually like to chat and practice speaking with?",
-      "notes": "",
-      "words_used": [
-        "聊天",
-        "练习",
-        "说话"
-      ]
-    },
-    {
-      "traditional": "這家餐廳的咖啡有一點貴，可是很不錯。",
-      "simplified": "这家餐厅的咖啡有一点贵，可是很不错。",
-      "pinyin": "Zhè jiā cāntīng de kāfēi yǒu yìdiǎn guì, kěshì hěn búcuò.",
-      "english": "The coffee at this restaurant is a little expensive, but it's pretty good.",
-      "notes": "",
-      "words_used": [
-        "咖啡",
-        "有一点",
-        "贵",
-        "不错"
-      ]
-    },
-    {
-      "traditional": "他差不多會寫一百個字，學得很不錯。",
-      "simplified": "他差不多会写一百个字，学得很不错。",
-      "pinyin": "Tā chàbùduō huì xiě yì bǎi ge zì, xué de hěn búcuò.",
-      "english": "He can write approximately one hundred characters; he is learning quite well.",
-      "notes": "",
-      "words_used": [
-        "差不多",
-        "会",
-        "字",
-        "不错"
-      ]
-    },
-    {
-      "traditional": "今天工作很忙，我們去喝杯紅茶吧。",
-      "simplified": "今天工作很忙，我们去喝杯红茶吧。",
-      "pinyin": "Jīntiān gōngzuò hěn máng, wǒmen qù hē bēi hóngchá ba.",
-      "english": "We've been very busy at work today; let's go drink a cup of black tea!",
-      "notes": "",
-      "words_used": [
-        "喝",
-        "杯",
-        "吧"
-      ]
-    },
-    {
-      "traditional": "我媽媽做飯做得很快，大家都很喜歡。",
-      "simplified": "我妈妈做饭做得很快，大家都很喜欢。",
-      "pinyin": "Wǒ māma zuò fàn zuò de hěn kuài, dàjiā dōu hěn xǐhuan.",
-      "english": "My mother cooks very quickly, and everyone likes her food.",
-      "notes": "",
-      "words_used": [
-        "做饭",
-        "得",
-        "快"
-      ]
-    },
-    {
-      "traditional": "你知道那個學校有多少個學中文的學生嗎？",
-      "simplified": "你知道那个学校有多少个学中文的学生吗？",
-      "pinyin": "Nǐ zhīdào nà ge xuéxiào yǒu duōshǎo ge xué Zhōngwén de xuésheng ma?",
-      "english": "Do you know how many students are learning Chinese at that school?",
-      "notes": "",
-      "words_used": [
-        "多少",
-        "学",
-        "中文"
-      ]
-    },
-    {
-      "traditional": "寫字寫得有一點累，我們休息一下吧。",
-      "simplified": "写字写得有一点累，我们休息一下吧。",
-      "pinyin": "Xiě zì xiě de yǒu yìdiǎn lèi, wǒmen xiūxí yíxià ba.",
-      "english": "Writing characters has made me a little tired; let's take a short break.",
-      "notes": "",
-      "words_used": [
-        "写字",
-        "得",
-        "有一点",
-        "休息",
-        "一下",
-        "吧"
-      ]
-    },
-    {
-      "traditional": "我覺得學習做飯有一點難，不過很有趣。",
-      "simplified": "我觉得学习做饭有一点难，不过很有趣。",
-      "pinyin": "Wǒ juéde xuéxí zuò fàn yǒu yìdiǎn nán, búguò hěn yǒuqù.",
-      "english": "I feel that learning to cook is a little hard, but it's very interesting.",
-      "notes": "",
-      "words_used": [
-        "觉得",
-        "做饭",
-        "有一点",
-        "难"
-      ]
-    },
-    {
-      "traditional": "家文說華語說得很好。",
-      "simplified": "家文说华语说得很好。",
-      "pinyin": "Jiāwén shuō Huáyǔ shuō de hěn hǎo.",
-      "english": "Jiawen speaks Mandarin very well.",
-      "notes": "",
-      "words_used": [
         "华语",
         "得"
       ]
     },
     {
-      "traditional": "這個電腦有一點貴，你覺得怎麼樣？",
-      "simplified": "这个电脑有一点贵，你觉得怎么样？",
-      "pinyin": "Zhè ge diànnǎo yǒu yìdiǎn guì, nǐ juéde zěnmeyàng?",
-      "english": "This computer is a little expensive; what do you think?",
+      "traditional": "我覺得自己學得不錯。",
+      "simplified": "我觉得自己学得不错。",
+      "pinyin": "Wǒ juéde zìjǐ xué de búcuò.",
+      "english": "I think I'm learning quite well.",
       "notes": "",
       "words_used": [
-        "有一点",
-        "贵",
-        "觉得"
-      ]
-    },
-    {
-      "traditional": "他每天自己練習寫字，寫得很不錯。",
-      "simplified": "他每天自己练习写字，写得很不错。",
-      "pinyin": "Tā měitiān zìjǐ liànxí xiě zì, xiě de hěn búcuò.",
-      "english": "He practices writing characters by himself every day, and he writes quite well.",
-      "notes": "",
-      "words_used": [
+        "觉得",
         "自己",
-        "练习",
-        "写字",
+        "学",
         "得",
         "不错"
-      ]
-    },
-    {
-      "traditional": "你會寫多少個漢字？差不多有一百個吧。",
-      "simplified": "你会写多少个汉字？差不多有一百个吧。",
-      "pinyin": "Nǐ huì xiě duōshǎo ge hànzì? Chàbùduō yǒu yì bǎi ge ba.",
-      "english": "How many Chinese characters can you write? Probably around a hundred.",
-      "notes": "",
-      "words_used": [
-        "会",
-        "多少",
-        "差不多",
-        "字"
-      ]
-    },
-    {
-      "traditional": "下課以後，我們去喝杯咖啡聊天吧。",
-      "simplified": "下课以后，我们去喝杯咖啡聊天吧。",
-      "pinyin": "Xiàkè yǐhòu, wǒmen qù hē bēi kāfēi liáo tiān ba.",
-      "english": "After class, let's go have a cup of coffee and chat.",
-      "notes": "",
-      "words_used": [
-        "喝",
-        "杯",
-        "咖啡",
-        "聊天"
       ]
     },
     {
@@ -409,18 +242,6 @@
       ]
     },
     {
-      "traditional": "你現在學華語，學得怎麼樣？",
-      "simplified": "你现在学华语，学得怎么样？",
-      "pinyin": "Nǐ xiànzài xué Huáyǔ, xué de zěnmeyàng?",
-      "english": "You are studying Mandarin now; how well is it going?",
-      "notes": "",
-      "words_used": [
-        "学",
-        "华语",
-        "得"
-      ]
-    },
-    {
       "traditional": "你會寫多少字？差不多三十個字，我還會寫我的華語名字。",
       "simplified": "你会写多少字？差不多三十个字，我还会写我的华语名字。",
       "pinyin": "Nǐ huì xiě duōshǎo zì? Chàbùduō sānshí ge zì, wǒ hái huì xiě wǒ de Huáyǔ míngzi.",
@@ -432,6 +253,123 @@
         "字",
         "差不多",
         "华语"
+      ]
+    },
+    {
+      "traditional": "你平常喜歡跟誰一起聊天練習說話？",
+      "simplified": "你平常喜欢跟谁一起聊天练习说话？",
+      "pinyin": "Nǐ píngcháng xǐhuan gēn shéi yìqǐ liáo tiān liànxí shuō huà?",
+      "english": "Who do you usually like to chat and practice speaking with?",
+      "notes": "",
+      "words_used": [
+        "聊天",
+        "练习",
+        "说话"
+      ]
+    },
+    {
+      "traditional": "我常常跟明文聊天，練習我的華語。",
+      "simplified": "我常常跟明文聊天，练习我的华语。",
+      "pinyin": "Wǒ chángcháng gēn Míngwén liáo tiān, liànxí wǒ de Huáyǔ.",
+      "english": "I often chat with Mingwen to practice my Mandarin.",
+      "notes": "",
+      "words_used": [
+        "聊天",
+        "练习",
+        "华语"
+      ]
+    },
+    {
+      "traditional": "家文說華語說得很好。",
+      "simplified": "家文说华语说得很好。",
+      "pinyin": "Jiāwén shuō Huáyǔ shuō de hěn hǎo.",
+      "english": "Jiawen speaks Mandarin very well.",
+      "notes": "",
+      "words_used": [
+        "华语",
+        "得"
+      ]
+    },
+    {
+      "traditional": "王先生寫字寫得很快。",
+      "simplified": "王先生写字写得很快。",
+      "pinyin": "Wáng xiānsheng xiě zì xiě de hěn kuài.",
+      "english": "Mr. Wang writes characters very fast.",
+      "notes": "",
+      "words_used": [
+        "写字",
+        "得",
+        "快"
+      ]
+    },
+    {
+      "traditional": "林小姐唱歌唱得好不好？她唱得不好。",
+      "simplified": "林小姐唱歌唱得好不好？她唱得不好。",
+      "pinyin": "Lín xiǎojiě chàng gē chàng de hǎo bù hǎo? Tā chàng de bù hǎo.",
+      "english": "Does Ms. Lin sing well? She doesn't sing well.",
+      "notes": "",
+      "words_used": [
+        "得"
+      ]
+    },
+    {
+      "traditional": "他每天自己練習寫字，寫得很不錯。",
+      "simplified": "他每天自己练习写字，写得很不错。",
+      "pinyin": "Tā měitiān zìjǐ liànxí xiě zì, xiě de hěn búcuò.",
+      "english": "He practices writing characters by himself every day, and he writes quite well.",
+      "notes": "",
+      "words_used": [
+        "自己",
+        "练习",
+        "写字",
+        "得",
+        "不错"
+      ]
+    },
+    {
+      "traditional": "我媽媽做飯做得很好。",
+      "simplified": "我妈妈做饭做得很好。",
+      "pinyin": "Wǒ māma zuò fàn zuò de hěn hǎo.",
+      "english": "My mother cooks very well.",
+      "notes": "",
+      "words_used": [
+        "做饭",
+        "得"
+      ]
+    },
+    {
+      "traditional": "我的工作有一點忙。",
+      "simplified": "我的工作有一点忙。",
+      "pinyin": "Wǒ de gōngzuò yǒu yìdiǎn máng.",
+      "english": "My work is a little busy.",
+      "notes": "",
+      "words_used": [
+        "有一点"
+      ]
+    },
+    {
+      "traditional": "這個電腦有一點貴，你覺得怎麼樣？",
+      "simplified": "这个电脑有一点贵，你觉得怎么样？",
+      "pinyin": "Zhè ge diànnǎo yǒu yìdiǎn guì, nǐ juéde zěnmeyàng?",
+      "english": "This computer is a little expensive; what do you think?",
+      "notes": "",
+      "words_used": [
+        "有一点",
+        "贵",
+        "觉得"
+      ]
+    },
+    {
+      "traditional": "這家餐廳的咖啡有一點貴，可是很不錯。",
+      "simplified": "这家餐厅的咖啡有一点贵，可是很不错。",
+      "pinyin": "Zhè jiā cāntīng de kāfēi yǒu yìdiǎn guì, kěshì hěn búcuò.",
+      "english": "The coffee at this restaurant is a little expensive, but it's pretty good.",
+      "notes": "",
+      "words_used": [
+        "咖啡",
+        "有一点",
+        "贵",
+        "不错"
       ]
     },
     {
@@ -447,15 +385,24 @@
       ]
     },
     {
-      "traditional": "這雙運動鞋不錯，可是有一點貴。",
-      "simplified": "这双运动鞋不错，可是有一点贵。",
-      "pinyin": "Zhè shuāng yùndòng xié búcuò, kěshì yǒu yìdiǎn guì.",
-      "english": "This pair of sneakers is nice, but a little expensive.",
+      "traditional": "林小姐不會說中文，可是她會說法文。",
+      "simplified": "林小姐不会说中文，可是她会说法文。",
+      "pinyin": "Lín xiǎojiě bú huì shuō Zhōngwén, kěshì tā huì shuō Fǎwén.",
+      "english": "Ms. Lin can't speak Chinese, but she can speak French.",
       "notes": "",
       "words_used": [
-        "不错",
-        "有一点",
-        "贵"
+        "会",
+        "中文"
+      ]
+    },
+    {
+      "traditional": "那個學校有多少學生？有三百個。",
+      "simplified": "那个学校有多少学生？有三百个。",
+      "pinyin": "Nà ge xuéxiào yǒu duōshǎo xuésheng? Yǒu sān bǎi ge.",
+      "english": "How many students does that school have? Three hundred.",
+      "notes": "",
+      "words_used": [
+        "多少"
       ]
     },
     {
@@ -472,15 +419,31 @@
       ]
     },
     {
-      "traditional": "我常常跟明文聊天，練習我的華語。",
-      "simplified": "我常常跟明文聊天，练习我的华语。",
-      "pinyin": "Wǒ chángcháng gēn Míngwén liáo tiān, liànxí wǒ de Huáyǔ.",
-      "english": "I often chat with Mingwen to practice my Mandarin.",
+      "traditional": "下課以後，我們去喝杯咖啡聊天吧。",
+      "simplified": "下课以后，我们去喝杯咖啡聊天吧。",
+      "pinyin": "Xiàkè yǐhòu, wǒmen qù hē bēi kāfēi liáo tiān ba.",
+      "english": "After class, let's go have a cup of coffee and chat.",
       "notes": "",
       "words_used": [
-        "聊天",
-        "练习",
-        "华语"
+        "喝",
+        "杯",
+        "咖啡",
+        "聊天"
+      ]
+    },
+    {
+      "traditional": "寫字寫得有一點累，我們休息一下吧。",
+      "simplified": "写字写得有一点累，我们休息一下吧。",
+      "pinyin": "Xiě zì xiě de yǒu yìdiǎn lèi, wǒmen xiūxí yíxià ba.",
+      "english": "Writing characters has made me a little tired; let's take a short break.",
+      "notes": "",
+      "words_used": [
+        "写字",
+        "得",
+        "有一点",
+        "休息",
+        "一下",
+        "吧"
       ]
     }
   ],

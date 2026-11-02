@@ -228,26 +228,13 @@
   ],
   "sentences": [
     {
-      "traditional": "王先生星期五有時間。",
-      "simplified": "王先生星期五有时间。",
-      "pinyin": "Wáng xiānsheng xīngqīwǔ yǒu shíjiān.",
-      "english": "Mr. Wang has time on Friday.",
+      "traditional": "這位是我同事林小姐。",
+      "simplified": "这位是我同事林小姐。",
+      "pinyin": "Zhè wèi shì wǒ tóngshì Lín xiǎojiě.",
+      "english": "This is my coworker, Ms. Lin.",
       "notes": "",
       "words_used": [
-        "星期五",
-        "时间"
-      ]
-    },
-    {
-      "traditional": "你想跟我一起吃飯，好不好？",
-      "simplified": "你想跟我一起吃饭，好不好？",
-      "pinyin": "Nǐ xiǎng gēn wǒ yìqǐ chī fàn, hǎo bù hǎo?",
-      "english": "Do you want to eat together with me, okay?",
-      "notes": "",
-      "words_used": [
-        "跟",
-        "一起",
-        "吃饭"
+        "同事"
       ]
     },
     {
@@ -277,101 +264,6 @@
       ]
     },
     {
-      "traditional": "誰要跟我們一起去吃晚飯？",
-      "simplified": "谁要跟我们一起去吃晚饭？",
-      "pinyin": "Shéi yào gēn wǒmen yìqǐ qù chī wǎn fàn?",
-      "english": "Who wants to go eat dinner together with us?",
-      "notes": "",
-      "words_used": [
-        "要",
-        "跟",
-        "一起",
-        "晚饭"
-      ]
-    },
-    {
-      "traditional": "我下課以後五點半回來。",
-      "simplified": "我下课以后五点半回来。",
-      "pinyin": "Wǒ xiàkè yǐhòu wǔ diǎn bàn huílái.",
-      "english": "I'll come back at five thirty after class.",
-      "notes": "",
-      "words_used": [
-        "下课",
-        "点",
-        "半"
-      ]
-    },
-    {
-      "traditional": "我們星期六見，你的哥哥呢？",
-      "simplified": "我们星期六见，你的哥哥呢？",
-      "pinyin": "Wǒmen xīngqīliù jiàn, nǐ de gēge ne?",
-      "english": "We'll meet on Saturday; and your older brother?",
-      "notes": "",
-      "words_used": [
-        "星期六",
-        "见"
-      ]
-    },
-    {
-      "traditional": "那個餐廳怎麼樣？行不行？",
-      "simplified": "那个餐厅怎么样？行不行？",
-      "pinyin": "Nà ge cāntīng zěnmeyàng? Xíng bù xíng?",
-      "english": "How about that restaurant? Is it okay or not?",
-      "notes": "",
-      "words_used": [
-        "那",
-        "餐厅",
-        "怎么样",
-        "行",
-        "不行"
-      ]
-    },
-    {
-      "traditional": "今天星期幾？今天星期三。",
-      "simplified": "今天星期几？今天星期三。",
-      "pinyin": "Jīntiān xīngqījǐ? Jīntiān xīngqīsān.",
-      "english": "What day of the week is today? Today is Wednesday.",
-      "notes": "",
-      "words_used": [
-        "星期几",
-        "星期三"
-      ]
-    },
-    {
-      "traditional": "今天是二〇二一年九月十八號星期六。",
-      "simplified": "今天是二〇二一年九月十八号星期六。",
-      "pinyin": "Jīntiān shì èr líng èr yī nián jiǔyuè shíbā hào xīngqīliù.",
-      "english": "Today is Saturday, September 18th, 2021.",
-      "notes": "",
-      "words_used": [
-        "年",
-        "星期六"
-      ]
-    },
-    {
-      "traditional": "現在幾點？現在十點二十分。",
-      "simplified": "现在几点？现在十点二十分。",
-      "pinyin": "Xiànzài jǐ diǎn? Xiànzài shí diǎn èrshí fēn.",
-      "english": "What time is it now? It is 10:20.",
-      "notes": "",
-      "words_used": [
-        "点",
-        "分"
-      ]
-    },
-    {
-      "traditional": "王先生每天跟他太太一起吃晚飯。",
-      "simplified": "王先生每天跟他太太一起吃晚饭。",
-      "pinyin": "Wáng xiānsheng měitiān gēn tā tàitai yìqǐ chī wǎn fàn.",
-      "english": "Mr. Wang has dinner with his wife every day.",
-      "notes": "",
-      "words_used": [
-        "跟",
-        "一起",
-        "晚饭"
-      ]
-    },
-    {
       "traditional": "星期六晚上我們要去美味餐廳吃飯，你要不要跟我們一起去？",
       "simplified": "星期六晚上我们要去美味餐厅吃饭，你要不要跟我们一起去？",
       "pinyin": "Xīngqīliù wǎnshàng wǒmen yào qù Měiwèi Cāntīng chī fàn, nǐ yào bú yào gēn wǒmen yìqǐ qù?",
@@ -384,6 +276,31 @@
         "吃饭",
         "跟",
         "一起"
+      ]
+    },
+    {
+      "traditional": "星期六不行，星期五怎麼樣？",
+      "simplified": "星期六不行，星期五怎么样？",
+      "pinyin": "Xīngqīliù bù xíng, xīngqīwǔ zěnmeyàng?",
+      "english": "Saturday is no good. How about Friday?",
+      "notes": "",
+      "words_used": [
+        "星期六",
+        "不行",
+        "星期五",
+        "怎么样"
+      ]
+    },
+    {
+      "traditional": "星期五也行。你星期五有時間嗎？",
+      "simplified": "星期五也行。你星期五有时间吗？",
+      "pinyin": "Xīngqīwǔ yě xíng. Nǐ xīngqīwǔ yǒu shíjiān ma?",
+      "english": "Friday is okay too. Are you free on Friday?",
+      "notes": "",
+      "words_used": [
+        "星期五",
+        "行",
+        "时间"
       ]
     },
     {
@@ -411,6 +328,128 @@
         "餐厅",
         "见",
         "怎么样"
+      ]
+    },
+    {
+      "traditional": "沒問題，我們星期四見。",
+      "simplified": "没问题，我们星期四见。",
+      "pinyin": "Méi wèntí, wǒmen xīngqīsì jiàn.",
+      "english": "No problem, see you on Thursday.",
+      "notes": "",
+      "words_used": [
+        "星期四",
+        "见"
+      ]
+    },
+    {
+      "traditional": "今天星期幾？今天星期三。",
+      "simplified": "今天星期几？今天星期三。",
+      "pinyin": "Jīntiān xīngqījǐ? Jīntiān xīngqīsān.",
+      "english": "What day of the week is today? Today is Wednesday.",
+      "notes": "",
+      "words_used": [
+        "星期几",
+        "星期三"
+      ]
+    },
+    {
+      "traditional": "你平常星期幾去打網球？我星期二去。",
+      "simplified": "你平常星期几去打网球？我星期二去。",
+      "pinyin": "Nǐ píngcháng xīngqījǐ qù dǎ wǎngqiú? Wǒ xīngqī'èr qù.",
+      "english": "What day do you usually go play tennis? I go on Tuesdays.",
+      "notes": "",
+      "words_used": [
+        "星期几",
+        "星期二"
+      ]
+    },
+    {
+      "traditional": "今天是二〇二一年九月十八號星期六。",
+      "simplified": "今天是二〇二一年九月十八号星期六。",
+      "pinyin": "Jīntiān shì èr líng èr yī nián jiǔyuè shíbā hào xīngqīliù.",
+      "english": "Today is Saturday, September 18th, 2021.",
+      "notes": "",
+      "words_used": [
+        "年",
+        "星期六"
+      ]
+    },
+    {
+      "traditional": "現在幾點？現在十點二十分。",
+      "simplified": "现在几点？现在十点二十分。",
+      "pinyin": "Xiànzài jǐ diǎn? Xiànzài shí diǎn èrshí fēn.",
+      "english": "What time is it now? It is 10:20.",
+      "notes": "",
+      "words_used": [
+        "点",
+        "分"
+      ]
+    },
+    {
+      "traditional": "明文星期一上午十點念書，下午兩點聽音樂。",
+      "simplified": "明文星期一上午十点念书，下午两点听音乐。",
+      "pinyin": "Míngwén xīngqīyī shàngwǔ shí diǎn niàn shū, xiàwǔ liǎng diǎn tīng yīnyuè.",
+      "english": "On Monday Mingwen studies at ten in the morning and listens to music at two in the afternoon.",
+      "notes": "",
+      "words_used": [
+        "星期一",
+        "点"
+      ]
+    },
+    {
+      "traditional": "明文星期天晚上在家看電視。",
+      "simplified": "明文星期天晚上在家看电视。",
+      "pinyin": "Míngwén xīngqītiān wǎnshàng zài jiā kàn diànshì.",
+      "english": "Mingwen watches TV at home on Sunday evenings.",
+      "notes": "",
+      "words_used": [
+        "星期天"
+      ]
+    },
+    {
+      "traditional": "我下課以後五點半回來。",
+      "simplified": "我下课以后五点半回来。",
+      "pinyin": "Wǒ xiàkè yǐhòu wǔ diǎn bàn huílái.",
+      "english": "I'll come back at five thirty after class.",
+      "notes": "",
+      "words_used": [
+        "下课",
+        "点",
+        "半"
+      ]
+    },
+    {
+      "traditional": "王先生每天跟他太太一起吃晚飯。",
+      "simplified": "王先生每天跟他太太一起吃晚饭。",
+      "pinyin": "Wáng xiānsheng měitiān gēn tā tàitai yìqǐ chī wǎn fàn.",
+      "english": "Mr. Wang has dinner with his wife every day.",
+      "notes": "",
+      "words_used": [
+        "跟",
+        "一起",
+        "晚饭"
+      ]
+    },
+    {
+      "traditional": "家文跟明文一起去買運動鞋。",
+      "simplified": "家文跟明文一起去买运动鞋。",
+      "pinyin": "Jiāwén gēn Míngwén yìqǐ qù mǎi yùndòng xié.",
+      "english": "Jiawen went to buy sports shoes with Mingwen.",
+      "notes": "",
+      "words_used": [
+        "跟",
+        "一起"
+      ]
+    },
+    {
+      "traditional": "你常常跟誰一起去公園？",
+      "simplified": "你常常跟谁一起去公园？",
+      "pinyin": "Nǐ chángcháng gēn shéi yìqǐ qù gōngyuán?",
+      "english": "Who do you often go to the park with?",
+      "notes": "",
+      "words_used": [
+        "跟",
+        "一起"
       ]
     }
   ],

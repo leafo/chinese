@@ -193,6 +193,17 @@
   ],
   "sentences": [
     {
+      "traditional": "請問你爸爸、媽媽在哪裡工作？",
+      "simplified": "请问你爸爸、妈妈在哪里工作？",
+      "pinyin": "Qǐngwèn nǐ bàba, māma zài nǎlǐ gōngzuò?",
+      "english": "Excuse me, where do your father and mother work?",
+      "notes": "",
+      "words_used": [
+        "爸爸",
+        "妈妈"
+      ]
+    },
+    {
       "traditional": "我爸爸在電腦公司工作。",
       "simplified": "我爸爸在电脑公司工作。",
       "pinyin": "Wǒ bàba zài diànnǎo gōngsī gōngzuò.",
@@ -203,94 +214,16 @@
       ]
     },
     {
-      "traditional": "她媽媽是老師，每天都很忙。",
-      "simplified": "她妈妈是老师，每天都很忙。",
-      "pinyin": "Tā māma shì lǎoshī, měitiān dōu hěn máng.",
-      "english": "Her mom is a teacher, and she is very busy every day.",
+      "traditional": "我媽媽是小學老師，她喜歡小孩子。",
+      "simplified": "我妈妈是小学老师，她喜欢小孩子。",
+      "pinyin": "Wǒ māma shì xiǎoxué lǎoshī, tā xǐhuān xiǎoháizi.",
+      "english": "My mother is an elementary school teacher; she likes children.",
       "notes": "",
       "words_used": [
         "妈妈",
         "老师",
-        "每天",
-        "很",
-        "忙"
-      ]
-    },
-    {
-      "traditional": "那個醫生是誰？",
-      "simplified": "那个医生是谁？",
-      "pinyin": "Nà ge yīshēng shì shéi?",
-      "english": "Who is that doctor?",
-      "notes": "",
-      "words_used": [
-        "医生"
-      ]
-    },
-    {
-      "traditional": "你喜歡教書嗎？",
-      "simplified": "你喜欢教书吗？",
-      "pinyin": "Nǐ xǐhuān jiāo shū ma?",
-      "english": "Do you like teaching?",
-      "notes": "",
-      "words_used": [
         "喜欢",
-        "教书"
-      ]
-    },
-    {
-      "traditional": "他們今天非常累。",
-      "simplified": "他们今天非常累。",
-      "pinyin": "Tāmen jīntiān fēicháng lèi.",
-      "english": "They are extremely tired today.",
-      "notes": "",
-      "words_used": [
-        "今天",
-        "非常",
-        "累"
-      ]
-    },
-    {
-      "traditional": "我哥哥是工程師，你哥哥呢？",
-      "simplified": "我哥哥是工程师，你哥哥呢？",
-      "pinyin": "Wǒ gēge shì gōngchéngshī, nǐ gēge ne?",
-      "english": "My older brother is an engineer; what about your older brother?",
-      "notes": "",
-      "words_used": [
-        "工程师"
-      ]
-    },
-    {
-      "traditional": "這是老師的女兒。",
-      "simplified": "这是老师的女儿。",
-      "pinyin": "Zhè shì lǎoshī de nǚ'ér.",
-      "english": "This is the teacher's daughter.",
-      "notes": "",
-      "words_used": [
-        "老师"
-      ]
-    },
-    {
-      "traditional": "王先生教法文，他說法文很好。",
-      "simplified": "王先生教法文，他说法文很好。",
-      "pinyin": "Wáng xiānsheng jiāo Fǎwén, tā shuō Fǎwén hěn hǎo.",
-      "english": "Mr. Wang teaches French; he says French is very good.",
-      "notes": "",
-      "words_used": [
-        "教",
-        "法文",
-        "说",
-        "很"
-      ]
-    },
-    {
-      "traditional": "請問你爸爸、媽媽在哪裡工作？",
-      "simplified": "请问你爸爸、妈妈在哪里工作？",
-      "pinyin": "Qǐngwèn nǐ bàba, māma zài nǎlǐ gōngzuò?",
-      "english": "Excuse me, where do your father and mother work?",
-      "notes": "",
-      "words_used": [
-        "爸爸",
-        "妈妈"
+        "小孩子"
       ]
     },
     {
@@ -318,6 +251,28 @@
       ]
     },
     {
+      "traditional": "律師的工作累不累？",
+      "simplified": "律师的工作累不累？",
+      "pinyin": "Lǜshī de gōngzuò lèi bú lèi?",
+      "english": "Is a lawyer's job tiring?",
+      "notes": "",
+      "words_used": [
+        "律师",
+        "累"
+      ]
+    },
+    {
+      "traditional": "我妹妹是服務員，她每天都工作。",
+      "simplified": "我妹妹是服务员，她每天都工作。",
+      "pinyin": "Wǒ mèimei shì fúwùyuán, tā měitiān dōu gōngzuò.",
+      "english": "My younger sister is a server; she works every day.",
+      "notes": "",
+      "words_used": [
+        "服务员",
+        "每天"
+      ]
+    },
+    {
       "traditional": "你今天累不累？",
       "simplified": "你今天累不累？",
       "pinyin": "Nǐ jīntiān lèi bú lèi?",
@@ -329,16 +284,28 @@
       ]
     },
     {
-      "traditional": "我媽媽是小學老師，她喜歡小孩子。",
-      "simplified": "我妈妈是小学老师，她喜欢小孩子。",
-      "pinyin": "Wǒ māma shì xiǎoxué lǎoshī, tā xǐhuān xiǎoháizi.",
-      "english": "My mother is an elementary school teacher; she likes children.",
+      "traditional": "他們今天非常累。",
+      "simplified": "他们今天非常累。",
+      "pinyin": "Tāmen jīntiān fēicháng lèi.",
+      "english": "They are extremely tired today.",
       "notes": "",
       "words_used": [
-        "妈妈",
-        "老师",
-        "喜欢",
-        "小孩子"
+        "今天",
+        "非常",
+        "累"
+      ]
+    },
+    {
+      "traditional": "明文說他今天很忙。",
+      "simplified": "明文说他今天很忙。",
+      "pinyin": "Míngwén shuō tā jīntiān hěn máng.",
+      "english": "Mingwen says he is very busy today.",
+      "notes": "",
+      "words_used": [
+        "说",
+        "今天",
+        "很",
+        "忙"
       ]
     },
     {
@@ -354,6 +321,17 @@
       ]
     },
     {
+      "traditional": "你喜歡教書嗎？",
+      "simplified": "你喜欢教书吗？",
+      "pinyin": "Nǐ xǐhuān jiāo shū ma?",
+      "english": "Do you like teaching?",
+      "notes": "",
+      "words_used": [
+        "喜欢",
+        "教书"
+      ]
+    },
+    {
       "traditional": "王先生喜歡不喜歡教法文？",
       "simplified": "王先生喜欢不喜欢教法文？",
       "pinyin": "Wáng xiānsheng xǐhuān bù xǐhuān jiāo Fǎwén?",
@@ -363,16 +341,6 @@
         "喜欢",
         "教",
         "法文"
-      ]
-    },
-    {
-      "traditional": "王先生有沒有小孩子？",
-      "simplified": "王先生有没有小孩子？",
-      "pinyin": "Wáng xiānsheng yǒu méiyǒu xiǎoháizi?",
-      "english": "Does Mr. Wang have children?",
-      "notes": "",
-      "words_used": [
-        "小孩子"
       ]
     },
     {
@@ -389,6 +357,47 @@
       ]
     },
     {
+      "traditional": "你哥哥是不是軍人？",
+      "simplified": "你哥哥是不是军人？",
+      "pinyin": "Nǐ gēge shì bú shì jūnrén?",
+      "english": "Is your older brother a soldier?",
+      "notes": "",
+      "words_used": [
+        "军人"
+      ]
+    },
+    {
+      "traditional": "王先生不是商人，他是農人。",
+      "simplified": "王先生不是商人，他是农人。",
+      "pinyin": "Wáng xiānsheng bú shì shāngrén, tā shì nóngrén.",
+      "english": "Mr. Wang is not a businessman; he is a farmer.",
+      "notes": "",
+      "words_used": [
+        "商人",
+        "农人"
+      ]
+    },
+    {
+      "traditional": "王先生有沒有小孩子？",
+      "simplified": "王先生有没有小孩子？",
+      "pinyin": "Wáng xiānsheng yǒu méiyǒu xiǎoháizi?",
+      "english": "Does Mr. Wang have children?",
+      "notes": "",
+      "words_used": [
+        "小孩子"
+      ]
+    },
+    {
+      "traditional": "我哥哥是工程師，你哥哥呢？",
+      "simplified": "我哥哥是工程师，你哥哥呢？",
+      "pinyin": "Wǒ gēge shì gōngchéngshī, nǐ gēge ne?",
+      "english": "My older brother is an engineer; what about your older brother?",
+      "notes": "",
+      "words_used": [
+        "工程师"
+      ]
+    },
+    {
       "traditional": "我爸爸是醫生，我媽媽是護士。",
       "simplified": "我爸爸是医生，我妈妈是护士。",
       "pinyin": "Wǒ bàba shì yīshēng, wǒ māma shì hùshì.",
@@ -402,14 +411,14 @@
       ]
     },
     {
-      "traditional": "我哥哥是律師，我姊姊是廚師。",
-      "simplified": "我哥哥是律师，我姐姐是厨师。",
-      "pinyin": "Wǒ gēge shì lǜshī, wǒ jiějie shì chúshī.",
-      "english": "My older brother is a lawyer, and my older sister is a chef.",
+      "traditional": "我姊姊是廚師，她喜歡她的工作。",
+      "simplified": "我姐姐是厨师，她喜欢她的工作。",
+      "pinyin": "Wǒ jiějie shì chúshī, tā xǐhuān tā de gōngzuò.",
+      "english": "My older sister is a chef; she likes her job.",
       "notes": "",
       "words_used": [
-        "律师",
-        "厨师"
+        "厨师",
+        "喜欢"
       ]
     },
     {

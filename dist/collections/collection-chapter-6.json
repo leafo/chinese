@@ -179,15 +179,13 @@
   ],
   "sentences": [
     {
-      "traditional": "我週末喜歡打網球。",
-      "simplified": "我周末喜欢打网球。",
-      "pinyin": "Wǒ zhōumò xǐhuān dǎ wǎngqiú.",
-      "english": "On weekends I like to play tennis.",
+      "traditional": "家文，你喜歡不喜歡運動？",
+      "simplified": "家文，你喜欢不喜欢运动？",
+      "pinyin": "Jiāwén, nǐ xǐhuān bù xǐhuān yùndòng?",
+      "english": "Jiawen, do you like to exercise?",
       "notes": "",
       "words_used": [
-        "周末",
-        "打",
-        "网球"
+        "运动"
       ]
     },
     {
@@ -202,17 +200,15 @@
       ]
     },
     {
-      "traditional": "她晚上常常在家看電視。",
-      "simplified": "她晚上常常在家看电视。",
-      "pinyin": "Tā wǎnshàng chángcháng zài jiā kàn diànshì.",
-      "english": "She often watches television at home at night.",
+      "traditional": "你晚上常常做什麼？",
+      "simplified": "你晚上常常做什么？",
+      "pinyin": "Nǐ wǎnshàng chángcháng zuò shénme?",
+      "english": "What do you often do in the evening?",
       "notes": "",
       "words_used": [
         "晚上",
         "常常",
-        "家",
-        "看",
-        "电视"
+        "做"
       ]
     },
     {
@@ -228,6 +224,18 @@
       ]
     },
     {
+      "traditional": "我週末喜歡打網球。",
+      "simplified": "我周末喜欢打网球。",
+      "pinyin": "Wǒ zhōumò xǐhuān dǎ wǎngqiú.",
+      "english": "On weekends I like to play tennis.",
+      "notes": "",
+      "words_used": [
+        "周末",
+        "打",
+        "网球"
+      ]
+    },
+    {
       "traditional": "我哥哥喜歡踢足球，你呢？",
       "simplified": "我哥哥喜欢踢足球，你呢？",
       "pinyin": "Wǒ gēge xǐhuān tī zúqiú, nǐ ne?",
@@ -238,24 +246,27 @@
       ]
     },
     {
-      "traditional": "那是我爸爸的電視。",
-      "simplified": "那是我爸爸的电视。",
-      "pinyin": "Nà shì wǒ bàba de diànshì.",
-      "english": "That is my father's TV.",
+      "traditional": "我不喜歡運動，可是我喜歡看書。",
+      "simplified": "我不喜欢运动，可是我喜欢看书。",
+      "pinyin": "Wǒ bù xǐhuān yùndòng, kěshì wǒ xǐhuān kàn shū.",
+      "english": "I don't like to exercise, but I like to read.",
       "notes": "",
       "words_used": [
-        "电视"
+        "运动",
+        "可是",
+        "看书"
       ]
     },
     {
-      "traditional": "他們上午想去公園跑步。",
-      "simplified": "他们上午想去公园跑步。",
-      "pinyin": "Tāmen shàngwǔ xiǎng qù gōngyuán pǎobù.",
-      "english": "They want to go jogging in the park in the morning.",
+      "traditional": "王先生和他太太都很喜歡看書。",
+      "simplified": "王先生和他太太都很喜欢看书。",
+      "pinyin": "Wáng xiānsheng hé tā tàitai dōu hěn xǐhuān kàn shū.",
+      "english": "Mr. Wang and his wife both really like to read.",
       "notes": "",
       "words_used": [
-        "上午",
-        "跑步"
+        "和",
+        "太太",
+        "看书"
       ]
     },
     {
@@ -299,6 +310,41 @@
       ]
     },
     {
+      "traditional": "王明文有兩個美國朋友，還有一個法國朋友。",
+      "simplified": "王明文有两个美国朋友，还有一个法国朋友。",
+      "pinyin": "Wáng Míngwén yǒu liǎng ge Měiguó péngyǒu, hái yǒu yí ge Fǎguó péngyǒu.",
+      "english": "Wang Mingwen has two American friends. In addition, he has a French friend.",
+      "notes": "",
+      "words_used": [
+        "还"
+      ]
+    },
+    {
+      "traditional": "她晚上常常在家看電視。",
+      "simplified": "她晚上常常在家看电视。",
+      "pinyin": "Tā wǎnshàng chángcháng zài jiā kàn diànshì.",
+      "english": "She often watches television at home at night.",
+      "notes": "",
+      "words_used": [
+        "晚上",
+        "常常",
+        "家",
+        "看",
+        "电视"
+      ]
+    },
+    {
+      "traditional": "我在臺灣，晚上喜歡去公園跑步。",
+      "simplified": "我在台湾，晚上喜欢去公园跑步。",
+      "pinyin": "Wǒ zài Táiwān, wǎnshàng xǐhuān qù gōngyuán pǎobù.",
+      "english": "In Taiwan, I like to go running in the park in the evening.",
+      "notes": "",
+      "words_used": [
+        "晚上",
+        "跑步"
+      ]
+    },
+    {
       "traditional": "王明文上午在公園打網球。",
       "simplified": "王明文上午在公园打网球。",
       "pinyin": "Wáng Míngwén shàngwǔ zài gōngyuán dǎ wǎngqiú.",
@@ -308,6 +354,17 @@
         "上午",
         "打",
         "网球"
+      ]
+    },
+    {
+      "traditional": "你妹妹上午在哪裡打籃球？",
+      "simplified": "你妹妹上午在哪里打篮球？",
+      "pinyin": "Nǐ mèimei shàngwǔ zài nǎlǐ dǎ lánqiú?",
+      "english": "Where does your younger sister play basketball in the morning?",
+      "notes": "",
+      "words_used": [
+        "上午",
+        "打篮球"
       ]
     },
     {
@@ -347,13 +404,15 @@
       ]
     },
     {
-      "traditional": "家文，你喜歡不喜歡運動？",
-      "simplified": "家文，你喜欢不喜欢运动？",
-      "pinyin": "Jiāwén, nǐ xǐhuān bù xǐhuān yùndòng?",
-      "english": "Jiawen, do you like to exercise?",
+      "traditional": "家文週末想去國家公園，可是明文和林小姐都不想去。",
+      "simplified": "家文周末想去国家公园，可是明文和林小姐都不想去。",
+      "pinyin": "Jiāwén zhōumò xiǎng qù guójiā gōngyuán, kěshì Míngwén hé Lín xiǎojiě dōu bù xiǎng qù.",
+      "english": "Jiawen wants to go to a national park on the weekend, but neither Mingwen nor Ms. Lin wants to go.",
       "notes": "",
       "words_used": [
-        "运动"
+        "周末",
+        "可是",
+        "和"
       ]
     }
   ],

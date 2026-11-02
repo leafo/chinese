@@ -116,55 +116,6 @@
   ],
   "sentences": [
     {
-      "traditional": "你叫什麼名字？",
-      "simplified": "你叫什么名字？",
-      "pinyin": "Nǐ jiào shénme míngzi?",
-      "english": "What is your name?",
-      "notes": "",
-      "words_used": [
-        "叫",
-        "什么",
-        "名字"
-      ]
-    },
-    {
-      "traditional": "你好！請問你叫什麼名字？",
-      "simplified": "你好！请问你叫什么名字？",
-      "pinyin": "Nǐ hǎo! Qǐng wèn nǐ jiào shénme míngzi?",
-      "english": "Hello! May I ask, what is your name?",
-      "notes": "",
-      "words_used": [
-        "好",
-        "请问",
-        "叫",
-        "什么",
-        "名字"
-      ]
-    },
-    {
-      "traditional": "我姓王，我叫王明文。",
-      "simplified": "我姓王，我叫王明文。",
-      "pinyin": "Wǒ xìng Wáng, wǒ jiào Wáng Míngwén.",
-      "english": "My surname is Wang; my name is Wang Mingwen.",
-      "notes": "",
-      "words_used": [
-        "我",
-        "姓",
-        "叫"
-      ]
-    },
-    {
-      "traditional": "他是美國人，她呢？",
-      "simplified": "他是美国人，她呢？",
-      "pinyin": "Tā shì Měiguó rén, tā ne?",
-      "english": "He is American; and her?",
-      "notes": "",
-      "words_used": [
-        "是",
-        "美国人"
-      ]
-    },
-    {
       "traditional": "請問您貴姓？",
       "simplified": "请问您贵姓？",
       "pinyin": "Qǐng wèn nín guì xìng?",
@@ -174,55 +125,6 @@
         "请问",
         "您",
         "贵姓"
-      ]
-    },
-    {
-      "traditional": "明文是臺灣人。",
-      "simplified": "明文是台湾人。",
-      "pinyin": "Míngwén shì Táiwānrén.",
-      "english": "Mingwen is Taiwanese.",
-      "notes": "",
-      "words_used": [
-        "是",
-        "台湾人"
-      ]
-    },
-    {
-      "traditional": "我姓劉，我是美國人。",
-      "simplified": "我姓刘，我是美国人。",
-      "pinyin": "Wǒ xìng Liú, wǒ shì Měiguórén.",
-      "english": "My surname is Liu; I am American.",
-      "notes": "",
-      "words_used": [
-        "我",
-        "是",
-        "美国人",
-        "姓"
-      ]
-    },
-    {
-      "traditional": "你是哪國人？",
-      "simplified": "你是哪国人？",
-      "pinyin": "Nǐ shì nǎ guó rén?",
-      "english": "What is your nationality?",
-      "notes": "",
-      "words_used": [
-        "是",
-        "哪国人"
-      ]
-    },
-    {
-      "traditional": "您好，我姓林，我叫林美美。",
-      "simplified": "您好，我姓林，我叫林美美。",
-      "pinyin": "Nín hǎo, wǒ xìng Lín, wǒ jiào Lín Měiměi.",
-      "english": "Hello, my surname is Lin; my name is Lin Meimei.",
-      "notes": "",
-      "words_used": [
-        "您",
-        "好",
-        "我",
-        "姓",
-        "叫"
       ]
     },
     {
@@ -241,6 +143,78 @@
       ]
     },
     {
+      "traditional": "我姓王，我叫王明文。",
+      "simplified": "我姓王，我叫王明文。",
+      "pinyin": "Wǒ xìng Wáng, wǒ jiào Wáng Míngwén.",
+      "english": "My surname is Wang; my name is Wang Mingwen.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "姓",
+        "叫"
+      ]
+    },
+    {
+      "traditional": "我姓林，叫美美。",
+      "simplified": "我姓林，叫美美。",
+      "pinyin": "Wǒ xìng Lín, jiào Měiměi.",
+      "english": "My surname is Lin; my given name is Meimei.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "姓",
+        "叫"
+      ]
+    },
+    {
+      "traditional": "我姓劉，我是美國人。",
+      "simplified": "我姓刘，我是美国人。",
+      "pinyin": "Wǒ xìng Liú, wǒ shì Měiguórén.",
+      "english": "My surname is Liu; I am American.",
+      "notes": "",
+      "words_used": [
+        "我",
+        "是",
+        "美国人",
+        "姓"
+      ]
+    },
+    {
+      "traditional": "明文姓什麼？",
+      "simplified": "明文姓什么？",
+      "pinyin": "Míngwén xìng shénme?",
+      "english": "What is Mingwen's surname?",
+      "notes": "",
+      "words_used": [
+        "姓",
+        "什么"
+      ]
+    },
+    {
+      "traditional": "明文姓王。",
+      "simplified": "明文姓王。",
+      "pinyin": "Míngwén xìng Wáng.",
+      "english": "Mingwen's surname is Wang.",
+      "notes": "",
+      "words_used": [
+        "姓"
+      ]
+    },
+    {
+      "traditional": "你好！請問你叫什麼名字？",
+      "simplified": "你好！请问你叫什么名字？",
+      "pinyin": "Nǐ hǎo! Qǐng wèn nǐ jiào shénme míngzi?",
+      "english": "Hello! May I ask, what is your name?",
+      "notes": "",
+      "words_used": [
+        "好",
+        "请问",
+        "叫",
+        "什么",
+        "名字"
+      ]
+    },
+    {
       "traditional": "我叫明文，您叫什麼名字？",
       "simplified": "我叫明文，您叫什么名字？",
       "pinyin": "Wǒ jiào Míngwén, nín jiào shénme míngzi?",
@@ -255,14 +229,48 @@
       ]
     },
     {
-      "traditional": "明文姓什麼？",
-      "simplified": "明文姓什么？",
-      "pinyin": "Míngwén xìng shénme?",
-      "english": "What is Mingwen's surname?",
+      "traditional": "他叫什麼名字？",
+      "simplified": "他叫什么名字？",
+      "pinyin": "Tā jiào shénme míngzi?",
+      "english": "What is his name?",
       "notes": "",
       "words_used": [
-        "姓",
-        "什么"
+        "叫",
+        "什么",
+        "名字"
+      ]
+    },
+    {
+      "traditional": "她是林美美。",
+      "simplified": "她是林美美。",
+      "pinyin": "Tā shì Lín Měiměi.",
+      "english": "She is Lin Meimei.",
+      "notes": "",
+      "words_used": [
+        "是"
+      ]
+    },
+    {
+      "traditional": "他叫王明文，他是臺灣人。",
+      "simplified": "他叫王明文，他是台湾人。",
+      "pinyin": "Tā jiào Wáng Míngwén, tā shì Táiwānrén.",
+      "english": "He is called Wang Mingwen; he is Taiwanese.",
+      "notes": "",
+      "words_used": [
+        "叫",
+        "是",
+        "台湾人"
+      ]
+    },
+    {
+      "traditional": "你是哪國人？",
+      "simplified": "你是哪国人？",
+      "pinyin": "Nǐ shì nǎ guó rén?",
+      "english": "What is your nationality?",
+      "notes": "",
+      "words_used": [
+        "是",
+        "哪国人"
       ]
     },
     {
@@ -292,15 +300,14 @@
       ]
     },
     {
-      "traditional": "他叫王明文，他是臺灣人。",
-      "simplified": "他叫王明文，他是台湾人。",
-      "pinyin": "Tā jiào Wáng Míngwén, tā shì Táiwānrén.",
-      "english": "He is called Wang Mingwen; he is Taiwanese.",
+      "traditional": "他是美國人，她呢？",
+      "simplified": "他是美国人，她呢？",
+      "pinyin": "Tā shì Měiguó rén, tā ne?",
+      "english": "He is American; and her?",
       "notes": "",
       "words_used": [
-        "叫",
         "是",
-        "台湾人"
+        "美国人"
       ]
     },
     {
@@ -313,6 +320,43 @@
         "是",
         "美国人",
         "台湾人"
+      ]
+    },
+    {
+      "traditional": "你叫什麼名字？",
+      "simplified": "你叫什么名字？",
+      "pinyin": "Nǐ jiào shénme míngzi?",
+      "english": "What is your name?",
+      "notes": "",
+      "words_used": [
+        "叫",
+        "什么",
+        "名字"
+      ]
+    },
+    {
+      "traditional": "明文是臺灣人。",
+      "simplified": "明文是台湾人。",
+      "pinyin": "Míngwén shì Táiwānrén.",
+      "english": "Mingwen is Taiwanese.",
+      "notes": "",
+      "words_used": [
+        "是",
+        "台湾人"
+      ]
+    },
+    {
+      "traditional": "您好，我姓林，我叫林美美。",
+      "simplified": "您好，我姓林，我叫林美美。",
+      "pinyin": "Nín hǎo, wǒ xìng Lín, wǒ jiào Lín Měiměi.",
+      "english": "Hello, my surname is Lin; my name is Lin Meimei.",
+      "notes": "",
+      "words_used": [
+        "您",
+        "好",
+        "我",
+        "姓",
+        "叫"
       ]
     }
   ],

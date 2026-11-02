@@ -242,101 +242,13 @@
   ],
   "sentences": [
     {
-      "traditional": "喂，請問你是哪位？",
-      "simplified": "喂，请问你是哪位？",
-      "pinyin": "Wéi, qǐng wèn nǐ shì nǎ wèi?",
-      "english": "Hello, may I ask who you are?",
+      "traditional": "喂，您好！請問林美美在嗎？",
+      "simplified": "喂，您好！请问林美美在吗？",
+      "pinyin": "Wéi, nín hǎo! Qǐngwèn Lín Měiměi zài ma?",
+      "english": "Hello! May I ask if Lin Meimei is in?",
       "notes": "",
       "words_used": [
-        "喂",
-        "哪",
-        "位"
-      ]
-    },
-    {
-      "traditional": "林小姐下午回來。",
-      "simplified": "林小姐下午回来。",
-      "pinyin": "Lín xiǎojiě xiàwǔ huílái.",
-      "english": "Ms. Lin will come back in the afternoon.",
-      "notes": "",
-      "words_used": [
-        "小姐",
-        "下午",
-        "回来"
-      ]
-    },
-    {
-      "traditional": "他的手機號碼是三八零九。",
-      "simplified": "他的手机号码是三八零九。",
-      "pinyin": "Tā de shǒujī hàomǎ shì sān bā líng jiǔ.",
-      "english": "His cell phone number is three-eight-zero-nine.",
-      "notes": "",
-      "words_used": [
-        "手机",
-        "号码",
-        "三",
-        "八",
-        "零",
-        "九"
-      ]
-    },
-    {
-      "traditional": "你什麼時候給我打電話？",
-      "simplified": "你什么时候给我打电话？",
-      "pinyin": "Nǐ shénme shíhòu gěi wǒ dǎ diànhuà?",
-      "english": "When will you call me?",
-      "notes": "",
-      "words_used": [
-        "什么时候",
-        "给",
-        "打电话"
-      ]
-    },
-    {
-      "traditional": "麻煩你，辦公室的電話是幾號？",
-      "simplified": "麻烦你，办公室的电话是几号？",
-      "pinyin": "Máfan nǐ, bàngōngshì de diànhuà shì jǐ hào?",
-      "english": "Could you please tell me, what is the office's phone number?",
-      "notes": "",
-      "words_used": [
-        "麻烦",
-        "办公室",
-        "电话",
-        "几号"
-      ]
-    },
-    {
-      "traditional": "這是誰的手機？",
-      "simplified": "这是谁的手机？",
-      "pinyin": "Zhè shì shéi de shǒujī?",
-      "english": "Whose cell phone is this?",
-      "notes": "",
-      "words_used": [
-        "手机"
-      ]
-    },
-    {
-      "traditional": "我以前給她打電話，你呢？",
-      "simplified": "我以前给她打电话，你呢？",
-      "pinyin": "Wǒ yǐqián gěi tā dǎ diànhuà, nǐ ne?",
-      "english": "I called her before; what about you?",
-      "notes": "",
-      "words_used": [
-        "以前",
-        "给",
-        "打电话"
-      ]
-    },
-    {
-      "traditional": "好的，謝謝，再見！",
-      "simplified": "好的，谢谢，再见！",
-      "pinyin": "Hǎode, xièxie, zàijiàn!",
-      "english": "Okay, thank you, goodbye!",
-      "notes": "",
-      "words_used": [
-        "好的",
-        "谢谢",
-        "再见"
+        "喂"
       ]
     },
     {
@@ -353,6 +265,16 @@
       ]
     },
     {
+      "traditional": "我是北電公司的劉小姐。",
+      "simplified": "我是北电公司的刘小姐。",
+      "pinyin": "Wǒ shì Běidiàn Gōngsī de Liú xiǎojiě.",
+      "english": "This is Ms. Liu from Beidian Company.",
+      "notes": "",
+      "words_used": [
+        "小姐"
+      ]
+    },
+    {
       "traditional": "請問林小姐什麼時候回來？",
       "simplified": "请问林小姐什么时候回来？",
       "pinyin": "Qǐngwèn Lín xiǎojiě shénme shíhòu huílái?",
@@ -361,6 +283,18 @@
       "words_used": [
         "小姐",
         "什么时候",
+        "回来"
+      ]
+    },
+    {
+      "traditional": "林小姐下午回來。",
+      "simplified": "林小姐下午回来。",
+      "pinyin": "Lín xiǎojiě xiàwǔ huílái.",
+      "english": "Ms. Lin will come back in the afternoon.",
+      "notes": "",
+      "words_used": [
+        "小姐",
+        "下午",
         "回来"
       ]
     },
@@ -376,6 +310,42 @@
         "以后",
         "给",
         "打电话"
+      ]
+    },
+    {
+      "traditional": "你回來以前，給我打電話。",
+      "simplified": "你回来以前，给我打电话。",
+      "pinyin": "Nǐ huílái yǐqián, gěi wǒ dǎ diànhuà.",
+      "english": "Before you come back, give me a call.",
+      "notes": "",
+      "words_used": [
+        "回来",
+        "以前",
+        "给",
+        "打电话"
+      ]
+    },
+    {
+      "traditional": "你什麼時候給我打電話？",
+      "simplified": "你什么时候给我打电话？",
+      "pinyin": "Nǐ shénme shíhòu gěi wǒ dǎ diànhuà?",
+      "english": "When will you call me?",
+      "notes": "",
+      "words_used": [
+        "什么时候",
+        "给",
+        "打电话"
+      ]
+    },
+    {
+      "traditional": "請問您的手機是幾號？",
+      "simplified": "请问您的手机是几号？",
+      "pinyin": "Qǐngwèn nín de shǒujī shì jǐ hào?",
+      "english": "May I ask what your cell phone number is?",
+      "notes": "",
+      "words_used": [
+        "手机",
+        "几号"
       ]
     },
     {
@@ -398,6 +368,68 @@
       ]
     },
     {
+      "traditional": "他的手機號碼是三八零九。",
+      "simplified": "他的手机号码是三八零九。",
+      "pinyin": "Tā de shǒujī hàomǎ shì sān bā líng jiǔ.",
+      "english": "His cell phone number is three-eight-zero-nine.",
+      "notes": "",
+      "words_used": [
+        "手机",
+        "号码",
+        "三",
+        "八",
+        "零",
+        "九"
+      ]
+    },
+    {
+      "traditional": "這是誰的手機？",
+      "simplified": "这是谁的手机？",
+      "pinyin": "Zhè shì shéi de shǒujī?",
+      "english": "Whose cell phone is this?",
+      "notes": "",
+      "words_used": [
+        "手机"
+      ]
+    },
+    {
+      "traditional": "麻煩你，辦公室的電話是幾號？",
+      "simplified": "麻烦你，办公室的电话是几号？",
+      "pinyin": "Máfan nǐ, bàngōngshì de diànhuà shì jǐ hào?",
+      "english": "Could you please tell me, what is the office's phone number?",
+      "notes": "",
+      "words_used": [
+        "麻烦",
+        "办公室",
+        "电话",
+        "几号"
+      ]
+    },
+    {
+      "traditional": "你現在想給誰打電話？",
+      "simplified": "你现在想给谁打电话？",
+      "pinyin": "Nǐ xiànzài xiǎng gěi shéi dǎ diànhuà?",
+      "english": "Who do you want to call now?",
+      "notes": "",
+      "words_used": [
+        "给",
+        "打电话"
+      ]
+    },
+    {
+      "traditional": "王先生下午給他太太打電話。",
+      "simplified": "王先生下午给他太太打电话。",
+      "pinyin": "Wáng xiānsheng xiàwǔ gěi tā tàitai dǎ diànhuà.",
+      "english": "Mr. Wang calls his wife in the afternoon.",
+      "notes": "",
+      "words_used": [
+        "下午",
+        "给",
+        "太太",
+        "打电话"
+      ]
+    },
+    {
       "traditional": "聽音樂以後，他常常給朋友打電話。",
       "simplified": "听音乐以后，他常常给朋友打电话。",
       "pinyin": "Tīng yīnyuè yǐhòu, tā chángcháng gěi péngyǒu dǎ diànhuà.",
@@ -407,6 +439,16 @@
         "以后",
         "给",
         "打电话"
+      ]
+    },
+    {
+      "traditional": "你跑步以後想去哪裡？",
+      "simplified": "你跑步以后想去哪里？",
+      "pinyin": "Nǐ pǎobù yǐhòu xiǎng qù nǎlǐ?",
+      "english": "Where do you want to go after running?",
+      "notes": "",
+      "words_used": [
+        "以后"
       ]
     },
     {
@@ -429,6 +471,18 @@
       "notes": "",
       "words_used": [
         "百"
+      ]
+    },
+    {
+      "traditional": "好的，謝謝，再見！",
+      "simplified": "好的，谢谢，再见！",
+      "pinyin": "Hǎode, xièxie, zàijiàn!",
+      "english": "Okay, thank you, goodbye!",
+      "notes": "",
+      "words_used": [
+        "好的",
+        "谢谢",
+        "再见"
       ]
     },
     {

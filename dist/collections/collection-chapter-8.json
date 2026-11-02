@@ -270,60 +270,55 @@
   ],
   "sentences": [
     {
-      "traditional": "今天是我大哥的生日，我想祝他生日快樂。",
-      "simplified": "今天是我大哥的生日，我想祝他生日快乐。",
-      "pinyin": "Jīntiān shì wǒ dàgē de shēngrì, wǒ xiǎng zhù tā shēngrì kuàilè.",
-      "english": "Today is my oldest brother's birthday, I want to wish him a happy birthday.",
+      "traditional": "大哥，明天是幾月幾號？",
+      "simplified": "大哥，明天是几月几号？",
+      "pinyin": "Dàgē, míngtiān shì jǐ yuè jǐ hào?",
+      "english": "Big brother, what is the date tomorrow?",
       "notes": "",
       "words_used": [
-        "今天",
         "大哥",
-        "生日",
-        "祝",
-        "快乐"
+        "明天",
+        "月",
+        "号"
       ]
     },
     {
-      "traditional": "明天是十月五號，我要給朋友買個禮物。",
-      "simplified": "明天是十月五号，我要给朋友买个礼物。",
-      "pinyin": "Míngtiān shì shíyuè wǔ hào, wǒ yào gěi péngyou mǎi gè lǐwù.",
-      "english": "Tomorrow is October 5th, I want to buy a gift for my friend.",
+      "traditional": "明天是八月十一號。噢！明天是你的生日。",
+      "simplified": "明天是八月十一号。噢！明天是你的生日。",
+      "pinyin": "Míngtiān shì bāyuè shíyī hào. Òu! Míngtiān shì nǐ de shēngrì.",
+      "english": "Tomorrow is August 11th. Oh! Tomorrow is your birthday.",
       "notes": "",
       "words_used": [
         "明天",
-        "十月",
+        "八月",
         "号",
-        "要",
-        "买",
-        "礼物"
+        "噢",
+        "生日"
       ]
     },
     {
-      "traditional": "今年我給自己買了一雙運動鞋，可以嗎？",
-      "simplified": "今年我给自己买了一双运动鞋，可以吗？",
-      "pinyin": "Jīnnián wǒ gěi zìjǐ mǎi le yì shuāng yùndòngxié, kěyǐ ma?",
-      "english": "This year I bought myself a pair of sneakers, is that okay?",
+      "traditional": "你的生日幾月幾號？",
+      "simplified": "你的生日几月几号？",
+      "pinyin": "Nǐ de shēngrì jǐ yuè jǐ hào?",
+      "english": "What date is your birthday?",
       "notes": "",
       "words_used": [
-        "今年",
-        "买",
-        "双",
-        "运动鞋",
-        "可以吗"
+        "生日",
+        "月",
+        "号"
       ]
     },
     {
-      "traditional": "沒問題，明天我請你吃大餐！",
-      "simplified": "没问题，明天我请你吃大餐！",
-      "pinyin": "Méi wèntí, míngtiān wǒ qǐng nǐ chī dàcān!",
-      "english": "No problem, I will treat you to a big feast tomorrow!",
+      "traditional": "他的生日是一月十號，不是二月九號。",
+      "simplified": "他的生日是一月十号，不是二月九号。",
+      "pinyin": "Tā de shēngrì shì yīyuè shí hào, bú shì èryuè jiǔ hào.",
+      "english": "His birthday is January 10th, not February 9th.",
       "notes": "",
       "words_used": [
-        "没问题",
-        "明天",
-        "请",
-        "吃",
-        "大餐"
+        "生日",
+        "一月",
+        "号",
+        "二月"
       ]
     },
     {
@@ -364,6 +359,90 @@
       ]
     },
     {
+      "traditional": "今天不是我的生日。",
+      "simplified": "今天不是我的生日。",
+      "pinyin": "Jīntiān bú shì wǒ de shēngrì.",
+      "english": "Today isn't my birthday.",
+      "notes": "",
+      "words_used": [
+        "今天",
+        "生日"
+      ]
+    },
+    {
+      "traditional": "你今年幾歲？",
+      "simplified": "你今年几岁？",
+      "pinyin": "Nǐ jīnnián jǐ suì?",
+      "english": "How old are you this year?",
+      "notes": "",
+      "words_used": [
+        "今年",
+        "岁"
+      ]
+    },
+    {
+      "traditional": "林小姐今年二十三歲，她的生日是十一月二十號。",
+      "simplified": "林小姐今年二十三岁，她的生日是十一月二十号。",
+      "pinyin": "Lín xiǎojiě jīnnián èrshísān suì, tā de shēngrì shì shíyīyuè èrshí hào.",
+      "english": "Ms. Lin is twenty-three this year, and her birthday is November 20th.",
+      "notes": "",
+      "words_used": [
+        "今年",
+        "岁",
+        "生日",
+        "十一月",
+        "号"
+      ]
+    },
+    {
+      "traditional": "祝你生日快樂！",
+      "simplified": "祝你生日快乐！",
+      "pinyin": "Zhù nǐ shēngrì kuàilè!",
+      "english": "Happy birthday to you!",
+      "notes": "",
+      "words_used": [
+        "祝",
+        "生日",
+        "快乐"
+      ]
+    },
+    {
+      "traditional": "你要什麼生日禮物？",
+      "simplified": "你要什么生日礼物？",
+      "pinyin": "Nǐ yào shénme shēngrì lǐwù?",
+      "english": "What birthday present do you want?",
+      "notes": "",
+      "words_used": [
+        "要",
+        "生日",
+        "礼物"
+      ]
+    },
+    {
+      "traditional": "我要一雙運動鞋，可以嗎？",
+      "simplified": "我要一双运动鞋，可以吗？",
+      "pinyin": "Wǒ yào yì shuāng yùndòngxié, kěyǐ ma?",
+      "english": "I want a pair of sneakers, is that okay?",
+      "notes": "",
+      "words_used": [
+        "要",
+        "双",
+        "运动鞋",
+        "可以吗"
+      ]
+    },
+    {
+      "traditional": "好，我們今天晚上去買。",
+      "simplified": "好，我们今天晚上去买。",
+      "pinyin": "Hǎo, wǒmen jīntiān wǎnshàng qù mǎi.",
+      "english": "Okay, let's go buy them tonight.",
+      "notes": "",
+      "words_used": [
+        "今天",
+        "买"
+      ]
+    },
+    {
       "traditional": "我要送我大哥一個生日禮物。",
       "simplified": "我要送我大哥一个生日礼物。",
       "pinyin": "Wǒ yào sòng wǒ dàgē yí gè shēngrì lǐwù.",
@@ -374,6 +453,48 @@
         "送",
         "大哥",
         "生日",
+        "礼物"
+      ]
+    },
+    {
+      "traditional": "我們送他一雙運動鞋，好不好？",
+      "simplified": "我们送他一双运动鞋，好不好？",
+      "pinyin": "Wǒmen sòng tā yì shuāng yùndòngxié, hǎo bù hǎo?",
+      "english": "Let's gift him a pair of sports shoes, how does that sound?",
+      "notes": "",
+      "words_used": [
+        "送",
+        "双",
+        "运动鞋",
+        "好不好"
+      ]
+    },
+    {
+      "traditional": "七月四號是我的生日，你要送我什麼？",
+      "simplified": "七月四号是我的生日，你要送我什么？",
+      "pinyin": "Qīyuè sì hào shì wǒ de shēngrì, nǐ yào sòng wǒ shénme?",
+      "english": "July 4th is my birthday. What are you going to give me?",
+      "notes": "",
+      "words_used": [
+        "七月",
+        "号",
+        "生日",
+        "要",
+        "送"
+      ]
+    },
+    {
+      "traditional": "明天是十月五號，我要給朋友買個禮物。",
+      "simplified": "明天是十月五号，我要给朋友买个礼物。",
+      "pinyin": "Míngtiān shì shíyuè wǔ hào, wǒ yào gěi péngyou mǎi gè lǐwù.",
+      "english": "Tomorrow is October 5th, I want to buy a gift for my friend.",
+      "notes": "",
+      "words_used": [
+        "明天",
+        "十月",
+        "号",
+        "要",
+        "买",
         "礼物"
       ]
     },
@@ -392,176 +513,28 @@
       ]
     },
     {
-      "traditional": "我們送他一雙運動鞋，好不好？",
-      "simplified": "我们送他一双运动鞋，好不好？",
-      "pinyin": "Wǒmen sòng tā yì shuāng yùndòngxié, hǎo bù hǎo?",
-      "english": "Let's gift him a pair of sports shoes, how does that sound?",
+      "traditional": "沒問題，明天我請你吃大餐！",
+      "simplified": "没问题，明天我请你吃大餐！",
+      "pinyin": "Méi wèntí, míngtiān wǒ qǐng nǐ chī dàcān!",
+      "english": "No problem, I will treat you to a big feast tomorrow!",
       "notes": "",
       "words_used": [
-        "送",
-        "双",
-        "运动鞋",
-        "好不好"
-      ]
-    },
-    {
-      "traditional": "今天是我哥哥的生日。",
-      "simplified": "今天是我哥哥的生日。",
-      "pinyin": "Jīntiān shì wǒ gēge de shēngrì.",
-      "english": "Today is my older brother's birthday.",
-      "notes": "",
-      "words_used": [
-        "今天",
-        "生日"
-      ]
-    },
-    {
-      "traditional": "祝你生日快樂！",
-      "simplified": "祝你生日快乐！",
-      "pinyin": "Zhù nǐ shēngrì kuàilè!",
-      "english": "Happy birthday to you!",
-      "notes": "",
-      "words_used": [
-        "祝",
-        "生日",
-        "快乐"
-      ]
-    },
-    {
-      "traditional": "他今年要買一雙運動鞋。",
-      "simplified": "他今年要买一双运动鞋。",
-      "pinyin": "Tā jīnnián yào mǎi yì shuāng yùndòngxié.",
-      "english": "He wants to buy a pair of sneakers this year.",
-      "notes": "",
-      "words_used": [
-        "今年",
-        "要",
-        "买",
-        "双",
-        "运动鞋"
-      ]
-    },
-    {
-      "traditional": "你想送什麼禮物給她呢？",
-      "simplified": "你想送什么礼物给她呢？",
-      "pinyin": "Nǐ xiǎng sòng shénme lǐwù gěi tā ne?",
-      "english": "What gift do you want to give her?",
-      "notes": "",
-      "words_used": [
-        "送",
-        "礼物"
-      ]
-    },
-    {
-      "traditional": "誰的生日是十二月八號？",
-      "simplified": "谁的生日是十二月八号？",
-      "pinyin": "Shéi de shēngrì shì shí'èryuè bā hào?",
-      "english": "Whose birthday is on December eighth?",
-      "notes": "",
-      "words_used": [
-        "生日",
-        "十二月",
-        "号"
-      ]
-    },
-    {
-      "traditional": "我請你吃大餐，好不好？",
-      "simplified": "我请你吃大餐，好不好？",
-      "pinyin": "Wǒ qǐng nǐ chī dàcān, hǎo bù hǎo?",
-      "english": "I'll treat you to a fancy meal, how does that sound?",
-      "notes": "",
-      "words_used": [
-        "请",
-        "吃",
-        "大餐",
-        "好不好"
-      ]
-    },
-    {
-      "traditional": "那個孩子今年六歲。",
-      "simplified": "那个孩子今年六岁。",
-      "pinyin": "Nà ge háizi jīnnián liù suì.",
-      "english": "That child is six years old this year.",
-      "notes": "",
-      "words_used": [
-        "今年",
-        "岁"
-      ]
-    },
-    {
-      "traditional": "明天我大哥來我家吃大餐。",
-      "simplified": "明天我大哥来我家吃大餐。",
-      "pinyin": "Míngtiān wǒ dàgē lái wǒ jiā chī dàcān.",
-      "english": "Tomorrow my oldest brother is coming to my home to eat a fancy meal.",
-      "notes": "",
-      "words_used": [
+        "没问题",
         "明天",
-        "大哥",
+        "请",
         "吃",
         "大餐"
       ]
     },
     {
-      "traditional": "大哥，明天是幾月幾號？",
-      "simplified": "大哥，明天是几月几号？",
-      "pinyin": "Dàgē, míngtiān shì jǐ yuè jǐ hào?",
-      "english": "Big brother, what is the date tomorrow?",
+      "traditional": "可以，沒問題。你想吃什麼？",
+      "simplified": "可以，没问题。你想吃什么？",
+      "pinyin": "Kěyǐ, méi wèntí. Nǐ xiǎng chī shénme?",
+      "english": "Sure, no problem. What do you want to eat?",
       "notes": "",
       "words_used": [
-        "大哥",
-        "明天",
-        "月",
-        "号"
-      ]
-    },
-    {
-      "traditional": "明天是八月十一號。噢！明天是你的生日。",
-      "simplified": "明天是八月十一号。噢！明天是你的生日。",
-      "pinyin": "Míngtiān shì bāyuè shíyī hào. Òu! Míngtiān shì nǐ de shēngrì.",
-      "english": "Tomorrow is August 11th. Oh! Tomorrow is your birthday.",
-      "notes": "",
-      "words_used": [
-        "明天",
-        "八月",
-        "号",
-        "噢",
-        "生日"
-      ]
-    },
-    {
-      "traditional": "你今年幾歲？",
-      "simplified": "你今年几岁？",
-      "pinyin": "Nǐ jīnnián jǐ suì?",
-      "english": "How old are you this year?",
-      "notes": "",
-      "words_used": [
-        "今年",
-        "岁"
-      ]
-    },
-    {
-      "traditional": "我要一雙運動鞋，可以嗎？",
-      "simplified": "我要一双运动鞋，可以吗？",
-      "pinyin": "Wǒ yào yì shuāng yùndòngxié, kěyǐ ma?",
-      "english": "I want a pair of sneakers, is that okay?",
-      "notes": "",
-      "words_used": [
-        "要",
-        "双",
-        "运动鞋",
-        "可以吗"
-      ]
-    },
-    {
-      "traditional": "王先生的生日是十月十日。",
-      "simplified": "王先生的生日是十月十日。",
-      "pinyin": "Wáng xiānsheng de shēngrì shì shíyuè shí rì.",
-      "english": "Mr. Wang's birthday is October 10th.",
-      "notes": "",
-      "words_used": [
-        "生日",
-        "十月",
-        "日"
+        "没问题",
+        "吃"
       ]
     },
     {

@@ -244,6 +244,45 @@
       ]
     },
     {
+      "traditional": "我什麼菜都不會做。",
+      "simplified": "我什么菜都不会做。",
+      "pinyin": "Wǒ shénme cài dōu bú huì zuò.",
+      "english": "I don't know how to cook anything at all.",
+      "notes": "",
+      "words_used": [
+        "什么……都……"
+      ]
+    },
+    {
+      "traditional": "因為明文什麼魚都不吃，所以他們沒點紅燒魚。",
+      "simplified": "因为明文什么鱼都不吃，所以他们没点红烧鱼。",
+      "pinyin": "Yīnwèi Míngwén shénme yú dōu bù chī, suǒyǐ tāmen méi diǎn hóngshāoyú.",
+      "english": "Because Mingwen doesn't eat any kind of fish, they didn't order the braised fish.",
+      "notes": "",
+      "words_used": [
+        "什么……都……",
+        "鱼",
+        "点",
+        "红烧鱼"
+      ]
+    },
+    {
+      "traditional": "誰都不想做飯。",
+      "simplified": "谁都不想做饭。",
+      "pinyin": "Shéi dōu bù xiǎng zuò fàn.",
+      "english": "No one feels like cooking.",
+      "notes": "",
+      "words_used": []
+    },
+    {
+      "traditional": "春天在哪裡跑步都很舒服。",
+      "simplified": "春天在哪里跑步都很舒服。",
+      "pinyin": "Chūntiān zài nǎlǐ pǎobù dōu hěn shūfu.",
+      "english": "In spring it's comfortable to go running anywhere.",
+      "notes": "",
+      "words_used": []
+    },
+    {
       "traditional": "妳想吃豆腐還是青菜？",
       "simplified": "你想吃豆腐还是青菜？",
       "pinyin": "Nǐ xiǎng chī dòufǔ háishì qīngcài?",
@@ -253,6 +292,29 @@
         "豆腐",
         "还是",
         "青菜"
+      ]
+    },
+    {
+      "traditional": "我們點紅燒魚還是炒青菜？",
+      "simplified": "我们点红烧鱼还是炒青菜？",
+      "pinyin": "Wǒmen diǎn hóngshāoyú háishì chǎoqīngcài?",
+      "english": "Shall we order braised fish or stir-fried green vegetables?",
+      "notes": "",
+      "words_used": [
+        "点",
+        "红烧鱼",
+        "还是",
+        "炒青菜"
+      ]
+    },
+    {
+      "traditional": "你做飯還是她做飯？",
+      "simplified": "你做饭还是她做饭？",
+      "pinyin": "Nǐ zuò fàn háishì tā zuò fàn?",
+      "english": "Are you cooking or is she?",
+      "notes": "",
+      "words_used": [
+        "还是"
       ]
     },
     {
@@ -271,6 +333,18 @@
       ]
     },
     {
+      "traditional": "也點一碗酸辣湯吧！",
+      "simplified": "也点一碗酸辣汤吧！",
+      "pinyin": "Yě diǎn yì wǎn suānlàtāng ba!",
+      "english": "Let's also order a bowl of hot and sour soup!",
+      "notes": "",
+      "words_used": [
+        "点",
+        "碗",
+        "酸辣汤"
+      ]
+    },
+    {
       "traditional": "酸辣湯又酸又辣，真好喝！",
       "simplified": "酸辣汤又酸又辣，真好喝！",
       "pinyin": "Suānlàtāng yòu suān yòu là, zhēn hǎohē!",
@@ -280,6 +354,19 @@
         "酸辣汤",
         "酸",
         "辣",
+        "好喝"
+      ]
+    },
+    {
+      "traditional": "這碗湯太酸了，不好喝。",
+      "simplified": "这碗汤太酸了，不好喝。",
+      "pinyin": "Zhè wǎn tāng tài suān le, bù hǎohē.",
+      "english": "This bowl of soup is too sour; it doesn't taste good.",
+      "notes": "",
+      "words_used": [
+        "碗",
+        "汤",
+        "酸",
         "好喝"
       ]
     },
@@ -330,38 +417,13 @@
       ]
     },
     {
-      "traditional": "我們點紅燒魚還是炒青菜？",
-      "simplified": "我们点红烧鱼还是炒青菜？",
-      "pinyin": "Wǒmen diǎn hóngshāoyú háishì chǎoqīngcài?",
-      "english": "Shall we order braised fish or stir-fried green vegetables?",
+      "traditional": "請問三位要點什麼？",
+      "simplified": "请问三位要点什么？",
+      "pinyin": "Qǐngwèn sān wèi yào diǎn shénme?",
+      "english": "What would the three of you like to order?",
       "notes": "",
       "words_used": [
-        "点",
-        "红烧鱼",
-        "还是",
-        "炒青菜"
-      ]
-    },
-    {
-      "traditional": "我什麼菜都不會做。",
-      "simplified": "我什么菜都不会做。",
-      "pinyin": "Wǒ shénme cài dōu bú huì zuò.",
-      "english": "I don't know how to cook anything at all.",
-      "notes": "",
-      "words_used": [
-        "什么……都……"
-      ]
-    },
-    {
-      "traditional": "你要吃白飯還是包子？",
-      "simplified": "你要吃白饭还是包子？",
-      "pinyin": "Nǐ yào chī báifàn háishì bāozi?",
-      "english": "Do you want to eat steamed rice or steamed buns?",
-      "notes": "",
-      "words_used": [
-        "白饭",
-        "还是",
-        "包子"
+        "点"
       ]
     },
     {

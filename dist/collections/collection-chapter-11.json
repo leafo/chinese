@@ -234,7 +234,32 @@
       ]
     },
     {
-      "traditional": "這裡的夏天比台灣的夏天舒服多了。",
+      "traditional": "美國夏天的天氣怎麼樣？",
+      "simplified": "美国夏天的天气怎么样？",
+      "pinyin": "Měiguó xiàtiān de tiānqì zěnmeyàng?",
+      "english": "How is the summer weather in America?",
+      "notes": "",
+      "words_used": [
+        "夏天",
+        "天气"
+      ]
+    },
+    {
+      "traditional": "臺灣的春天和秋天很舒服，不冷也不熱。",
+      "simplified": "台湾的春天和秋天很舒服，不冷也不热。",
+      "pinyin": "Táiwān de chūntiān hé qiūtiān hěn shūfu, bù lěng yě bù rè.",
+      "english": "Spring and autumn in Taiwan are very comfortable, neither cold nor hot.",
+      "notes": "",
+      "words_used": [
+        "春天",
+        "秋天",
+        "舒服",
+        "冷",
+        "热"
+      ]
+    },
+    {
+      "traditional": "這裡的夏天比臺灣的夏天舒服多了。",
       "simplified": "这里的夏天比台湾的夏天舒服多了。",
       "pinyin": "Zhèlǐ de xiàtiān bǐ Táiwān de xiàtiān shūfu duō le.",
       "english": "Summer here is much more comfortable than summer in Taiwan.",
@@ -247,17 +272,29 @@
       ]
     },
     {
-      "traditional": "台灣的春天和秋天很舒服，不冷也不熱。",
-      "simplified": "台湾的春天和秋天很舒服，不冷也不热。",
-      "pinyin": "Táiwān de chūntiān hé qiūtiān hěn shūfu, bù lěng yě bù rè.",
-      "english": "Spring and autumn in Taiwan are very comfortable, neither cold nor hot.",
+      "traditional": "今天比昨天熱，明天可能會下雨。",
+      "simplified": "今天比昨天热，明天可能会下雨。",
+      "pinyin": "Jīntiān bǐ zuótiān rè, míngtiān kěnéng huì xià yǔ.",
+      "english": "Today is hotter than yesterday, and it will probably rain tomorrow.",
       "notes": "",
       "words_used": [
-        "春天",
-        "秋天",
-        "舒服",
-        "冷",
-        "热"
+        "比",
+        "昨天",
+        "热",
+        "可能",
+        "会",
+        "下雨"
+      ]
+    },
+    {
+      "traditional": "劉小姐比林小姐大。",
+      "simplified": "刘小姐比林小姐大。",
+      "pinyin": "Liú xiǎojiě bǐ Lín xiǎojiě dà.",
+      "english": "Ms. Liu is older than Ms. Lin.",
+      "notes": "",
+      "words_used": [
+        "比",
+        "大"
       ]
     },
     {
@@ -277,16 +314,83 @@
       ]
     },
     {
-      "traditional": "下雨的時候，我們都不能出來跑步。",
-      "simplified": "下雨的时候，我们都不能出来跑步。",
-      "pinyin": "Xià yǔ de shíhòu, wǒmen dōu bù néng chūlái pǎobù.",
-      "english": "When it rains, none of us can come out to run.",
+      "traditional": "牛肉麵太好吃了。",
+      "simplified": "牛肉面太好吃了。",
+      "pinyin": "Niúròumiàn tài hǎochī le.",
+      "english": "The beef noodles are so delicious.",
+      "notes": "",
+      "words_used": [
+        "太……了"
+      ]
+    },
+    {
+      "traditional": "臺灣的冬天不下雪，可是常常下雨。",
+      "simplified": "台湾的冬天不下雪，可是常常下雨。",
+      "pinyin": "Táiwān de dōngtiān bú xià xuě, kěshì chángcháng xià yǔ.",
+      "english": "Winter in Taiwan has no snow, but it often rains.",
+      "notes": "",
+      "words_used": [
+        "冬天",
+        "下雪",
+        "下雨"
+      ]
+    },
+    {
+      "traditional": "對，美國冬天常常下雪。",
+      "simplified": "对，美国冬天常常下雪。",
+      "pinyin": "Duì, Měiguó dōngtiān chángcháng xià xuě.",
+      "english": "Right, it often snows in America in the winter.",
+      "notes": "",
+      "words_used": [
+        "对",
+        "冬天",
+        "下雪"
+      ]
+    },
+    {
+      "traditional": "明文很喜歡下雪的時候在家聽音樂。",
+      "simplified": "明文很喜欢下雪的时候在家听音乐。",
+      "pinyin": "Míngwén hěn xǐhuān xià xuě de shíhòu zài jiā tīng yīnyuè.",
+      "english": "Mingwen really likes listening to music at home when it snows.",
+      "notes": "",
+      "words_used": [
+        "下雪",
+        "……的时候"
+      ]
+    },
+    {
+      "traditional": "下雨的時候很麻煩，我們不能出來跑步。",
+      "simplified": "下雨的时候很麻烦，我们不能出来跑步。",
+      "pinyin": "Xià yǔ de shíhòu hěn máfán, wǒmen bù néng chūlái pǎobù.",
+      "english": "It is troublesome when it rains; we can't come out to run.",
       "notes": "",
       "words_used": [
         "下雨",
         "……的时候",
+        "麻烦",
         "能",
         "出来"
+      ]
+    },
+    {
+      "traditional": "你能給我一杯咖啡嗎？",
+      "simplified": "你能给我一杯咖啡吗？",
+      "pinyin": "Nǐ néng gěi wǒ yì bēi kāfēi ma?",
+      "english": "Can you give me a cup of coffee?",
+      "notes": "",
+      "words_used": [
+        "能",
+        "给"
+      ]
+    },
+    {
+      "traditional": "我要練習華語，不能休息。",
+      "simplified": "我要练习华语，不能休息。",
+      "pinyin": "Wǒ yào liànxí Huáyǔ, bù néng xiūxí.",
+      "english": "I have to practice Mandarin; I can't rest.",
+      "notes": "",
+      "words_used": [
+        "能"
       ]
     },
     {
@@ -330,21 +434,6 @@
       ]
     },
     {
-      "traditional": "對，冬天的時候這裡比北方舒服。",
-      "simplified": "对，冬天的时候这里比北方舒服。",
-      "pinyin": "Duì, dōngtiān de shíhòu zhèlǐ bǐ běifāng shūfu.",
-      "english": "Right, in the winter it is more comfortable here than in the north.",
-      "notes": "",
-      "words_used": [
-        "对",
-        "冬天",
-        "……的时候",
-        "这里",
-        "比",
-        "舒服"
-      ]
-    },
-    {
       "traditional": "他給朋友打電話，問今天會不會下雪。",
       "simplified": "他给朋友打电话，问今天会不会下雪。",
       "pinyin": "Tā gěi péngyǒu dǎ diànhuà, wèn jīntiān huì bu huì xià xuě.",
@@ -357,32 +446,25 @@
       ]
     },
     {
-      "traditional": "下雨的時候很麻煩，我們不能出來跑步。",
-      "simplified": "下雨的时候很麻烦，我们不能出来跑步。",
-      "pinyin": "Xià yǔ de shíhòu hěn máfán, wǒmen bù néng chūlái pǎobù.",
-      "english": "It is troublesome when it rains; we can't come out to run.",
+      "traditional": "明文明天不放假，可能不會去打網球。",
+      "simplified": "明文明天不放假，可能不会去打网球。",
+      "pinyin": "Míngwén míngtiān bú fàngjià, kěnéng bú huì qù dǎ wǎngqiú.",
+      "english": "Mingwen isn't off tomorrow, so he probably won't go play tennis.",
       "notes": "",
       "words_used": [
-        "下雨",
-        "……的时候",
-        "麻烦",
-        "能",
-        "出来"
+        "可能",
+        "会"
       ]
     },
     {
-      "traditional": "今天比昨天熱，明天可能會下雨。",
-      "simplified": "今天比昨天热，明天可能会下雨。",
-      "pinyin": "Jīntiān bǐ zuótiān rè, míngtiān kěnéng huì xià yǔ.",
-      "english": "Today is hotter than yesterday, and it will probably rain tomorrow.",
+      "traditional": "你今天晚上會去跳舞嗎？我一定會去。",
+      "simplified": "你今天晚上会去跳舞吗？我一定会去。",
+      "pinyin": "Nǐ jīntiān wǎnshàng huì qù tiào wǔ ma? Wǒ yídìng huì qù.",
+      "english": "Will you go dancing tonight? I will definitely go.",
       "notes": "",
       "words_used": [
-        "比",
-        "昨天",
-        "热",
-        "可能",
         "会",
-        "下雨"
+        "一定"
       ]
     }
   ],

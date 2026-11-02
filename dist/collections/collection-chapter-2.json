@@ -122,47 +122,15 @@
       ]
     },
     {
-      "traditional": "我沒有姐姐，只有一個哥哥。",
-      "simplified": "我没有姐姐，只有一个哥哥。",
-      "pinyin": "Wǒ méiyǒu jiějie, zhǐyǒu yí gè gēge.",
-      "english": "I don't have an older sister; I only have one older brother.",
+      "traditional": "我沒有兄弟姐妹。",
+      "simplified": "我没有兄弟姐妹。",
+      "pinyin": "Wǒ méi yǒu xiōngdì jiěmèi.",
+      "english": "I don't have any siblings.",
       "notes": "",
       "words_used": [
         "没",
         "有",
-        "姐姐",
-        "只",
-        "一",
-        "个",
-        "哥哥"
-      ]
-    },
-    {
-      "traditional": "我有一個哥哥，還有兩個姐姐。",
-      "simplified": "我有一个哥哥，还有两个姐姐。",
-      "pinyin": "Wǒ yǒu yí gè gēge, hái yǒu liǎng gè jiějie.",
-      "english": "I have an older brother and two older sisters.",
-      "notes": "",
-      "words_used": [
-        "有",
-        "一",
-        "个",
-        "哥哥",
-        "两",
-        "姐姐"
-      ]
-    },
-    {
-      "traditional": "我有兩個弟弟。",
-      "simplified": "我有两个弟弟。",
-      "pinyin": "Wǒ yǒu liǎng ge dìdi.",
-      "english": "I have two younger brothers.",
-      "notes": "",
-      "words_used": [
-        "有",
-        "两",
-        "个",
-        "弟弟"
+        "兄弟姐妹"
       ]
     },
     {
@@ -179,17 +147,62 @@
       ]
     },
     {
-      "traditional": "他沒有哥哥，也沒有妹妹。",
-      "simplified": "他没有哥哥，也没有妹妹。",
-      "pinyin": "Tā méi yǒu gēge, yě méi yǒu mèimei.",
-      "english": "He has no older brother, and also no younger sister.",
+      "traditional": "我有兩個弟弟。",
+      "simplified": "我有两个弟弟。",
+      "pinyin": "Wǒ yǒu liǎng ge dìdi.",
+      "english": "I have two younger brothers.",
+      "notes": "",
+      "words_used": [
+        "有",
+        "两",
+        "个",
+        "弟弟"
+      ]
+    },
+    {
+      "traditional": "我有一個姐姐，兩個弟弟。妳呢？",
+      "simplified": "我有一个姐姐，两个弟弟。你呢？",
+      "pinyin": "Wǒ yǒu yí ge jiějie, liǎng ge dìdi. Nǐ ne?",
+      "english": "I have one older sister and two younger brothers. How about you?",
+      "notes": "",
+      "words_used": [
+        "有",
+        "一",
+        "个",
+        "姐姐",
+        "两",
+        "弟弟",
+        "你"
+      ]
+    },
+    {
+      "traditional": "我也有一個姐姐。",
+      "simplified": "我也有一个姐姐。",
+      "pinyin": "Wǒ yě yǒu yí ge jiějie.",
+      "english": "I also have one older sister.",
+      "notes": "",
+      "words_used": [
+        "也",
+        "有",
+        "一",
+        "个",
+        "姐姐"
+      ]
+    },
+    {
+      "traditional": "我沒有姐姐，只有一個哥哥。",
+      "simplified": "我没有姐姐，只有一个哥哥。",
+      "pinyin": "Wǒ méiyǒu jiějie, zhǐyǒu yí gè gēge.",
+      "english": "I don't have an older sister; I only have one older brother.",
       "notes": "",
       "words_used": [
         "没",
         "有",
-        "哥哥",
-        "也",
-        "妹妹"
+        "姐姐",
+        "只",
+        "一",
+        "个",
+        "哥哥"
       ]
     },
     {
@@ -207,51 +220,32 @@
       ]
     },
     {
-      "traditional": "這是誰的妹妹？",
-      "simplified": "这是谁的妹妹？",
-      "pinyin": "Zhè shì shéi de mèimei?",
-      "english": "Whose younger sister is this?",
+      "traditional": "他沒有哥哥，也沒有妹妹。",
+      "simplified": "他没有哥哥，也没有妹妹。",
+      "pinyin": "Tā méi yǒu gēge, yě méi yǒu mèimei.",
+      "english": "He has no older brother, and also no younger sister.",
       "notes": "",
       "words_used": [
+        "没",
+        "有",
+        "哥哥",
+        "也",
         "妹妹"
       ]
     },
     {
-      "traditional": "我有一個姐姐，你呢？",
-      "simplified": "我有一个姐姐，你呢？",
-      "pinyin": "Wǒ yǒu yí ge jiějie, nǐ ne?",
-      "english": "I have one older sister, and you?",
+      "traditional": "明文有兩個弟弟，沒有妹妹。",
+      "simplified": "明文有两个弟弟，没有妹妹。",
+      "pinyin": "Míngwén yǒu liǎng ge dìdi, méi yǒu mèimei.",
+      "english": "Mingwen has two younger brothers and no younger sister.",
       "notes": "",
       "words_used": [
         "有",
-        "一",
-        "个",
-        "姐姐",
-        "你"
-      ]
-    },
-    {
-      "traditional": "那兩個人是我的兄弟姐妹。",
-      "simplified": "那两个人是我的兄弟姐妹。",
-      "pinyin": "Nà liǎng ge rén shì wǒ de xiōngdì jiěmèi.",
-      "english": "Those two people are my siblings.",
-      "notes": "",
-      "words_used": [
         "两",
         "个",
-        "兄弟姐妹"
-      ]
-    },
-    {
-      "traditional": "他們有弟弟嗎？",
-      "simplified": "他们有弟弟吗？",
-      "pinyin": "Tāmen yǒu dìdi ma?",
-      "english": "Do they have younger brothers?",
-      "notes": "",
-      "words_used": [
-        "有",
         "弟弟",
-        "吗"
+        "没",
+        "妹妹"
       ]
     },
     {
@@ -276,19 +270,14 @@
       ]
     },
     {
-      "traditional": "我有一個姐姐，兩個弟弟。妳呢？",
-      "simplified": "我有一个姐姐，两个弟弟。你呢？",
-      "pinyin": "Wǒ yǒu yí ge jiějie, liǎng ge dìdi. Nǐ ne?",
-      "english": "I have one older sister and two younger brothers. How about you?",
+      "traditional": "你叫明文嗎？",
+      "simplified": "你叫明文吗？",
+      "pinyin": "Nǐ jiào Míngwén ma?",
+      "english": "Is your name Mingwen?",
       "notes": "",
       "words_used": [
-        "有",
-        "一",
-        "个",
-        "姐姐",
-        "两",
-        "弟弟",
-        "你"
+        "你",
+        "吗"
       ]
     },
     {
@@ -312,16 +301,13 @@
       ]
     },
     {
-      "traditional": "我有兩個妹妹。",
-      "simplified": "我有两个妹妹。",
-      "pinyin": "Wǒ yǒu liǎng ge mèimei.",
-      "english": "I have two younger sisters.",
+      "traditional": "林小姐是美國人，劉小姐也是。",
+      "simplified": "林小姐是美国人，刘小姐也是。",
+      "pinyin": "Lín xiǎojiě shì Měiguórén, Liú xiǎojiě yě shì.",
+      "english": "Ms. Lin is American; Ms. Liu is too.",
       "notes": "",
       "words_used": [
-        "有",
-        "两",
-        "个",
-        "妹妹"
+        "也"
       ]
     }
   ],
