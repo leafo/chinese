@@ -1,0 +1,388 @@
+{
+  "format": "chinese-collection-export",
+  "version": 2,
+  "exportedAt": "2026-11-02T19:56:00.000Z",
+  "collection": {
+    "name": "Chapter 14",
+    "notes": "I would like a cup of hot coffee",
+    "objectives": "Order beverages at a coffee shop; list the common beverages and foods at a coffee shop; express liking for beverages and foods"
+  },
+  "words": [
+    {
+      "traditional": "加",
+      "simplified": "加",
+      "pinyin": "jiā",
+      "english": "to add",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "牛奶",
+      "simplified": "牛奶",
+      "pinyin": "niúnǎi",
+      "english": "milk",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "糖",
+      "simplified": "糖",
+      "pinyin": "táng",
+      "english": "sugar",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "冰",
+      "simplified": "冰",
+      "pinyin": "bīng",
+      "english": "iced",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "中",
+      "simplified": "中",
+      "pinyin": "zhōng",
+      "english": "middle, medium",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "小",
+      "simplified": "小",
+      "pinyin": "xiǎo",
+      "english": "small",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "紅茶",
+      "simplified": "红茶",
+      "pinyin": "hóngchá",
+      "english": "black tea",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "別的",
+      "simplified": "别的",
+      "pinyin": "biéde",
+      "english": "other",
+      "notes": "Part of speech: Det"
+    },
+    {
+      "traditional": "塊",
+      "simplified": "块",
+      "pinyin": "kuài",
+      "english": "measure word for slice of cake",
+      "notes": "Part of speech: M"
+    },
+    {
+      "traditional": "蛋糕",
+      "simplified": "蛋糕",
+      "pinyin": "dàngāo",
+      "english": "cake",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "甜",
+      "simplified": "甜",
+      "pinyin": "tián",
+      "english": "sweet",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "鹹",
+      "simplified": "咸",
+      "pinyin": "xián",
+      "english": "salty",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "雞",
+      "simplified": "鸡",
+      "pinyin": "jī",
+      "english": "chicken",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "肉",
+      "simplified": "肉",
+      "pinyin": "ròu",
+      "english": "meat",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "三明治",
+      "simplified": "三明治",
+      "pinyin": "sānmíngzhì",
+      "english": "sandwich",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "如果",
+      "simplified": "如果",
+      "pinyin": "rúguǒ",
+      "english": "if",
+      "notes": "Part of speech: Conj"
+    },
+    {
+      "traditional": "就",
+      "simplified": "就",
+      "pinyin": "jiù",
+      "english": "then",
+      "notes": "Part of speech: Adv"
+    },
+    {
+      "traditional": "飲料",
+      "simplified": "饮料",
+      "pinyin": "yǐnliào",
+      "english": "beverage",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "一樣",
+      "simplified": "一样",
+      "pinyin": "yíyàng",
+      "english": "same, similar",
+      "notes": "Part of speech: Vs"
+    },
+    {
+      "traditional": "水",
+      "simplified": "水",
+      "pinyin": "shuǐ",
+      "english": "water",
+      "notes": "Part of speech: N"
+    },
+    {
+      "traditional": "等",
+      "simplified": "等",
+      "pinyin": "děng",
+      "english": "to wait",
+      "notes": "Part of speech: V"
+    },
+    {
+      "traditional": "馬上",
+      "simplified": "马上",
+      "pinyin": "mǎshàng",
+      "english": "right away, immediately",
+      "notes": "Part of speech: Adv"
+    },
+    {
+      "traditional": "咖啡店",
+      "simplified": "咖啡店",
+      "pinyin": "kāfēidiàn",
+      "english": "coffee shop",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "雞肉三明治",
+      "simplified": "鸡肉三明治",
+      "pinyin": "jīròusānmíngzhì",
+      "english": "chicken sandwich",
+      "notes": "Phrases"
+    },
+    {
+      "traditional": "冰水",
+      "simplified": "冰水",
+      "pinyin": "bīngshuǐ",
+      "english": "iced water",
+      "notes": "Phrases"
+    }
+  ],
+  "sentences": [
+    {
+      "traditional": "小姐，我要一杯咖啡，加牛奶，不加糖。",
+      "simplified": "小姐，我要一杯咖啡，加牛奶，不加糖。",
+      "pinyin": "Xiǎojiě, wǒ yào yì bēi kāfēi, jiā niúnǎi, bù jiā táng.",
+      "english": "Miss, I would like a cup of coffee, with milk and no sugar.",
+      "notes": "",
+      "words_used": [
+        "加",
+        "牛奶",
+        "糖"
+      ]
+    },
+    {
+      "traditional": "您要冰的還是熱的？",
+      "simplified": "您要冰的还是热的？",
+      "pinyin": "Nín yào bīng de háishì rè de?",
+      "english": "Would you like it iced or hot?",
+      "notes": "",
+      "words_used": [
+        "冰"
+      ]
+    },
+    {
+      "traditional": "您要大杯、中杯還是小杯的？",
+      "simplified": "您要大杯、中杯还是小杯的？",
+      "pinyin": "Nín yào dà bēi, zhōng bēi háishì xiǎo bēi de?",
+      "english": "Would you like a large, a medium or a small one?",
+      "notes": "",
+      "words_used": [
+        "中",
+        "小"
+      ]
+    },
+    {
+      "traditional": "我要一杯小杯的冰紅茶。",
+      "simplified": "我要一杯小杯的冰红茶。",
+      "pinyin": "Wǒ yào yì bēi xiǎo bēi de bīng hóngchá.",
+      "english": "I would like a small iced black tea.",
+      "notes": "",
+      "words_used": [
+        "小",
+        "冰",
+        "红茶"
+      ]
+    },
+    {
+      "traditional": "還要別的嗎？",
+      "simplified": "还要别的吗？",
+      "pinyin": "Hái yào biéde ma?",
+      "english": "Would you like anything else?",
+      "notes": "",
+      "words_used": [
+        "别的"
+      ]
+    },
+    {
+      "traditional": "蛋糕太甜了，我想吃鹹的東西。",
+      "simplified": "蛋糕太甜了，我想吃咸的东西。",
+      "pinyin": "Dàngāo tài tián le, wǒ xiǎng chī xián de dōngxi.",
+      "english": "Cake is too sweet; I want to eat something salty.",
+      "notes": "",
+      "words_used": [
+        "蛋糕",
+        "甜",
+        "咸"
+      ]
+    },
+    {
+      "traditional": "如果您點雞肉三明治，我們就送您一杯飲料。",
+      "simplified": "如果您点鸡肉三明治，我们就送您一杯饮料。",
+      "pinyin": "Rúguǒ nín diǎn jīròusānmíngzhì, wǒmen jiù sòng nín yì bēi yǐnliào.",
+      "english": "If you order a chicken sandwich, we will give you a free drink.",
+      "notes": "",
+      "words_used": [
+        "如果",
+        "鸡肉三明治",
+        "就",
+        "饮料"
+      ]
+    },
+    {
+      "traditional": "明文如果要請我吃晚飯，我就一定去。",
+      "simplified": "明文如果要请我吃晚饭，我就一定去。",
+      "pinyin": "Míngwén rúguǒ yào qǐng wǒ chī wǎnfàn, wǒ jiù yídìng qù.",
+      "english": "If Mingwen wants to treat me to dinner, I will definitely go.",
+      "notes": "",
+      "words_used": [
+        "如果",
+        "就"
+      ]
+    },
+    {
+      "traditional": "家文跟林小姐一樣，都要一個雞肉三明治。",
+      "simplified": "家文跟林小姐一样，都要一个鸡肉三明治。",
+      "pinyin": "Jiāwén gēn Lín xiǎojiě yíyàng, dōu yào yí ge jīròusānmíngzhì.",
+      "english": "Jiawen is the same as Miss Lin; they both want a chicken sandwich.",
+      "notes": "",
+      "words_used": [
+        "一样",
+        "鸡肉三明治"
+      ]
+    },
+    {
+      "traditional": "他的背包跟我的一樣。",
+      "simplified": "他的背包跟我的一样。",
+      "pinyin": "Tā de bèibāo gēn wǒ de yíyàng.",
+      "english": "His backpack is the same as mine.",
+      "notes": "",
+      "words_used": [
+        "一样"
+      ]
+    },
+    {
+      "traditional": "華語跟法文一樣難。",
+      "simplified": "华语跟法文一样难。",
+      "pinyin": "Huáyǔ gēn Fǎwén yíyàng nán.",
+      "english": "Mandarin is just as hard as French.",
+      "notes": "",
+      "words_used": [
+        "一样"
+      ]
+    },
+    {
+      "traditional": "我們還要兩杯冰水。",
+      "simplified": "我们还要两杯冰水。",
+      "pinyin": "Wǒmen hái yào liǎng bēi bīngshuǐ.",
+      "english": "We would also like two glasses of iced water.",
+      "notes": "",
+      "words_used": [
+        "冰水"
+      ]
+    },
+    {
+      "traditional": "請等一下，馬上來。",
+      "simplified": "请等一下，马上来。",
+      "pinyin": "Qǐng děng yíxià, mǎshàng lái.",
+      "english": "Please wait a moment; it will be right out.",
+      "notes": "",
+      "words_used": [
+        "等",
+        "马上"
+      ]
+    },
+    {
+      "traditional": "那家咖啡店的蛋糕做得很好。",
+      "simplified": "那家咖啡店的蛋糕做得很好。",
+      "pinyin": "Nà jiā kāfēidiàn de dàngāo zuò de hěn hǎo.",
+      "english": "That coffee shop makes very good cake.",
+      "notes": "",
+      "words_used": [
+        "咖啡店",
+        "蛋糕"
+      ]
+    },
+    {
+      "traditional": "因為家文和林小姐都愛吃甜的東西，所以一起點一塊大蛋糕。",
+      "simplified": "因为家文和林小姐都爱吃甜的东西，所以一起点一块大蛋糕。",
+      "pinyin": "Yīnwèi Jiāwén hé Lín xiǎojiě dōu ài chī tián de dōngxi, suǒyǐ yìqǐ diǎn yí kuài dà dàngāo.",
+      "english": "Because Jiawen and Miss Lin both love sweet things, they ordered a large slice of cake together.",
+      "notes": "",
+      "words_used": [
+        "甜",
+        "块",
+        "蛋糕"
+      ]
+    },
+    {
+      "traditional": "林小姐只點一個三明治和一杯水。",
+      "simplified": "林小姐只点一个三明治和一杯水。",
+      "pinyin": "Lín xiǎojiě zhǐ diǎn yí ge sānmíngzhì hé yì bēi shuǐ.",
+      "english": "Miss Lin only ordered a sandwich and a glass of water.",
+      "notes": "",
+      "words_used": [
+        "三明治",
+        "水"
+      ]
+    },
+    {
+      "traditional": "妳想吃甜的包子還是鹹的？",
+      "simplified": "你想吃甜的包子还是咸的？",
+      "pinyin": "Nǐ xiǎng chī tián de bāozi háishì xián de?",
+      "english": "Do you want a sweet steamed bun or a savory one?",
+      "notes": "",
+      "words_used": [
+        "甜",
+        "咸"
+      ]
+    },
+    {
+      "traditional": "我喜歡吃雞肉，不喜歡吃魚。",
+      "simplified": "我喜欢吃鸡肉，不喜欢吃鱼。",
+      "pinyin": "Wǒ xǐhuān chī jīròu, bù xǐhuān chī yú.",
+      "english": "I like to eat chicken, but I don't like to eat fish.",
+      "notes": "",
+      "words_used": [
+        "鸡",
+        "肉"
+      ]
+    }
+  ]
+}

@@ -89,5 +89,12 @@
     "notes": "The braised fish is very delicious",
     "wordCount": 30,
     "sentenceCount": 14
+  },
+  {
+    "file": "collection-chapter-14.json",
+    "name": "Chapter 14",
+    "notes": "I would like a cup of hot coffee",
+    "wordCount": 25,
+    "sentenceCount": 18
   }
 ]
