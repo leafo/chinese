@@ -41,12 +41,13 @@ function shuffle(list) {
 
 // Resolves when playback finishes, is stopped, or fails, with true only for a
 // natural finish. The session reuses one element, so a pause event still queued
-// from the previous source arrives after play() and is ignored.
+// from the previous source arrives after play() and is ignored. A natural finish
+// also fires pause just before ended, which is ignored so ended can report it.
 function playThrough(audio) {
   return new Promise(resolve => {
     const listeners = new AbortController();
     const done = (e) => {
-      if (e?.type === 'pause' && !audio.paused) return;
+      if (e?.type === 'pause' && (!audio.paused || audio.ended)) return;
       listeners.abort();
       resolve(e?.type === 'ended');
     };
@@ -57,14 +58,27 @@ function playThrough(audio) {
   });
 }
 
-// Checks for cancellation after loading so a clip that was still loading when
-// the user skipped or quit never starts.
-async function playToEnd(sentence, player, isCancelled, onPlaying) {
-  let record;
-  try {
-    record = await getOrGenerateAudio(audioKey(sentence.pinyin), {
+// Records are cached per session so the next clip can start as soon as the
+// previous sound ends, without a database read while the page is in the
+// background.
+function loadRecord(records, sentence) {
+  const key = audioKey(sentence.pinyin);
+  if (!records.has(key)) {
+    const promise = getOrGenerateAudio(key, {
       chineseText: sentence.simplified || sentence.traditional,
     });
+    promise.catch(() => records.delete(key));
+    records.set(key, promise);
+  }
+  return records.get(key);
+}
+
+// Checks for cancellation after loading so a clip that was still loading when
+// the user skipped or quit never starts.
+async function playToEnd(sentence, player, records, isCancelled, onPlaying) {
+  let record;
+  try {
+    record = await loadRecord(records, sentence);
   } catch (err) {
     console.error('Audio playback failed:', err);
     return;
@@ -120,15 +134,26 @@ function ListenSession({ queue, settings, onSettingsChange, chapterName, display
   const [reveal, setReveal] = useState(0);
   const [paused, setPaused] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const [audioDone, setAudioDone] = useState(false);
   // A new nonce restarts playback, even when the index doesn't change
   const [playRequest, setPlayRequest] = useState({ nonce: 0, count: settings.plays });
+  // Tied to the request it finished so a new request is never seen as done
+  const [doneRequest, setDoneRequest] = useState(null);
+  const audioDone = doneRequest === playRequest;
   // One element for the whole session so a backgrounded page sees a single
   // media source that keeps playing
   const [player] = useState(() => new Audio());
+  const [records] = useState(() => new Map());
   const sentence = queue[index];
 
   useWakeLock(settings.auto && !paused);
+
+  // iOS: play through the silent switch and keep going with the screen locked
+  useEffect(() => {
+    if (!navigator.audioSession) return;
+    const previous = navigator.audioSession.type;
+    navigator.audioSession.type = 'playback';
+    return () => { navigator.audioSession.type = previous; };
+  }, []);
 
   const goTo = useCallback((nextIndex) => {
     if (nextIndex < 0) return;
@@ -157,16 +182,15 @@ function ListenSession({ queue, settings, onSettingsChange, chapterName, display
 
   useEffect(() => {
     let cancelled = false;
-    setAudioDone(false);
 
     (async () => {
       for (let i = 0; i < playRequest.count; i++) {
         if (i > 0) await playThrough(playSilence(REPEAT_PAUSE_MS, { element: player }));
         if (cancelled) return;
-        await playToEnd(sentence, player, () => cancelled, setPlaying);
+        await playToEnd(sentence, player, records, () => cancelled, setPlaying);
         if (cancelled) return;
       }
-      setAudioDone(true);
+      setDoneRequest(playRequest);
     })();
 
     return () => {
@@ -174,6 +198,11 @@ function ListenSession({ queue, settings, onSettingsChange, chapterName, display
       stopCurrentAudio();
     };
   }, [sentence, playRequest]);
+
+  useEffect(() => {
+    const next = queue[index + 1] || (settings.loop ? queue[0] : null);
+    if (next) loadRecord(records, next).catch(() => {});
+  }, [index]);
 
   useEffect(() => {
     if (!settings.auto || paused || !audioDone) return;
